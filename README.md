@@ -1,1 +1,0 @@
-# brsgis_plugin

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="" />
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="Initial SAVE to GitHub" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +25,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="py" value="21891" />
+          <entry key="txt" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="PLAIN_TEXT" value="75" />
           <entry key="Python" value="21891" />
         </counts>
       </usages-collector>
@@ -63,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="1268" column="49" selection-start-line="1268" selection-start-column="49" selection-end-line="1268" selection-end-column="49" />
+            <state relative-caret-position="470">
+              <caret line="1289" column="80" lean-forward="true" selection-start-line="1289" selection-start-column="80" selection-end-line="1289" selection-end-column="80" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
                 <marker date="1556724085621" expanded="true" signature="97429:97437" ph="..." />
@@ -185,6 +187,15 @@
       <replace>plan[]</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="azithinkiam" />
+        <option value="tschmal" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="C:/Git/brsgis_plugin" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/brsgis_dialogs.py" root0="SKIP_INSPECTION" />
   </component>
@@ -227,7 +238,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
     <property name="last_opened_file_path" value="C:/Git/brsgis_plugin" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -312,10 +323,19 @@
       <option name="presentableId" value="Default" />
       <updated>1516253493035</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial SAVE to GitHub">
+      <created>1556726153552</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556726153552</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1035" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.16770834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.32982087" />
@@ -330,7 +350,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" side_tool="true" visible="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -341,9 +361,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="Initial SAVE to GitHub" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial SAVE to GitHub" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -514,8 +538,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="1268" column="49" selection-start-line="1268" selection-start-column="49" selection-end-line="1268" selection-end-column="49" />
+        <state relative-caret-position="470">
+          <caret line="1289" column="80" lean-forward="true" selection-start-line="1289" selection-start-column="80" selection-end-line="1289" selection-end-column="80" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <marker date="1556724085621" expanded="true" signature="97429:97437" ph="..." />
