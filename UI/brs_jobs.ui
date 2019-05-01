@@ -1,0 +1,3445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Browser</class>
+ <widget class="QWidget" name="Browser">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1072</width>
+    <height>902</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BRS_GIS SQL Browser</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="brs_contacts" name="stackedWidget">
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="jobsdata" name="p3_jobsData">
+      <widget class="QFrame" name="frame_3">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>38</y>
+         <width>1036</width>
+         <height>841</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <widget class="QGroupBox" name="groupBox_job">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>311</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="title">
+         <string>Job Data</string>
+        </property>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>160</y>
+           <width>44</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Job Type</string>
+         </property>
+         <property name="buddy">
+          <cstring>job_type</cstring>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="job_type">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>180</y>
+           <width>131</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>23</y>
+           <width>37</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Job No.</string>
+         </property>
+         <property name="buddy">
+          <cstring>job_no</cstring>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>164</x>
+           <y>23</y>
+           <width>60</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Revision No.</string>
+         </property>
+         <property name="buddy">
+          <cstring>rev_no</cstring>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>68</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Notes / Job Details</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="rev_no">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>43</y>
+           <width>131</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="job_no">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>43</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>160</y>
+           <width>60</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Folder Name</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="old_plan_no">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>220</y>
+           <width>281</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Normal</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_18">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>201</y>
+           <width>101</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Old Plan(s)</string>
+         </property>
+         <property name="buddy">
+          <cstring>old_plan_no</cstring>
+         </property>
+        </widget>
+        <widget class="QTextEdit" name="job_desc">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>90</y>
+           <width>281</width>
+           <height>63</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="folder_name">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>180</y>
+           <width>131</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_status">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>610</y>
+          <width>1001</width>
+          <height>221</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="title">
+         <string>Status</string>
+        </property>
+        <widget class="QLabel" name="label_15">
+         <property name="geometry">
+          <rect>
+           <x>440</x>
+           <y>33</y>
+           <width>78</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Date Requested</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_16">
+         <property name="geometry">
+          <rect>
+           <x>440</x>
+           <y>81</y>
+           <width>45</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Date Due</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_17">
+         <property name="geometry">
+          <rect>
+           <x>440</x>
+           <y>131</y>
+           <width>107</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Date Fieldwork Sched.</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_101">
+         <property name="geometry">
+          <rect>
+           <x>890</x>
+           <y>100</y>
+           <width>60</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Pins Set</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="pins_set">
+         <property name="geometry">
+          <rect>
+           <x>890</x>
+           <y>120</y>
+           <width>70</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLineEdit" name="hrs_cad_est">
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>70</y>
+           <width>50</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="hrs_fw_est">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>70</y>
+           <width>50</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_24">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>50</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Fieldwork</string>
+         </property>
+         <property name="buddy">
+          <cstring>hrs_fw_est</cstring>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_25">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>50</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Research</string>
+         </property>
+         <property name="buddy">
+          <cstring>hrs_rs_est</cstring>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="hrs_rs_est">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>70</y>
+           <width>50</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_26">
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>50</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>CAD</string>
+         </property>
+         <property name="buddy">
+          <cstring>hrs_cad_est</cstring>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>351</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Estimated</string>
+         </property>
+         <widget class="QLineEdit" name="hrs_misc_est">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>40</y>
+            <width>50</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_27">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>20</y>
+            <width>51</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Materials</string>
+          </property>
+          <property name="buddy">
+           <cstring>hrs_rs_est</cstring>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>120</y>
+           <width>351</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Completed</string>
+         </property>
+         <widget class="QLineEdit" name="hrs_cad_comp">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>40</y>
+            <width>50</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_32">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>20</y>
+            <width>51</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Fieldwork</string>
+          </property>
+          <property name="buddy">
+           <cstring>hrs_fw_est</cstring>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="hrs_fw_comp">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>40</y>
+            <width>50</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_31">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>20</y>
+            <width>51</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>CAD</string>
+          </property>
+          <property name="buddy">
+           <cstring>hrs_cad_est</cstring>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_33">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>20</y>
+            <width>51</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Research</string>
+          </property>
+          <property name="buddy">
+           <cstring>hrs_rs_est</cstring>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="hrs_rs_comp">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>40</y>
+            <width>50</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_28">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>20</y>
+            <width>51</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Materials</string>
+          </property>
+          <property name="buddy">
+           <cstring>hrs_rs_est</cstring>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="hrs_misc_comp">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>40</y>
+            <width>50</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QCheckBox" name="active">
+         <property name="geometry">
+          <rect>
+           <x>720</x>
+           <y>172</y>
+           <width>51</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Active</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="tristate">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_recording">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>30</y>
+           <width>351</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Recording Data</string>
+         </property>
+         <widget class="QLabel" name="label_65">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>123</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Date Recorded</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="planbook_page">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>43</y>
+            <width>133</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_99">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>20</y>
+            <width>101</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Planbook/Page</string>
+          </property>
+         </widget>
+         <widget class="QDateTimeEdit" name="date_recorded">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>40</y>
+            <width>131</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>42</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="date">
+           <date>
+            <year>1900</year>
+            <month>1</month>
+            <day>1</day>
+           </date>
+          </property>
+          <property name="minimumDate">
+           <date>
+            <year>1900</year>
+            <month>1</month>
+            <day>1</day>
+           </date>
+          </property>
+          <property name="displayFormat">
+           <string>MM/d/yyyy</string>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_100">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>101</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Recorded By</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="recorded_by">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>90</y>
+            <width>133</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QDateTimeEdit" name="date_requested">
+         <property name="geometry">
+          <rect>
+           <x>440</x>
+           <y>52</y>
+           <width>131</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>42</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="date">
+          <date>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="displayFormat">
+          <string>MM/d/yyyy</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QDateTimeEdit" name="date_due">
+         <property name="geometry">
+          <rect>
+           <x>440</x>
+           <y>100</y>
+           <width>131</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>42</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="date">
+          <date>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="displayFormat">
+          <string>MM/d/yyyy</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QDateTimeEdit" name="date_fw_sched">
+         <property name="geometry">
+          <rect>
+           <x>440</x>
+           <y>150</y>
+           <width>131</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>42</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="date">
+          <date>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="displayFormat">
+          <string>MM/d/yyyy</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="estimate">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>171</y>
+           <width>61</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Estimate</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <zorder>groupBox_2</zorder>
+        <zorder>groupBox</zorder>
+        <zorder>label_15</zorder>
+        <zorder>label_16</zorder>
+        <zorder>label_17</zorder>
+        <zorder>label_101</zorder>
+        <zorder>pins_set</zorder>
+        <zorder>hrs_cad_est</zorder>
+        <zorder>hrs_fw_est</zorder>
+        <zorder>label_24</zorder>
+        <zorder>label_25</zorder>
+        <zorder>hrs_rs_est</zorder>
+        <zorder>label_26</zorder>
+        <zorder>active</zorder>
+        <zorder>groupBox_recording</zorder>
+        <zorder>date_requested</zorder>
+        <zorder>date_due</zorder>
+        <zorder>date_fw_sched</zorder>
+        <zorder>estimate</zorder>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_client">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>280</y>
+          <width>311</width>
+          <height>321</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Locus Data</string>
+        </property>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>50</y>
+           <width>57</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Client Name</string>
+         </property>
+         <property name="buddy">
+          <cstring>client_name</cstring>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="client_name">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>281</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_23">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>100</y>
+           <width>171</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Locus Address</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_pMap_bk_lot_2">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>231</y>
+           <width>81</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>map_bk_lot(s)</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="town">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>250</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>231</y>
+           <width>26</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Town</string>
+         </property>
+         <property name="buddy">
+          <cstring>town</cstring>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_pMap_bk_lot_3">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>271</y>
+           <width>35</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>State</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="state">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>290</y>
+           <width>51</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>ME</string>
+         </property>
+         <property name="maxLength">
+          <number>2</number>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Normal</enum>
+         </property>
+        </widget>
+        <widget class="QPlainTextEdit" name="map_bk_lot">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>250</y>
+           <width>131</width>
+           <height>61</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="lowtide">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>200</y>
+           <width>111</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Low Tide Required</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_pMap_bk_lot_4">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>201</y>
+           <width>81</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Low Tide Hours</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lowtide_hrs">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>200</y>
+           <width>81</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_pMap_bk_lot_5">
+         <property name="geometry">
+          <rect>
+           <x>177</x>
+           <y>171</y>
+           <width>51</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Area (Ac.)</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="sPerimeter">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>170</y>
+           <width>60</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_pMap_bk_lot_6">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>171</y>
+           <width>101</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Perimeter (L.Ft.)</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="area">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>170</y>
+           <width>60</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_pMap_bk_lot_7">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>271</y>
+           <width>35</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>County</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="county">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>290</y>
+           <width>71</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>20</number>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Normal</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_11">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>21</y>
+           <width>101</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Latitude / Longitude:</string>
+         </property>
+         <property name="buddy">
+          <cstring>rev_no</cstring>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lat_lon">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>20</y>
+           <width>171</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="locus_addr">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>120</y>
+           <width>281</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QgsRelationEditorWidget" name="mRelationEditor">
+        <property name="geometry">
+         <rect>
+          <x>401</x>
+          <y>29</y>
+          <width>611</width>
+          <height>561</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QgsCollapsibleGroupBoxBasic::title, QgsCollapsibleGroupBox::title {  subcontrol-origin: margin;  subcontrol-position: top left;  margin-left: 20px;  margin-right: 5px;  left: 0px;  top: 2px;}</string>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+        <property name="saveCollapsedState">
+         <bool>true</bool>
+        </property>
+        <property name="saveCheckedState">
+         <bool>true</bool>
+        </property>
+        <property name="showLabel">
+         <bool>true</bool>
+        </property>
+        <property name="qgisRelation" stdset="0">
+         <string notr="true">fk_jobs_contacts</string>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="buttonP2">
+        <property name="geometry">
+         <rect>
+          <x>992</x>
+          <y>2</y>
+          <width>30</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Page 2</string>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>391</x>
+          <y>24</y>
+          <width>631</width>
+          <height>581</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>2</number>
+        </property>
+        <property name="midLineWidth">
+         <number>2</number>
+        </property>
+       </widget>
+       <zorder>frame</zorder>
+       <zorder>groupBox_status</zorder>
+       <zorder>groupBox_job</zorder>
+       <zorder>groupBox_client</zorder>
+       <zorder>mRelationEditor</zorder>
+       <zorder>buttonP2</zorder>
+      </widget>
+      <widget class="QPushButton" name="fake">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>11</y>
+         <width>1043</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>BRS_GIS v1.99ß</string>
+       </property>
+       <property name="autoDefault">
+        <bool>true</bool>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="jobsdata2" name="page">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame_4">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <widget class="QGroupBox" name="groupBox_job_2">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>140</y>
+            <width>621</width>
+            <height>251</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="title">
+           <string>Estimates</string>
+          </property>
+          <widget class="QLabel" name="label_2">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>40</y>
+             <width>37</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Total</string>
+           </property>
+           <property name="buddy">
+            <cstring>job_no</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_total">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>60</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_fw">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>278</x>
+             <y>60</y>
+             <width>65</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="hrs_fw_est_2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>118</x>
+             <y>60</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="rate_fw">
+           <property name="geometry">
+            <rect>
+             <x>198</x>
+             <y>60</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="rate_cad">
+           <property name="geometry">
+            <rect>
+             <x>198</x>
+             <y>110</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="hrs_cad_est_2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>118</x>
+             <y>110</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_cad">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>278</x>
+             <y>110</y>
+             <width>65</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="rate_rs">
+           <property name="geometry">
+            <rect>
+             <x>199</x>
+             <y>160</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="hrs_rs_est_2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>119</x>
+             <y>160</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_rs">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>279</x>
+             <y>160</y>
+             <width>65</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_8">
+           <property name="geometry">
+            <rect>
+             <x>46</x>
+             <y>59</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Field (2 Men)</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_9">
+           <property name="geometry">
+            <rect>
+             <x>87</x>
+             <y>110</y>
+             <width>21</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>CAD</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>63</x>
+             <y>160</y>
+             <width>51</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Research</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_misc">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>279</x>
+             <y>210</y>
+             <width>65</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="hrs_misc_est_2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>119</x>
+             <y>210</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="rate_misc">
+           <property name="geometry">
+            <rect>
+             <x>199</x>
+             <y>210</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_29">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>81</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Materials &amp; Misc.</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_30">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>39</y>
+             <width>31</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Hours</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_34">
+           <property name="geometry">
+            <rect>
+             <x>200</x>
+             <y>39</y>
+             <width>31</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Rate</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_35">
+           <property name="geometry">
+            <rect>
+             <x>280</x>
+             <y>39</y>
+             <width>41</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Amount</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_19">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>90</y>
+             <width>101</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Date Estimate Sent</string>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_estimate_sent">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>110</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_20">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>187</y>
+             <width>101</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Date Deposit Paid</string>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_dep">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>207</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>140</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Deposit Paid</string>
+           </property>
+           <property name="buddy">
+            <cstring>job_no</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_dep">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>160</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QToolButton" name="buttonP1">
+          <property name="geometry">
+           <rect>
+            <x>1022</x>
+            <y>7</y>
+            <width>30</width>
+            <height>19</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Page 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_6">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>40</y>
+            <width>541</width>
+            <height>76</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>C:/BRS_GIS/!QGS/UI/estiamte.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QGroupBox" name="groupBox_job_3">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>410</y>
+            <width>621</width>
+            <height>431</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="title">
+           <string>Deliverables</string>
+          </property>
+          <widget class="QLineEdit" name="to_fw">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>65</y>
+             <width>225</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1677775</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="copies_fw">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>65</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="copies_cad">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>115</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="copies_prelim">
+           <property name="geometry">
+            <rect>
+             <x>291</x>
+             <y>165</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_21">
+           <property name="geometry">
+            <rect>
+             <x>26</x>
+             <y>63</y>
+             <width>81</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Field Work Done</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_22">
+           <property name="geometry">
+            <rect>
+             <x>55</x>
+             <y>110</y>
+             <width>51</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>CAD Done</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_36">
+           <property name="geometry">
+            <rect>
+             <x>53</x>
+             <y>163</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Preliminary</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="copies_pins">
+           <property name="geometry">
+            <rect>
+             <x>291</x>
+             <y>215</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_37">
+           <property name="geometry">
+            <rect>
+             <x>66</x>
+             <y>213</y>
+             <width>51</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Pins Set</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_38">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>40</y>
+             <width>31</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Date</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_39">
+           <property name="geometry">
+            <rect>
+             <x>292</x>
+             <y>40</y>
+             <width>31</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Copies</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_40">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>40</y>
+             <width>191</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>To (Delivered, Picked up, E-mail, etc.)</string>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_fw">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>63</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_44">
+           <property name="geometry">
+            <rect>
+             <x>54</x>
+             <y>263</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Final Plans</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_45">
+           <property name="geometry">
+            <rect>
+             <x>79</x>
+             <y>313</y>
+             <width>31</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Mylar</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="copies_mylar">
+           <property name="geometry">
+            <rect>
+             <x>293</x>
+             <y>315</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="copies_deeddesc">
+           <property name="geometry">
+            <rect>
+             <x>293</x>
+             <y>365</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_46">
+           <property name="geometry">
+            <rect>
+             <x>23</x>
+             <y>363</y>
+             <width>91</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Deed Description</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="copies_finalplans">
+           <property name="geometry">
+            <rect>
+             <x>292</x>
+             <y>265</y>
+             <width>50</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="to_cad">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>115</y>
+             <width>225</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1677775</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="to_prelim">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>165</y>
+             <width>225</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1677775</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="to_pins">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>215</y>
+             <width>225</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1677775</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="to_finalplans">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>265</y>
+             <width>225</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1677775</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="to_mylar">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>315</y>
+             <width>225</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1677775</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="to_deeddesc">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>365</y>
+             <width>225</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1677775</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_cad">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>113</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_prelim">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>163</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_pins">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>213</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_finalplans">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>263</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_mylar">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>313</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_deeddesc">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>363</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QGroupBox" name="groupBox_job_4">
+          <property name="geometry">
+           <rect>
+            <x>660</x>
+            <y>140</y>
+            <width>351</width>
+            <height>251</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="title">
+           <string>Invoices</string>
+          </property>
+          <widget class="QLineEdit" name="amt_invoice1">
+           <property name="geometry">
+            <rect>
+             <x>249</x>
+             <y>65</y>
+             <width>65</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_invoice2">
+           <property name="geometry">
+            <rect>
+             <x>249</x>
+             <y>115</y>
+             <width>65</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="amt_invoice3">
+           <property name="geometry">
+            <rect>
+             <x>250</x>
+             <y>165</y>
+             <width>65</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>65</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_41">
+           <property name="geometry">
+            <rect>
+             <x>25</x>
+             <y>63</y>
+             <width>60</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Invoice #1</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_42">
+           <property name="geometry">
+            <rect>
+             <x>25</x>
+             <y>110</y>
+             <width>60</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Invoice #2</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_43">
+           <property name="geometry">
+            <rect>
+             <x>25</x>
+             <y>163</y>
+             <width>60</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Invoice #3</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_48">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>40</y>
+             <width>31</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Date</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_49">
+           <property name="geometry">
+            <rect>
+             <x>251</x>
+             <y>40</y>
+             <width>41</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Amount</string>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_invoice1">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>63</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_invoice2">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>113</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QgsDateTimeEdit" name="date_invoice3">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>163</y>
+             <width>131</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>42</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2018</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>MM/d/yyyy</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+  <action name="insertRowAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Insert Row</string>
+   </property>
+   <property name="statusTip">
+    <string>Inserts a new Row</string>
+   </property>
+  </action>
+  <action name="deleteRowAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Delete Row</string>
+   </property>
+   <property name="statusTip">
+    <string>Deletes the current Row</string>
+   </property>
+  </action>
+  <action name="fieldStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit on &amp;Field Change</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit on Field Change</string>
+   </property>
+  </action>
+  <action name="rowStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit on &amp;Row Change</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit on Row Change</string>
+   </property>
+  </action>
+  <action name="manualStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit &amp;Manually</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit Manually</string>
+   </property>
+  </action>
+  <action name="submitAction">
+   <property name="text">
+    <string>&amp;Submit All</string>
+   </property>
+   <property name="toolTip">
+    <string>Submit Changes</string>
+   </property>
+  </action>
+  <action name="revertAction">
+   <property name="text">
+    <string>&amp;Revert All</string>
+   </property>
+   <property name="toolTip">
+    <string>Revert</string>
+   </property>
+  </action>
+  <action name="selectAction">
+   <property name="text">
+    <string>S&amp;elect</string>
+   </property>
+   <property name="toolTip">
+    <string>Refresh Data from Database</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsCollapsibleGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>qgscollapsiblegroupbox.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QgsDateTimeEdit</class>
+   <extends>QDateTimeEdit</extends>
+   <header>qgsdatetimeedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsRelationEditorWidget</class>
+   <extends>QgsCollapsibleGroupBox</extends>
+   <header>qgsrelationeditorwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>jobsdata</class>
+   <extends>QWidget</extends>
+   <header>jobsdata.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>brs_contacts</class>
+   <extends>QStackedWidget</extends>
+   <header>brs_contacts.h</header>
+   <container>1</container>
+   <slots>
+    <signal>setCurrentIndex(2)</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>jobsdata2</class>
+   <extends>QWidget</extends>
+   <header>jobsdata2.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>fake</tabstop>
+  <tabstop>rev_no</tabstop>
+  <tabstop>job_desc</tabstop>
+  <tabstop>job_type</tabstop>
+  <tabstop>old_plan_no</tabstop>
+  <tabstop>locus_addr</tabstop>
+  <tabstop>lowtide</tabstop>
+  <tabstop>lowtide_hrs</tabstop>
+  <tabstop>town</tabstop>
+  <tabstop>county</tabstop>
+  <tabstop>state</tabstop>
+  <tabstop>hrs_fw_est</tabstop>
+  <tabstop>hrs_cad_est</tabstop>
+  <tabstop>hrs_rs_est</tabstop>
+  <tabstop>hrs_misc_est</tabstop>
+  <tabstop>hrs_fw_comp</tabstop>
+  <tabstop>hrs_cad_comp</tabstop>
+  <tabstop>hrs_rs_comp</tabstop>
+  <tabstop>hrs_misc_comp</tabstop>
+  <tabstop>date_requested</tabstop>
+  <tabstop>date_due</tabstop>
+  <tabstop>date_fw_sched</tabstop>
+  <tabstop>date_recorded</tabstop>
+  <tabstop>planbook_page</tabstop>
+  <tabstop>recorded_by</tabstop>
+  <tabstop>active</tabstop>
+  <tabstop>pins_set</tabstop>
+  <tabstop>mRelationEditor</tabstop>
+  <tabstop>buttonP2</tabstop>
+  <tabstop>lat_lon</tabstop>
+  <tabstop>client_name</tabstop>
+  <tabstop>sPerimeter</tabstop>
+  <tabstop>area</tabstop>
+  <tabstop>map_bk_lot</tabstop>
+  <tabstop>job_no</tabstop>
+  <tabstop>date_cad</tabstop>
+  <tabstop>copies_cad</tabstop>
+  <tabstop>to_cad</tabstop>
+  <tabstop>date_prelim</tabstop>
+  <tabstop>copies_prelim</tabstop>
+  <tabstop>to_prelim</tabstop>
+  <tabstop>date_pins</tabstop>
+  <tabstop>copies_pins</tabstop>
+  <tabstop>to_pins</tabstop>
+  <tabstop>date_finalplans</tabstop>
+  <tabstop>copies_finalplans</tabstop>
+  <tabstop>to_finalplans</tabstop>
+  <tabstop>date_mylar</tabstop>
+  <tabstop>copies_mylar</tabstop>
+  <tabstop>to_mylar</tabstop>
+  <tabstop>date_deeddesc</tabstop>
+  <tabstop>copies_deeddesc</tabstop>
+  <tabstop>to_deeddesc</tabstop>
+  <tabstop>date_invoice1</tabstop>
+  <tabstop>amt_invoice1</tabstop>
+  <tabstop>date_invoice2</tabstop>
+  <tabstop>amt_invoice2</tabstop>
+  <tabstop>date_invoice3</tabstop>
+  <tabstop>amt_invoice3</tabstop>
+  <tabstop>hrs_cad_est_2</tabstop>
+  <tabstop>amt_cad</tabstop>
+  <tabstop>hrs_rs_est_2</tabstop>
+  <tabstop>amt_misc</tabstop>
+  <tabstop>amt_rs</tabstop>
+  <tabstop>hrs_fw_est_2</tabstop>
+  <tabstop>hrs_misc_est_2</tabstop>
+  <tabstop>amt_fw</tabstop>
+  <tabstop>amt_total</tabstop>
+  <tabstop>date_dep</tabstop>
+  <tabstop>date_fw</tabstop>
+  <tabstop>buttonP1</tabstop>
+  <tabstop>date_estimate_sent</tabstop>
+  <tabstop>rate_misc</tabstop>
+  <tabstop>rate_cad</tabstop>
+  <tabstop>copies_fw</tabstop>
+  <tabstop>amt_dep</tabstop>
+  <tabstop>rate_rs</tabstop>
+  <tabstop>rate_fw</tabstop>
+  <tabstop>to_fw</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

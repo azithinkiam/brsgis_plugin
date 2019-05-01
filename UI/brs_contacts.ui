@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Browser</class>
+ <widget class="QWidget" name="Browser">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>357</width>
+    <height>445</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BRS_GIS SQL Browser</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="brs_contacts" name="stackedWidget">
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="jobsdata" name="p3_jobsData">
+      <layout class="QGridLayout" name="gridLayout_11">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <widget class="QGroupBox" name="groupBox_contact">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>301</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Contacts</string>
+          </property>
+          <widget class="QComboBox" name="contact_type">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>70</y>
+             <width>75</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_11">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>100</y>
+             <width>81</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Primary Contact</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>50</y>
+             <width>65</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Contact Type</string>
+           </property>
+           <property name="buddy">
+            <cstring>contact_type</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="primary_contact">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>120</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_19">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>150</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Contact Address</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="contact_name">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>70</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_27">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>50</y>
+             <width>131</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Contact Name</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="phone_mobile">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>260</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="inputMask">
+            <string>(000)000.0000; </string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_61">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>240</y>
+             <width>101</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Mobile Phone</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="phone_work">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>310</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="inputMask">
+            <string>(000)000.0000; </string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_62">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>290</y>
+             <width>101</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Work Phone</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="phone_home">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>360</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="inputMask">
+            <string>(000)000.0000; </string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_63">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>340</y>
+             <width>101</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Home Phone</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_30">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>100</y>
+             <width>101</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Secondary Contact</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="secondary_contact">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>120</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_66">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>240</y>
+             <width>101</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>E-mail #1</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="email_primary">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>260</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="email_secondary">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>310</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_67">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>290</y>
+             <width>101</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>E-mail #2</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="client">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>20</y>
+             <width>16</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Broadway</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox{
+font:broadway;
+color:green
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>25</x>
+             <y>20</y>
+             <width>61</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>client.png</pixmap>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="contact_addr">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>170</y>
+             <width>281</width>
+             <height>63</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="client_2">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>20</y>
+             <width>16</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Broadway</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox{
+font:broadway;
+color:green
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_28">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>23</y>
+             <width>131</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Folder Label Display Name</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <zorder>primary_contact</zorder>
+          <zorder>label_19</zorder>
+          <zorder>contact_type</zorder>
+          <zorder>label_10</zorder>
+          <zorder>label_11</zorder>
+          <zorder>contact_name</zorder>
+          <zorder>label_27</zorder>
+          <zorder>phone_mobile</zorder>
+          <zorder>label_61</zorder>
+          <zorder>phone_work</zorder>
+          <zorder>label_62</zorder>
+          <zorder>phone_home</zorder>
+          <zorder>label_63</zorder>
+          <zorder>label_30</zorder>
+          <zorder>secondary_contact</zorder>
+          <zorder>label_66</zorder>
+          <zorder>email_primary</zorder>
+          <zorder>email_secondary</zorder>
+          <zorder>label_67</zorder>
+          <zorder>client</zorder>
+          <zorder>label</zorder>
+          <zorder>contact_addr</zorder>
+          <zorder>client_2</zorder>
+          <zorder>label_28</zorder>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+  <action name="insertRowAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Insert Row</string>
+   </property>
+   <property name="statusTip">
+    <string>Inserts a new Row</string>
+   </property>
+  </action>
+  <action name="deleteRowAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Delete Row</string>
+   </property>
+   <property name="statusTip">
+    <string>Deletes the current Row</string>
+   </property>
+  </action>
+  <action name="fieldStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit on &amp;Field Change</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit on Field Change</string>
+   </property>
+  </action>
+  <action name="rowStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit on &amp;Row Change</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit on Row Change</string>
+   </property>
+  </action>
+  <action name="manualStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit &amp;Manually</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit Manually</string>
+   </property>
+  </action>
+  <action name="submitAction">
+   <property name="text">
+    <string>&amp;Submit All</string>
+   </property>
+   <property name="toolTip">
+    <string>Submit Changes</string>
+   </property>
+  </action>
+  <action name="revertAction">
+   <property name="text">
+    <string>&amp;Revert All</string>
+   </property>
+   <property name="toolTip">
+    <string>Revert</string>
+   </property>
+  </action>
+  <action name="selectAction">
+   <property name="text">
+    <string>S&amp;elect</string>
+   </property>
+   <property name="toolTip">
+    <string>Refresh Data from Database</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>jobsdata</class>
+   <extends>QWidget</extends>
+   <header>jobsdata.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>brs_contacts</class>
+   <extends>QStackedWidget</extends>
+   <header>brs_contacts.h</header>
+   <container>1</container>
+   <slots>
+    <signal>setCurrentIndex(2)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>client</tabstop>
+  <tabstop>contact_name</tabstop>
+  <tabstop>contact_type</tabstop>
+  <tabstop>primary_contact</tabstop>
+  <tabstop>secondary_contact</tabstop>
+  <tabstop>contact_addr</tabstop>
+  <tabstop>phone_mobile</tabstop>
+  <tabstop>phone_work</tabstop>
+  <tabstop>phone_home</tabstop>
+  <tabstop>email_primary</tabstop>
+  <tabstop>email_secondary</tabstop>
+ </tabstops>
+ <resources>
+  <include location="login_resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
