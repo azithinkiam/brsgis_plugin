@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="Initial SAVE to GitHub" />
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="INITIAL.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,42 +53,42 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1242885580">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="txt" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="8" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wip.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18275">
-              <caret line="1092" selection-start-line="1092" selection-end-line="1092" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="1289" column="80" lean-forward="true" selection-start-line="1289" selection-start-column="80" selection-end-line="1289" selection-end-column="80" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <marker date="1556724085621" expanded="true" signature="97429:97437" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/BRS_GIS/brsgis_nwp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21029">
-              <caret line="1253" selection-start-line="1253" selection-end-line="1267" selection-end-column="64" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
         </entry>
@@ -90,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_contacts_init.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
+            <state relative-caret-position="841">
               <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
               <folding>
                 <element signature="e#0#109#0" expanded="true" />
@@ -102,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
+            <state relative-caret-position="731">
               <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#0#103#0" expanded="true" />
@@ -233,12 +239,30 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="brsgis_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brsgis_plugin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="brsgis_plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -330,14 +354,20 @@
       <option name="project" value="LOCAL" />
       <updated>1556726153552</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="INITIAL.">
+      <created>1556728142941</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556728142941</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1035" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16770834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16754478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.32982087" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -350,7 +380,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" side_tool="true" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -366,24 +396,9 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Initial SAVE to GitHub" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial SAVE to GitHub" />
+    <MESSAGE value="INITIAL." />
+    <option name="LAST_COMMIT_MESSAGE" value="INITIAL." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brsgis_dialogs.py</url>
-          <line>3002</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brsgis_dialogs.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.qgis2/python/plugins/mmqgis/mmqgis_menu.py" />
@@ -393,13 +408,7 @@
     <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/brsgis_library.py" />
     <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/__init__.py" />
     <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/brsgis_menu.py" />
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py" />
     <entry file="file://C:/BRS_GIS/DEV/brs_plugin/brs_jobs_init.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -410,20 +419,8 @@
     <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/brsgis_dialogs.py" />
     <entry file="file://$USER_HOME$/Downloads/qgis-latest.tar/qgis-latest/qgis-3.0.2/python/PyQt/PyQt5/QtGui.py" />
     <entry file="file://$PROJECT_DIR$/brs_jobs_init.py" />
-    <entry file="file://$PROJECT_DIR$/brsgis_library.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forms/brsgis_label_form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="125" column="31" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/brsgis_library.py" />
+    <entry file="file://$PROJECT_DIR$/forms/brsgis_label_form.py" />
     <entry file="file://C:/OSGeo4W64/apps/qgis/python/plugins/processing/tools/general.py" />
     <entry file="file://C:/OSGeo4W64/apps/qgis/python/plugins/processing/core/Processing.py" />
     <entry file="file://C:/OSGeo4W64/apps/qgis/python/plugins/processing/algs/qgis/Intersection.py" />
@@ -469,29 +466,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brsgis_dialogs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="2053" selection-start-line="2053" selection-end-line="2057" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/../../../../../../Local/Temp/is-U6P9R.tmp/editor-test.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18275">
-          <caret line="1092" selection-start-line="1092" selection-end-line="1092" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/../../../../../../Local/Temp/is-U6P9R.tmp/editor-test.txt" />
+    <entry file="file://$PROJECT_DIR$/wip.py" />
     <entry file="file://C:/BRS_GIS/brsgis_nwp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21029">
+        <state relative-caret-position="537">
           <caret line="1253" selection-start-line="1253" selection-end-line="1267" selection-end-column="64" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
@@ -499,19 +478,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_contacts_init.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="731">
           <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#0#103#0" expanded="true" />
@@ -536,14 +505,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
+    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brsgis_dialogs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="1289" column="80" lean-forward="true" selection-start-line="1289" selection-start-column="80" selection-end-line="1289" selection-end-column="80" />
+        <state relative-caret-position="684">
+          <caret line="102" column="37" lean-forward="true" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <marker date="1556724085621" expanded="true" signature="97429:97437" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_contacts_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
