@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1205095023">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="19" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.34" value="11" />
+          <entry key="project.open.time.35" value="7" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.open.time.56" value="1" />
+          <entry key="project.opened" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="21891" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="21891" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="8" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="8" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wip.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18275">
+              <caret line="1092" selection-start-line="1092" selection-end-line="1092" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="1268" column="49" selection-start-line="1268" selection-start-column="49" selection-end-line="1268" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <marker date="1556724085621" expanded="true" signature="97429:97437" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/BRS_GIS/brsgis_nwp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21029">
+              <caret line="1253" selection-start-line="1253" selection-end-line="1267" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_contacts_init.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#109#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="e#0#103#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/la_plans_init.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/brsgis_menu.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1887">
+              <caret line="131" column="61" selection-start-line="131" selection-start-column="61" selection-end-line="131" selection-end-column="61" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>pFinal:</find>
+      <find>if wb.sheetnames[s] == 'maptable':</find>
+      <find>aNo += 1</find>
+      <find>set_abutters</find>
+      <find>saving changes</find>
+      <find>jobNo</find>
+      <find>1700</find>
+      <find>selectbyid</find>
+      <find>year</find>
+      <find>jipath</find>
+      <find>getRel</find>
+      <find>updateAbutterRelated</find>
+      <find>c4</find>
+      <find>abutter found</find>
+      <find>JOB REL</find>
+      <find>Yellow</find>
+      <find>printYel</find>
+      <find>startcell</find>
+      <find>request</find>
+      <find>Boothbay</find>
+      <find>dataFI</find>
+      <find>merge</find>
+      <find>force</find>
+      <find>select(</find>
+      <find>arrow</find>
+      <find>feat</find>
+      <find>harps</find>
+      <find>clientName</find>
+      <find>gispath</find>
+      <find>boothbay</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&amp;brsgis</replace>
+      <replace>level=Qgis.Info</replace>
+      <replace>'BRS_GIS', level=Qgis.Info</replace>
+      <replace>== 'NULL'</replace>
+      <replace>()</replace>
+      <replace>len(hrs</replace>
+      <replace>'0'</replace>
+      <replace>==</replace>
+      <replace>plan</replace>
+      <replace>plan[]</replace>
+    </replaceStrings>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/brsgis_dialogs.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/.qgis2/python/plugins/brs_gis/brs_plugin.py" />
+        <option value="$PROJECT_DIR$/brsGIS_menu.py" />
+        <option value="$USER_HOME$/.qgis2/python/plugins/mmqgis/__init__.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/brsgis_library.py" />
+        <option value="$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/brsgis_library.py" />
+        <option value="C:/BRS_GIS/DEV/brs_plugin/brs_jobs_init.py" />
+        <option value="$PROJECT_DIR$/forms/brsgis_label_form.py" />
+        <option value="$PROJECT_DIR$/brs_jobs_init.py" />
+        <option value="C:/OSGeo4W64/apps/qgis/python/plugins/processing/core/Processing.py" />
+        <option value="C:/BRS_GIS/dialogs.py" />
+        <option value="$PROJECT_DIR$/../Discovery/discoveryplugin.py" />
+        <option value="Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/la_plans_init.py" />
+        <option value="$PROJECT_DIR$/wip.py" />
+        <option value="Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
+        <option value="$PROJECT_DIR$/brsgis_menu.py" />
+        <option value="Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_contacts_init.py" />
+        <option value="$PROJECT_DIR$/brsgis_dialogs.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="286" />
+    <option name="width" value="1715" />
+    <option name="height" value="489" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
+    <property name="last_opened_file_path" value="C:/Git/brsgis_plugin" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\0 - Settings\GIS\QGIS\Plugins\brsgis_plugin" />
+      <recent name="C:\BRS_GIS\DEV\brs_plugin" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.brsgis_dialogs">
+    <configuration name="brs_jobs_init" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="brs_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brs_jobs_init.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="brsgis_dialogs" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="brsgis_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brsgis_dialogs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.brs_jobs_init" />
+      <item itemvalue="Python.brsgis_dialogs" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.brsgis_dialogs" />
+        <item itemvalue="Python.brs_jobs_init" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="" />
+      <created>1516253493035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1516253493035</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1035" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16770834" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.32982087" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32944915" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993644" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="3" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/brsgis_dialogs.py</url>
+          <line>3002</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/brsgis_dialogs.py</url>
+          <line>81</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/.qgis2/python/plugins/mmqgis/mmqgis_menu.py" />
+    <entry file="file://$PROJECT_DIR$/__brsinit__.py" />
+    <entry file="file://$USER_HOME$/.qgis2/python/plugins/mmqgis/__init__.py" />
+    <entry file="file://$USER_HOME$/.qgis2/python/plugins/brs_gis/brs_plugin.py" />
+    <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/brsgis_library.py" />
+    <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/__init__.py" />
+    <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/brsgis_menu.py" />
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/BRS_GIS/DEV/brs_plugin/brs_jobs_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.qgis2/python/plugins/brsgis_plugin/brsgis_dialogs.py" />
+    <entry file="file://$USER_HOME$/Downloads/qgis-latest.tar/qgis-latest/qgis-3.0.2/python/PyQt/PyQt5/QtGui.py" />
+    <entry file="file://$PROJECT_DIR$/brs_jobs_init.py" />
+    <entry file="file://$PROJECT_DIR$/brsgis_library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forms/brsgis_label_form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="125" column="31" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/OSGeo4W64/apps/qgis/python/plugins/processing/tools/general.py" />
+    <entry file="file://C:/OSGeo4W64/apps/qgis/python/plugins/processing/core/Processing.py" />
+    <entry file="file://C:/OSGeo4W64/apps/qgis/python/plugins/processing/algs/qgis/Intersection.py" />
+    <entry file="file:////10.0.0.190/driveC/BRS_GIS/DEV/brsgis_plugin/brsgis_dialogs.py" />
+    <entry file="file://C:/BRS_GIS/dialogs.py" />
+    <entry file="file://$PROJECT_DIR$/../Discovery/locator_filter.py" />
+    <entry file="file://$PROJECT_DIR$/../Discovery/dbutils.py" />
+    <entry file="file://$PROJECT_DIR$/../Discovery/config_dialog.py" />
+    <entry file="file://$PROJECT_DIR$/../Discovery/discoveryplugin.py" />
+    <entry file="file://C:/BRS_GIS/DEV/brsgis_plugin/brs_jobs_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="52" column="7" lean-forward="true" selection-start-line="51" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/__init__.py" />
+    <entry file="file://C:/BRS_GIS/plugins/TEST.pb/test/__init__.py" />
+    <entry file="file://C:/BRS_GIS/plugins/TEST.pb/test/test.py" />
+    <entry file="file://C:/BRS_GIS/DEV/brsgis_plugin/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5602">
+          <caret line="414" column="8" selection-start-line="414" selection-start-column="8" selection-end-line="414" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/LeightonProjects/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32032" />
+      </provider>
+    </entry>
+    <entry file="file://C:/BRS_GIS/FINAL/brsgis_plugin/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/BRS/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-586">
+          <caret line="1849" column="72" selection-start-line="1849" selection-start-column="64" selection-end-line="1849" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="2053" selection-start-line="2053" selection-end-line="2057" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../../../Local/Temp/is-U6P9R.tmp/editor-test.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18275">
+          <caret line="1092" selection-start-line="1092" selection-end-line="1092" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/BRS_GIS/brsgis_nwp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21029">
+          <caret line="1253" selection-start-line="1253" selection-end-line="1267" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_contacts_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#0#103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/la_plans_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brsgis_menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="131" column="61" selection-start-line="131" selection-start-column="61" selection-end-line="131" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="1268" column="49" selection-start-line="1268" selection-start-column="49" selection-end-line="1268" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <marker date="1556724085621" expanded="true" signature="97429:97437" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
