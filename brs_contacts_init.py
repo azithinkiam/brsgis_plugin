@@ -1,6 +1,4 @@
-from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QTextEdit
-from qgis.core import *
-
+from PyQt5.QtWidgets import QLineEdit, QCheckBox, QMessageBox
 
 # nameField = None
 from qgis.utils import iface
@@ -11,10 +9,11 @@ stackedWidget = None
 
 def formOpen(dialog, layerid, featureid):
 
-    if 1 == 1:
+    global myDialog
+    myDialog = dialog
+    main(dialog)
 
-        global myDialog
-        myDialog = dialog
+def main(dialog):
 
         contact_name = dialog.findChild(QLineEdit, "contact_name")
         primary_contact = dialog.findChild(QLineEdit, "primary_contact")
@@ -22,7 +21,9 @@ def formOpen(dialog, layerid, featureid):
         contact_addr = dialog.findChild(QLineEdit, "contact_addr")
         email_primary = dialog.findChild(QLineEdit, "email_primary")
         email_secondary = dialog.findChild(QLineEdit, "email_secondary")
+        flagged = dialog.findChild(QCheckBox, "flagr")
 
+        flagged.Hide()
 
         if contact_name.text() == 'NULL':
             contact_name.setText('')
@@ -49,7 +50,14 @@ def formOpen(dialog, layerid, featureid):
         else:
             pass
 
-    else:
-        pass
+        if flagged.isChecked():
 
-
+            QMessageBox.critical(iface.mainWindow(), "WARNING!",
+                                 "This job currently has multiple contacts set as CLIENT\n"
+                                 "or FOLDER - please review and edit accordingly.\n"
+                                 "\n"
+                                 "REMINDER: Each JOB should have only one contact set\n"
+                                 "as CLIENT and one set as FOLDER.  Using the same contact\n"
+                                 "for both is acceptable.")
+        else:
+            pass

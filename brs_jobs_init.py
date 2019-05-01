@@ -1,9 +1,8 @@
-from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QPushButton, QSizePolicy, QTextEdit
+from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit
 from qgis.core import *
 
 
 # nameField = None
-from qgis.utils import iface
 
 myDialog = None
 stackedWidget = None
@@ -41,6 +40,7 @@ def formOpen(dialog, layerid, featureid):
         planbook_page = dialog.findChild(QLineEdit, "planbook_page")
         recorded_by = dialog.findChild(QLineEdit, "recorded_by")
         folder_name = dialog.findChild(QLineEdit, "folder_name")
+
         client_name = dialog.findChild(QLineEdit, "client_name")
         lowtide_hrs = dialog.findChild(QLineEdit, "lowtide_hrs")
 
