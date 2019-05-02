@@ -23,7 +23,7 @@ def main(dialog):
         email_secondary = dialog.findChild(QLineEdit, "email_secondary")
         flagged = dialog.findChild(QCheckBox, "flagr")
 
-        flagged.Hide()
+        #flagged.Hide()
 
         if contact_name.text() == 'NULL':
             contact_name.setText('')
