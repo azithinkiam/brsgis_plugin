@@ -532,6 +532,7 @@ class brsgis_printFolderLabel(object):
                 sheet_name = wb.get_sheet_by_name(s)
                 wb.remove_sheet(sheet_name)
         ws = wb.active
+
         try:
             ws['A1'] = clientLast.upper()
             ws['A2'] = clientFirst
@@ -711,10 +712,10 @@ class brsgis_printYellowSheet(object):
             ws2['B7'] = town
             ws2['B8'] = map_bk_lot
             ws2['F6'] = phone_mobile
-            ws2['B9'] = folderName
+            ws2['B10'] = folderName
             ws2['C1'] = jobType
-            ws2['B10'] = lowtide
-            ws2['B11'] = lowtide_hrs
+            ws2['B11'] = lowtide
+            ws2['B12'] = lowtide_hrs
 
             ws2['C18'] = rate_rs
             ws2['C17'] = rate_cad
