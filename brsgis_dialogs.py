@@ -2298,7 +2298,19 @@ class brsgis_printMapView(object):
         year = datetime.datetime.today().strftime('%Y')
         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
         self.iface.setActiveLayer(self.vl)
-        attribs = self.iface.activeLayer().selectedFeatures()[0]
+
+        try:
+            attribs = self.iface.activeLayer().selectedFeatures()[0]
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            QMessageBox.critical(self.iface.mainWindow(), "No Selection",
+                                 "Please ensure that you have a parcel selected\nand attempt to "
+                                 "generate the output again.\n\n"
+                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                     exc_tb.tb_lineno) + ' ' + str(e))
+            return
+
         jobNo = attribs["job_no"]
         clientName = attribs["client_name"]
 
