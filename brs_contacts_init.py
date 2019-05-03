@@ -1,7 +1,6 @@
-from PyQt5.QtWidgets import QLineEdit, QCheckBox, QMessageBox
+from PyQt5.QtWidgets import QLineEdit, QCheckBox
 
 # nameField = None
-from qgis.utils import iface
 
 myDialog = None
 stackedWidget = None
@@ -50,14 +49,14 @@ def main(dialog):
         else:
             pass
 
-        if flagged.isChecked():
-
-            QMessageBox.critical(iface.mainWindow(), "WARNING!",
-                                 "This job currently has multiple contacts set as CLIENT\n"
-                                 "or FOLDER - please review and edit accordingly.\n"
-                                 "\n"
-                                 "REMINDER: Each JOB should have only one contact set\n"
-                                 "as CLIENT and one set as FOLDER.  Using the same contact\n"
-                                 "for both is acceptable.")
-        else:
-            pass
+        # if flagged.isChecked():
+        #
+        #     QMessageBox.critical(iface.mainWindow(), "WARNING!",
+        #                          "This job currently has multiple contacts set as CLIENT\n"
+        #                          "or FOLDER - please review and edit accordingly.\n"
+        #                          "\n"
+        #                          "REMINDER: Each JOB should have only one contact set\n"
+        #                          "as CLIENT and one set as FOLDER.  Using the same contact\n"
+        #                          "for both is acceptable.")
+        # else:
+        #     pass
