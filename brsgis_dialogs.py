@@ -1382,7 +1382,7 @@ class brsgis_abutters(object):
         self.layerData = lyr.dataProvider()
         self.iface.actionToggleEditing().trigger()
         self.layerData.addAttributes([QgsField("referrer", QVariant.String)])
-        self.layerData.addAttributes([QgsField("referrerJ", QVariant.String)])
+        self.layerData.addAttributes([QgsField("referrerj", QVariant.String)])
         self.iface.activeLayer().commitChanges()
 
         self.vl = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
@@ -1392,7 +1392,7 @@ class brsgis_abutters(object):
 
         self.iface.actionToggleEditing().trigger()
         idx = self.layerData.fieldNameIndex('referrer')
-        idx2 = self.layerData.fieldNameIndex('referrerJ')
+        idx2 = self.layerData.fieldNameIndex('referrerj')
 
         feat = self.iface.activeLayer().selectedFeatures()[0]
 
@@ -1407,7 +1407,7 @@ class brsgis_abutters(object):
             referrerJ = feat['job_no']
             self.iface.actionToggleEditing().trigger()
             field_ids = []
-            fieldnames = set(['objectid', 'map_bk_lot', 'town', 'county', 'prop_loc', 'referrer', 'referrerJ',
+            fieldnames = set(['objectid', 'map_bk_lot', 'town', 'county', 'prop_loc', 'referrer', 'referrerj',
                               'owner1', 'owner2', 'own_addr1', 'own_addr2', 'own_city', 'own_state', 'own_zip',
                               'own_cntry', 'ls_date', 'ls_book', 'ls_page', 'geocode', 'state_id', 'lat_lon'])
 
@@ -1454,12 +1454,12 @@ class brsgis_abutters(object):
 
             self.layerData = self.iface.activeLayer().dataProvider()
             idx = self.layerData.fieldNameIndex('referrer')
-            idx2 = self.layerData.fieldNameIndex('referrerJ')
+            idx2 = self.layerData.fieldNameIndex('referrerj')
 
             if str(f['referrer']) == 'NULL':
                 self.iface.activeLayer().changeAttributeValue(f.id(), idx,
                                                             str(referrer), True)
-            if str(f['referrerJ']) == 'NULL':
+            if str(f['referrerj']) == 'NULL':
                 self.iface.activeLayer().changeAttributeValue(f.id(), idx2,
                                                             str(referrerJ), True)
             if str(f['objectid']) in referrer:
@@ -1606,9 +1606,9 @@ class brsgis_printMapTable(object):
                 ws['B8'] = str(relW)
 
                 layer3 = QgsProject.instance().mapLayersByName('abutters')[0]
-                exp = QgsExpression(u'"referrerJ" = \'%s\'' % (jobNo))
+                exp = QgsExpression(u'"referrerj" = \'%s\'' % (jobNo))
                 request = QgsFeatureRequest(exp)
-                request.setSubsetOfAttributes(['referrerJ'], layer3.fields())
+                request.setSubsetOfAttributes(['referrerj'], layer3.fields())
                 request.setFlags(QgsFeatureRequest.NoGeometry)
 
                 aNo = 0
@@ -2305,7 +2305,7 @@ class brsgis_printMapView(object):
         self.vl = QgsProject.instance().mapLayersByName('abutters')[0]
         self.iface.setActiveLayer(self.vl)
         self.vl.loadNamedStyle('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/QML/abutters_print.qml')
-        self.vl.setSubsetString('"referrerJ"=\'%s\'' % jobNo)
+        self.vl.setSubsetString('"referrerj"=\'%s\'' % jobNo)
 
 
         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
