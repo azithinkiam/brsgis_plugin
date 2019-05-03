@@ -2010,7 +2010,16 @@ class brsgis_printMapTable(object):
                 pval = ''
 
             plen = len(plans)
-            plans.append(pval)
+
+            #QgsMessageLog.logMessage('pval: ' + str(pval), 'BRS_GIS', level=Qgis.Info)
+
+            if str(pval) == 'NULL':
+                pval = ''
+
+                #QgsMessageLog.logMessage('NULL pval: ' + str(pval), 'BRS_GIS', level=Qgis.Info)
+            else:
+                pval = pval
+                plans.append(pval)
 
             pNo += 1
             ppval = pval
