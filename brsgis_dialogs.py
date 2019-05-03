@@ -1,7 +1,6 @@
 ﻿from __future__ import absolute_import
 from __future__ import print_function
 
-import csv
 import os.path
 import sys
 import threading
@@ -3654,41 +3653,3 @@ class brsgis_datafix(object):
 
         QgsMessageLog.logMessage(str(error_count) + ' plans NOT added.', 'BRS_GIS', level=Qgis.Info)
         QgsMessageLog.logMessage('DONE.', 'BRS_GIS', level=Qgis.Info)
-
-def brsgis_read_csv_header(qgis, filename):
-    try:
-        infile = open(filename, 'r')
-    except Exception as e:
-        QMessageBox.information(qgis.mainWindow(),
-                                "Input CSV File", "Failure opening " + filename + ": " + str(e))
-        return None
-
-    try:
-        dialect = csv.Sniffer().sniff(infile.read(4096))
-    except:
-        QMessageBox.information(qgis.mainWindow(), "Input CSV File",
-                                "Bad CSV file - verify that your delimiters are consistent");
-        return None
-
-    infile.seek(0)
-    reader = csv.reader(infile, dialect)
-
-    # Decode from UTF-8 characters because csv.reader can only handle 8-bit characters
-    try:
-        header = next(reader)
-        header = [str(field, "utf-8") for field in header]
-    except:
-        QMessageBox.information(qgis.mainWindow(), "Input CSV File",
-                                "Invalid character in file - verify your file uses UTF-8 character encoding");
-        return None
-
-    del reader
-    del infile
-
-    if len(header) <= 0:
-        QMessageBox.information(qgis.mainWindow(), "Input CSV File",
-                                filename + " does not appear to be a CSV file")
-        return None
-
-    return header
-
