@@ -1,4 +1,4 @@
-# brsgis_plugin
+# brsgis_plugin (CURRENT RELEASE: v1.99) - 2019.05.05
 
 --------
 v1.99 (PRD) || 2019.05.05 00:51
