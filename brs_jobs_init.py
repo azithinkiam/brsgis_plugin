@@ -1,12 +1,10 @@
 from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit
 from qgis.core import *
 
-
 # nameField = None
 
 myDialog = None
 stackedWidget = None
-
 
 def formOpen(dialog, layerid, featureid):
 
