@@ -1,5 +1,5 @@
 # brsgis_plugin
-v1.99 (PRD) || 2019.05.05
+v1.99 (PRD) || 2019.05.05 00:40
 --------
 This is the inital production release of the "final" v1 deliverable.  It is likely that there 
 will be minor tweaks required during early adoption.  Potential issues include lack of error-handling 
