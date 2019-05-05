@@ -67,7 +67,6 @@ class brsgis_newJob(object):
                             self.count = self.count + 1
                 else:
                     self.iface.actionSelect().trigger()
-
         else:
             QgsMessageLog.logMessage('DEBUG: Job creation cancelled.', 'BRS_GIS', level=Qgis.Info)
 
@@ -81,7 +80,6 @@ class brsgis_newJob(object):
 
                 map_bk_lot = parcel["map_bk_lot"]
                 origMBL = parcel["map_bk_lot"]
-
                 mbl = map_bk_lot.split('-')
                 mbLen = len(mbl)
                 # need to troubleshoot this...shouldn't be throwing an exception.
