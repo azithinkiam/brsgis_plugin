@@ -128,15 +128,15 @@ class brsgis_menu(object):
         self.export_action.triggered.connect(self.bulkExport)
         self.util_menu.addAction(self.export_action)
 
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.merge_action = QAction(icon, "&IMPORT from EXCEL", self.iface.mainWindow())
-        self.merge_action.triggered.connect(self.mergeFeatures)
-        self.util_menu.addAction(self.merge_action)
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.merge_action = QAction(icon, "&IMPORT from EXCEL", self.iface.mainWindow())
+        # self.merge_action.triggered.connect(self.mergeFeatures)
+        # self.util_menu.addAction(self.merge_action)
 
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
-        self.fix_action.triggered.connect(self.dataFix)
-        self.util_menu.addAction(self.fix_action)
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
+        # self.fix_action.triggered.connect(self.dataFix)
+        # self.util_menu.addAction(self.fix_action)
 
         # icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
         # self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
