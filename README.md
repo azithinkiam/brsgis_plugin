@@ -9,8 +9,11 @@ the names they want to print on the labels/yellowSheet/mapTable, etc.
 SIGNIFICANT UPDATES in this release include:
 
 Optimized "relatedWork" process to generate 'old_plan' relationships for JOBS and ABUTTERS
+
 Created/Enabled SQL table/triggers
+
 Updated UI forms (contacts, jobs, plans)
+
 Updated UI form code (contacts, jobs, plans)
 
 LEGACY PLANS have been imported - all outstanding plans require review.
