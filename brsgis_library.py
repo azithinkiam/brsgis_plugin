@@ -16,7 +16,6 @@ from future import standard_library
 
 standard_library.install_aliases()
 
-
 def brsgis_status_message(qgis, message):
     qgis.mainWindow().statusBar().showMessage(message)
 
