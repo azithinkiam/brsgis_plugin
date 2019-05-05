@@ -5,7 +5,6 @@ from PyQt5.QtWidgets import QLineEdit, QCheckBox
 myDialog = None
 stackedWidget = None
 
-
 def formOpen(dialog, layerid, featureid):
 
     global myDialog
