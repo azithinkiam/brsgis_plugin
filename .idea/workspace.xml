@@ -4,9 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="Fixed issue with ABUTTER ident during mapView.">
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="Commented out FLAGGED check on brs_contacts.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brsgis_dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_dialogs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_contacts.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_contacts.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_jobs.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_jobs.ui" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,104 +57,56 @@
     <session id="-1242885580">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.34" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="7" />
+          <entry key="py" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="7" />
+          <entry key="Python" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="401" />
-          <entry key="txt" value="175" />
+          <entry key="py" value="812" />
+          <entry key="txt" value="271" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="175" />
-          <entry key="Python" value="401" />
+          <entry key="PLAIN_TEXT" value="271" />
+          <entry key="Python" value="812" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="2313" column="8" selection-start-line="2313" selection-start-column="8" selection-end-line="2313" selection-end-column="8" />
+            <state relative-caret-position="30583">
+              <caret line="1813" column="59" selection-start-line="1813" selection-start-column="59" selection-end-line="1813" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/brsgis_plugin/brsgis_dialogs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="808">
+              <caret line="1863" column="65" selection-start-line="1863" selection-start-column="65" selection-end-line="1863" selection-end-column="65" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#568#752#0" />
-                <element signature="e#787#18824#0" />
-                <element signature="e#18861#24614#0" />
-                <element signature="e#24659#29621#0" />
-                <element signature="e#29666#39518#0" />
-                <element signature="e#29960#39518#0" />
-                <element signature="e#37007#37032#0" />
-                <element signature="e#39556#40146#0" />
-                <element signature="e#40210#45312#0" />
-                <element signature="e#40715#40851#0" />
-                <element signature="e#40892#45266#0" />
-                <element signature="e#45300#45312#0" />
-                <element signature="e#45348#58679#0" />
-                <element signature="e#55144#55177#0" />
-                <element signature="e#58721#63606#0" />
-                <element signature="e#63594#63606#0" />
-                <element signature="e#63643#70982#0" />
-                <element signature="e#56579#56597#0" />
-                <element signature="e#63837#63856#0" />
-                <element signature="e#63895#70982#0" />
-                <element signature="e#71025#102393#0" />
-                <element signature="e#62604#62622#0" />
-                <element signature="e#62656#62787#0" />
-                <element signature="e#77878#78013#0" />
-                <element signature="e#78081#78547#0" />
-                <element signature="e#78598#78740#0" />
-                <element signature="e#79180#80059#0" />
-                <element signature="e#80128#80716#0" />
-                <element signature="e#80769#81310#0" />
-                <element signature="e#81004#81187#0" />
-                <element signature="e#81395#81495#0" />
-                <element signature="e#81690#81814#0" />
-                <element signature="e#81730#81814#0" />
-                <element signature="e#82183#82722#0" />
-                <element signature="e#83006#83201#0" />
-                <element signature="e#83119#83201#0" />
-                <element signature="e#83245#84127#0" />
-                <element signature="e#75019#80363#0" />
-                <element signature="e#96745#97389#0" />
-                <element signature="e#97437#98496#0" />
-                <element signature="e#98541#98788#0" />
-                <element signature="e#98837#100766#0" />
-                <element signature="e#84415#86011#0" />
-                <element signature="e#102431#108621#0" />
-                <element signature="e#105050#105849#0" />
-                <element signature="e#105923#106188#0" />
-                <element signature="e#106231#106469#0" />
-                <element signature="e#106504#106654#0" />
-                <element signature="e#106699#107120#0" />
-                <element signature="e#107159#108621#0" />
-                <element signature="e#108663#113161#0" />
-                <element signature="e#109019#113161#0" />
-                <element signature="e#117957#127850#0" />
-                <element signature="e#127886#137782#0" />
-                <element signature="e#137817#144095#0" />
-                <element signature="e#144128#154006#0" />
-                <element signature="e#154041#160221#0" />
-                <element signature="e#160264#171046#0" />
-                <element signature="e#171083#174525#0" />
               </folding>
             </state>
           </provider>
@@ -162,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/brs_contacts_init.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="408">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -188,10 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>set_abutters</find>
-      <find>saving changes</find>
-      <find>jobNo</find>
-      <find>1700</find>
       <find>selectbyid</find>
       <find>year</find>
       <find>jipath</find>
@@ -218,6 +167,10 @@
       <find>surveyor</find>
       <find>referrerj</find>
       <find>referrerJ</find>
+      <find>localhost</find>
+      <find>NULL</find>
+      <find>old_plan_no</find>
+      <find>abutters_</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;brsgis</replace>
@@ -270,6 +223,7 @@
         <option value="Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_contacts_init.py" />
         <option value="$PROJECT_DIR$/brs_contacts_init.py" />
         <option value="$PROJECT_DIR$/brsgis_dialogs.py" />
+        <option value="$USER_HOME$/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/brsgis_plugin/brsgis_dialogs.py" />
       </list>
     </option>
   </component>
@@ -300,7 +254,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/brsgis_plugin/brsgis_dialogs.py" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
@@ -457,7 +411,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556903908766</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added selection check to printMapView.">
+      <created>1556904097577</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1556904097577</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Commented out FLAGGED check on brs_contacts.">
+      <created>1556904355110</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556904355110</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -500,7 +468,9 @@
     <MESSAGE value="CLEANUP." />
     <MESSAGE value="Fixed handling of NULL related work for abutters when generating mapTable." />
     <MESSAGE value="Fixed issue with ABUTTER ident during mapView." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with ABUTTER ident during mapView." />
+    <MESSAGE value="Added selection check to printMapView." />
+    <MESSAGE value="Commented out FLAGGED check on brs_contacts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commented out FLAGGED check on brs_contacts." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -619,6 +589,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30583">
+          <caret line="1813" column="59" selection-start-line="1813" selection-start-column="59" selection-end-line="1813" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brs_contacts_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/brs_jobs_init.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3808">
@@ -628,85 +612,10 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/brsgis_plugin/brsgis_dialogs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="808">
+          <caret line="1863" column="65" selection-start-line="1863" selection-start-column="65" selection-end-line="1863" selection-end-column="65" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/brs_contacts_init.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/brsgis_dialogs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="2313" column="8" selection-start-line="2313" selection-start-column="8" selection-end-line="2313" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#568#752#0" />
-            <element signature="e#787#18824#0" />
-            <element signature="e#18861#24614#0" />
-            <element signature="e#24659#29621#0" />
-            <element signature="e#29666#39518#0" />
-            <element signature="e#29960#39518#0" />
-            <element signature="e#37007#37032#0" />
-            <element signature="e#39556#40146#0" />
-            <element signature="e#40210#45312#0" />
-            <element signature="e#40715#40851#0" />
-            <element signature="e#40892#45266#0" />
-            <element signature="e#45300#45312#0" />
-            <element signature="e#45348#58679#0" />
-            <element signature="e#55144#55177#0" />
-            <element signature="e#58721#63606#0" />
-            <element signature="e#63594#63606#0" />
-            <element signature="e#63643#70982#0" />
-            <element signature="e#56579#56597#0" />
-            <element signature="e#63837#63856#0" />
-            <element signature="e#63895#70982#0" />
-            <element signature="e#71025#102393#0" />
-            <element signature="e#62604#62622#0" />
-            <element signature="e#62656#62787#0" />
-            <element signature="e#77878#78013#0" />
-            <element signature="e#78081#78547#0" />
-            <element signature="e#78598#78740#0" />
-            <element signature="e#79180#80059#0" />
-            <element signature="e#80128#80716#0" />
-            <element signature="e#80769#81310#0" />
-            <element signature="e#81004#81187#0" />
-            <element signature="e#81395#81495#0" />
-            <element signature="e#81690#81814#0" />
-            <element signature="e#81730#81814#0" />
-            <element signature="e#82183#82722#0" />
-            <element signature="e#83006#83201#0" />
-            <element signature="e#83119#83201#0" />
-            <element signature="e#83245#84127#0" />
-            <element signature="e#75019#80363#0" />
-            <element signature="e#96745#97389#0" />
-            <element signature="e#97437#98496#0" />
-            <element signature="e#98541#98788#0" />
-            <element signature="e#98837#100766#0" />
-            <element signature="e#84415#86011#0" />
-            <element signature="e#102431#108621#0" />
-            <element signature="e#105050#105849#0" />
-            <element signature="e#105923#106188#0" />
-            <element signature="e#106231#106469#0" />
-            <element signature="e#106504#106654#0" />
-            <element signature="e#106699#107120#0" />
-            <element signature="e#107159#108621#0" />
-            <element signature="e#108663#113161#0" />
-            <element signature="e#109019#113161#0" />
-            <element signature="e#117957#127850#0" />
-            <element signature="e#127886#137782#0" />
-            <element signature="e#137817#144095#0" />
-            <element signature="e#144128#154006#0" />
-            <element signature="e#154041#160221#0" />
-            <element signature="e#160264#171046#0" />
-            <element signature="e#171083#174525#0" />
           </folding>
         </state>
       </provider>
