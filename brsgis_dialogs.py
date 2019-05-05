@@ -67,7 +67,6 @@ class brsgis_newJob(object):
                             self.count = self.count + 1
                 else:
                     self.iface.actionSelect().trigger()
-
         else:
             QgsMessageLog.logMessage('DEBUG: Job creation cancelled.', 'BRS_GIS', level=Qgis.Info)
 
