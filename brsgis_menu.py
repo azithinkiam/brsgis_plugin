@@ -1,4 +1,10 @@
 from __future__ import absolute_import
+
+from PyQt5.QtWidgets import QMenu
+
+from .brsgis_dialogs import *
+
+
 # -------------------------------------------------------------
 #    brsgis_menu - QGIS plugins menu class
 #
@@ -13,18 +19,9 @@ from __future__ import absolute_import
 # -------------------------------------------------------------
 
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QMenu
-from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtCore import QCoreApplication
-from qgis.core import *
-
-from .brsgis_dialogs import *
-
-
 # ---------------------------------------------
 
 class brsgis_menu(object):
-    from qgis.core import QgsMessageLog
     def __init__(self, iface):
         self.iface = iface
         self.brsgis_menu = None
@@ -128,15 +125,15 @@ class brsgis_menu(object):
         self.export_action.triggered.connect(self.bulkExport)
         self.util_menu.addAction(self.export_action)
 
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.merge_action = QAction(icon, "&IMPORT from EXCEL", self.iface.mainWindow())
-        self.merge_action.triggered.connect(self.mergeFeatures)
-        self.util_menu.addAction(self.merge_action)
-
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
-        self.fix_action.triggered.connect(self.dataFix)
-        self.util_menu.addAction(self.fix_action)
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.merge_action = QAction(icon, "&IMPORT from EXCEL", self.iface.mainWindow())
+        # self.merge_action.triggered.connect(self.mergeFeatures)
+        # self.util_menu.addAction(self.merge_action)
+        #
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
+        # self.fix_action.triggered.connect(self.dataFix)
+        # self.util_menu.addAction(self.fix_action)
 
         # icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
         # self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
@@ -147,7 +144,7 @@ class brsgis_menu(object):
         if self.brsgis_menu != None:
             self.iface.mainWindow().menuBar().removeAction(self.brsgis_menu.menuAction())
         else:
-            self.iface.removePluginMenu("&brsgis", self.animate_menu.menuAction())
+            pass
 
     def bulkExport(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
