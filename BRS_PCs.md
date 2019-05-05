@@ -1,4 +1,5 @@
-IP                     GIS:L        Hostname          User:L         
+IP                     GIS:L        Hostname          User:L
+
 192.168.1.18          OFFICE       WK-dell-1     	USER:OFFICE
 
 192.168.1.25           NWP         WK-dell-1     	USER:NICHOLAS  (OLD PC - NO UPDATES REQ'D AT THIS TIME)           
