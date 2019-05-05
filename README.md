@@ -1,11 +1,13 @@
 # brsgis_plugin
-v1.99 (PRD) || 2019.05.05 00:49
+
+--------
+v1.99 (PRD) || 2019.05.05 00:50
 --------
 versioning - please disregard the # of commits...i'm sure there's a better way, but it's too late
 to bother with that tonight.  at least it looks clean from the top-level now.
 -t.
 
-
+--------
 v1.99 (PRD) || 2019.05.05 00:40
 --------
 This is the inital production release of the "final" v1 deliverable.  It is likely that there 
