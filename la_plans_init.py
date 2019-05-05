@@ -1,13 +1,11 @@
 from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QPushButton, QDateTimeEdit, QComboBox
 from qgis.core import *
 
-
 # nameField = None
 from qgis.utils import iface
 
 myDialog = None
 stackedWidget = None
-
 
 def formOpen(dialog, layerid, featureid):
 
@@ -38,7 +36,6 @@ def formOpen(dialog, layerid, featureid):
 
         idValue = dialog.findChild(QLineEdit, "idValue")
         file_no = dialog.findChild(QLineEdit, "file_no")
-
 
         if name.text() == 'NULL':
             name.setText('')
@@ -131,4 +128,3 @@ def formOpen(dialog, layerid, featureid):
             pass
     else:
         pass
-
