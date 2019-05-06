@@ -7,12 +7,14 @@ import threading
 from builtins import range
 from functools import partial
 
-import processing
 import pyperclip
+
 from PyQt5.QtCore import QVariant, Qt, QRectF
 from PyQt5.QtGui import QIcon, QGuiApplication
 from PyQt5.QtWidgets import QPushButton, QAction, QMessageBox, QDialog
 from qgis.core import *
+
+import processing
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/forms")
 
