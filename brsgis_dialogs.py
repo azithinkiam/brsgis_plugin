@@ -463,20 +463,15 @@ class brsgis_printFolderLabel(object):
         attribs = self.iface.activeLayer().selectedFeatures()[0]
         clientLast = attribs["folder_name"]
         clientFirst = attribs["folder_name"]
-        folderName = attribs["folder_type"]
+        folderName = attribs["folder_name"]
+        folderType = attribs["folder_type"]
+        jobNo = attribs["job_no"]
+        jobYear = '20' + jobNo[:2]
 
-        try:
-            sPos = int(clientLast.find(" "))
-            clientLast = clientLast[:sPos]
-            clientFirst = clientFirst[sPos:]
-
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
-                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                                     exc_tb.tb_lineno) + ' ' + str(e))
-            return
+        if jobYear == year:
+            year = year
+        else:
+            year = jobYear
 
         addr = attribs["locus_addr"]
         town = attribs["town"]
@@ -492,7 +487,6 @@ class brsgis_printFolderLabel(object):
             map_bk_lot = 'Map ' + mbl[0].lstrip('0') + ', Lot ' + mbl[1].lstrip('0') + '-' + mbl[2].lstrip('0')
 
         jobType = attribs["job_type"]
-        jobNo = attribs["job_no"]
         date_due = attribs["date_due"]
 
         path = os.path.join("Z:\\", "BRS", year, jobNo)  # need to programattically grab year
@@ -872,16 +866,15 @@ class brsgis_label_dialog(QDialog, Ui_brsgis_label_form):
         clientLast = attribs["client_name"]
         clientFirst = attribs["client_name"]
 
-        try:
-            clientLast = clientLast.split()[1]
-            clientFirst = clientFirst.split()[0]
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
-                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                                     exc_tb.tb_lineno) + ' ' + str(e))
-            return
+        folderName = attribs["folder_name"]
+        folderType = attribs["folder_type"]
+        jobNo = attribs["job_no"]
+        jobYear = '20' + jobNo[:2]
+
+        if jobYear == year:
+            year = year
+        else:
+            year = jobYear
 
         addr = attribs["locus_addr"]
         town = attribs["town"]
@@ -895,7 +888,7 @@ class brsgis_label_dialog(QDialog, Ui_brsgis_label_form):
             map_bk_lot = 'Map ' + mbl[0].lstrip('0') + ', Lot ' + mbl[1].lstrip('0')
         elif mbLen == 3:
             map_bk_lot = 'Map ' + mbl[0].lstrip('0') + ', Lot ' + mbl[1].lstrip('0') + '-' + mbl[2].lstrip('0')
-        jobNo = attribs["job_no"]
+
         jobType = attribs["job_type"]
 
         path = os.path.join("z:\\", "BRS", year, jobNo)
@@ -924,7 +917,7 @@ class brsgis_label_dialog(QDialog, Ui_brsgis_label_form):
         wb.active = s
         ws3 = wb.active
 
-        cv1 = clientLast + ", " + clientFirst + " | " + map_bk_lot
+        cv1 = folderName + '(' + folderType + ')' + ' | ' + map_bk_lot
         cv2 = addr + ", " + town + " | " + jobType
 
         if dv == 0:
@@ -1521,7 +1514,7 @@ class brsgis_printMapTable(object):
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
                 fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                QMessageBox.critical(self.iface.mainWindow(), "No Selection",
+                QMessageBox.critical(self.iface.mainWindow(), "NO SELECTION!",
                                      "Please ensure that you have a parcel selected\nand attempt to "
                                      "generate the output again.\n\n"
                                      "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(exc_tb.tb_lineno) + ' ' + str(e))
@@ -1586,6 +1579,7 @@ class brsgis_printMapTable(object):
                 zipCode = zipCode
 
             lat_lon = attribs['lat_lon']
+            QgsMessageLog.logMessage('selection: ' + str(jobNo), 'BRS_GIS', level=Qgis.Info)
 
             try:
                 ws['A1'] = clientName
@@ -1614,11 +1608,10 @@ class brsgis_printMapTable(object):
                 aNo = 0
                 startCell = 11
                 startCellp = 13
-                startCellj = 13
 
                 for f in layer3.getFeatures(request):
 
-                    #QgsMessageLog.logMessage('abutter found: ' + str(f['map_bk_lot']), 'BRS_GIS',level=Qgis.Info)
+                    QgsMessageLog.logMessage('abutter found: ' + str(f['map_bk_lot']), 'BRS_GIS',level=Qgis.Info)
 
                     aNo += 1
                     c1 = 'A' + str(startCell)
@@ -1712,7 +1705,7 @@ class brsgis_printMapTable(object):
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
                 fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                QMessageBox.critical(self.iface.mainWindow(), "No Selection",
+                QMessageBox.critical(self.iface.mainWindow(), "ERROR!",
                                      "Please ensure that you have a parcel selected\nand attempt to "
                                      "generate the output again.\n\n"
                                      "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
@@ -1809,24 +1802,29 @@ class brsgis_printMapTable(object):
                 self.iface.setActiveLayer(layerJobs)
                 layerRelated.setSubsetString('id > 1')
                 # getRelated PLANS for JOB feature
+                #'brs_jobs_ff168cff_1c0e_47e8_b18c_cb8b59c8d07b'
+
+                lId = self.iface.activeLayer().id()
+                varI  = QgsProcessingFeatureSourceDefinition(str(lId), True)
+                #'dbname=\'BRS_GIS_PRD\' host=192.168.1.101 port=5432 sslmode=disable key=\'gid\' srid=0 '
+                #'type=MultiPolygon table="public"."la_plans_final" (geom) sql='
+
+                QgsMessageLog.logMessage('lId: ' + str(lId) + ' ' + str(varI), 'BRS_GIS', level=Qgis.Info)
+
                 processing.runAndLoadResults("qgis:intersection",
-                                             {'INPUT': QgsProcessingFeatureSourceDefinition(
-                                                 'brs_jobs_ff168cff_1c0e_47e8_b18c_cb8b59c8d07b', True),
+                                             {'INPUT': varI,
                                                  'INPUT_FIELDS': ['job_no', 'map_bk_lot'],
                                                  'OUTPUT': 'memory:tmp_related',
-                                                 'OVERLAY': 'dbname=\'BRS_GIS_PRD\' host=localhost port=5432 sslmode=disable key=\'gid\' srid=0 '
-                                                            'type=MultiPolygon table="public"."la_plans_final" (geom) sql=',
+                                                 'OVERLAY': layerPlans,
                                                  'OVERLAY_FIELDS': ['plan_no', 'job', 'old_plan']
                                              }, feedback=self.fb)
                 self.addRelated(0)
                 # getRelated JOBS for JOB feature
                 processing.runAndLoadResults("qgis:intersection",
-                                             {'INPUT': QgsProcessingFeatureSourceDefinition(
-                                                 'brs_jobs_ff168cff_1c0e_47e8_b18c_cb8b59c8d07b', True),
+                                             {'INPUT': varI,
                                                  'INPUT_FIELDS': ['job_no', 'map_bk_lot'],
                                                  'OUTPUT': 'memory:tmp_related',
-                                                 'OVERLAY': QgsProcessingFeatureSourceDefinition(
-                                                     'brs_jobs_ff168cff_1c0e_47e8_b18c_cb8b59c8d07b'),
+                                                 'OVERLAY': layerJobs,
                                                  'OVERLAY_FIELDS': ['plan_no', 'job', 'old_plan']
                                              }, feedback=self.fb)
 
@@ -1834,6 +1832,8 @@ class brsgis_printMapTable(object):
                 self.addRelated(0)
 
             elif self.iface.activeLayer().name() == 'abutters':
+                lId = self.iface.activeLayer().id()
+                varI  = QgsProcessingFeatureSourceDefinition(str(lId), True)
                 mbl = feature['map_bk_lot']
                 self.iface.actionToggleEditing().trigger()
                 #NEED TO CHECK POTENTIAL TOWN OVERLAP ISSUES. add TOWN condition when getting RELATED for ABUTTER?
@@ -1845,22 +1845,20 @@ class brsgis_printMapTable(object):
                 layerRelated.setSubsetString('id > 1')
                 # getRelated JOBS for ABUTTER feature
                 processing.runAndLoadResults("qgis:intersection",
-                                   {'INPUT': QgsProcessingFeatureSourceDefinition('abutters_a7752f9f_2bd3_4bbd_b554_a095bde80b82', True),
+                                   {'INPUT': varI,
                                     'INPUT_FIELDS': ['map_bk_lot'],
                                     'OUTPUT': 'memory:tmp_related',
-                                    'OVERLAY': 'dbname=\'BRS_GIS_PRD\' host=localhost port=5432 sslmode=disable key=\'gid\' srid=0 '
-                                               'type=MultiPolygon table="public"."la_plans_final" (geom) sql=',
+                                    'OVERLAY': layerPlans,
                                     'OVERLAY_FIELDS': ['plan_no', 'job', 'old_plan']
                         }, feedback=self.fb)
 
                 self.addRelated(0)
                 # getRelated PLANS for ABUTTER feature
                 processing.runAndLoadResults("qgis:intersection",
-                                   {'INPUT':QgsProcessingFeatureSourceDefinition('abutters_a7752f9f_2bd3_4bbd_b554_a095bde80b82', True),
+                                   {'INPUT': varI,
                                     'INPUT_FIELDS': ['map_bk_lot'],
                                     'OUTPUT': 'memory:tmp_related',
-                                    'OVERLAY': QgsProcessingFeatureSourceDefinition(
-                                        'brs_jobs_ff168cff_1c0e_47e8_b18c_cb8b59c8d07b'),
+                                    'OVERLAY': layerJobs,
                                     'OVERLAY_FIELDS': ['plan_no', 'id','job', 'old_plan']
                         }, feedback=self.fb)
                 self.addRelated(0)
@@ -1950,8 +1948,12 @@ class brsgis_printMapTable(object):
             if str(ppval) == str(pval):
                 pval = ''
 
-            plen = len(plans)
-            plans.append(pval)
+            if str(pval) == 'NULL':
+                pval = ''
+                #QgsMessageLog.logMessage('NULL pval: ' + str(pval), 'BRS_GIS', level=Qgis.Info)
+            else:
+                pval = pval
+                plans.append(pval)
 
             pNo += 1
             ppval = pval
@@ -1974,6 +1976,9 @@ class brsgis_printMapTable(object):
             self.iface.activeLayer().commitChanges()
 
             plans = []
+            pval = ''
+            ppval = ''
+
             #QgsMessageLog.logMessage('pFinal: ' + str(pFinal), 'BRS_GIS', level=Qgis.Info)
 
         else:
@@ -2197,6 +2202,13 @@ class brsgis_printContacts(object):
             attribs = self.iface.activeLayer().selectedFeatures()[0]
 
             jobNo = attribs["job_no"]
+            jobYear = '20' + jobNo[:2]
+
+            if jobYear == year:
+                year = year
+            else:
+                year = jobYear
+
             jobID = attribs["sid"]
 
             path = os.path.join("Z:\\", "BRS", year, jobNo)
@@ -2312,6 +2324,13 @@ class brsgis_printMapView(object):
             return
 
         jobNo = attribs["job_no"]
+        jobYear = '20' + jobNo[:2]
+
+        if jobYear == year:
+            year = year
+        else:
+            year = jobYear
+
         clientName = attribs["client_name"]
 
         self.vl = QgsProject.instance().mapLayersByName('abutters')[0]

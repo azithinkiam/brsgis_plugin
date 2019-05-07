@@ -1,4 +1,12 @@
 from __future__ import absolute_import
+
+from PyQt5.QtCore import QCoreApplication
+from PyQt5.QtWidgets import QMenu
+from qgis.core import *
+
+from .brsgis_dialogs import *
+
+
 # -------------------------------------------------------------
 #    brsgis_menu - QGIS plugins menu class
 #
@@ -13,18 +21,9 @@ from __future__ import absolute_import
 # -------------------------------------------------------------
 
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QMenu
-from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtCore import QCoreApplication
-from qgis.core import *
-
-from .brsgis_dialogs import *
-
-
 # ---------------------------------------------
 
 class brsgis_menu(object):
-    from qgis.core import QgsMessageLog
     def __init__(self, iface):
         self.iface = iface
         self.brsgis_menu = None
@@ -138,10 +137,10 @@ class brsgis_menu(object):
         self.fix_action.triggered.connect(self.dataFix)
         self.util_menu.addAction(self.fix_action)
 
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
-        # self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
-        # self.abutters_action.triggered.connect(self.abutters)
-        # self.util_menu.addAction(self.abutters_action)
+        icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
+        self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
+        self.abutters_action.triggered.connect(self.abutters)
+        self.util_menu.addAction(self.abutters_action)
 
     def unload(self):
         if self.brsgis_menu != None:
