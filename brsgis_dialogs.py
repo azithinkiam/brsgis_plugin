@@ -530,7 +530,7 @@ class brsgis_printFolderLabel(object):
         try:
             ws['A1'] = folderName
             #ws['A2'] = clientFirst
-            ws['A3'] = ' (' + folderType +')'
+            ws['A3'] = '(' + folderType +')'
             ws['A6'] = addr  # 'Castle Rock Farm Road' - where to get this?
             ws['A7'] = town.upper()
             ws['A10'] = map_bk_lot  # 'Map R7, Lot 58'
@@ -584,6 +584,13 @@ class brsgis_printYellowSheet(object):
         email_primary = attribs["email_primary"]
         email_secondary = attribs["email_secondary"]
         lowtide = attribs["lowtide"]
+        jobNo = attribs["job_no"]
+        jobYear = '20' + jobNo[:2]
+
+        if jobYear == year:
+            year = year
+        else:
+            year = jobYear
 
         if lowtide == 't':
             lowtide = 'YES'
