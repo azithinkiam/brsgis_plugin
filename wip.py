@@ -21,8 +21,6 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/forms")
 
 from .forms.brsgis_label_form import *
 
-
-
 def getRelatedWork(self, feature, cfg):
     # try:
     if cfg == 0:
