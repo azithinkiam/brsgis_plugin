@@ -528,9 +528,9 @@ class brsgis_printFolderLabel(object):
         ws = wb.active
 
         try:
-            ws['A1'] = clientLast.upper()
-            ws['A2'] = clientFirst
-            ws['A3'] = '(' + folderName +')'
+            ws['A1'] = folderName
+            #ws['A2'] = clientFirst
+            ws['A3'] = ' (' + folderType +')'
             ws['A6'] = addr  # 'Castle Rock Farm Road' - where to get this?
             ws['A7'] = town.upper()
             ws['A10'] = map_bk_lot  # 'Map R7, Lot 58'
