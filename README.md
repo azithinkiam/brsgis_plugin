@@ -4,8 +4,6 @@
 v2.00 (PRD) || 2019.01.JUN
 --------
 
-2. updated job_type and contact_type value maps
-
 2a. NEW LAYOUT (SiteMap) added
 
 2b. LAYER VISIBILITY by job_type (MapView)
