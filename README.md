@@ -1,4 +1,12 @@
-# brsgis_plugin (CURRENT RELEASE: v2.d)
+# brsgis_plugin (CURRENT RELEASE: v2.d6)
+
+https://github.com/azithinkiam/brsgis_plugin/releases/latest
+
+--------
+v2.d6 (PRD) - FINAL || 2019.02.JUN
+--------
+
+2d.6 - INITAL MAOR RELEASE TO PRD.
 
 --------
 v2.d (DEV) || 2019.01.JUN
