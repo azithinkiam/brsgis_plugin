@@ -381,6 +381,7 @@ class brsgis_newJob(object):
         else:
             fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
             return fPath
+
 class brsgis_editJob(object):
 
     newJob = 0
