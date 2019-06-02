@@ -1,4 +1,6 @@
-from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit
+from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit, QDialogButtonBox
+from PyQt5.QtCore import *
+
 from qgis.core import *
 
 # nameField = None
@@ -14,6 +16,7 @@ def formOpen(dialog, layerid, featureid):
         global myDialog
         global stackedWidget
         myDialog = dialog
+        dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)
 
         dialog.parent().setFixedWidth(1080)
         dialog.parent().setFixedHeight(950)
@@ -38,9 +41,10 @@ def formOpen(dialog, layerid, featureid):
         planbook_page = dialog.findChild(QLineEdit, "planbook_page")
         recorded_by = dialog.findChild(QLineEdit, "recorded_by")
         folder_name = dialog.findChild(QLineEdit, "folder_name")
-
+        buttonBox = dialog.findChild(QDialogButtonBox, "buttonBox")
         client_name = dialog.findChild(QLineEdit, "client_name")
         lowtide_hrs = dialog.findChild(QLineEdit, "lowtide_hrs")
+
 
         try:
             s = dialog.findChild(QStackedWidget, "stackedWidget")
@@ -223,3 +227,5 @@ def formOpen(dialog, layerid, featureid):
     else:
         pass
 
+def reject():
+    return 1

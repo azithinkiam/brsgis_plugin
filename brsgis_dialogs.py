@@ -123,13 +123,30 @@ class brsgis_newJob(object):
                         self.iface.actionToggleEditing().trigger()
                         self.iface.actionPasteFeatures().trigger()
                         self.iface.activeLayer().commitChanges()
-
                         self.iface.actionToggleEditing().trigger()
                         self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
                         self.iface.setActiveLayer(self.vl)
                         self.iface.actionToggleEditing().trigger()
 
-                        self.active_edit()
+                        result = self.active_edit()
+                        #QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+
+                        if result:
+                            self.iface.activeLayer().commitChanges()
+                        else:
+                            self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                            self.iface.actionRollbackAllEdits().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                            self.iface.setActiveLayer(self.vl)
+                            self.iface.actionToggleEditing().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                            self.iface.setActiveLayer(self.vl)
+
+                            for f in self.vl.selectedFeatures():
+                                self.vl.deleteFeature(f.id())
+
+                            self.iface.activeLayer().commitChanges()
+                            return
 
                         jobNo = self.vl.selectedFeatures()[0]
                         lat_lon = jobNo['lat_lon']
@@ -202,11 +219,32 @@ class brsgis_newJob(object):
                         QgsMessageLog.logMessage('Launching form for merged feature...', 'BRS_GIS', level=Qgis.Info)
                         self.iface.activeLayer().commitChanges()
                         self.iface.actionToggleEditing().trigger()
+                        self.iface.actionPasteFeatures().trigger()
+                        self.iface.activeLayer().commitChanges()
+                        self.iface.actionToggleEditing().trigger()
                         self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
                         self.iface.setActiveLayer(self.vl)
                         self.iface.actionToggleEditing().trigger()
 
-                        self.active_edit()
+                        result = self.active_edit()
+                        #QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+
+                        if result:
+                            self.iface.activeLayer().commitChanges()
+                        else:
+                            self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                            self.iface.actionRollbackAllEdits().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                            self.iface.setActiveLayer(self.vl)
+                            self.iface.actionToggleEditing().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                            self.iface.setActiveLayer(self.vl)
+
+                            for f in self.vl.selectedFeatures():
+                                self.vl.deleteFeature(f.id())
+
+                            self.iface.activeLayer().commitChanges()
+                            return
 
                         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
 
@@ -290,13 +328,30 @@ class brsgis_newJob(object):
             self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
             self.iface.setActiveLayer(self.vl)
             f = self.vl.selectedFeatures()[0]
-            form_config = self.iface.activeLayer().editFormConfig()
-            form_config.setUiForm('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/ui/brs_jobs.ui')
-            form_config.setInitFilePath('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/brs_jobs_init.py')
-            self.iface.activeLayer().setEditFormConfig(form_config)
 
+            jform = 'brs_jobs.ui'
+            jpy = 'brs_jobs_init.py'
+
+            form_config = self.iface.activeLayer().editFormConfig()
+            fPath = self.resolve(jform)
+            pyPath = self.resolve(jpy)
+
+            form_config.setUiForm(fPath)
+            form_config.setInitFilePath(pyPath)
+
+            self.iface.activeLayer().setEditFormConfig(form_config)
             QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
-            self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+
+            result = self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+
+            if result:
+                pass
+            else:
+
+                QGuiApplication.restoreOverrideCursor()
+                QgsMessageLog.logMessage('DEBUG: active_edit cancelled.', 'BRS_GIS', level=Qgis.Info)
+                return 0
+
             QGuiApplication.restoreOverrideCursor()
 
             self.abutters_dialog = brsgis_abutters(self.iface)
@@ -318,6 +373,14 @@ class brsgis_newJob(object):
         self.iface.setActiveLayer(self.vl)
         self.iface.activeLayer().commitChanges()
 
+        return 1
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return fPath
 class brsgis_editJob(object):
 
     newJob = 0
@@ -418,10 +481,19 @@ class brsgis_editJob(object):
             self.iface.setActiveLayer(self.vl)
             f = self.vl.selectedFeatures()[0]
             #change to brs_jobs form
+
+            jform = 'brs_jobs.ui'
+            jpy = 'brs_jobs_init.py'
+
             form_config = self.iface.activeLayer().editFormConfig()
-            form_config.setUiForm('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/ui/brs_jobs.ui')
-            form_config.setInitFilePath('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/brs_jobs_init.py')
+            fPath = self.resolve(jform)
+            pyPath = self.resolve(jpy)
+
+            form_config.setUiForm(fPath)
+            form_config.setInitFilePath(pyPath)
+
             self.iface.activeLayer().setEditFormConfig(form_config)
+
             QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
             self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
             QGuiApplication.restoreOverrideCursor()
@@ -438,6 +510,13 @@ class brsgis_editJob(object):
         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
         self.iface.setActiveLayer(self.vl)
         self.iface.activeLayer().commitChanges()
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return fPath
 
 class brsgis_printFolderLabel(object):
     def __init__(self, iface):
@@ -2143,7 +2222,6 @@ class brsgis_editPlan(object):
             QGuiApplication.restoreOverrideCursor()
             return
 
-
     def active_edit(self):
 
         try:
@@ -2151,12 +2229,23 @@ class brsgis_editPlan(object):
             self.iface.setActiveLayer(self.vl)
             f = self.vl.selectedFeatures()[0]
             #change to la_plans form
+
+            jform = 'la_plans.ui'
+            jpy = 'la_plans_init.py'
+
             form_config = self.iface.activeLayer().editFormConfig()
-            form_config.setUiForm('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/ui/la_plans.ui')
-            form_config.setInitFilePath('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/la_plans_init.py')
+            fPath = self.resolve(jform)
+            pyPath = self.resolve(jpy)
+
+            form_config.setUiForm(fPath)
+            form_config.setInitFilePath(pyPath)
+
             self.iface.activeLayer().setEditFormConfig(form_config)
+
             QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
-            self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+            result = self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+            QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+
             QGuiApplication.restoreOverrideCursor()
             QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
         except Exception as e:
@@ -2172,6 +2261,13 @@ class brsgis_editPlan(object):
         self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
         self.iface.setActiveLayer(self.vl)
         self.iface.activeLayer().commitChanges()
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return fPath
 
 class brsgis_printContacts(object):
     def __init__(self, iface):
@@ -2812,10 +2908,32 @@ class brsgis_newK(object):
                         QgsMessageLog.logMessage('Launching form for merged feature...', 'BRS_GIS', level=Qgis.Info)
                         self.iface.activeLayer().commitChanges()
                         self.iface.actionToggleEditing().trigger()
+                        self.iface.actionPasteFeatures().trigger()
+                        self.iface.activeLayer().commitChanges()
+                        self.iface.actionToggleEditing().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                        self.iface.setActiveLayer(self.vl)
+                        self.iface.actionToggleEditing().trigger()
 
-                        #  ------------- EDITING BEGINS -------------
-                        self.active_edit()
-                        #  ------------- EDITING ENDS -------------
+                        result = self.active_edit()
+                        #QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+
+                        if result:
+                            self.iface.activeLayer().commitChanges()
+                        else:
+                            self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                            self.iface.actionRollbackAllEdits().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                            self.iface.setActiveLayer(self.vl)
+                            self.iface.actionToggleEditing().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                            self.iface.setActiveLayer(self.vl)
+
+                            for f in self.vl.selectedFeatures():
+                                self.vl.deleteFeature(f.id())
+
+                            self.iface.activeLayer().commitChanges()
+                            return
 
                         self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
 
@@ -2911,10 +3029,18 @@ class brsgis_newK(object):
             #
             f = layer.selectedFeatures()[0]
 
+            jform = 'brs_k.ui'
+            jpy = 'brs_k_init.py'
+
+
             #change to brs_jobs form
             form_config = self.iface.activeLayer().editFormConfig()
-            form_config.setUiForm('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/ui/brs_k.ui')
-            form_config.setInitFilePath('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/brs_k_init.py')
+            fPath = self.resolve(jform)
+            pyPath = self.resolve(jpy)
+
+            form_config.setUiForm(fPath)
+            form_config.setInitFilePath(pyPath)
+
             self.iface.activeLayer().setEditFormConfig(form_config)
 
             QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
@@ -2934,6 +3060,13 @@ class brsgis_newK(object):
         self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
         self.iface.setActiveLayer(self.vl)
         self.iface.activeLayer().commitChanges()
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return fPath
 
 class brsgis_newPlan(object):
     newJob = 0
@@ -3029,10 +3162,32 @@ class brsgis_newPlan(object):
                         QgsMessageLog.logMessage('Launching form for merged feature...', 'BRS_GIS', level=Qgis.Info)
                         self.iface.activeLayer().commitChanges()
                         self.iface.actionToggleEditing().trigger()
+                        self.iface.actionPasteFeatures().trigger()
+                        self.iface.activeLayer().commitChanges()
+                        self.iface.actionToggleEditing().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                        self.iface.setActiveLayer(self.vl)
+                        self.iface.actionToggleEditing().trigger()
 
-                        #  ------------- EDITING BEGINS -------------
-                        self.active_edit()
-                        #  ------------- EDITING ENDS -------------
+                        result = self.active_edit()
+                        #QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+
+                        if result:
+                            self.iface.activeLayer().commitChanges()
+                        else:
+                            self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                            self.iface.actionRollbackAllEdits().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                            self.iface.setActiveLayer(self.vl)
+                            self.iface.actionToggleEditing().trigger()
+                            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                            self.iface.setActiveLayer(self.vl)
+
+                            for f in self.vl.selectedFeatures():
+                                self.vl.deleteFeature(f.id())
+
+                            self.iface.activeLayer().commitChanges()
+                            return
 
                         self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
 
