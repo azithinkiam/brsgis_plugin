@@ -1,11 +1,11 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis readOnly="0" hasScaleBasedVisibilityFlag="0" maxScale="0" minScale="1e+8" version="3.0.2-Girona">
+<qgis version="3.0.2-Girona" hasScaleBasedVisibilityFlag="0" maxScale="0" readOnly="0" minScale="1e+8">
   <fieldConfiguration>
     <field name="cid">
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -14,45 +14,45 @@
       <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option name="map" type="List">
+            <Option type="List" name="map">
               <Option type="Map">
-                <Option name="Owner" type="QString" value="Owner"/>
+                <Option type="QString" value="Owner" name="Owner"/>
               </Option>
               <Option type="Map">
-                <Option name="Buyer" type="QString" value="Buyer"/>
+                <Option type="QString" value="Buyer" name="Buyer"/>
               </Option>
               <Option type="Map">
-                <Option name="Seller" type="QString" value="Seller"/>
+                <Option type="QString" value="Seller" name="Seller"/>
               </Option>
               <Option type="Map">
-                <Option name="Realtor" type="QString" value="Realtor"/>
+                <Option type="QString" value="Realtor" name="Realtor"/>
               </Option>
               <Option type="Map">
-                <Option name="Attorney" type="QString" value="Attorney"/>
+                <Option type="QString" value="Attorney" name="Attorney"/>
               </Option>
               <Option type="Map">
-                <Option name="Builder" type="QString" value="Builder"/>
+                <Option type="QString" value="Builder" name="Builder"/>
               </Option>
               <Option type="Map">
-                <Option name="Banker" type="QString" value="Banker"/>
+                <Option type="QString" value="Banker" name="Banker"/>
               </Option>
               <Option type="Map">
-                <Option name="Leaseholder" type="QString" value="Leaseholder"/>
+                <Option type="QString" value="Leaseholder" name="Leaseholder"/>
               </Option>
               <Option type="Map">
-                <Option name="Surveyor" type="QString" value="Surveyor"/>
+                <Option type="QString" value="Surveyor" name="Surveyor"/>
               </Option>
               <Option type="Map">
-                <Option name="Architect" type="QString" value="Architect"/>
+                <Option type="QString" value="Site Contractor" name="Site Contractor"/>
               </Option>
               <Option type="Map">
-                <Option name="Engineer" type="QString" value="Engineer"/>
+                <Option type="QString" value="Architect" name="Architect"/>
               </Option>
               <Option type="Map">
-                <Option name="Site Contractor" type="QString" value="Site Contractor"/>
+                <Option type="QString" value="Engineer" name="Engineer"/>
               </Option>
               <Option type="Map">
-                <Option name="Other" type="QString" value="Other"/>
+                <Option type="QString" value="Other" name="Other"/>
               </Option>
             </Option>
           </Option>
@@ -63,7 +63,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -72,7 +72,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -81,7 +81,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -90,8 +90,8 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="bool" value="false"/>
-            <Option name="UseHtml" type="bool" value="false"/>
+            <Option type="bool" value="false" name="IsMultiline"/>
+            <Option type="bool" value="false" name="UseHtml"/>
           </Option>
         </config>
       </editWidget>
@@ -100,7 +100,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -109,7 +109,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -118,7 +118,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -127,7 +127,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -136,7 +136,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -145,7 +145,7 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="QString" value="False"/>
+            <Option type="QString" value="False" name="IsMultiline"/>
           </Option>
         </config>
       </editWidget>
@@ -154,8 +154,8 @@
       <editWidget type="TextEdit">
         <config>
           <Option type="Map">
-            <Option name="IsMultiline" type="bool" value="false"/>
-            <Option name="UseHtml" type="bool" value="false"/>
+            <Option type="bool" value="false" name="IsMultiline"/>
+            <Option type="bool" value="false" name="UseHtml"/>
           </Option>
         </config>
       </editWidget>
@@ -176,102 +176,102 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias field="cid" index="0" name=""/>
-    <alias field="contact_type" index="1" name=""/>
-    <alias field="jobs_id" index="2" name=""/>
-    <alias field="primary_contact" index="3" name=""/>
-    <alias field="secondary_contact" index="4" name=""/>
-    <alias field="contact_addr" index="5" name=""/>
-    <alias field="phone_mobile" index="6" name=""/>
-    <alias field="phone_work" index="7" name=""/>
-    <alias field="phone_home" index="8" name=""/>
-    <alias field="email_primary" index="9" name=""/>
-    <alias field="email_secondary" index="10" name=""/>
-    <alias field="contact_name" index="11" name=""/>
-    <alias field="client" index="12" name=""/>
-    <alias field="folder" index="13" name=""/>
-    <alias field="flagr" index="14" name=""/>
+    <alias name="" field="cid" index="0"/>
+    <alias name="" field="contact_type" index="1"/>
+    <alias name="" field="jobs_id" index="2"/>
+    <alias name="" field="primary_contact" index="3"/>
+    <alias name="" field="secondary_contact" index="4"/>
+    <alias name="" field="contact_addr" index="5"/>
+    <alias name="" field="phone_mobile" index="6"/>
+    <alias name="" field="phone_work" index="7"/>
+    <alias name="" field="phone_home" index="8"/>
+    <alias name="" field="email_primary" index="9"/>
+    <alias name="" field="email_secondary" index="10"/>
+    <alias name="" field="contact_name" index="11"/>
+    <alias name="" field="client" index="12"/>
+    <alias name="" field="folder" index="13"/>
+    <alias name="" field="flagr" index="14"/>
   </aliases>
   <excludeAttributesWMS/>
   <excludeAttributesWFS/>
   <defaults>
-    <default field="cid" applyOnUpdate="0" expression=""/>
-    <default field="contact_type" applyOnUpdate="0" expression=""/>
-    <default field="jobs_id" applyOnUpdate="0" expression=""/>
-    <default field="primary_contact" applyOnUpdate="0" expression=""/>
-    <default field="secondary_contact" applyOnUpdate="0" expression=""/>
-    <default field="contact_addr" applyOnUpdate="0" expression=""/>
-    <default field="phone_mobile" applyOnUpdate="0" expression=""/>
-    <default field="phone_work" applyOnUpdate="0" expression=""/>
-    <default field="phone_home" applyOnUpdate="0" expression=""/>
-    <default field="email_primary" applyOnUpdate="0" expression=""/>
-    <default field="email_secondary" applyOnUpdate="0" expression=""/>
-    <default field="contact_name" applyOnUpdate="0" expression=""/>
-    <default field="client" applyOnUpdate="0" expression=""/>
-    <default field="folder" applyOnUpdate="0" expression=""/>
-    <default field="flagr" applyOnUpdate="0" expression=""/>
+    <default field="cid" expression="" applyOnUpdate="0"/>
+    <default field="contact_type" expression="" applyOnUpdate="0"/>
+    <default field="jobs_id" expression="" applyOnUpdate="0"/>
+    <default field="primary_contact" expression="" applyOnUpdate="0"/>
+    <default field="secondary_contact" expression="" applyOnUpdate="0"/>
+    <default field="contact_addr" expression="" applyOnUpdate="0"/>
+    <default field="phone_mobile" expression="" applyOnUpdate="0"/>
+    <default field="phone_work" expression="" applyOnUpdate="0"/>
+    <default field="phone_home" expression="" applyOnUpdate="0"/>
+    <default field="email_primary" expression="" applyOnUpdate="0"/>
+    <default field="email_secondary" expression="" applyOnUpdate="0"/>
+    <default field="contact_name" expression="" applyOnUpdate="0"/>
+    <default field="client" expression="" applyOnUpdate="0"/>
+    <default field="folder" expression="" applyOnUpdate="0"/>
+    <default field="flagr" expression="" applyOnUpdate="0"/>
   </defaults>
   <constraints>
-    <constraint notnull_strength="1" field="cid" exp_strength="0" constraints="3" unique_strength="1"/>
-    <constraint notnull_strength="0" field="contact_type" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="jobs_id" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="primary_contact" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="secondary_contact" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="contact_addr" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="phone_mobile" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="phone_work" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="phone_home" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="email_primary" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="email_secondary" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="contact_name" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="client" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="folder" exp_strength="0" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" field="flagr" exp_strength="0" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="1" exp_strength="0" field="cid" constraints="3" unique_strength="1"/>
+    <constraint notnull_strength="0" exp_strength="0" field="contact_type" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="jobs_id" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="primary_contact" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="secondary_contact" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="contact_addr" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="phone_mobile" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="phone_work" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="phone_home" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="email_primary" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="email_secondary" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="contact_name" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="client" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="folder" constraints="0" unique_strength="0"/>
+    <constraint notnull_strength="0" exp_strength="0" field="flagr" constraints="0" unique_strength="0"/>
   </constraints>
   <constraintExpressions>
-    <constraint field="cid" exp="" desc=""/>
-    <constraint field="contact_type" exp="" desc=""/>
-    <constraint field="jobs_id" exp="" desc=""/>
-    <constraint field="primary_contact" exp="" desc=""/>
-    <constraint field="secondary_contact" exp="" desc=""/>
-    <constraint field="contact_addr" exp="" desc=""/>
-    <constraint field="phone_mobile" exp="" desc=""/>
-    <constraint field="phone_work" exp="" desc=""/>
-    <constraint field="phone_home" exp="" desc=""/>
-    <constraint field="email_primary" exp="" desc=""/>
-    <constraint field="email_secondary" exp="" desc=""/>
-    <constraint field="contact_name" exp="" desc=""/>
-    <constraint field="client" exp="" desc=""/>
-    <constraint field="folder" exp="" desc=""/>
-    <constraint field="flagr" exp="" desc=""/>
+    <constraint exp="" desc="" field="cid"/>
+    <constraint exp="" desc="" field="contact_type"/>
+    <constraint exp="" desc="" field="jobs_id"/>
+    <constraint exp="" desc="" field="primary_contact"/>
+    <constraint exp="" desc="" field="secondary_contact"/>
+    <constraint exp="" desc="" field="contact_addr"/>
+    <constraint exp="" desc="" field="phone_mobile"/>
+    <constraint exp="" desc="" field="phone_work"/>
+    <constraint exp="" desc="" field="phone_home"/>
+    <constraint exp="" desc="" field="email_primary"/>
+    <constraint exp="" desc="" field="email_secondary"/>
+    <constraint exp="" desc="" field="contact_name"/>
+    <constraint exp="" desc="" field="client"/>
+    <constraint exp="" desc="" field="folder"/>
+    <constraint exp="" desc="" field="flagr"/>
   </constraintExpressions>
   <attributeactions>
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
-  <attributetableconfig sortExpression="COALESCE( &quot;client&quot;, '&lt;NULL>' )" actionWidgetStyle="dropDown" sortOrder="1">
+  <attributetableconfig sortOrder="1" actionWidgetStyle="dropDown" sortExpression="COALESCE( &quot;client&quot;, '&lt;NULL>' )">
     <columns>
-      <column width="-1" name="cid" type="field" hidden="0"/>
-      <column width="-1" name="contact_type" type="field" hidden="0"/>
-      <column width="-1" name="jobs_id" type="field" hidden="0"/>
-      <column width="-1" name="primary_contact" type="field" hidden="0"/>
-      <column width="-1" name="secondary_contact" type="field" hidden="0"/>
-      <column width="-1" name="contact_addr" type="field" hidden="0"/>
-      <column width="-1" name="phone_mobile" type="field" hidden="0"/>
-      <column width="-1" name="phone_work" type="field" hidden="0"/>
-      <column width="-1" name="phone_home" type="field" hidden="0"/>
-      <column width="-1" name="email_primary" type="field" hidden="0"/>
-      <column width="-1" name="email_secondary" type="field" hidden="0"/>
-      <column width="-1" name="contact_name" type="field" hidden="0"/>
-      <column width="-1" name="client" type="field" hidden="0"/>
-      <column width="-1" name="folder" type="field" hidden="0"/>
-      <column width="-1" type="actions" hidden="1"/>
-      <column width="-1" name="flagr" type="field" hidden="0"/>
+      <column type="field" name="cid" hidden="0" width="-1"/>
+      <column type="field" name="contact_type" hidden="0" width="-1"/>
+      <column type="field" name="jobs_id" hidden="0" width="-1"/>
+      <column type="field" name="primary_contact" hidden="0" width="-1"/>
+      <column type="field" name="secondary_contact" hidden="0" width="-1"/>
+      <column type="field" name="contact_addr" hidden="0" width="-1"/>
+      <column type="field" name="phone_mobile" hidden="0" width="-1"/>
+      <column type="field" name="phone_work" hidden="0" width="-1"/>
+      <column type="field" name="phone_home" hidden="0" width="-1"/>
+      <column type="field" name="email_primary" hidden="0" width="-1"/>
+      <column type="field" name="email_secondary" hidden="0" width="-1"/>
+      <column type="field" name="contact_name" hidden="0" width="-1"/>
+      <column type="field" name="client" hidden="0" width="-1"/>
+      <column type="field" name="folder" hidden="0" width="-1"/>
+      <column type="actions" hidden="1" width="-1"/>
+      <column type="field" name="flagr" hidden="0" width="-1"/>
     </columns>
   </attributetableconfig>
-  <editform>Z:/0 - Settings/GIS/QGIS/Plugins/profiles/tschmal/python/plugins/brsgis_plugin/UI/brs_contacts.ui</editform>
+  <editform>Z:\0 - Settings\GIS\QGIS\plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts.ui</editform>
   <editforminit>formOpen</editforminit>
   <editforminitcodesource>1</editforminitcodesource>
-  <editforminitfilepath>Z:\0 - Settings\GIS\QGIS\Plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts_init.py</editforminitfilepath>
+  <editforminitfilepath>Z:\0 - Settings\GIS\QGIS\plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts_init.py</editforminitfilepath>
   <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -309,21 +309,21 @@ def my_form_open(dialog, layer, feature):
     <field name="secondary_contact" editable="1"/>
   </editable>
   <labelOnTop>
-    <field name="cid" labelOnTop="0"/>
-    <field name="client" labelOnTop="0"/>
-    <field name="contact_addr" labelOnTop="0"/>
-    <field name="contact_name" labelOnTop="0"/>
-    <field name="contact_type" labelOnTop="0"/>
-    <field name="email_primary" labelOnTop="0"/>
-    <field name="email_secondary" labelOnTop="0"/>
-    <field name="flagr" labelOnTop="0"/>
-    <field name="folder" labelOnTop="0"/>
-    <field name="jobs_id" labelOnTop="0"/>
-    <field name="phone_home" labelOnTop="0"/>
-    <field name="phone_mobile" labelOnTop="0"/>
-    <field name="phone_work" labelOnTop="0"/>
-    <field name="primary_contact" labelOnTop="0"/>
-    <field name="secondary_contact" labelOnTop="0"/>
+    <field labelOnTop="0" name="cid"/>
+    <field labelOnTop="0" name="client"/>
+    <field labelOnTop="0" name="contact_addr"/>
+    <field labelOnTop="0" name="contact_name"/>
+    <field labelOnTop="0" name="contact_type"/>
+    <field labelOnTop="0" name="email_primary"/>
+    <field labelOnTop="0" name="email_secondary"/>
+    <field labelOnTop="0" name="flagr"/>
+    <field labelOnTop="0" name="folder"/>
+    <field labelOnTop="0" name="jobs_id"/>
+    <field labelOnTop="0" name="phone_home"/>
+    <field labelOnTop="0" name="phone_mobile"/>
+    <field labelOnTop="0" name="phone_work"/>
+    <field labelOnTop="0" name="primary_contact"/>
+    <field labelOnTop="0" name="secondary_contact"/>
   </labelOnTop>
   <widgets/>
   <conditionalstyles>
