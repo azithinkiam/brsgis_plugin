@@ -52,41 +52,48 @@ class brsgis_prep(object):
 
         self.iface.projectRead.connect(load_project)
         self.iface.removeToolBarIcon(self.action)
+        #self.iface.projectRead.disconnect(load_project)
 
     def run(self):
 
-        self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
-        self.iface.setActiveLayer(self.vl)
-        jform = 'la_plans.ui'
-        jpy = 'la_plans_init.py'
-        form_config = self.iface.activeLayer().editFormConfig()
-        fPath = self.resolve(jform)
-        pyPath = self.resolve(jpy)
-        form_config.setUiForm(fPath)
-        form_config.setInitFilePath(pyPath)
-        self.iface.activeLayer().setEditFormConfig(form_config)
+        try:
+            self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
+            self.iface.setActiveLayer(self.vl)
+            jform = 'la_plans.ui'
+            jpy = 'la_plans_init.py'
+            form_config = self.iface.activeLayer().editFormConfig()
+            fPath = self.resolve(jform)
+            pyPath = self.resolve(jpy)
+            form_config.setUiForm(fPath)
+            form_config.setInitFilePath(pyPath)
+            self.iface.activeLayer().setEditFormConfig(form_config)
 
-        self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
-        self.iface.setActiveLayer(self.vl)
-        jform = 'brs_contacts.ui'
-        jpy = 'brs_contacts_init.py'
-        form_config = self.iface.activeLayer().editFormConfig()
-        fPath = self.resolve(jform)
-        pyPath = self.resolve(jpy)
-        form_config.setUiForm(fPath)
-        form_config.setInitFilePath(pyPath)
-        self.iface.activeLayer().setEditFormConfig(form_config)
+            self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+            self.iface.setActiveLayer(self.vl)
+            jform = 'brs_contacts.ui'
+            jpy = 'brs_contacts_init.py'
+            form_config = self.iface.activeLayer().editFormConfig()
+            fPath = self.resolve(jform)
+            pyPath = self.resolve(jpy)
+            form_config.setUiForm(fPath)
+            form_config.setInitFilePath(pyPath)
+            self.iface.activeLayer().setEditFormConfig(form_config)
 
-        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        self.iface.setActiveLayer(self.vl)
-        jform = 'brs_jobs.ui'
-        jpy = 'brs_jobs_init.py'
-        form_config = self.iface.activeLayer().editFormConfig()
-        fPath = self.resolve(jform)
-        pyPath = self.resolve(jpy)
-        form_config.setUiForm(fPath)
-        form_config.setInitFilePath(pyPath)
-        self.iface.activeLayer().setEditFormConfig(form_config)
+            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+            self.iface.setActiveLayer(self.vl)
+            jform = 'brs_jobs.ui'
+            jpy = 'brs_jobs_init.py'
+            form_config = self.iface.activeLayer().editFormConfig()
+            fPath = self.resolve(jform)
+            pyPath = self.resolve(jpy)
+            form_config.setUiForm(fPath)
+            form_config.setInitFilePath(pyPath)
+            self.iface.activeLayer().setEditFormConfig(form_config)
+
+        except Exception:
+            # self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+            # self.iface.setActiveLayer(self.vl)
+            pass
 
     def resolve(name, basepath=None):
         if not basepath:
