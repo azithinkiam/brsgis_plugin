@@ -42,10 +42,15 @@ class brsgis_prep(object):
 
     def initGui(self):
 
+        import time
         icon = QIcon(os.path.dirname(__file__) + "/icons/brsgis_voronoi.png")
         self.action = QAction(icon, "PREP", self.iface.mainWindow())
         self.action.triggered.connect(self.run)
-        self.action.trigger()
+
+        def load_project():
+            self.action.trigger()
+
+        self.iface.projectRead.connect(load_project)
         self.iface.removeToolBarIcon(self.action)
 
     def run(self):

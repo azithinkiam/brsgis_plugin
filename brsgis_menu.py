@@ -155,7 +155,7 @@ class brsgis_menu(object):
 
     def setFormsConfig(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Restting form config...', 'BRS_GIS', level=Qgis.Info)
+        QgsMessageLog.logMessage('Resetting form config...', 'BRS_GIS', level=Qgis.Info)
         self.prep_dialog = brsgis_prep(self.iface)
         self.prep_dialog.initGui()
 
