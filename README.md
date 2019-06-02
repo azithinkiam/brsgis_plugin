@@ -7,7 +7,7 @@ v2.d (DEV) || 2019.01.JUN
 2d. JOB CREATION HOUSEKEEPING - no feature is created, but job number is considered used by database...
 
 --------
-v2.00 (PRD) || 2019.01.JUN
+v2.c (PRD) || 2019.01.JUN
 --------
 
 2a. NEW LAYOUT (SiteMap) added
