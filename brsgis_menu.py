@@ -33,6 +33,14 @@ class brsgis_menu(object):
             self.iface.addPluginToMenu("&brsgis", submenu.menuAction())
 
     def initGui(self):
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.prep_action = QAction(icon, "&Set formConfig", self.iface.mainWindow())
+        self.prep_action.triggered.connect(self.setFormsConfig)
+        # self.newJob_action.triggered.connect(self.newJob)
+        self.prep_action.trigger()
+        # self.iface.removeToolBarIcon(self.action)
+
         self.brsgis_menu = QMenu(QCoreApplication.translate("brsgis", "&BRS GIS"))
         self.iface.mainWindow().menuBar().insertMenu(self.iface.firstRightStandardMenu().menuAction(), self.brsgis_menu)
 
@@ -144,6 +152,12 @@ class brsgis_menu(object):
         # self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
         # self.abutters_action.triggered.connect(self.abutters)
         # self.util_menu.addAction(self.abutters_action)
+
+    def setFormsConfig(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Restting form config...', 'BRS_GIS', level=Qgis.Info)
+        self.prep_dialog = brsgis_prep(self.iface)
+        self.prep_dialog.initGui()
 
     def unload(self):
         if self.brsgis_menu != None:
