@@ -6,7 +6,7 @@ https://github.com/azithinkiam/brsgis_plugin/releases/latest
 v2.d6 (PRD) - FINAL || 2019.02.JUN
 --------
 
-2d.6 - INITAL MAOR RELEASE TO PRD.
+2d.6 - INITAL MAJOR RELEASE TO PRD.
 
 --------
 v2.d (DEV) || 2019.01.JUN
