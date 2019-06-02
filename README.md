@@ -1,7 +1,7 @@
-# brsgis_plugin (CURRENT RELEASE: v2.1)
+# brsgis_plugin (CURRENT RELEASE: v2.d)
 
 --------
-v2.1 (DEV) || 2019.01.JUN
+v2.d (DEV) || 2019.01.JUN
 --------
 
 2d. JOB CREATION HOUSEKEEPING - no feature is created, but job number is considered used by database...
