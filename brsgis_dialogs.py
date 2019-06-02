@@ -2,19 +2,22 @@
 from __future__ import print_function
 
 import os.path
+import processing
 import sys
 import threading
 from builtins import range
 from functools import partial
 
-import processing
 import pyperclip
 from PyQt5.QtCore import QVariant, Qt, QRectF
 from PyQt5.QtGui import QIcon, QGuiApplication
 from PyQt5.QtWidgets import QPushButton, QAction, QMessageBox, QDialog
 from qgis.core import *
+from qgis.core import QgsProject, QgsMessageLog, QgsDataSourceUri, Qgis, QgsPrintLayout, QgsUnitTypes, QgsLayoutSize, \
+    QgsLayoutItemMap, QgsLayoutItemLabel, QgsLayoutItemScaleBar, QgsLayoutExporter
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/forms")
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/QML")
 
 from .forms.brsgis_label_form import *
 
@@ -1071,7 +1074,17 @@ class brsgis_search(object):
                                 u'MIS': u'MIS',
                                 u'FEMA': u'FEMA',
                                 u'RESEARCH': u'RESEARCH',
-                                u'OTHER': u'OTHER'}
+                                u'STAKEOUT': u'STAKEOUT',
+                                u'STAKE LINE': u'STAKE LINE',
+                                u'FLAG LINE': u'FLAG LINE',
+                                u'SITE WORK': u'SITE WORK',
+                                u'TENANT SPECIFIC': u'TENANT SPECIFIC',
+                                u'SUBDIVISION': u'SUBDIVISION',
+                                u'DESIGN': u'DESIGN',
+                                u'MAP': u'MAP',
+                                u'PHOTO': u'PHOTO',
+                                u'OTHER': u'OTHER'
+                                }
                     }
                                                                )
                     fieldIndex = layer.fields().indexFromName(c.name())
@@ -1088,6 +1101,9 @@ class brsgis_search(object):
                                 u'Banker': u'Banker',
                                 u'Leaseholder': u'Leaseholder',
                                 u'Surveyor': u'Surveyor',
+                                u'Site Contractor': u'Site Contractor',
+                                u'Architect': u'Architect',
+                                u'Engineer': u'Engineer',
                                 u'Other': u'Other'}
                     }
                                                                )
@@ -1156,32 +1172,6 @@ class brsgis_search(object):
 
                     fieldIndex = layer.fields().indexFromName(c.name())
                     layer.setEditorWidgetSetup(fieldIndex, editor_widget_setup)
-
-                # elif c.name() == 'folder_name':
-                #     #owner,buyer,seller,realtor,lawyer,builder,banker,leaseholder, surveyor,other
-                #     editor_widget_setup = QgsEditorWidgetSetup('ValueMap', {
-                #         'map': {u'Owner': u'Owner',
-                #                 u'Buyer': u'Buyer',
-                #                 u'Seller': u'Seller',
-                #                 u'Realtor': u'Realtor',
-                #                 u'Attorney': u'Attorney',
-                #                 u'Builder': u'Builder',
-                #                 u'Banker': u'Banker',
-                #                 u'Leaseholder': u'Leaseholder',
-                #                 u'Surveyor': u'Surveyor',
-                #                 u'Architect': u'Architect',
-                #                 u'Engineer': u'Engineer',
-                #                 u'Site Contractor': u'Site Contractor',
-                #                 u'Other': u'Other'}
-                #     }
-                #                                                )
-                #     fieldIndex = layer.fields().indexFromName(c.name())
-                #     layer.setEditorWidgetSetup(fieldIndex, editor_widget_setup)
-                # elif c.name() == 'folder_present':
-                #     editor_widget_setup = QgsEditorWidgetSetup('CheckBox', {})
-                #     fieldIndex = layer.fields().indexFromName(c.name())
-                #     layer.setEditorWidgetSetup(fieldIndex, editor_widget_setup)
-
                 elif c.name() == 'low_tide':
                     editor_widget_setup = QgsEditorWidgetSetup('CheckBox', {})
                     fieldIndex = layer.fields().indexFromName(c.name())
@@ -2314,6 +2304,12 @@ class brsgis_printMapView(object):
 
     def run(self):
         import datetime
+
+        jstd = 'brs_jobs_std.qml'
+        jprn = 'brs_jobs_print.qml'
+        astd = 'abutters_std.qml'
+        aprn = 'abutters_print.qml'
+
         year = datetime.datetime.today().strftime('%Y')
         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
         self.iface.setActiveLayer(self.vl)
@@ -2331,6 +2327,8 @@ class brsgis_printMapView(object):
             return
 
         jobNo = attribs["job_no"]
+        jobType = attribs["job_type"]
+        county = attribs["county"]
         jobYear = '20' + jobNo[:2]
 
         if jobYear == year:
@@ -2340,50 +2338,112 @@ class brsgis_printMapView(object):
 
         clientName = attribs["client_name"]
 
-        self.vl = QgsProject.instance().mapLayersByName('abutters')[0]
-        self.iface.setActiveLayer(self.vl)
-        self.vl.loadNamedStyle('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/QML/abutters_print.qml')
-        self.vl.setSubsetString('"referrerj"=\'%s\'' % jobNo)
-
-
-        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        self.iface.setActiveLayer(self.vl)
-        self.vl.loadNamedStyle('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/QML/brs_jobs_print.qml')
-        self.vl.setSubsetString('"job_no"=\'%s\'' % jobNo)
-
         path = os.path.join("Z:\\", "BRS", year, jobNo)
         jipath = os.path.join(path, "Job_Info")
+
         QgsMessageLog.logMessage('Checking output folder: ' + path + '...', 'BRS_GIS', level=Qgis.Info)
         if not os.path.exists(path):
             os.makedirs(path)
         QgsMessageLog.logMessage('Checking output folder: ' + jipath + '...', 'BRS_GIS', level=Qgis.Info)
         if not os.path.exists(jipath):
             os.makedirs(jipath)
+
         cfile = str(jipath) + "\\" + jobNo + "_MapView_" + datetime.datetime.today().strftime(
             '%Y.%m.%d') + ".pdf"
+
         QgsMessageLog.logMessage('Saving file: ' + cfile + '...', 'BRS_GIS', level=Qgis.Info)
 
-        self.make_pdf(cfile, jobNo, clientName)
-
+        #enable abutters print style | filter: reffererj = job_no
+        qmlPath = self.resolve(aprn)
         self.vl = QgsProject.instance().mapLayersByName('abutters')[0]
-        self.iface.setActiveLayer(self.vl)
-        self.vl.loadNamedStyle('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/QML/abutters_std.qml')
-        self.vl.setSubsetString('')
+        self.vl.loadNamedStyle(qmlPath)
+        self.vl.setSubsetString('"referrerj"=\'%s\'' % jobNo)
 
+        # enable brs_jobs print style | filter: job_no = job_no
+        qmlPath = self.resolve(jprn)
         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        self.iface.setActiveLayer(self.vl)
-        self.vl.loadNamedStyle('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/QML/brs_jobs_std.qml')
+        self.vl.loadNamedStyle(qmlPath)
+        self.vl.setSubsetString('"job_no"=\'%s\'' % jobNo)
+
+        # prepare canvas
+        self.iface.mapCanvas().zoomToSelected(self.vl)
+        self.iface.mapCanvas().zoomScale(1000)
+
+        # generate output
+        self.make_pdf(cfile, jobNo, clientName, jobType, county)
+
+        #enable abutters standard style | filter: n/a
+        qmlPath = self.resolve(astd)
+        self.vl = QgsProject.instance().mapLayersByName('abutters')[0]
+        self.vl.loadNamedStyle(qmlPath)
         self.vl.setSubsetString('')
 
-    def make_pdf(self, cf, jn, cn):
+        # enable brs_jobs standard style | filter: n/a
+        qmlPath = self.resolve(jstd)
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.vl.loadNamedStyle(qmlPath)
+        self.vl.setSubsetString('')
+
+        # disable all type-specific layers:
+        self.toggleLayer('HAT2015', 0)
+        self.toggleLayer('75ft-SB-2015-HAT', 0)
+        self.toggleLayer('LINCOLN_S_FIRM_PAN', 0)
+        self.toggleLayer('SAGADAHOC_S_FIRM_PAN', 0)
+        self.toggleLayer('S_Fld_Haz_Ar', 0)
+        self.toggleLayer('S_Fld_Haz_Ar VE', 0)
+
+        self.iface.setActiveLayer(self.vl)
+        self.vl.triggerRepaint()
+
+    def toggleLayer(self, layer, status):
+        # QgsMessageLog.logMessage('TOGGLE: ' + layer + '...', 'BRS_GIS', level=Qgis.Info)
+        lyr = QgsProject.instance().mapLayersByName(layer)[0]
+        if status == 0:
+            QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(False)
+        else:
+            QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(True)
+
+    def make_pdf(self, cf, jn, cn, jt, county):
 
         # QGuiApplication.setOverrideCursor(Qt.WaitCursor)
         if str(cn) == 'NULL':
             cn = 'Client Name'
         else:
             cn = cn
+        jobType = jt
 
-        title = str(jn) + ' (' + str(cn) + ')'
+        #enable layers based on job_type
+        if jt == 'BRSDP':
+            jt = 'SDP'
+        else:
+            jt = jt
+
+        if jt == 'SDP':
+            self.toggleLayer('HAT2015', 1)
+            self.toggleLayer('75ft-SB-2015-HAT', 1)
+
+            if county == 'Lincoln':
+                self.toggleLayer('LINCOLN_S_FIRM_PAN', 1)
+            elif county == 'Sagadahoc':
+                self.toggleLayer('SAGADAHOC_S_FIRM_PAN', 1)
+            else:
+                pass
+
+        elif jt == 'MIS':
+            self.toggleLayer('S_Fld_Haz_Ar', 1)
+            self.toggleLayer('S_Fld_Haz_Ar VE', 1)
+
+            if county == 'Lincoln':
+                self.toggleLayer('LINCOLN_S_FIRM_PAN', 1)
+            elif county == 'Sagadahoc':
+                self.toggleLayer('SAGADAHOC_S_FIRM_PAN', 1)
+            else:
+                pass
+
+        else:
+            pass
+
+        title = str(jn) + ' (' + str(jobType) + ')' + ' | ' + str(cn)
         
         project = QgsProject.instance()
         l = QgsPrintLayout(project)
@@ -2391,7 +2451,7 @@ class brsgis_printMapView(object):
         l.setUnits(QgsUnitTypes.LayoutMillimeters)
         page = l.pageCollection().pages()[0]
 
-        paperSize = self.getPaperSize()
+        paperSize = self.setPaperSizePortrait()
         page.setPageSize(QgsLayoutSize(paperSize[0], paperSize[1]))
 
         lm = 10  # left margin
@@ -2411,7 +2471,7 @@ class brsgis_printMapView(object):
         theMap.setRect(QRectF(x, y, w, h))
         theMap.setPos(x, y)
         theMap.setFrameEnabled(True)
-
+        theMap.setScale(8000)
         theMap.setLayers(project.mapThemeCollection().masterVisibleLayers())  # remember ANNOTATION!
         theMap.setExtent(self.iface.mapCanvas().extent())
         theMap.attemptSetSceneRect(QRectF(x, y, w, h))
@@ -2445,7 +2505,7 @@ class brsgis_printMapView(object):
 
         # QGuiApplication.restoreOverrideCursor()
 
-    def getPaperSize(self):
+    def setPaperSizePortrait(self):
 
         longSide = 297
         shortSide = 210
@@ -2453,6 +2513,210 @@ class brsgis_printMapView(object):
         height = longSide
 
         return width, height
+
+    def setPaperSizeLandscape(self):
+
+        longSide = 210
+        shortSide = 297
+        width = shortSide
+        height = longSide
+
+        return width, height
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            qPath = os.path.dirname(os.path.realpath(__file__)) + '\\QML\\' + basepath
+            return qPath
+
+class brsgis_printSiteMap(object):
+
+    def __init__(self, iface):
+        # save reference to the QGIS interface
+        self.iface = iface
+
+    def initGui(self):
+        self.action = QAction("PMV", self.iface.mainWindow())
+        self.action.triggered.connect(self.run)
+        self.action.trigger()
+
+    def run(self):
+        import datetime
+        year = datetime.datetime.today().strftime('%Y')
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+
+        try:
+            attribs = self.iface.activeLayer().selectedFeatures()[0]
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            QMessageBox.critical(self.iface.mainWindow(), "No Selection",
+                                 "Please ensure that you have a parcel selected\nand attempt to "
+                                 "generate the output again.\n\n"
+                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                     exc_tb.tb_lineno) + ' ' + str(e))
+            return
+
+        jobNo = attribs["job_no"]
+        jobYear = '20' + jobNo[:2]
+
+        if jobYear == year:
+            year = year
+        else:
+            year = jobYear
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+        self.vl.setSubsetString('"job_no"=\'%s\'' % jobNo)
+
+        path = os.path.join("Z:\\", "BRS", year, jobNo)
+        dwgpath = os.path.join(path, "dwg")
+
+        QgsMessageLog.logMessage('Checking output folder: ' + path + '...', 'BRS_GIS', level=Qgis.Info)
+
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        if not os.path.exists(dwgpath):
+            os.makedirs(dwgpath)
+
+        ifile = str(dwgpath) + "\\" + "site.jpg"
+
+        QgsMessageLog.logMessage('Saving file: ' + ifile + '...', 'BRS_GIS', level=Qgis.Info)
+
+        std = 'brs_jobs_std.qml'
+        prn = 'brs_jobs_print.qml'
+        sMap = 'brs_jobs_siteMap.qml'
+
+        self.toggleLayer('parcels', 0)
+        self.toggleLayer('abutters', 0)
+        self.toggleLayer('la_plans', 0)
+        self.toggleLayer('relatedwork', 0)
+        self.toggleLayer('USA_Topo_Maps',1)
+
+        qmlPath = self.resolve(sMap)
+
+        self.iface.mapCanvas().zoomScale(8000)
+
+        self.vl.loadNamedStyle(qmlPath)
+        self.vl.triggerRepaint()
+
+        self.make_jpg(dwgpath, jobNo)
+
+        qmlPath = self.resolve(std)
+
+        self.vl.loadNamedStyle(qmlPath)
+
+        self.toggleLayer('parcels', 1)
+        self.toggleLayer('abutters', 1)
+        self.toggleLayer('la_plans', 1)
+        self.toggleLayer('relatedwork', 1)
+        self.toggleLayer('USA_Topo_Maps', 0)
+
+        self.vl.triggerRepaint()
+
+        self.vl.setSubsetString('')
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            qPath = os.path.dirname(os.path.realpath(__file__)) + '\\QML\\' + basepath
+            return qPath
+
+    def make_jpg(self, cf, jn):
+
+        project = QgsProject.instance()
+        l = QgsPrintLayout(project)
+        l.initializeDefaults()
+        l.setUnits(QgsUnitTypes.LayoutMillimeters)
+        page = l.pageCollection().pages()[0]
+
+        paperSize = self.setPaperSizeLandscape()
+        page.setPageSize(QgsLayoutSize(paperSize[0], paperSize[1]))
+
+        lm = 10  # left margin
+        tm = 10  # upper margin
+        bm = 20  # lower margin
+
+        refSize = paperSize[0]
+        if paperSize[1] < refSize:
+            refSize = paperSize[1]
+
+        # add map
+        x, y = lm, tm
+        w, h = paperSize[0] - 2 * lm, paperSize[1] - bm
+
+        theMap = QgsLayoutItemMap(l)
+        theMap.updateBoundingRect()
+        theMap.setRect(QRectF(x, y, w, h))
+        theMap.setPos(x, y)
+        theMap.setFrameEnabled(True)
+
+        theMap.setLayers(project.mapThemeCollection().masterVisibleLayers())  # remember ANNOTATION!
+        theMap.setExtent(self.iface.mapCanvas().extent())
+        theMap.attemptSetSceneRect(QRectF(x, y, w, h))
+        l.addItem(theMap)
+
+        exporter = QgsLayoutExporter(l)
+        jpg_settings = exporter.ImageExportSettings()  # dpi?
+
+        res = exporter.exportToImage(cf + '\\site.jpg', jpg_settings)
+        if res != QgsLayoutExporter.Success:
+            raise RuntimeError()
+
+        # QGuiApplication.restoreOverrideCursor()
+
+    def toggleLayer(self, layer, status):
+        # QgsMessageLog.logMessage('TOGGLE: ' + layer + '...', 'BRS_GIS', level=Qgis.Info)
+        lyr = QgsProject.instance().mapLayersByName(layer)[0]
+        if status == 0:
+            QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(False)
+        else:
+            QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(True)
+
+    def setPaperSizePortrait(self):
+
+        longSide = 297
+        shortSide = 210
+        width = shortSide
+        height = longSide
+
+        return width, height
+
+    def setPaperSizeLandscape(self):
+
+        longSide = 210
+        shortSide = 297
+        width = shortSide
+        height = longSide
+
+        return width, height
+
+    def setLayerStyle(self):
+
+        uri = QgsDataSourceUri()
+        uri.setConnection("localhost", "5432", "BRS_GIS_PRD", "postgres", "Schl1g3n#")
+        connInfo = uri.connectionInfo()
+        uri.setSchema("public")
+        uri.setSql("SELECT styleqml FROM public.layer_stylee WHERE stylename='jobs.Default'")
+        QgsMessageLog.logMessage('FOUND: ' + uri.uri(), 'BRS_GIS', level=Qgis.Info)
+        #self.vl.loadNamedStyle(uri.uri(False))
+        self.iface.mapCanvas().refreshAllLayers()
+        self.iface.layerTreeView().refreshLayerSymbology(self.vl.id())
+        self.vl.triggerRepaint()
+
+        # for s in self.vl.listStylesInDatabase()[2]:
+        #     QgsMessageLog.logMessage('FOUND: ' + str(s), 'BRS_GIS', level=Qgis.Info)
+        #
+        #     if str(s) == 'jobs.Print':
+        #         style_manager = self.vl.styleManager()
+        #         style_manager.setCurrentStyle(s)
+        #         self.vl.triggerRepaint()
+        #
+        #         QgsMessageLog.logMessage('DONE: ' + str(s), 'BRS_GIS', level=Qgis.Info)
 
 class brsgis_newK(object):
     newJob = 0

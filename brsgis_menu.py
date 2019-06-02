@@ -1,8 +1,6 @@
 from __future__ import absolute_import
 
-from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtWidgets import QMenu
-from qgis.core import *
 
 from .brsgis_dialogs import *
 
@@ -84,6 +82,11 @@ class brsgis_menu(object):
         self.printMapView_action.triggered.connect(self.printMapView)
         self.output_entry_menu.addAction(self.printMapView_action)
 
+        icon = QIcon(os.path.dirname(__file__) + "/icons/mv.svg")
+        self.printSiteMap_action = QAction(icon, "Print &SiteMap", self.iface.mainWindow())
+        self.printSiteMap_action.triggered.connect(self.printSiteMap)
+        self.output_entry_menu.addAction(self.printSiteMap_action)
+
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
         self.newPlan_action = QAction(icon, "C&reate New Plan", self.iface.mainWindow())
         self.newPlan_action.triggered.connect(self.newPlan)
@@ -127,20 +130,20 @@ class brsgis_menu(object):
         self.export_action.triggered.connect(self.bulkExport)
         self.util_menu.addAction(self.export_action)
 
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.merge_action = QAction(icon, "&IMPORT from EXCEL", self.iface.mainWindow())
-        self.merge_action.triggered.connect(self.mergeFeatures)
-        self.util_menu.addAction(self.merge_action)
-
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
-        self.fix_action.triggered.connect(self.dataFix)
-        self.util_menu.addAction(self.fix_action)
-
-        icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
-        self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
-        self.abutters_action.triggered.connect(self.abutters)
-        self.util_menu.addAction(self.abutters_action)
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.merge_action = QAction(icon, "&IMPORT from EXCEL", self.iface.mainWindow())
+        # self.merge_action.triggered.connect(self.mergeFeatures)
+        # self.util_menu.addAction(self.merge_action)
+        #
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
+        # self.fix_action.triggered.connect(self.dataFix)
+        # self.util_menu.addAction(self.fix_action)
+        #
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
+        # self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
+        # self.abutters_action.triggered.connect(self.abutters)
+        # self.util_menu.addAction(self.abutters_action)
 
     def unload(self):
         if self.brsgis_menu != None:
@@ -238,3 +241,9 @@ class brsgis_menu(object):
         QgsMessageLog.logMessage('Generating Contacts...', 'BRS_GIS', level=Qgis.Info)
         self.c_dialog = brsgis_printContacts(self.iface)
         self.c_dialog.initGui()
+
+    def printSiteMap(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Generating Site Map...', 'BRS_GIS', level=Qgis.Info)
+        self.mv_dialog = brsgis_printSiteMap(self.iface)
+        self.mv_dialog.initGui()
