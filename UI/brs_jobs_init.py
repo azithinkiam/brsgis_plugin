@@ -16,11 +16,16 @@ def formOpen(dialog, layerid, featureid):
         global myDialog
         global stackedWidget
         myDialog = dialog
-        dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)
 
-        dialog.parent().setFixedWidth(1080)
-        dialog.parent().setFixedHeight(950)
-        dialog.parent().setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        try:
+            dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)
+            dialog.parent().setFixedWidth(1080)
+            dialog.parent().setFixedHeight(950)
+            dialog.parent().setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+
+        except Exception:
+            pass
+
         # global nameField
         # nameField = dialog.findChild(QLineEdit, "Name")
         buttonP2 = dialog.findChild(QToolButton, "buttonP2")
