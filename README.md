@@ -1,33 +1,23 @@
-# brsgis_plugin (CURRENT RELEASE: v1.99) - 2019.05.05
+# brsgis_plugin (CURRENT RELEASE: v2.00)
 
 --------
-v1.99 (PRD) || 2019.05.05 00:51
+v2.00 (PRD) || 2019.01.JUN
 --------
-versioning - please disregard the # of commits...i'm sure there's a better way, but it's too late
-to bother with that tonight.  at least it looks clean from the top-level now.
+
+2a. NEW LAYOUT (SiteMap) added
+
+2b. LAYER VISIBILITY by job_type (MapView)
+
+2b.i   SDP
+
+2b.ii  MIS
+
+2b.iii BRSDP
+
+2c. ERROR CHECKING - all obvious error paths handled via exceptions, rework likely required...
+
+--------
+
+v2 will be final once 2d. JOB CREATION HOUSEKEEPING is implemented - eta 07.JUN
+
 -t.
-
---------
-v1.99 (PRD) || 2019.05.05 00:40
---------
-This is the inital production release of the "final" v1 deliverable.  It is likely that there 
-will be minor tweaks required during early adoption.  Potential issues include lack of error-handling 
-(to be addressed in v2), confusion over 'clientName' and 'folderName' and exactly how to input
-the names they want to print on the labels/yellowSheet/mapTable, etc.
-
-SIGNIFICANT UPDATES in this release include:
-
-Optimized "relatedWork" process to generate 'old_plan' relationships for JOBS and ABUTTERS
-
-Created/Enabled SQL table/triggers
-
-Updated UI forms (contacts, jobs, plans)
-
-Updated UI form code (contacts, jobs, plans)
-
-LEGACY PLANS have been imported - all outstanding plans require review.
-
-I'll continue to track reported issues in GitHub and will reference them here.
--t.
-
---------
