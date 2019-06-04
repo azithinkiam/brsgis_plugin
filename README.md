@@ -1,5 +1,3 @@
-# brsgis_plugin (CURRENT RELEASE: v3.b2)
-
 --------
 v3.b2 (PRD) || 2019.03.JUN
 --------
