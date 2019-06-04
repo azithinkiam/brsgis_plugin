@@ -1094,19 +1094,6 @@ class brsgis_abutters(object):
 
         return
 
-class msgBoxSelection(QDialog):
-    def __init__(self, map_bk_lot, parent=None):
-        super(msgBoxSelection, self).__init__(parent)
-
-        msgBox = QMessageBox()
-        msgBox.setWindowTitle('New Job')
-        msgBox.setText(map_bk_lot + ' has been selected. Continue?')
-        create_button = msgBox.addButton(QPushButton('Create Job'), QMessageBox.YesRole)
-        # create_button.clicked.connect
-        add_button = msgBox.addButton(QPushButton(' Select Additional Parcel(s) '), QMessageBox.NoRole)
-        cancel_button = msgBox.addButton(QPushButton('Cancel'), QMessageBox.RejectRole)
-        ret = msgBox.exec_()
-
 class brsgis_printFolderLabel(object):
     def __init__(self, iface):
         # save reference to the QGIS interface
