@@ -1,7 +1,17 @@
-# brsgis_plugin (CURRENT RELEASE: v2.d)
+# brsgis_plugin (CURRENT RELEASE: v3.b2)
 
 --------
-v2.d (DEV) || 2019.01.JUN
+v3.b2 (PRD) || 2019.03.JUN
+--------
+
+v3 INSTALLER published:
+
+Z:\0 - Settings\GIS\QGIS\Plugins\BRSGIS.Install
+
+SHORTCUT: "INSTALL QGIS 3.0.2 & BRSGIS_plugin (LAN).lnk"
+
+--------
+v2.d (PRD) || 2019.01.JUN
 --------
 
 2d. JOB CREATION HOUSEKEEPING - no feature is created, but job number is considered used by database...
