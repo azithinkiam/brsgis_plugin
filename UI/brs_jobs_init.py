@@ -18,7 +18,7 @@ def formOpen(dialog, layerid, featureid):
         myDialog = dialog
 
         try:
-            dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)
+            #dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)
             dialog.parent().setFixedWidth(1080)
             dialog.parent().setFixedHeight(950)
             dialog.parent().setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)

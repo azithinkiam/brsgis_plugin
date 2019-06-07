@@ -1204,7 +1204,7 @@ class brsgis_printFolderLabel(object):
         try:
             ws['A1'] = folderName
             #ws['A2'] = clientFirst
-            ws['A3'] = '(' + folderType +')'
+            ws['A2'] = '(' + folderType +')'
             ws['A6'] = addr  # 'Castle Rock Farm Road' - where to get this?
             ws['A7'] = town.upper()
             ws['A10'] = map_bk_lot  # 'Map R7, Lot 58'
@@ -1287,14 +1287,14 @@ class brsgis_printYellowSheet(object):
         if lowtide == 't':
             lowtide = 'YES'
         else:
-            lowtide = 'NO'
+            lowtide = ''
 
         lowtide_hrs = attribs["lowtide_hrs"]
 
         if lowtide == 'YES':
             pass
         else:
-            lowtide_hrs = 'N/A'
+            lowtide_hrs = ''
 
         town = attribs["town"]
         map_bk_lot = attribs["map_bk_lot"]
@@ -1310,6 +1310,7 @@ class brsgis_printYellowSheet(object):
 
         jobType = attribs["job_type"]
         folderName = attribs["folder_name"]
+        folderType = attribs["folder_type"]
 
         hrs_rs_est = attribs["hrs_rs_est"]
         hrs_cad_est = attribs["hrs_cad_est"]
@@ -1409,6 +1410,7 @@ class brsgis_printYellowSheet(object):
             ws2['B7'] = town
             ws2['B8'] = map_bk_lot
             ws2['F6'] = phone_mobile
+            ws2['B9'] = folderType
             ws2['B10'] = folderName
             ws2['C1'] = jobType
             ws2['B11'] = lowtide
