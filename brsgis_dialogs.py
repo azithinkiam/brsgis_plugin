@@ -2475,8 +2475,8 @@ class brsgis_printMapView(object):
         currentScale = self.iface.mapCanvas().scale()
 
         # prepare canvas
-        self.iface.mapCanvas().zoomToSelected(self.vl)
-        self.iface.mapCanvas().zoomScale(1000)
+        # self.iface.mapCanvas().zoomToSelected(self.vl)
+        # self.iface.mapCanvas().zoomScale(1000)
 
         # generate output
         self.make_pdf(cfile, jobNo, clientName, jobType, county)
@@ -2583,7 +2583,7 @@ class brsgis_printMapView(object):
         theMap.setRect(QRectF(x, y, w, h))
         theMap.setPos(x, y)
         theMap.setFrameEnabled(True)
-        theMap.setScale(8000)
+        #theMap.setScale(8000)
         theMap.setLayers(project.mapThemeCollection().masterVisibleLayers())  # remember ANNOTATION!
         theMap.setExtent(self.iface.mapCanvas().extent())
         theMap.attemptSetSceneRect(QRectF(x, y, w, h))
@@ -2619,8 +2619,8 @@ class brsgis_printMapView(object):
 
     def setPaperSizePortrait(self):
 
-        longSide = 297
-        shortSide = 210
+        longSide = 279
+        shortSide = 216
         width = shortSide
         height = longSide
 
@@ -2628,8 +2628,8 @@ class brsgis_printMapView(object):
 
     def setPaperSizeLandscape(self):
 
-        longSide = 210
-        shortSide = 297
+        longSide = 216
+        shortSide = 279
         width = shortSide
         height = longSide
 
@@ -2639,7 +2639,7 @@ class brsgis_printMapView(object):
         if not basepath:
             basepath = os.path.dirname(os.path.realpath(__file__))
         else:
-            qPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            qPath = os.path.dirname(os.path.realpath(__file__)) + '\\QML\\' + basepath
             return qPath
 
     def resolveUI(name, basepath=None):
