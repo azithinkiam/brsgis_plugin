@@ -3633,10 +3633,11 @@ class brsgis_jobImportXLSX(object):
             allJobs.append(jobData)
             jobData = []
 
-        town = 'Boothbay Harbor'
+        #town = 'Boothbay Harbor'
+        #expr1 = QgsExpression(" \"town\" = '{}' ".format(town))
+        #it = cLayer.getFeatures(QgsFeatureRequest(expr1))
 
-        expr1 = QgsExpression(" \"town\" = '{}' ".format(town))
-        it = cLayer.getFeatures(QgsFeatureRequest(expr1))
+        it = cLayer.getFeatures()
         ids = [i.id() for i in it]
 
         #QgsMessageLog.logMessage('allJobs: ' + str(allJobs), 'BRS_GIS', level=Qgis.Info)
