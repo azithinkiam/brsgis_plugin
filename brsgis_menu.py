@@ -148,6 +148,11 @@ class brsgis_menu(object):
         self.jobImport_action.triggered.connect(self.jobImportXLSX)
         self.util_menu.addAction(self.jobImport_action)
 
+        icon = QIcon(os.path.dirname(__file__) + "/icons/freehand.svg")
+        self.addNewParcel_action = QAction(icon, "&Add NEW parcel", self.iface.mainWindow())
+        self.addNewParcel_action.triggered.connect(self.addNewParcel)
+        self.util_menu.addAction(self.addNewParcel_action)
+
         #
         # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
         # self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
@@ -161,7 +166,7 @@ class brsgis_menu(object):
 
     def setFormsConfig(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Resetting form config...', 'BRS_GIS', level=Qgis.Info)
+        # QgsMessageLog.logMessage('Resetting form config...', 'BRS_GIS', level=Qgis.Info)
         self.prep_dialog = brsgis_prep(self.iface)
         self.prep_dialog.initGui()
 
@@ -273,3 +278,8 @@ class brsgis_menu(object):
         QgsMessageLog.logMessage('Generating Site Map...', 'BRS_GIS', level=Qgis.Info)
         self.mv_dialog = brsgis_printSiteMap(self.iface)
         self.mv_dialog.initGui()
+
+    def addNewParcel(self):
+        QgsMessageLog.logMessage('Adding NEW parcel...', 'BRS_GIS', level=Qgis.Info)
+        self.parcel_dialog = brsgis_parcel(self.iface)
+        self.parcel_dialog.initGui()
