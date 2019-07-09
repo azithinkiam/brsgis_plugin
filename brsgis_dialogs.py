@@ -7,7 +7,7 @@ import sys
 import threading
 from builtins import range
 from functools import partial
-import openpyxl
+
 import datetime
 import pyperclip
 
@@ -17,6 +17,9 @@ from PyQt5.QtWidgets import QPushButton, QAction, QMessageBox, QDialog, QInputDi
 from qgis.core import *
 from qgis.core import QgsProject, QgsMessageLog, QgsDataSourceUri, Qgis, QgsPrintLayout, QgsUnitTypes, QgsLayoutSize, \
     QgsLayoutItemMap, QgsLayoutItemLabel, QgsLayoutItemScaleBar, QgsLayoutExporter
+
+from qgis.utils import iface
+
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/forms")
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/QML")
@@ -197,10 +200,12 @@ class brsgis_newJob(object):
 
                 map_bk_lot = parcel["map_bk_lot"]
                 origMBL = parcel["map_bk_lot"]
+                address = str(int(parcel["proplocnum"])) + ' ' + str(parcel["prop_loc"])
+
 
                 mbl = map_bk_lot.split('-')
                 mbLen = len(mbl)
-                # need to troubleshoot this...shouldn't be throwing an exception.
+
                 try:
                     if mbLen == 1:
                         map_bk_lot = map_bk_lot
@@ -236,13 +241,23 @@ class brsgis_newJob(object):
                         self.iface.actionToggleEditing().trigger()
                         self.iface.actionPasteFeatures().trigger()
                         self.iface.activeLayer().commitChanges()
+
+                        for f in self.vl.selectedFeatures():
+                            self.iface.actionToggleEditing().trigger()
+                            lyr = self.vl
+                            layerData = lyr.dataProvider()
+                            idx4 = layerData.fieldNameIndex('locus_addr')
+                            lyr.changeAttributeValue(f.id(), idx4, address)
+                            lyr.updateFields()
+                            self.iface.activeLayer().commitChanges()
+
                         self.iface.actionToggleEditing().trigger()
                         self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
                         self.iface.setActiveLayer(self.vl)
                         self.iface.actionToggleEditing().trigger()
 
                         result = self.active_edit()
-                        #QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+                        QgsMessageLog.logMessage('address: ' + str(address), 'BRS_GIS', level=Qgis.Info)
 
                         if result:
                             self.iface.activeLayer().commitChanges()
@@ -294,9 +309,12 @@ class brsgis_newJob(object):
                         idx3 = layerData.fieldNameIndex('lat_lon')
                         lyr.changeAttributeValue(jobNo.id(), idx3, lat_lon)
                         lyr.updateFields()
+                        idx4 = layerData.fieldNameIndex('locus_addr')
+                        lyr.changeAttributeValue(jobNo.id(), idx4, address)
+                        lyr.updateFields()
                         self.iface.activeLayer().commitChanges()
                         jobNum = jobNo["job_no"]
-                        QgsMessageLog.logMessage('JobNo:' + jobNum + ' has been created and saved.',
+                        QgsMessageLog.logMessage('JobNo:' + str(jobNum) + ' has been created and saved.',
                                                  'BRS_GIS', level=Qgis.Info)
 
                         self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
@@ -334,6 +352,16 @@ class brsgis_newJob(object):
                         self.iface.actionToggleEditing().trigger()
                         self.iface.actionPasteFeatures().trigger()
                         self.iface.activeLayer().commitChanges()
+
+                        for f in layer.selectedFeatures():
+                            self.iface.actionToggleEditing().trigger()
+                            lyr = layer
+                            layerData = lyr.dataProvider()
+                            idx4 = layerData.fieldNameIndex('locus_addr')
+                            lyr.changeAttributeValue(f.id(), idx4, address)
+                            lyr.updateFields()
+                            self.iface.activeLayer().commitChanges()
+
                         self.iface.actionToggleEditing().trigger()
                         self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
                         self.iface.setActiveLayer(self.vl)
@@ -1357,7 +1385,6 @@ class brsgis_printYellowSheet(object):
         email_primary = attribs["email_primary"]
         email_secondary = attribs["email_secondary"]
         lowtide = attribs["lowtide"]
-        jobNo = attribs["job_no"]
         jobYear = '20' + jobNo[:2]
 
         if jobYear == year:
@@ -1392,62 +1419,16 @@ class brsgis_printYellowSheet(object):
         jobType = attribs["job_type"]
         folderName = attribs["folder_name"]
         folderType = attribs["folder_type"]
-
-        hrs_rs_est = attribs["hrs_rs_est"]
-        hrs_cad_est = attribs["hrs_cad_est"]
-        hrs_fw_est = attribs["hrs_fw_est"]
-        hrs_misc_est = attribs["hrs_misc_est"]
+        clientRole = attribs["client_role"]
 
         rate_rs = ''
         rate_cad = ''
         rate_fw = ''
         rate_misc = ''
 
-        amt_rs = attribs["amt_rs"]
-        amt_cad = attribs["amt_cad"]
-        amt_fw = attribs["amt_fw"]
-        amt_misc = attribs["amt_misc"]
-        amt_total = attribs["amt_total"]
-        amt_dep = attribs["amt_dep"]
-
-        date_estimate_sent = attribs["date_estimate_sent"]
-        date_dep = attribs["date_dep"]
-
-        date_prelim = attribs["date_prelim"]
-        date_finalplans = attribs["date_finalplans"]
-        date_mylar = attribs["date_mylar"]
-        date_deeddesc = attribs["date_deeddesc"]
-        date_pins = attribs["date_pins"]
-        date_fw = attribs["date_fw"]
-        date_cad = attribs["date_cad"]
-
-        copies_prelim = attribs["copies_prelim"]
-        copies_finalplans = attribs["copies_finalplans"]
-        copies_mylar = attribs["copies_mylar"]
-        copies_deeddesc = attribs["copies_deeddesc"]
-        copies_pins = attribs["copies_pins"]
-        copies_fw = attribs["copies_fw"]
-        copies_cad = attribs["copies_cad"]
-
-        to_prelim = attribs["to_prelim"]
-        to_finalplans = attribs["to_finalplans"]
-        to_mylar = attribs["to_mylar"]
-        to_deeddesc = attribs["to_deeddesc"]
-        to_pins = attribs["to_pins"]
-        to_fw = attribs["to_fw"]
-        to_cad = attribs["to_cad"]
-
         date_recorded = attribs["date_recorded"]
         recorded_by = attribs["recorded_by"]
         planbook_page = attribs["planbook_page"]
-
-        date_invoice1 = attribs["date_invoice1"]
-        date_invoice2 = attribs["date_invoice2"]
-        date_invoice3 = attribs["date_invoice3"]
-
-        amt_invoice1 = attribs["amt_invoice1"]
-        amt_invoice2 = attribs["amt_invoice2"]
-        amt_invoice3 = attribs["amt_invoice3"]
 
         job_desc = attribs["job_desc"]
 
@@ -1491,8 +1472,8 @@ class brsgis_printYellowSheet(object):
             ws2['B7'] = town
             ws2['B8'] = map_bk_lot
             ws2['F6'] = phone_mobile
-            ws2['B9'] = folderType
-            ws2['B10'] = folderName
+            ws2['B9'] = clientRole
+            ws2['B10'] = folderType
             ws2['C1'] = jobType
             ws2['B11'] = lowtide
             ws2['B12'] = lowtide_hrs
@@ -1540,60 +1521,6 @@ class brsgis_printYellowSheet(object):
                 ws2['B39'] = ''
             else:
                 ws2['B39'] = job_desc
-
-            # ws2['B25'] = hrs_rs_est
-            # ws2['B26'] = hrs_cad_est
-            # ws2['B27'] = hrs_fw_est
-            # ws2['B28'] = hrs_misc_est
-
-            # ws2['C25'] = rate_rs
-            # ws2['C26'] = rate_cad
-            # ws2['C27'] = rate_fw
-            # ws2['C28'] = rate_misc
-            #
-            # ws2['D25'] = amt_rs
-            # ws2['D26'] = amt_cad
-            # ws2['D27'] = amt_fw
-            # ws2['D28'] = amt_misc
-            # ws2['H24'] = amt_total
-            # ws2['H27'] = amt_dep
-            #
-            # ws2['H25'] = date_estimate_sent
-            # ws2['H28'] = date_dep
-            #
-            # ws2['B34'] = date_prelim
-            # ws2['B35'] = date_finalplans
-            # ws2['B36'] = date_mylar
-            # ws2['B37'] = date_deeddesc
-            # ws2['B38'] = date_pins
-            # ws2['B39'] = date_fw
-            # ws2['B40'] = date_cad
-            #
-            # ws2['C34'] = copies_prelim
-            # ws2['C35'] = copies_finalplans
-            # ws2['C36'] = copies_mylar
-            # ws2['C37'] = copies_deeddesc
-            # ws2['C38'] = copies_pins
-            # ws2['C39'] = copies_fw
-            # ws2['C40'] = copies_cad
-            #
-            # ws2['D34'] = to_prelim
-            # ws2['D35'] = to_finalplans
-            # ws2['D36'] = to_mylar
-            # ws2['D37'] = to_deeddesc
-            # ws2['D38'] = to_pins
-            # ws2['D39'] = to_fw
-            # ws2['D40'] = to_cad
-
-            # ws2['E44'] = date_invoice1
-            # ws2['E45'] = date_invoice2
-            # ws2['E46'] = date_invoice3
-            #
-            # ws2['H44'] = amt_invoice1
-            # ws2['H45'] = amt_invoice2
-            # ws2['H46'] = amt_invoice3
-
-            # ws2['B50'] = job_desc
 
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -3709,13 +3636,17 @@ class brsgis_jobImportXLSX(object):
         jLayer = QgsProject.instance().mapLayersByName('brs_jobs')[0]
         #path = "C:\\BRS_GIS\\jobsWIP.xlsx"
 
-        qfd = QFileDialog()
-        title = 'Open File'
-        path = "C:\\BRS_GIS\\"
-        f = QFileDialog.getOpenFileName(qfd, title, path)
-        path = f[0]
+        try:
+            qfd = QFileDialog()
+            title = 'Open File'
+            path = "C:\\BRS_GIS\\"
+            f = QFileDialog.getOpenFileName(qfd, title, path)
+            path = f[0]
+            wb_obj = openpyxl.load_workbook(path)
 
-        wb_obj = openpyxl.load_workbook(path)
+        except Exception:
+            return
+
         sheet_obj = wb_obj.active
         max_col = sheet_obj.max_column
         max_row = sheet_obj.max_row
@@ -4161,17 +4092,33 @@ class brsgis_parcel(object):
 
     def run(self):
 
+
         self.vl = QgsProject.instance().mapLayersByName('parcels')[0]
         self.iface.setActiveLayer(self.vl)
         cLayer = self.iface.mapCanvas().currentLayer()
+        #cLayer.featureAdded.disconnect(self.newParcel)
+        cLayer.committedFeaturesAdded.connect(self.newParcel)
 
-        # it = cLayer.getFeatures()
-        # ids = [i.id() for i in it]
+    def select(self, fid):
+        layer = iface.activeLayer()
 
-        features = cLayer.selectedFeatures()
+        layer.select(fid)
 
-        provider = cLayer.dataProvider()
+    def newParcel(self, layerId, addedFeatures):
+        cLayer = self.iface.mapCanvas().currentLayer()
+        cLayer.committedFeaturesAdded.disconnect(self.newParcel)
+        QgsMessageLog.logMessage('DEBUG | NEW PARCEL ADDED: ' + str(addedFeatures[0].id()), 'BRS_GIS', level=Qgis.Info)
 
+        aId = addedFeatures[0].id()
+        self.vl = QgsProject.instance().mapLayersByName('parcels')[0]
+
+        self.selectLastFeature()
+
+        f = self.vl.selectedFeatures()[0]
+        QgsMessageLog.logMessage('SELECTED | ' + str(f.id()), 'BRS_GIS', level=Qgis.Info)
+
+        features = self.iface.mapCanvas().currentLayer().selectedFeatures()
+        provider = self.iface.mapCanvas().currentLayer().dataProvider()
         spIndex = QgsSpatialIndex()  # create spatial index object
 
         feat = QgsFeature()
@@ -4184,23 +4131,70 @@ class brsgis_parcel(object):
         geometry = features[0].geometry()
         centroid = geometry.centroid().asPoint()
 
+        QgsMessageLog.logMessage('centroid | ' + str(centroid), 'BRS_GIS',
+                                 level=Qgis.Info)
+
+        #https: // www.qgistutorials.com / en / docs / find_neighbor_polygons.html
+
         # QgsSpatialIndex.nearestNeighbor (QgsPoint point, int neighbors)
-        nearestIds = spIndex.nearestNeighbor(centroid, 1)[1]  # we need only one neighbour
+        nearestIds = []
+        nearestIds = spIndex.nearestNeighbor(centroid, 3)  # we need only one neighbour
         QgsMessageLog.logMessage('nearestIds | ' + str(nearestIds), 'BRS_GIS',
                                  level=Qgis.Info)
 
+        for i in nearestIds:
+            if i == addedFeatures[0].id():
+                #fid = nearestIds[0]
+                QgsMessageLog.logMessage('OOPS! SKIPPING | ' + str(i), 'BRS_GIS',
+                                     level=Qgis.Info)
+                pass
+            else:
+                fid = i
+
+        neighborIds = []
+        neighborIds.append(i)
+        self.vl = QgsProject.instance().mapLayersByName('parcels')[0]
+
+        QgsMessageLog.logMessage('neighborIds | ' + str(neighborIds), 'BRS_GIS',
+                                 level=Qgis.Info)
+        self.vl.selectByIds(neighborIds)
+        f = self.vl.selectedFeatures()[0]
+
         geom = None
-        for feat in features:
-            
-            zipcode = feat['zipcode']
-            county = feat['county']
-            l_l = feat['lat_lon']
 
-        cLayer.selectByIds([])
+        zipcode = f['zipcode']
+        county = f['county']
+        town = f['town']
 
-        QgsMessageLog.logMessage('DONE.', 'BRS_GIS', level=Qgis.Info)
+        QgsMessageLog.logMessage('attributes : ' + str(town) + ' | ' + str(county) + ' | ' + str(zipcode), 'BRS_GIS',
+                                 level=Qgis.Info)
+
+        dataProvider = self.vl.dataProvider()
+
+        #self.iface.actionToggleEditing().trigger()
+        idx = dataProvider.fieldNameIndex('town')
+        self.vl.changeAttributeValue(f.id(), idx, town)
+        self.vl.updateFields()
+        self.iface.activeLayer().commitChanges()
+
+        self.iface.actionToggleEditing().trigger()
+        idx2 = dataProvider.fieldNameIndex('county')
+        self.vl.changeAttributeValue(f.id(), idx2, county)
+        self.vl.updateFields()
+        self.iface.activeLayer().commitChanges()
+
+        self.iface.actionToggleEditing().trigger()
+        idx3 = dataProvider.fieldNameIndex('zipcode')
+        self.vl.changeAttributeValue(f.id(), idx3, zipcode)
+        self.vl.updateFields()
+        self.iface.activeLayer().commitChanges()
+
+        QgsMessageLog.logMessage('PARCEL UPDATE | DONE.', 'BRS_GIS', level=Qgis.Info)
 
     def selectLastFeature(self):
+
+        request = QgsFeatureRequest().setFlags(QgsFeatureRequest.NoGeometry).setSubsetOfAttributes(['gid'],
+            self.vl.fields())
 
         f2 = self.vl.getFeatures()
         fCount = self.vl.featureCount()
