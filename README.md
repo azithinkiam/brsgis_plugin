@@ -1,4 +1,23 @@
 --------
+v4.d (PRD) || 2019.10.JUL
+--------
+
+BUGFIX: exception occurs when parcel has no prop_loc or proplocnum data available (southport).  added another handler to insert a blank address value as-needed.
+
+                try:
+                    address = str(int(parcel["proplocnum"])) + ' ' + str(parcel["prop_loc"])
+
+                except Exception:
+                    address = ''
+                    pass
+
+--------
+v4.a2 (PRD) || 2019.09.JUL
+--------
+
+MILESTONE UPDATE: legacy jobs imported in PRD, import tools complete, auto-populate locus added, portait/landscape choice for mapView added, updated SOW reflects current overall status.
+
+--------
 v3.b2 (PRD) || 2019.03.JUN
 --------
 
