@@ -1,11 +1,11 @@
 [general]
 name=brsgis_plugin
-qgisMinimumVersion=2.99
-qgisMaximumVersion=4.99
+qgisMinimumVersion=3.0
+qgisMaximumVersion=4.0
 description=Boothbay Regional Surveyors, LLC. | Vector Operations Plugin
 about=BRSGIS is a set of Python plugins for manipulating vector map layers in Quantum GIS. BRSGIS provides an alternative to the Processing toolbox, with verbose progress reporting, an intuitive user interface and customized capabilities tailored to the operations of BRS.
 category=Vector
-version=2019.05.05
+version=2019.10.JULY
 author=AViTAS Concepts, LLC.
 email=pyqgis@avitasconcepts.com
 homepage=http:/avitasconcepts.com

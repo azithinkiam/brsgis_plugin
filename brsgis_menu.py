@@ -138,24 +138,35 @@ class brsgis_menu(object):
         self.export_action.triggered.connect(self.bulkExport)
         self.util_menu.addAction(self.export_action)
 
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        # self.merge_action = QAction(icon, "&IMPORT from EXCEL", self.iface.mainWindow())
-        # self.merge_action.triggered.connect(self.mergeFeatures)
-        # self.util_menu.addAction(self.merge_action)
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.merge_action = QAction(icon, "&PLAN import from EXCEL", self.iface.mainWindow())
+        self.merge_action.triggered.connect(self.planImportXLSX)
+        self.util_menu.addAction(self.merge_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.jobImport_action = QAction(icon, "&JOB import from EXCEL", self.iface.mainWindow())
+        self.jobImport_action.triggered.connect(self.jobImportXLSX)
+        self.util_menu.addAction(self.jobImport_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/freehand.svg")
+        self.addNewParcel_action = QAction(icon, "&Add NEW parcel", self.iface.mainWindow())
+        self.addNewParcel_action.triggered.connect(self.addNewParcel)
+        self.util_menu.addAction(self.addNewParcel_action)
+
         #
         # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
         # self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
         # self.fix_action.triggered.connect(self.dataFix)
         # self.util_menu.addAction(self.fix_action)
         #
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
-        # self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
-        # self.abutters_action.triggered.connect(self.abutters)
-        # self.util_menu.addAction(self.abutters_action)
+        icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
+        self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
+        self.abutters_action.triggered.connect(self.abutters)
+        self.util_menu.addAction(self.abutters_action)
 
     def setFormsConfig(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Resetting form config...', 'BRS_GIS', level=Qgis.Info)
+        # QgsMessageLog.logMessage('Resetting form config...', 'BRS_GIS', level=Qgis.Info)
         self.prep_dialog = brsgis_prep(self.iface)
         self.prep_dialog.initGui()
 
@@ -171,11 +182,17 @@ class brsgis_menu(object):
         self.export_dialog = brsgis_bulkMapExport(self.iface)
         self.export_dialog.initGui()
 
-    def mergeFeatures(self):
+    def planImportXLSX(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Launching Merge...', 'BRS_GIS', level=Qgis.Info)
-        self.merge_dialog = brsgis_mergeFeatures(self.iface)
+        QgsMessageLog.logMessage('Launching PLAN import from EXCEL...', 'BRS_GIS', level=Qgis.Info)
+        self.merge_dialog = brsgis_planImportXLSX(self.iface)
         self.merge_dialog.initGui()
+
+    def jobImportXLSX(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching JOB import from EXCEL...', 'BRS_GIS', level=Qgis.Info)
+        self.jobImport_dialog = brsgis_jobImportXLSX(self.iface)
+        self.jobImport_dialog.initGui()
 
     def dataFix(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
@@ -261,3 +278,8 @@ class brsgis_menu(object):
         QgsMessageLog.logMessage('Generating Site Map...', 'BRS_GIS', level=Qgis.Info)
         self.mv_dialog = brsgis_printSiteMap(self.iface)
         self.mv_dialog.initGui()
+
+    def addNewParcel(self):
+        QgsMessageLog.logMessage('Adding NEW parcel...', 'BRS_GIS', level=Qgis.Info)
+        self.parcel_dialog = brsgis_parcel(self.iface)
+        self.parcel_dialog.initGui()
