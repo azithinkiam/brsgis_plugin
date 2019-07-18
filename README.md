@@ -1,4 +1,10 @@
 --------
+v4.E (PRD) || 2019.17.JUL
+--------
+
+BUGFIX / STREAMLINE: job creation/editing for multiple-parcel jobs was compromised by autoAddress update.  optimized newJob class, maybe one pass left.  change multi-parcel select to freehand?  optimized addParcel code.
+
+--------
 v4.d (PRD) || 2019.10.JUL
 --------
 
