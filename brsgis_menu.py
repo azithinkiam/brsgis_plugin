@@ -153,6 +153,16 @@ class brsgis_menu(object):
         self.addNewParcel_action.triggered.connect(self.addNewParcel)
         self.util_menu.addAction(self.addNewParcel_action)
 
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.moveJob_action = QAction(icon, "&MOVE Job", self.iface.mainWindow())
+        self.moveJob_action.triggered.connect(self.moveJob)
+        self.util_menu.addAction(self.moveJob_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.movePlan_action = QAction(icon, "M&OVE Plan", self.iface.mainWindow())
+        self.movePlan_action.triggered.connect(self.movePlan)
+        self.util_menu.addAction(self.movePlan_action)
+
         #
         # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
         # self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
@@ -193,6 +203,18 @@ class brsgis_menu(object):
         QgsMessageLog.logMessage('Launching JOB import from EXCEL...', 'BRS_GIS', level=Qgis.Info)
         self.jobImport_dialog = brsgis_jobImportXLSX(self.iface)
         self.jobImport_dialog.initGui()
+
+    def moveJob(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching moveJob utility...', 'BRS_GIS', level=Qgis.Info)
+        self.moveJob_dialog = brsgis_moveJob(self.iface)
+        self.moveJob_dialog.initGui()
+
+    def movePlan(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching movePlan utility...', 'BRS_GIS', level=Qgis.Info)
+        self.movePlan_dialog = brsgis_movePlan(self.iface)
+        self.movePlan_dialog.initGui()
 
     def dataFix(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
