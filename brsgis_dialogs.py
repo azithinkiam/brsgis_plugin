@@ -817,11 +817,21 @@ class brsgis_newPlan(object):
 
                 elif msg.clickedButton() is cancel:
                     self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                    for a in self.iface.attributesToolBar().actions():
+                        if a.objectName() == 'mActionDeselectAll':
+                            a.trigger()
+                            QgsMessageLog.logMessage('FIRST RUN: Previously selected parcel(s) have been cleared.',
+                                                     'BRS_GIS', level=Qgis.Info)
+                            QgsMessageLog.logMessage('PLAN creation starting...', 'BRS_GIS', level=Qgis.Info)
+                            self.iface.actionIdentify().trigger()
+
                     QGuiApplication.restoreOverrideCursor()
                     return
 
 
             except Exception as e:
+                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                QGuiApplication.restoreOverrideCursor()
                 exc_type, exc_obj, exc_tb = sys.exc_info()
                 fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
                 QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
