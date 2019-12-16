@@ -671,14 +671,14 @@ class brsgis_newPlan(object):
                             a.trigger()
                             QgsMessageLog.logMessage('FIRST RUN: Previously selected parcel(s) have been cleared.',
                                                      'BRS_GIS', level=Qgis.Info)
-                            QgsMessageLog.logMessage('Job creation starting...', 'BRS_GIS', level=Qgis.Info)
+                            QgsMessageLog.logMessage('PLAN creation starting...', 'BRS_GIS', level=Qgis.Info)
                             self.iface.actionSelectFreehand().trigger()
                             self.count = self.count + 1
                 else:
                     self.iface.actionSelect().trigger()
 
         else:
-            QgsMessageLog.logMessage('DEBUG: Job creation cancelled.', 'BRS_GIS', level=Qgis.Info)
+            QgsMessageLog.logMessage('DEBUG: PLAN creation cancelled.', 'BRS_GIS', level=Qgis.Info)
 
     def select_changed(self):
 
@@ -690,10 +690,12 @@ class brsgis_newPlan(object):
                 vLayer = self.iface.activeLayer()
                 feats_count = vLayer.selectedFeatureCount()
 
+                f = vLayer.selectedFeatures()[0]
                 msg = QMessageBox()
                 msg.setWindowTitle('Selection')
                 msg.setText(str(feats_count) + ' features have been selected. Continue?')
                 create = msg.addButton('Continue', QMessageBox.AcceptRole)
+                again = msg.addButton('Select Again', QMessageBox.AcceptRole)
                 cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
                 msg.setDefaultButton(create)
                 msg.exec_()
@@ -702,56 +704,46 @@ class brsgis_newPlan(object):
                 QGuiApplication.restoreOverrideCursor()
 
                 if msg.clickedButton() is create:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                    QgsMessageLog.logMessage('PLAN creation will begin for multiple parcels:',
+                                             'BRS_GIS', level=Qgis.Info)
 
-                    QgsMessageLog.logMessage('Job creation will begin for multiple parcels:', 'BRS_GIS',
-                                             level=Qgis.Info)
                     self.iface.actionCopyFeatures().trigger()
-                    self.newJob = 0
                     self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
                     self.iface.setActiveLayer(self.vl)
-
-                    self.iface.actionIdentify().trigger()
                     self.iface.actionToggleEditing().trigger()
                     self.iface.actionPasteFeatures().trigger()
                     self.iface.mainWindow().findChild(QAction, 'mActionMergeFeatures').trigger()
+
+                    self.iface.actionIdentify().trigger()
+
                     # end merge features, launch form
                     self.iface.activeLayer().commitChanges()
                     layer = self.iface.activeLayer()
                     prov = layer.dataProvider()
 
-                    idx = prov.fieldNameIndex('objectid')
+                    idx = prov.fieldNameIndex('gid')
 
                     oid = layer.maximumValue(idx)
-                    it = layer.getFeatures(QgsFeatureRequest().setFilterExpression(u'"objectid" = {0}'.format(oid)))
+                    it = layer.getFeatures(QgsFeatureRequest().setFilterExpression(u'"gid" = {0}'.format(oid)))
                     # QgsMessageLog.logMessage('sid: ' + str(sid) + ' it: ' + str(it), 'BRS_GIS', level=Qgis.Info)
                     for feature in it:
                         f = feature.id()
                         layer.select(f)
 
                     QgsMessageLog.logMessage('Launching form for merged feature...', 'BRS_GIS', level=Qgis.Info)
-                    self.iface.activeLayer().commitChanges()
-                    self.iface.actionToggleEditing().trigger()
-                    self.iface.actionPasteFeatures().trigger()
-                    self.iface.activeLayer().commitChanges()
-                    self.iface.actionToggleEditing().trigger()
-                    self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
-                    self.iface.setActiveLayer(self.vl)
 
+                    self.iface.activeLayer().commitChanges()
                     self.iface.actionToggleEditing().trigger()
 
                     result = self.active_edit()
-                    # QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+                    QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
 
                     if result:
                         self.iface.activeLayer().commitChanges()
                     else:
                         self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
                         self.iface.actionRollbackAllEdits().trigger()
-                        self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
-                        self.iface.setActiveLayer(self.vl)
-                        self.iface.actionToggleEditing().trigger()
-                        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-                        self.iface.setActiveLayer(self.vl)
 
                         for f in self.vl.selectedFeatures():
                             self.vl.deleteFeature(f.id())
@@ -802,10 +794,10 @@ class brsgis_newPlan(object):
                     layer = self.iface.activeLayer()
                     prov = layer.dataProvider()
 
-                    idx = prov.fieldNameIndex('objectid')
+                    idx = prov.fieldNameIndex('gid')
 
                     oid = layer.maximumValue(idx)
-                    it = layer.getFeatures(QgsFeatureRequest().setFilterExpression(u'"objectid" = {0}'.format(oid)))
+                    it = layer.getFeatures(QgsFeatureRequest().setFilterExpression(u'"gid" = {0}'.format(oid)))
 
                     for feature in it:
                         f = feature.id()
@@ -818,10 +810,16 @@ class brsgis_newPlan(object):
                     lyr = QgsProject.instance().mapLayersByName('la_plans')[0]
                     self.iface.setActiveLayer(lyr)
 
+                elif msg.clickedButton() is again:
+                    # self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                    QGuiApplication.restoreOverrideCursor()
+                    # return
+
                 elif msg.clickedButton() is cancel:
                     self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
-                    # QGuiApplication.restoreOverrideCursor()
+                    QGuiApplication.restoreOverrideCursor()
                     return
+
 
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -840,24 +838,31 @@ class brsgis_newPlan(object):
             self.iface.activeLayer().commitChanges()
             self.iface.actionToggleEditing().trigger()
             layer = self.iface.activeLayer()
-            # prov = layer.dataProvider()
-            #
-            # idx = prov.fieldNameIndex('gid')
-            #
-            # gid = layer.maximumValue(idx)
-            # it = layer.getFeatures(QgsFeatureRequest().setFilterExpression(u'"gid" = {0}'.format(gid)))
-            #
-            # for feature in it:
-            #     f = feature.id()
-            #     layer.select(f)
-            #
+            prov = layer.dataProvider()
+
+            idx = prov.fieldNameIndex('gid')
+
+            gid = layer.maximumValue(idx)
+            it = layer.getFeatures(QgsFeatureRequest().setFilterExpression(u'"gid" = {0}'.format(gid)))
+
+            for a in self.iface.attributesToolBar().actions():
+                if a.objectName() == 'mActionDeselectAll':
+                    a.trigger()
+                    QgsMessageLog.logMessage('CLEAR: Previously selected parcel(s) have been cleared.',
+                                             'BRS_GIS', level=Qgis.Info)
+
+            for feature in it:
+                f = feature.id()
+                layer.select(f)
+
             f = layer.selectedFeatures()[0]
 
             QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
-            self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+            self.iface.openFeatureForm(self.vl, f, False, True)
             QGuiApplication.restoreOverrideCursor()
 
             QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
+            return "GOOD!"
 
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -4174,7 +4179,7 @@ class brsgis_moveJob(object):
         self.iface.setActiveLayer(self.vl)
         cLayer = self.iface.mapCanvas().currentLayer()
 
-        reply = QMessageBox.question(self.iface.mainWindow(), 'MOVE Job',
+        reply = QMessageBox.question(self.iface.mainWindow(), 'SELECT Job',
                                      'Click OK and select the SOURCE parcel for the job you wish to move.',
                                      QMessageBox.Ok, QMessageBox.Cancel)
         if reply == QMessageBox.Ok:
@@ -4542,7 +4547,7 @@ class brsgis_movePlan(object):
         self.iface.setActiveLayer(self.vl)
         cLayer = self.iface.mapCanvas().currentLayer()
 
-        reply = QMessageBox.question(self.iface.mainWindow(), 'MOVE Plan',
+        reply = QMessageBox.question(self.iface.mainWindow(), 'SELECT Plan',
                                      'Click OK and select the SOURCE parcel for the plan you wish to move.',
                                      QMessageBox.Ok, QMessageBox.Cancel)
         if reply == QMessageBox.Ok:
@@ -4572,9 +4577,9 @@ class brsgis_movePlan(object):
             planNo = parcel["plan_no"]
 
             msg = QMessageBox()
-            msg.setWindowTitle('SOURCE Plan')
-            msg.setText('PlanNo: ' + planNo + ' has been selected. Continue?')
-            edit = msg.addButton('Select Plan', QMessageBox.AcceptRole)
+            msg.setWindowTitle('Continue')
+            msg.setText('PlanNo: ' + planNo + ' has been selected. Proceed?')
+            edit = msg.addButton('OK', QMessageBox.AcceptRole)
             cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
             msg.setDefaultButton(edit)
             QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
@@ -4586,10 +4591,6 @@ class brsgis_movePlan(object):
                                          'BRS_GIS', level=Qgis.Info)
 
                 self.active()
-
-                # lyr = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-                # self.iface.setActiveLayer(lyr)
-                # self.iface.actionIdentify().trigger()
 
             elif msg.clickedButton() is cancel:
                 self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
@@ -4628,7 +4629,7 @@ class brsgis_movePlan(object):
             self.plan_lot = f['lot']
             self.plan_surveyor = f['surveyor']
             self.plan_cd = f['cd_no']
-            self.plan_type = 'LEIGHTON'
+            self.plan_type = f['plan_type']
             self.plan_oldplan = f['old_plan']
             self.plan_book = f['planbook']
             self.plan_page = f['planpage']
@@ -4641,10 +4642,9 @@ class brsgis_movePlan(object):
             self.vl = QgsProject.instance().mapLayersByName('parcels')[0]
             self.iface.setActiveLayer(self.vl)
 
-            reply = QMessageBox.question(self.iface.mainWindow(), 'DESTINATION:',
-                                         'Click OK and select the correct parcel(s) for the plan.',
+            reply = QMessageBox.question(self.iface.mainWindow(), 'Continue',
+                                         'Click OK and select the correct DESTINATION parcel(s) for the plan.',
                                          QMessageBox.Ok, QMessageBox.Cancel)
-
 
             if reply == QMessageBox.Ok:
 
@@ -4653,7 +4653,7 @@ class brsgis_movePlan(object):
 
             else:
                 QgsMessageLog.logMessage('DEBUG: Plan MOVE cancelled.', 'BRS_GIS', level=Qgis.Info)
-                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed2)
+                #self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed2)
 
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -4664,13 +4664,77 @@ class brsgis_movePlan(object):
             self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed2)
             return
 
-        # self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        # self.iface.setActiveLayer(self.vl)
-        # self.iface.activeLayer().commitChanges()
-
-    def select_changed2(self): # NEED TO GRAB ALL VARIABLES FROM ORIGINAL JOB
+    def select_changed2(self):
 
         try:
+            self.vl = QgsProject.instance().mapLayersByName('parcels')[0]
+
+            vLayer = self.iface.activeLayer()
+            feats_count = vLayer.selectedFeatureCount()
+
+            self.iface.setActiveLayer(self.vl)
+            canvas = self.iface.mapCanvas()
+            canvas.zoomToSelected(self.vl)
+
+            if feats_count > 1:
+
+                f = self.vl.selectedFeatures()[0]
+                destMap = f['map_bk_lot']
+
+                msg = QMessageBox()
+                msg.setWindowTitle('Selection')
+                msg.setText(str(feats_count) + ' features have been selected. Proceed?')
+                edit = msg.addButton('OK', QMessageBox.AcceptRole)
+                cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+                msg.setDefaultButton(edit)
+                msg.exec_()
+                msg.deleteLater()
+                QGuiApplication.restoreOverrideCursor()
+
+
+            else:
+                f = self.vl.selectedFeatures()[0]
+                destMap = f['map_bk_lot'] + '++'
+
+                msg = QMessageBox()
+                msg.setWindowTitle('Continue')
+                msg.setText(destMap + ' has been selected. Proceed?')
+                edit = msg.addButton('OK', QMessageBox.AcceptRole)
+                cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+                msg.setDefaultButton(edit)
+                QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+                msg.exec_()
+                msg.deleteLater()
+                QGuiApplication.restoreOverrideCursor()
+
+            if msg.clickedButton() is edit:
+                QgsMessageLog.logMessage('DESTINATION: ' + str(destMap),
+                                         'BRS_GIS', level=Qgis.Info)
+
+            elif msg.clickedButton() is cancel:
+                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed2)
+                self.iface.actionZoomLast().trigger()
+                self.iface.actionIdentify().trigger()
+                for a in self.iface.attributesToolBar().actions():
+                    if a.objectName() == 'mActionDeselectAll':
+                        a.trigger()
+                self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
+                self.iface.setActiveLayer(self.vl)
+                QgsMessageLog.logMessage('DEBUG: Plan MOVE cancelled.', 'BRS_GIS', level=Qgis.Info)
+
+                return
+            else:
+                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed2)
+                self.iface.actionZoomLast().trigger()
+                self.iface.actionIdentify().trigger()
+                for a in self.iface.attributesToolBar().actions():
+                    if a.objectName() == 'mActionDeselectAll':
+                        a.trigger()
+                self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
+                self.iface.setActiveLayer(self.vl)
+                QgsMessageLog.logMessage('DEBUG: Plan MOVE cancelled.', 'BRS_GIS', level=Qgis.Info)
+
+                return
 
             self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed2)
             # QgsMessageLog.logMessage('SELECT 2 ENTERED.', 'BRS_GIS', level=Qgis.Info)
@@ -4686,7 +4750,7 @@ class brsgis_movePlan(object):
 
             ## DONE WITH CREATION, SELECT NEW AND PROCEED WITH SWAP
 
-            # self.selectLastFeature()
+            self.selectLastFeature()
             f = self.vl.selectedFeatures()[0]
             # QgsMessageLog.logMessage('NEW FEATURE SHOULD BE SELECTED.', 'BRS_GIS', level=Qgis.Info)
 
