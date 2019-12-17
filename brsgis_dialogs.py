@@ -4690,7 +4690,7 @@ class brsgis_movePlan(object):
 
                 f = self.vl.selectedFeatures()[0]
                 destMap = f['map_bk_lot']
-
+                sid = f['gid']
                 msg = QMessageBox()
                 msg.setWindowTitle('Selection')
                 msg.setText(str(feats_count) + ' features have been selected. Proceed?')
@@ -4759,10 +4759,22 @@ class brsgis_movePlan(object):
             self.iface.messageBar().clearWidgets()
 
             ## DONE WITH CREATION, SELECT NEW AND PROCEED WITH SWAP
+            for a in self.iface.attributesToolBar().actions():
+                if a.objectName() == 'mActionDeselectAll':
+                    a.trigger()
 
-            self.selectLastFeature()
+            layerData = self.vl.dataProvider()
+            idx = layerData.fieldNameIndex('gid')
+            sid = self.vl.maximumValue(idx)
+
+            it = self.vl.getFeatures(QgsFeatureRequest().setFilterExpression(u'"gid" = {0}'.format(sid)))
+
+            for feature in it:
+                f = feature.id()
+                self.vl.select(f)
+
             f = self.vl.selectedFeatures()[0]
-            # QgsMessageLog.logMessage('NEW FEATURE SHOULD BE SELECTED.', 'BRS_GIS', level=Qgis.Info)
+            QgsMessageLog.logMessage('ONLY NEW FEATURE SHOULD BE SELECTED.', 'BRS_GIS', level=Qgis.Info)
 
             lat_lon = f['lat_lon']
             plan_id2 = f['gid']
