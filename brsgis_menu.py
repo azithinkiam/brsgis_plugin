@@ -1,6 +1,9 @@
 from __future__ import absolute_import
 
+from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtWidgets import QMenu
+from qgis._core import QgsMessageLog, Qgis
+from qgis.core import *
 
 from .brsgis_dialogs import *
 
@@ -53,6 +56,11 @@ class brsgis_menu(object):
         self.newJob_action = QAction(icon, "&Create New Job", self.iface.mainWindow())
         self.newJob_action.triggered.connect(self.newJob)
         self.new_menu.addAction(self.newJob_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.newLPJob_action = QAction(icon, "&Create New Line/Point Job", self.iface.mainWindow())
+        self.newLPJob_action.triggered.connect(self.newLPJob)
+        self.new_menu.addAction(self.newLPJob_action)
 
         # Output / PrintOuts Submenu
         icon = QIcon(os.path.dirname(__file__) + "/icons/print.svg")
@@ -227,6 +235,12 @@ class brsgis_menu(object):
         QgsMessageLog.logMessage('Launching new job...', 'BRS_GIS', level=Qgis.Info)
         self.newJob_dialog = brsgis_newJob(self.iface)
         self.newJob_dialog.initGui()
+
+    def newLPJob(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching new LP job...', 'BRS_GIS', level=Qgis.Info)
+        self.newLPJob_dialog = brsgis_newLPJob(self.iface)
+        self.newLPJob_dialog.initGui()
 
     def newPlan(self):
         # Must be saved in self, otherwise garbage collector destroys dialog

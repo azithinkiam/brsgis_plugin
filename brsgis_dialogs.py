@@ -466,6 +466,316 @@ class brsgis_newJob(object):
             return fPath
 
 
+class brsgis_newLPJob(object):
+    newJob = 0
+    selComp = 0
+    multiFeat = 0
+    count = 0
+
+    def __init__(self, iface):
+        # save reference to the QGIS interface
+        self.iface = iface
+
+    def initGui(self):
+
+        self.action = QAction("Create New Job", self.iface.mainWindow())
+        self.action.triggered.connect(self.run)
+        self.action.trigger()
+        self.iface.mapCanvas().selectionChanged.connect(self.select_changed)
+
+    def run(self):
+
+        msg = QMessageBox()
+        msg.setWindowTitle('New Line/Point Job')
+        msg.setText('Which type of new job would you like to create?')
+        line = msg.addButton('Line/Polyline', QMessageBox.AcceptRole)
+        point = msg.addButton('Point', QMessageBox.AcceptRole)
+        cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+        msg.setDefaultButton(line)
+        QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+        msg.exec_()
+        msg.deleteLater()
+        QGuiApplication.restoreOverrideCursor()
+
+        if msg.clickedButton() is line:
+            self.newJob = 0
+            if self.multiFeat == 0:
+
+                msg = QMessageBox()
+                msg.setWindowTitle('New Line/Polyline Job')
+                msg.setText('Should we use an existing feature or draw a new one?')
+                existing = msg.addButton('Use Existing', QMessageBox.AcceptRole)
+                new = msg.addButton('New', QMessageBox.AcceptRole)
+                cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+                msg.setDefaultButton(existing)
+                QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+                msg.exec_()
+                msg.deleteLater()
+                QGuiApplication.restoreOverrideCursor()
+
+                if msg.clickedButton() is existing:
+                    self.newJob = 0
+                    if self.multiFeat == 0:
+
+                        #CHOOSE LAYER - only one available atm
+                        self.vl = QgsProject.instance().mapLayersByName('ng911rdss')[0]
+                        self.iface.setActiveLayer(self.vl)
+
+                        reply = QMessageBox.question(self.iface.mainWindow(), 'New Job',
+                                                     'Click OK and select the correct line/polyline for the new job.',
+                                                     QMessageBox.Ok, QMessageBox.Cancel)
+                        if reply == QMessageBox.Ok:
+                            if self.selComp == 1:
+                                return
+                            else:
+                                self.newJob = 1
+                                if self.count == 0:
+                                    for a in self.iface.attributesToolBar().actions():
+                                        if a.objectName() == 'mActionDeselectAll':
+                                            a.trigger()
+                                            QgsMessageLog.logMessage(
+                                                'FIRST RUN: Previous selections have been cleared.',
+                                                'BRS_GIS', level=Qgis.Info)
+                                            QgsMessageLog.logMessage('LP Job creation starting...', 'BRS_GIS',
+                                                                     level=Qgis.Info)
+                                            self.iface.actionSelectFreehand().trigger()
+                                            self.count = self.count + 1
+                                else:
+                                    self.iface.actionSelectFreehand().trigger()
+
+                        else:
+                            QgsMessageLog.logMessage('DEBUG: Job creation cancelled.', 'BRS_GIS', level=Qgis.Info)
+
+        elif msg.clickedButton() is point:
+            self.multiFeat = 1
+        elif msg.clickedButton() is cancel:
+            try:
+                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+            except Exception:
+                pass
+            return
+
+    def select_changed(self):
+
+        if self.newJob == 0:
+            return
+        else:
+            try:
+                source = self.iface.activeLayer().selectedFeatures()[0]
+
+                number = source["SOURCE"]
+                streetname = source["STREETNAME"]
+                suffix = source["SUFFIX"]
+                street = str(str(number) + ' ' + streetname + ' ' + suffix)
+
+                try:
+                    address = street
+
+                except Exception:
+                    address = ''
+                    pass
+
+                msg = QMessageBox()
+                msg.setWindowTitle('New Line Job')
+                msg.setText(street + ' has been selected. Continue?')
+                create = msg.addButton('Create Job', QMessageBox.AcceptRole)
+                # add = msg.addButton(' Select Additional Parcel(s) ', QMessageBox.AcceptRole)
+                cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+                msg.setDefaultButton(create)
+                QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+                msg.exec_()
+                msg.deleteLater()
+                QGuiApplication.restoreOverrideCursor()
+
+                if msg.clickedButton() is create:
+                    self.newJob = 0
+                    if self.multiFeat == 0:
+
+                        QgsMessageLog.logMessage('Job creation will begin for: ' + str(address),
+                                                 'BRS_GIS', level=Qgis.Info)
+
+                        self.iface.actionCopyFeatures().trigger()
+                        self.newJob = 0
+                        self.fields = self.iface.activeLayer().fields()
+
+                        self.tmpLayer = QgsVectorLayer('MultiLineString?crs=EPSG:102683', 'tmp_buffer', 'memory')
+                        QgsProject.instance().addMapLayers([self.tmpLayer])
+                        self.iface.actionIdentify().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
+                        self.iface.setActiveLayer(self.vl)
+
+                        self.iface.actionToggleEditing().trigger()
+                        self.layerData = self.tmpLayer.dataProvider()
+                        self.layerData.addAttributes(self.fields)
+                        self.iface.activeLayer().commitChanges()
+
+                        self.iface.actionToggleEditing().trigger()
+                        self.iface.actionPasteFeatures().trigger()
+                        self.iface.activeLayer().commitChanges()
+
+                        vLayer = self.iface.activeLayer()
+                        Buffer_only_selected_features = True
+
+                        if vLayer.selectedFeatures() and Buffer_only_selected_features is True:
+                            features = vLayer.selectedFeatures()
+
+                        else:
+                            features = vLayer.selectedFeatures()
+
+                        lyr = self.iface.activeLayer()
+
+                        feat = self.iface.activeLayer().selectedFeatures()[0]
+
+                        buff = feat.geometry().buffer(2, 5)
+                        lyr.dataProvider().changeGeometryValues({feat.id(): buff})
+
+                        self.vl = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
+                        self.iface.setActiveLayer(self.vl)
+
+                        self.iface.actionCopyFeatures().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                        self.iface.setActiveLayer(self.vl)
+                        self.iface.actionToggleEditing().trigger()
+                        self.iface.actionPasteFeatures().trigger()
+                        self.iface.activeLayer().commitChanges()
+
+                    else:
+                        QgsMessageLog.logMessage('Job creation will begin for multiple parcels:',
+                                                 'BRS_GIS', level=Qgis.Info)
+
+                        self.iface.actionCopyFeatures().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                        self.iface.setActiveLayer(self.vl)
+                        self.iface.actionToggleEditing().trigger()
+                        self.iface.actionPasteFeatures().trigger()
+                        self.iface.mainWindow().findChild(QAction, 'mActionMergeFeatures').trigger()
+                        self.iface.activeLayer().commitChanges()
+
+                    self.iface.actionToggleEditing().trigger()
+
+                    layerData = self.vl.dataProvider()
+                    idx = layerData.fieldNameIndex('sid')
+                    sid = self.vl.maximumValue(idx)
+                    it = self.vl.getFeatures(QgsFeatureRequest().setFilterExpression(u'"sid" = {0}'.format(sid)))
+
+                    for feature in it:
+                        f = feature.id()
+                        self.vl.select(f)
+
+                    jobNo = self.vl.selectedFeatures()[0]
+
+                    job_num = str(jobNo["job_no"])
+                    lat_lon0 = str(jobNo['lat_lon'])
+                    lat_lon = formatLL(lat_lon0)
+
+                    idx3 = layerData.fieldNameIndex('lat_lon')
+                    self.vl.changeAttributeValue(jobNo.id(), idx3, lat_lon)
+                    self.vl.updateFields()
+                    self.iface.activeLayer().commitChanges()
+
+                    self.iface.actionToggleEditing().trigger()
+                    idx4 = layerData.fieldNameIndex('locus_addr')
+                    self.vl.changeAttributeValue(jobNo.id(), idx4, address)
+                    self.vl.updateFields()
+                    self.iface.activeLayer().commitChanges()
+
+                    QgsMessageLog.logMessage('Launching form for editing...', 'BRS_GIS', level=Qgis.Info)
+
+                    self.iface.actionIdentify().trigger()
+                    self.iface.actionToggleEditing().trigger()
+                    self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                    self.iface.setActiveLayer(self.vl)
+                    self.iface.actionToggleEditing().trigger()
+
+                    result = self.active_edit()
+
+                    if result:
+                        self.iface.activeLayer().commitChanges()
+                    else:
+                        self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                        self.iface.actionRollbackAllEdits().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                        self.iface.setActiveLayer(self.vl)
+                        self.iface.actionToggleEditing().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                        self.iface.setActiveLayer(self.vl)
+
+                        for f in self.vl.selectedFeatures():
+                            self.vl.deleteFeature(f.id())
+
+                        self.iface.activeLayer().commitChanges()
+                        return
+
+                    self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                    self.iface.setActiveLayer(self.vl)
+                    self.iface.activeLayer().commitChanges()
+
+                    self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                    self.iface.setActiveLayer(self.vl)
+
+                    QgsMessageLog.logMessage('JobNo:' + str(job_num) + ' has been created and saved.',
+                                             'BRS_GIS', level=Qgis.Info)
+
+                elif msg.clickedButton() is cancel:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                    return
+
+            except Exception as e:
+                exc_type, exc_obj, exc_tb = sys.exc_info()
+                fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
+                                     "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                         exc_tb.tb_lineno) + ' ' + str(e))
+                return
+
+    def active_edit(self):
+
+#       try:
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+        f = self.vl.selectedFeatures()[0]
+
+        QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+        result = self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+        if result:
+            pass
+        else:
+            QGuiApplication.restoreOverrideCursor()
+            QgsMessageLog.logMessage('DEBUG: active_edit cancelled.', 'BRS_GIS', level=Qgis.Info)
+            return 0
+
+        layer2 = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
+        QgsProject.instance().removeMapLayer(layer2.id())
+
+        self.abutters_dialog = brsgis_abutters(self.iface)
+        self.abutters_dialog.run()
+
+        QGuiApplication.restoreOverrideCursor()
+        QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
+
+        # except Exception as e:
+        #     exc_type, exc_obj, exc_tb = sys.exc_info()
+        #     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        #     QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
+        #                          "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+        #                              exc_tb.tb_lineno) + ' ' + str(e))
+        #     return
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+        self.iface.activeLayer().commitChanges()
+
+        return 1
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return fPath
+
+
 class brsgis_editJob(object):
     newJob = 0
     selComp = 0
@@ -1067,7 +1377,7 @@ class brsgis_abutters(object):
 
         feat = self.iface.activeLayer().selectedFeatures()[0]
 
-        buff = feat.geometry().buffer(20, 5)
+        buff = feat.geometry().buffer(35, 5)
         lyr.dataProvider().changeGeometryValues({feat.id(): buff})
 
         self.layerData = lyr.dataProvider()
@@ -1092,32 +1402,23 @@ class brsgis_abutters(object):
         lyr.updateFields()
         self.iface.activeLayer().commitChanges()
 
-        try:
-            feat = self.iface.activeLayer().selectedFeatures()[0]
-            referrer = feat['referrer']
-            referrerJ = feat['job_no']
-            self.iface.actionToggleEditing().trigger()
-            field_ids = []
-            fieldnames = set(['objectid', 'map_bk_lot', 'town', 'county', 'prop_loc', 'referrer', 'referrerj',
-                              'owner1', 'owner2', 'own_addr1', 'own_addr2', 'own_city', 'own_state', 'own_zip',
-                              'own_cntry', 'ls_date', 'ls_book', 'ls_page', 'geocode', 'state_id', 'lat_lon'])
+        feat = self.iface.activeLayer().selectedFeatures()[0]
+        referrer = feat['referrer']
+        referrerJ = feat['job_no']
+        self.iface.actionToggleEditing().trigger()
+        field_ids = []
+        fieldnames = set(['objectid', 'map_bk_lot', 'town', 'county', 'prop_loc', 'referrer', 'referrerj',
+                          'owner1', 'owner2', 'own_addr1', 'own_addr2', 'own_city', 'own_state', 'own_zip',
+                          'own_cntry', 'ls_date', 'ls_book', 'ls_page', 'geocode', 'state_id', 'lat_lon'])
 
-            for field in lyr.fields():
-                if field.name() not in fieldnames:
-                    idx = self.layerData.fieldNameIndex(field.name())
-                    field_ids.append(idx)
+        for field in lyr.fields():
+            if field.name() not in fieldnames:
+                idx = self.layerData.fieldNameIndex(field.name())
+                field_ids.append(idx)
 
-            self.layerData.deleteAttributes(field_ids)
-            self.tmpLayer.updateFields()
-            self.iface.activeLayer().commitChanges()
-
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION!",
-                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                                     exc_tb.tb_lineno) + ' ' + str(e))
-            return
+        self.layerData.deleteAttributes(field_ids)
+        self.tmpLayer.updateFields()
+        self.iface.activeLayer().commitChanges()
 
         layer1 = QgsProject.instance().mapLayersByName('parcels')[0]
         layer2 = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
@@ -1154,7 +1455,7 @@ class brsgis_abutters(object):
             if str(f['referrerj']) == 'NULL':
                 self.iface.activeLayer().changeAttributeValue(f.id(), idx2,
                                                               str(referrerJ), True)
-            if str(f['objectid']) in referrer:
+            if str(f['objectid']) == referrer:
                 cLayer.deleteFeature(f.id())
 
             else:
