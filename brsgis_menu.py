@@ -1,13 +1,3 @@
-from __future__ import absolute_import
-
-from PyQt5.QtCore import QCoreApplication
-from PyQt5.QtWidgets import QMenu
-from qgis._core import QgsMessageLog, Qgis
-from qgis.core import *
-
-from .brsgis_dialogs import *
-
-
 # -------------------------------------------------------------
 #    brsgis_menu - QGIS plugins menu class
 #
@@ -21,6 +11,7 @@ from .brsgis_dialogs import *
 #   Boothbay Regional Surveyors, LLC.
 # -------------------------------------------------------------
 
+from .brsgis_dialogs import *
 
 # ---------------------------------------------
 
@@ -232,8 +223,8 @@ class brsgis_menu(object):
 
     def newJob(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Launching new job...', 'BRS_GIS', level=Qgis.Info)
-        self.newJob_dialog = brsgis_newJob(self.iface)
+        # QgsMessageLog.logMessage('Launching new job...', 'BRS_GIS', level=Qgis.Info)
+        self.newJob_dialog = brsgis_newJob_ORIGINAL(self.iface)
         self.newJob_dialog.initGui()
 
     def newLPJob(self):
