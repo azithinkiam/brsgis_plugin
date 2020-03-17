@@ -1,18 +1,25 @@
-﻿import os.path
-import threading
-from PyQt5.QtWidgets import *
+﻿from __future__ import absolute_import
+from __future__ import print_function
 
-#
-from .forms.brsgis_label_form import *
-
-try:
-	from .brsgis_menu import *
-except:
-	from brsgis_library import *
-
+import os.path
+import processing
 import sys
+import threading
+from builtins import range
+from functools import partial
+
+import pyperclip
+from PyQt5.QtCore import QVariant, Qt, QRectF
+from PyQt5.QtGui import QIcon, QGuiApplication
+from PyQt5.QtWidgets import QPushButton, QAction, QMessageBox, QDialog
+from qgis.core import *
+from qgis.core import QgsProject, QgsMessageLog, QgsDataSourceUri, Qgis, QgsPrintLayout, QgsUnitTypes, QgsLayoutSize, \
+    QgsLayoutItemMap, QgsLayoutItemLabel, QgsLayoutItemScaleBar, QgsLayoutExporter
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/forms")
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/QML")
+
+from .forms.brsgis_label_form import *
 
 # common functions
 
@@ -522,54 +529,6 @@ class brsgis_newLPJob(object):
         # save reference to the QGIS interface
         self.iface = iface
 
-    def getNeighborData(self):
-
-        cLayer = self.iface.activeLayer()
-
-        try:
-
-            provider = cLayer.dataProvider()
-            spIndex = QgsSpatialIndex()  # create spatial index object
-            feat = QgsFeature()
-            fit = provider.getFeatures()  # gets all features in layer
-
-            # insert features to index
-            while fit.nextFeature(feat):
-                spIndex.insertFeature(feat)
-
-            geometry = features[0].geometry()
-            centroid = geometry.centroid().asPoint()
-
-            # QgsSpatialIndex.nearestNeighbor (QgsPoint point, int neighbors)
-            nearestIds = spIndex.nearestNeighbor(centroid, 1)  # we need only one neighbour
-            QgsMessageLog.logMessage('nearestIds | ' + str(nearestIds), 'BRS_GIS',
-                                     level=Qgis.Info)
-
-            geom = None
-            for feat in features:
-
-                for f in nearestIds:
-                    if feat['objectid'] == f:
-                        pass
-                    else:
-                        zipcode = feat['zipcode']
-                        county = feat['county']
-                        l_l = feat['lat_lon']
-
-                if geom == None:
-                    geom = feat.geometry()
-
-                else:
-                    geom = geom.combine(feat.geometry())
-
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
-                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                                     exc_tb.tb_lineno) + ' ' + str(e))
-            QGuiApplication.restoreOverrideCursor()
-            return
 
     def initGui(self):
 
@@ -714,13 +673,16 @@ class brsgis_newLPJob(object):
                                              'Click OK and draw the new point feature.',
                                              QMessageBox.Ok, QMessageBox.Cancel)
 
+                self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                self.iface.setActiveLayer(self.vl)
+
                 if reply == QMessageBox.Ok:
                     self.newJob = 1
                     for a in self.iface.attributesToolBar().actions():
                         if a.objectName() == 'mActionDeselectAll':
                             a.trigger()
                             # addFeatures
-                            for a in iface.mainWindow().children():
+                            for a in self.iface.mainWindow().children():
                                 if a.objectName() == 'mActionCircle2Points':
                                     a.trigger()
                             QgsMessageLog.logMessage('READY TO DRAW.', 'BRS_GIS',
@@ -740,7 +702,7 @@ class brsgis_newLPJob(object):
 
 
     def feature_added(self, featureAdded):
-        layer = iface.activeLayer()
+        layer = self.iface.activeLayer()
         layer.featureAdded.disconnect()
         layer.select(featureAdded)
         layer.commitChanges()
@@ -786,6 +748,7 @@ class brsgis_newLPJob(object):
                                                  'BRS_GIS', level=Qgis.Info)
                         pass
                     else:
+
                         # copy selected feature
                         self.iface.actionCopyFeatures().trigger()
                         self.fields = self.iface.activeLayer().fields()
@@ -796,6 +759,12 @@ class brsgis_newLPJob(object):
                         self.iface.actionIdentify().trigger()
                         self.vl = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
                         self.iface.setActiveLayer(self.vl)
+
+                        # add fields to tmp layer
+                        self.iface.actionToggleEditing().trigger()
+                        self.layerData = self.tmpLayer.dataProvider()
+                        self.layerData.addAttributes(self.fields)
+                        self.iface.activeLayer().commitChanges()
 
                         # add fields to tmp layer
                         self.iface.actionToggleEditing().trigger()
@@ -823,7 +792,104 @@ class brsgis_newLPJob(object):
 
                         # return (testing only)
 
-                    self.vl = self.iface.activeLayer()
+                    import processing
+                    from processing.core.Processing import Processing
+                    Processing.initialize()
+
+                    sInput = 'dbname=\'BRS_GIS_PRD\' host=localhost port=5432 sslmode=disable key=\'gid\' srid=0 ' \
+                             'type=MultiPolygon table=\"public\".\"parcels_final\" (geom) sql='
+
+                    self.fb = QgsProcessingFeedback()
+                    self.context = QgsProcessingContext
+
+                    self.vl = processing.run("native:extractbylocation", {
+                                   'INPUT': sInput,
+                                   'INTERSECT': QgsProcessingFeatureSourceDefinition(
+                                            'brs_jobs', True),
+                                   'OUTPUT': 'memory:',
+                                   'PREDICATE': [0]},feedback=self.fb)['OUTPUT']
+                    try:
+                        QgsProject.instance().addMapLayer(self.vl)
+                        self.iface.setActiveLayer(self.vl)
+                        self.selectLastFeature()
+                        self.offshore = 0
+
+                    except Exception as e:
+                        QgsMessageLog.logMessage('OFFSHORE!', 'BRS_GIS', level=Qgis.Info)
+                        self.iface.actionCopyFeatures().trigger()
+
+                        # create tmp layer for buffer
+                        self.tmpLayer = QgsVectorLayer('MultiPolygon?crs=EPSG:102683', 'tmp_buffer', 'memory')
+                        QgsProject.instance().addMapLayers([self.tmpLayer])
+                        self.iface.actionIdentify().trigger()
+                        self.vl = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
+                        self.iface.setActiveLayer(self.vl)
+
+                        # paste buffered feature onto tmp layer
+                        self.iface.actionToggleEditing().trigger()
+                        self.iface.actionPasteFeatures().trigger()
+                        self.iface.activeLayer().commitChanges()
+
+                        # back to tmp_buffer layer | WIDE buffer to get onto land mass (hopefully)
+                        self.vl = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
+                        self.iface.setActiveLayer(self.vl)
+
+                        self.selectLastFeature()
+
+                        feat = self.iface.activeLayer().selectedFeatures()[0]
+                        buff = feat.geometry().buffer(750, 5)
+                        # may need to make this an input/measurement/percentage depending on feedback
+                        layerData = self.vl.dataProvider()
+                        layerData.changeGeometryValues({feat.id(): buff})
+
+                        # intersect w/parcels for municipal data
+
+                        sInput = 'dbname=\'BRS_GIS_PRD\' host=localhost port=5432 sslmode=disable key=\'gid\' srid=0 ' \
+                                 'type=MultiPolygon table=\"public\".\"parcels_final\" (geom) sql='
+
+                        self.fb = QgsProcessingFeedback()
+                        self.context = QgsProcessingContext
+
+                        try:
+                            self.iface.setActiveLayer(self.vl)
+                            self.selectLastFeature()
+
+                            self.vl = processing.run("native:extractbylocation", {
+                                'INPUT': sInput,
+                                'INTERSECT': QgsProcessingFeatureSourceDefinition(
+                                    'tmp_buffer', True),
+                                'OUTPUT': 'memory:',
+                                'PREDICATE': [0]}, feedback=self.fb)['OUTPUT']
+
+                            QgsProject.instance().addMapLayer(self.vl)
+                            self.iface.setActiveLayer(self.vl)
+                            self.selectLastFeature()
+                            QgsMessageLog.logMessage('SUCCESS', 'BRS_GIS', level=Qgis.Info)
+                            self.offshore = 1
+
+                        except Exception as e:
+                            QgsMessageLog.logMessage('FAIL' + str(source), 'BRS_GIS', level=Qgis.Info)
+                            return
+
+
+                    source = self.iface.activeLayer().selectedFeatures()[0]
+
+                    # effectively grabbing a random nearby parcel
+                    # can consider a merge on the output layer to allow review and selection of
+                    # preferred value though that will introduce another decision point
+
+                    map_bk_lot = source['map_bk_lot']
+                    town = source['town']
+                    county = source['county']
+                    zip = source['zipcode']
+                    state = 'ME'
+
+                    QgsMessageLog.logMessage('data: ' + str(map_bk_lot) + ' | ' + str(town) + ' | ' + str(county) + ' | '
+                                             + 'ME' + ' | ' + str(zip), 'BRS_GIS', level=Qgis.Info)
+
+                    self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                    self.iface.setActiveLayer(self.vl)
+
                     new_job = self.vl.selectedFeatures()[0]
                     job_num = str(new_job["job_no"])
 
@@ -831,12 +897,23 @@ class brsgis_newLPJob(object):
 
                     self.iface.actionToggleEditing().trigger()
                     lat_lon0 = new_job['lat_lon']
-                    lat_lon = formatLL(lat_lon0)
-                    layerData = self.vl.dataProvider()
-                    idx3 = layerData.fieldNameIndex('lat_lon')
-                    self.vl.changeAttributeValue(new_job.id(), idx3, lat_lon)
-                    self.vl.updateFields()
-                    self.iface.activeLayer().commitChanges()
+                    QgsMessageLog.logMessage('lat_lon (RAW): ' + str(lat_lon0), 'BRS_GIS', level=Qgis.Info)
+
+                    try:
+                        lat_lon = formatLL(lat_lon0)
+                        layerData = self.vl.dataProvider()
+                        idx3 = layerData.fieldNameIndex('lat_lon')
+                        self.vl.changeAttributeValue(new_job.id(), idx3, lat_lon)
+                        self.vl.updateFields()
+                        self.iface.activeLayer().commitChanges()
+                    except Exception as e:
+                        lat_lon = 'TBD'
+                        layerData = self.vl.dataProvider()
+                        idx3 = layerData.fieldNameIndex('lat_lon')
+                        self.vl.changeAttributeValue(new_job.id(), idx3, lat_lon)
+                        self.vl.updateFields()
+                        self.iface.activeLayer().commitChanges()
+                        pass
 
                     # set initial attribute values
                     self.iface.actionToggleEditing().trigger()
@@ -845,32 +922,59 @@ class brsgis_newLPJob(object):
                     self.vl.updateFields()
                     self.iface.activeLayer().commitChanges()
 
+                    self.iface.actionToggleEditing().trigger()
+                    idx5 = layerData.fieldNameIndex('town')
+                    self.vl.changeAttributeValue(new_job.id(), idx5, town)
+                    self.vl.updateFields()
+                    self.iface.activeLayer().commitChanges()
+
+                    self.iface.actionToggleEditing().trigger()
+                    idx6 = layerData.fieldNameIndex('county')
+                    self.vl.changeAttributeValue(new_job.id(), idx6, county)
+                    self.vl.updateFields()
+                    self.iface.activeLayer().commitChanges()
+
+                    self.iface.actionToggleEditing().trigger()
+                    idx7 = layerData.fieldNameIndex('zipcode')
+                    self.vl.changeAttributeValue(new_job.id(), idx7, zip)
+                    self.vl.updateFields()
+                    self.iface.activeLayer().commitChanges()
+
+                    self.iface.actionToggleEditing().trigger()
+                    idx8 = layerData.fieldNameIndex('area')
+                    self.vl.changeAttributeValue(new_job.id(), idx8, '0')
+                    self.vl.updateFields()
+                    self.iface.activeLayer().commitChanges()
+
+                    self.iface.actionToggleEditing().trigger()
+                    idx9 = layerData.fieldNameIndex('map_bk_lot')
+
+                    if self.offshore == 1:
+                        self.vl.changeAttributeValue(new_job.id(), idx9, (map_bk_lot + ' (nearby)'))
+                    else:
+                        self.vl.changeAttributeValue(new_job.id(), idx9, (map_bk_lot + ' (intersect)'))
+
+                    self.vl.updateFields()
+                    self.iface.activeLayer().commitChanges()
+
                     QgsMessageLog.logMessage('Launching form for editing...', 'BRS_GIS', level=Qgis.Info)
 
                     self.iface.actionIdentify().trigger()
                     self.iface.actionToggleEditing().trigger()
+
                     self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
                     self.iface.setActiveLayer(self.vl)
                     self.iface.actionToggleEditing().trigger()
 
-                    # EXTRACT BY LOCATION (Processing Toolbox | Vector Selection)
-                    # Input
-                    # parameters:
-                    # {
-                    #     'INPUT': 'dbname=\'BRS_GIS_PRD\' host=localhost port=5432 sslmode=disable key=\'gid\' srid=0 type=MultiPolygon table=\"public\".\"parcels_final\" (geom) sql=',
-                    #     'INTERSECT': QgsProcessingFeatureSourceDefinition(
-                    #         'brs_jobs_9578185e_0c06_48ea_ab6c_2575ee52f68e', True), 'OUTPUT': 'memory:',
-                    #     'PREDICATE': [0]}
-                    # Output
-                    # Layer:
-                    # Extracted(location)
-                    #
-                    # this layer will have town, county, zip and map_bk_lot from any intersecting parcel.
-                    # if no intersection, need to find nearest neighbor?
+                    try:
+                        tmpLayer = QgsProject.instance().mapLayersByName('output')[0]
+                        QgsProject.instance().removeMapLayer(tmpLayer.id())
+
+                    except Exception as e:
+                        pass
 
                     try:
                         layer2 = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
-                        # extracted(location)
                         QgsProject.instance().removeMapLayer(layer2.id())
                     except Exception as e:
                         pass
@@ -880,7 +984,6 @@ class brsgis_newLPJob(object):
                     if result:
                         self.iface.activeLayer().commitChanges()
                     else:
-                        self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
                         self.iface.actionRollbackAllEdits().trigger()
                         self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
                         self.iface.setActiveLayer(self.vl)
@@ -3235,6 +3338,7 @@ class brsgis_printMapView(object):
 
         # enable brs_jobs standard style | filter: n/a
         qmlPath = self.resolve(jstd)
+        # QgsMessageLog.logMessage('qmlPath: ' + str(qmlPath) + '...', 'BRS_GIS', level=Qgis.Info)
         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
         self.vl.loadNamedStyle(qmlPath)
         self.vl.setSubsetString('')
@@ -3255,11 +3359,15 @@ class brsgis_printMapView(object):
 
     def toggleLayer(self, layer, status):
         # QgsMessageLog.logMessage('TOGGLE: ' + layer + '...', 'BRS_GIS', level=Qgis.Info)
-        lyr = QgsProject.instance().mapLayersByName(layer)[0]
-        if status == 0:
-            QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(False)
-        else:
-            QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(True)
+        try:
+            lyr = QgsProject.instance().mapLayersByName(layer)[0]
+            if status == 0:
+                QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(False)
+            else:
+                QgsProject.instance().layerTreeRoot().findLayer(lyr.id()).setItemVisibilityChecked(True)
+        except Exception as e:
+            pass
+
 
     def make_pdf(self, cf, jn, cn, jt, county, cfile):
 
@@ -3480,9 +3588,6 @@ class brsgis_printSiteMap(object):
 
         ids = [attribs.id()]
 
-
-        # QgsMessageLog.logMessage('fId: ' + str(ids), 'BRS_GIS', level=Qgis.Info)
-
         jobNo = attribs["job_no"]
         jobYear = '20' + jobNo[:2]
 
@@ -3530,13 +3635,6 @@ class brsgis_printSiteMap(object):
         self.toggleLayer('brs_jobs', 1)
         self.toggleLayer('ng911rdss', 1)
 
-        # self.toggleLayer('la_plans', 1)
-        # self.toggleLayer('relatedwork', 1)
-        # self.toggleLayer('metwp24P', 1)
-        # self.toggleLayer('county', 1)
-        # self.toggleLayer('ZipCodes', 1)
-        #self.toggleLayer('FEMA', 0)
-
         root = QgsProject.instance().layerTreeRoot()
         group = root.findGroup('FEMA')
 
@@ -3555,18 +3653,9 @@ class brsgis_printSiteMap(object):
 
         self.vl.loadNamedStyle(qmlPath)
 
-        # self.toggleLayer('parcels', 1)
-        # self.toggleLayer('abutters', 1)
-        # self.toggleLayer('la_plans', 1)
-        # self.toggleLayer('relatedwork', 1)
-        # self.toggleLayer('metwp24P', 1)
-        # self.toggleLayer('county', 1)
-        # self.toggleLayer('ZipCodes', 1)
-        #self.toggleLayer('FEMA', 0)
-
         for l in layersNames:
             self.toggleLayer(l, 1)
-            QgsMessageLog.logMessage('layer ON: ' + str(l) + '...', 'BRS_GIS', level=Qgis.Info)
+            # QgsMessageLog.logMessage('layer ON: ' + str(l) + '...', 'BRS_GIS', level=Qgis.Info)
 
         self.toggleLayer('USA_Topo_Maps', 0)
         QgsProject.instance().layerTreeRoot().findGroup('FEMA').setItemVisibilityChecked(0)
