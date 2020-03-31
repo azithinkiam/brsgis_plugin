@@ -2757,7 +2757,7 @@ class brsgis_label_dialog(QDialog, Ui_brsgis_label_form):
         ws3 = wb.active
 
         cv1 = folderName + '(' + folderType + ')' + ' | ' + map_bk_lot
-        cv2 = addr + ", " + town + " | " + jobType + " | " + jobSubType
+        cv2 = addr + ", " + town + " | " + jobType  # + " | " + jobSubType
 
         if dv == 0:
             ws3['A19'] = cv1
@@ -2939,7 +2939,7 @@ class brsgis_printMapTable(object):
                 ws['F2'] = state
                 ws['A3'] = 'Job#: ' + str(jobNo)
                 ws['B3'] = 'Rev#: ' + str(revNo)
-                ws['C3'] = 'Type: ' + str(jobType) + ' | ' + str(jobSubType)
+                ws['C3'] = 'Type: ' + str(jobType)  # + ' | ' + str(jobSubType)
                 ws['D3'] = 'Perimeter: ' + str(perimeter) + ' L.Ft'
                 ws['E3'] = 'Area: ' + str(area) + ' Ac.'
                 ws['F3'] = 'Centroid: ' + str(lat_lon)
@@ -3657,7 +3657,7 @@ class brsgis_printMapView(object):
         jobSubType = attribs["jobSubtype"]
         jobType = getJobType(jobType)
         jobSubType = getJobSubType(jobSubType)
-        jobType = jobType + ' | ' + jobSubType
+        # jobType = jobType  + ' | ' + jobSubType
         county = attribs["county"]
         jobYear = '20' + jobNo[:2]
 
