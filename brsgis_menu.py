@@ -54,7 +54,7 @@ class brsgis_menu(object):
         self.new_menu.addAction(self.newJob_action)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
-        self.newLPJob_action = QAction(icon, "&Create New Line/Point Job", self.iface.mainWindow())
+        self.newLPJob_action = QAction(icon, "&Create New Line/Free Polygonal Job", self.iface.mainWindow())
         self.newLPJob_action.triggered.connect(self.newLPJob)
         self.new_menu.addAction(self.newLPJob_action)
 

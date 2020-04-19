@@ -1,4 +1,3 @@
-from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit, QDialogButtonBox, QLabel, \
     QPlainTextEdit
 
@@ -18,7 +17,7 @@ def formOpen(dialog, layerid, featureid):
 
         try:
             # dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)  # no title bar/x, no Move.
-            dialog.parent().setWindowFlags(Qt.WindowTitleHint)  # x visible but not enabled
+            # dialog.parent().setWindowFlags(Qt.CustomizeWindowHint)  # x visible but not enabled
             dialog.parent().setFixedWidth(1080)
             dialog.parent().setFixedHeight(950)
             dialog.parent().setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
@@ -64,6 +63,11 @@ def formOpen(dialog, layerid, featureid):
             pass
 
         if objectType.toPlainText() == 'polygon':
+            mbl.show()
+            lblMBL.show()
+            lblOT.hide()
+            lblOT.setEnabled(False)
+            objectType.hide()
             pass
         else:
             mbl.hide()
