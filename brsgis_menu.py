@@ -48,21 +48,43 @@ class brsgis_menu(object):
         self.new_menu.setIcon(icon)
         self.brsgis_add_submenu(self.new_menu)
 
+        # JOBS Submenu
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
-        self.newJob_action = QAction(icon, "&Create New Job", self.iface.mainWindow())
-        self.newJob_action.triggered.connect(self.newJob)
-        self.new_menu.addAction(self.newJob_action)
+        self.job_menu = QMenu(QCoreApplication.translate("&New", "&Job"))
+        self.job_menu.setIcon(icon)
+        self.new_menu.addMenu(self.job_menu)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
-        self.newLPJob_action = QAction(icon, "&Create New Line/Free Polygonal Job", self.iface.mainWindow())
+        self.newJob_action = QAction(icon, "&Parcel-based", self.iface.mainWindow())
+        self.newJob_action.triggered.connect(self.newJob)
+        self.job_menu.addAction(self.newJob_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.newLPJob_action = QAction(icon, "&Line/Freehand-based", self.iface.mainWindow())
         self.newLPJob_action.triggered.connect(self.newLPJob)
-        self.new_menu.addAction(self.newLPJob_action)
+        self.job_menu.addAction(self.newLPJob_action)
+
+        # SUPPLEMENGTALS Submenu
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.supp_menu = QMenu(QCoreApplication.translate("&New", "&Supplemental"))
+        self.supp_menu.setIcon(icon)
+        self.new_menu.addMenu(self.supp_menu)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.newSupp_action = QAction(icon, "&Parcel-based", self.iface.mainWindow())
+        self.newSupp_action.triggered.connect(self.setSuppType)
+        self.supp_menu.addAction(self.newSupp_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.newLPSupp_action = QAction(icon, "&Line/Freehand-based", self.iface.mainWindow())
+        self.newLPSupp_action.triggered.connect(self.setSuppType)
+        self.supp_menu.addAction(self.newLPSupp_action)
 
         # Output / PrintOuts Submenu
         icon = QIcon(os.path.dirname(__file__) + "/icons/print.svg")
         self.output_entry_menu = QMenu(QCoreApplication.translate("&New", "&Outputs / PrintOuts"))
         self.output_entry_menu.setIcon(icon)
-        self.new_menu.addMenu(self.output_entry_menu)
+        self.job_menu.addMenu(self.output_entry_menu)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/face.svg")
         self.printFolderLabel_action = QAction(icon, "Print &Folder Face Label", self.iface.mainWindow())
@@ -99,11 +121,11 @@ class brsgis_menu(object):
         self.printSiteMap_action.triggered.connect(self.printSiteMap)
         self.output_entry_menu.addAction(self.printSiteMap_action)
 
-        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
-        self.newPlan_action = QAction(icon, "C&reate New Plan", self.iface.mainWindow())
-        self.newPlan_action.triggered.connect(self.newPlan)
-        # self.newJob_action.triggered.connect(self.newJob)
-        self.new_menu.addAction(self.newPlan_action)
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        # self.newPlan_action = QAction(icon, "C&reate New Plan", self.iface.mainWindow())
+        # self.newPlan_action.triggered.connect(self.newPlan)
+        # # self.newJob_action.triggered.connect(self.newJob)
+        # self.new_menu.addAction(self.newPlan_action)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
         self.edit_menu = QMenu(QCoreApplication.translate("brsgis", "&Edit"))
@@ -120,10 +142,10 @@ class brsgis_menu(object):
         self.search_menu.setIcon(icon)
         self.brsgis_add_submenu(self.search_menu)
 
-        icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
-        self.editPlan_action = QAction(icon, "&Edit Existing Plan", self.iface.mainWindow())
-        self.editPlan_action.triggered.connect(self.editPlan)
-        self.edit_menu.addAction(self.editPlan_action)
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
+        # self.editPlan_action = QAction(icon, "&Edit Existing Plan", self.iface.mainWindow())
+        # self.editPlan_action.triggered.connect(self.editPlan)
+        # self.edit_menu.addAction(self.editPlan_action)
 
         # search menu
         icon = QIcon(os.path.dirname(__file__) + "/icons/search.svg")
@@ -234,8 +256,9 @@ class brsgis_menu(object):
 
     def newLPJob(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
+        supp_type = ''
         QgsMessageLog.logMessage('Launching new LP job...', 'BRS_GIS', level=Qgis.Info)
-        self.newLPJob_dialog = brsgis_newLPJob(self.iface)
+        self.newLPJob_dialog = brsgis_newLPJob(self.iface, supp_type)
         self.newLPJob_dialog.initGui()
 
     def newPlan(self):
@@ -280,6 +303,12 @@ class brsgis_menu(object):
         self.label_dialog = brsgis_label_dialog(self.iface)
         #self.label_dialog.setWindowModality(NonModal)
         self.label_dialog.show()
+
+    def setSuppType(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching Supplmental Form...', 'BRS_GIS', level=Qgis.Info)
+        self.supp_dialog = brsgis_supp_dialog(self.iface)
+        self.supp_dialog.show()
 
     def abutters(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
