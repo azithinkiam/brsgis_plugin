@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit, QDialogButtonBox, QLabel, \
-    QPlainTextEdit
+    QPlainTextEdit, QComboBox, QGroupBox
 
 # nameField = None
 
@@ -18,8 +18,8 @@ def formOpen(dialog, layerid, featureid):
         try:
             # dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)  # no title bar/x, no Move.
             # dialog.parent().setWindowFlags(Qt.CustomizeWindowHint)  # x visible but not enabled
-            dialog.parent().setFixedWidth(1080)
-            dialog.parent().setFixedHeight(950)
+            dialog.parent().setFixedWidth(875)
+            dialog.parent().setFixedHeight(600)
             dialog.parent().setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
 
         except Exception:
@@ -27,6 +27,7 @@ def formOpen(dialog, layerid, featureid):
 
         # global nameField
         # nameField = dialog.findChild(QLineEdit, "Name")
+
         buttonP2 = dialog.findChild(QToolButton, "buttonP2")
         buttonP1 = dialog.findChild(QToolButton, "buttonP1")
         job_desc = dialog.findChild(QTextEdit, "job_desc")
@@ -44,15 +45,42 @@ def formOpen(dialog, layerid, featureid):
         hrs_misc_comp = dialog.findChild(QLineEdit, "hrs_misc_comp")
         planbook_page = dialog.findChild(QLineEdit, "planbook_page")
         recorded_by = dialog.findChild(QLineEdit, "recorded_by")
+        folder_type = dialog.findChild(QLineEdit, "folder_type")
         folder_name = dialog.findChild(QLineEdit, "folder_name")
         buttonBox = dialog.findChild(QDialogButtonBox, "buttonBox")
         client_name = dialog.findChild(QLineEdit, "client_name")
         lowtide_hrs = dialog.findChild(QLineEdit, "lowtide_hrs")
         client_role = dialog.findChild(QLineEdit, "folder_type")
         objectType = dialog.findChild(QPlainTextEdit, "objectType")
+
         mbl = dialog.findChild(QPlainTextEdit, "map_bk_lot")
         lblOT = dialog.findChild(QLabel, "label_ot")
         lblMBL = dialog.findChild(QLabel, "label_mbl")
+        lblDate = dialog.findChild(QLabel, "l_date")
+        lblType1 = dialog.findChild(QLabel, "l_type1")
+        type1 = dialog.findChild(QComboBox, "type1")
+        type2 = dialog.findChild(QComboBox, "type2")
+        scale = dialog.findChild(QLineEdit, "scale")
+        pls = dialog.findChild(QLineEdit, "pls_no")
+        lblType2 = dialog.findChild(QLabel, "l_type2")
+        lblName1 = dialog.findChild(QLabel, "l_1")
+        lblName2 = dialog.findChild(QLabel, "l_2")
+        lblName3 = dialog.findChild(QLabel, "l_3")
+        lbl3 = dialog.findChild(QLabel, "l_name3")
+        lbl4 = dialog.findChild(QLabel, "l_name4")
+        lpls = dialog.findChild(QLabel, "l_pls")
+
+        supp = dialog.findChild(QComboBox, "supp_type")
+        job_type = dialog.findChild(QComboBox, "job_type")
+        jobSubType = dialog.findChild(QComboBox, "jobSubtype")
+        designType = dialog.findChild(QComboBox, "design_type")
+        mapType = dialog.findChild(QComboBox, "map_type")
+        mapSubtype = dialog.findChild(QComboBox, "map_subtype")
+        docSubtype = dialog.findChild(QComboBox, "document_subtype")
+
+        gbRecording = dialog.findChild(QGroupBox, "groupBox_recording")
+
+        job_type.hide()
 
         try:
             s = dialog.findChild(QStackedWidget, "stackedWidget")
@@ -61,6 +89,217 @@ def formOpen(dialog, layerid, featureid):
 
         except Exception as e:
             pass
+
+        if supp.currentText() == 'D':
+            lblDate.setText("Document Date")
+            lblType1.setText("Document SubType")
+            lblType2.hide()
+            type2.hide()
+            designType.hide()
+            jobSubType.hide()
+            job_type.hide()
+            lblName3.hide()
+            scale.hide()
+            lblName1.setText("Document Number")
+            lblName2.setText("Office")
+            lbl3.hide()
+            lbl4.hide()
+            mapType.hide()
+            mapSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'R':
+            lblType1.setText("Job Type")
+            lblType2.setText("Job SubType")
+            designType.hide()
+            type1.hide()
+            job_type.show()
+            jobSubType.show()
+            lblDate.setText("Photo Date")
+            lblName1.setText("Photographer")
+            lblName2.setText("Quality")
+            lblName3.hide()
+            lbl3.hide()
+            lbl4.hide()
+            scale.hide()
+            gbRecording.hide()
+            mapType.hide()
+            mapSubtype.hide()
+            docSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'P':
+            lblDate.setText("Date")
+            lblType1.setText("Job Type")
+            lblType2.setText("Job SubType")
+            designType.show()
+            type1.hide()
+            job_type.show()
+            jobSubType.show()
+            lblName1.setText("Author")
+            lblName2.hide()
+            folder_type.hide()
+            lblName3.hide()
+            lbl3.setText("Design Type")
+            lbl4.hide()
+            scale.hide()
+            gbRecording.hide()
+            mapType.hide()
+            mapSubtype.hide()
+            docSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'H':
+            lblDate.setText("Date")
+            lblType1.hide()
+            lblType2.hide()
+            designType.hide()
+            type1.hide()
+            type2.hide()
+            job_type.hide()
+            jobSubType.hide()
+            lblName1.setText("Author")
+            lblName2.setText("Title")
+            lblName3.hide()
+            lbl3.show()
+            lbl4.show()
+            scale.hide()
+            gbRecording.hide()
+            mapType.show()
+            mapSubtype.show()
+            docSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'T':
+            lblDate.setText("Date")
+            lblType1.hide()
+            type1.hide()
+            lblType2.hide()
+            type2.hide()
+            designType.hide()
+            type1.hide()
+            job_type.hide()
+            jobSubType.hide()
+            lblName1.setText("Author")
+            lblName2.setText("Quality")
+            lblName3.setText("Map Number")
+            lbl3.hide()
+            lbl4.hide()
+            scale.show()
+            if scale.text() == 'NULL':
+                scale.setText('')
+            gbRecording.hide()
+            mapType.hide()
+            mapSubtype.hide()
+            docSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'M':
+            lblDate.setText("Date")
+            lblType1.setText("Job Type")
+            lblType2.setText("Job SubType")
+            designType.hide()
+            job_type.show()
+            jobSubType.show()
+            lblName1.setText("Author")
+            lblName2.setText("Quality")
+            lblName3.setText("Scale")
+            lbl3.show()
+            lbl4.show()
+            scale.show()
+            if scale.text() == 'NULL':
+                scale.setText('')
+            gbRecording.hide()
+            mapType.show()
+            mapSubtype.show()
+            docSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'O':
+            lblDate.setText("Date")
+            lblType1.hide()
+            lblType2.hide()
+            designType.hide()
+            type1.hide()
+            type2.hide()
+            job_type.hide()
+            jobSubType.hide()
+            lblName1.hide()
+            lblName2.hide()
+            lblName3.hide()
+            lbl3.hide()
+            lbl4.hide()
+            client_name.hide()
+            folder_type.hide()
+            lblName3.hide()
+            scale.hide()
+            gbRecording.hide()
+            mapType.hide()
+            mapSubtype.hide()
+            docSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'Q':
+            lblDate.setText("Date")
+            lblType1.hide()
+            lblType2.hide()
+            designType.hide()
+            type1.hide()
+            type2.hide()
+            job_type.hide()
+            jobSubType.hide()
+            lblName1.setText("Name")
+            lblName2.hide()
+            lblName3.hide()
+            lbl3.show()
+            lbl4.hide()
+            client_name.show()
+            folder_type.hide()
+            lblName3.show()
+            scale.show()
+            if scale.text() == 'NULL':
+                scale.setText('')
+            gbRecording.hide()
+            mapType.show()
+            mapSubtype.hide()
+            docSubtype.hide()
+            lpls.hide()
+            pls.hide()
+
+        elif supp.currentText() == 'K':
+            lblDate.setText("Date of Plan")
+            lblType1.setText("Job Type")
+            lblType2.setText("Job SubType")
+            designType.hide()
+            type1.hide()
+            type2.hide()
+            job_type.show()
+            jobSubType.show()
+            lblName1.setText("Name")
+            lblName2.setText("Address")
+            lblName3.setText("Surveyor Name")
+            lbl3.hide()
+            lbl4.hide()
+            client_name.show()
+            folder_type.show()
+            scale.show()
+            if scale.text() == 'NULL':
+                scale.setText('')
+            gbRecording.show()
+            mapType.hide()
+            mapSubtype.hide()
+            docSubtype.hide()
+            if pls.text() == 'NULL':
+                pls.setText('')
+        else:
+            lblDate.setText("Date")
 
         if objectType.toPlainText() == 'polygon':
             mbl.show()
@@ -87,11 +326,8 @@ def formOpen(dialog, layerid, featureid):
         try:
             if locus_addr.text() == 'NULL':
                 locus_addr.setText('')
-            elif locus_addr.text() == 'New Polygon Feature':
-                locus_addr.setText('')
             else:
                 pass
-
         except Exception as e:
             pass
 

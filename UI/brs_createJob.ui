@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Browser</class>
+ <widget class="QWidget" name="Browser">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>360</width>
+    <height>321</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BRS_GIS SQL Browser</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="brs_contacts" name="stackedWidget">
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="jobsdata" name="p3_jobsData">
+      <layout class="QGridLayout" name="gridLayout_11">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <widget class="QGroupBox" name="groupBox_contact">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>301</width>
+            <height>261</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Create NEW Job (BRS)</string>
+          </property>
+          <widget class="QComboBox" name="jobType">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>60</y>
+             <width>131</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_11">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>120</y>
+             <width>81</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>JOB SubType</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>40</y>
+             <width>65</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>JOB Type</string>
+           </property>
+           <property name="buddy">
+            <cstring>jobType</cstring>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_27">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>131</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>SOURCE Feature Type</string>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="featureType">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>131</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="jobSubtype">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>140</y>
+             <width>131</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+          <zorder>jobType</zorder>
+          <zorder>label_10</zorder>
+          <zorder>label_11</zorder>
+          <zorder>label_27</zorder>
+          <zorder>featureType</zorder>
+          <zorder>jobSubtype</zorder>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+  <action name="insertRowAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Insert Row</string>
+   </property>
+   <property name="statusTip">
+    <string>Inserts a new Row</string>
+   </property>
+  </action>
+  <action name="deleteRowAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Delete Row</string>
+   </property>
+   <property name="statusTip">
+    <string>Deletes the current Row</string>
+   </property>
+  </action>
+  <action name="fieldStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit on &amp;Field Change</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit on Field Change</string>
+   </property>
+  </action>
+  <action name="rowStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit on &amp;Row Change</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit on Row Change</string>
+   </property>
+  </action>
+  <action name="manualStrategyAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Submit &amp;Manually</string>
+   </property>
+   <property name="toolTip">
+    <string>Commit Manually</string>
+   </property>
+  </action>
+  <action name="submitAction">
+   <property name="text">
+    <string>&amp;Submit All</string>
+   </property>
+   <property name="toolTip">
+    <string>Submit Changes</string>
+   </property>
+  </action>
+  <action name="revertAction">
+   <property name="text">
+    <string>&amp;Revert All</string>
+   </property>
+   <property name="toolTip">
+    <string>Revert</string>
+   </property>
+  </action>
+  <action name="selectAction">
+   <property name="text">
+    <string>S&amp;elect</string>
+   </property>
+   <property name="toolTip">
+    <string>Refresh Data from Database</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>jobsdata</class>
+   <extends>QWidget</extends>
+   <header>jobsdata.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>brs_contacts</class>
+   <extends>QStackedWidget</extends>
+   <header>brs_contacts.h</header>
+   <container>1</container>
+   <slots>
+    <signal>setCurrentIndex(2)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>jobType</tabstop>
+ </tabstops>
+ <resources>
+  <include location="login_resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

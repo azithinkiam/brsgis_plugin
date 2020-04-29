@@ -56,7 +56,7 @@ class brsgis_menu(object):
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
         self.newJob_action = QAction(icon, "&Parcel-based", self.iface.mainWindow())
-        self.newJob_action.triggered.connect(self.newJob)
+        self.newJob_action.triggered.connect(self.newPJob)
         self.job_menu.addAction(self.newJob_action)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
@@ -71,9 +71,9 @@ class brsgis_menu(object):
         self.new_menu.addMenu(self.supp_menu)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
-        self.newSupp_action = QAction(icon, "&Parcel-based", self.iface.mainWindow())
-        self.newSupp_action.triggered.connect(self.setSuppType)
-        self.supp_menu.addAction(self.newSupp_action)
+        self.newParcelSupp_action = QAction(icon, "&Parcel-based", self.iface.mainWindow())
+        self.newParcelSupp_action.triggered.connect(self.setSuppTypeP)
+        self.supp_menu.addAction(self.newParcelSupp_action)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
         self.newLPSupp_action = QAction(icon, "&Line/Freehand-based", self.iface.mainWindow())
@@ -256,16 +256,26 @@ class brsgis_menu(object):
 
     def newLPJob(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        supp_type = ''
+        sType = 'X'
+        pType = 'LP'
         QgsMessageLog.logMessage('Launching new LP job...', 'BRS_GIS', level=Qgis.Info)
-        self.newLPJob_dialog = brsgis_newLPJob(self.iface, supp_type)
-        self.newLPJob_dialog.initGui()
+        self.newLPJob_dialog = brsgis_newLPJob(self.iface, sType, pType)
+        self.newLPJob_dialog.initGui(sType, pType)
 
-    def newPlan(self):
+    def newPJob(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Launching new plan...', 'BRS_GIS', level=Qgis.Info)
-        self.newPlan_dialog = brsgis_newPlan(self.iface)
-        self.newPlan_dialog.initGui()
+        sType = 'X'
+        pType = 'P'
+        QgsMessageLog.logMessage('Launching new P job...', 'BRS_GIS', level=Qgis.Info)
+        self.newLPJob_dialog = brsgis_newLPJob(self.iface, sType, pType)
+        self.newLPJob_dialog.initGui(sType, pType)
+
+
+    # def newParcelSupp(self):
+    #     # Must be saved in self, otherwise garbage collector destroys dialog
+    #     QgsMessageLog.logMessage('Launching new plan...', 'BRS_GIS', level=Qgis.Info)
+    #     self.newParcelSupp_dialog = brsgis_newParcelSupp(self.iface)
+    #     self.newParcelSupp_dialog.initGui()
 
     def editJob(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
@@ -307,7 +317,22 @@ class brsgis_menu(object):
     def setSuppType(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
         QgsMessageLog.logMessage('Launching Supplmental Form...', 'BRS_GIS', level=Qgis.Info)
-        self.supp_dialog = brsgis_supp_dialog(self.iface)
+        pType = 'LP'
+        self.supp_dialog = brsgis_supp_dialog(self.iface, pType)
+        self.supp_dialog.show()
+
+    def setSuppTypeP(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching Supplmental Form...', 'BRS_GIS', level=Qgis.Info)
+        pType = 'P'
+        self.supp_dialog = brsgis_supp_dialog(self.iface, pType)
+        self.supp_dialog.show()
+
+    def setSuppTypeP(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching Supplmental Form...', 'BRS_GIS', level=Qgis.Info)
+        pType = 'P'
+        self.supp_dialog = brsgis_supp_dialog(self.iface, pType)
         self.supp_dialog.show()
 
     def abutters(self):
