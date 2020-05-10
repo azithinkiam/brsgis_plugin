@@ -1,18 +1,18 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis hasScaleBasedVisibilityFlag="0" labelsEnabled="1" minScale="1e+8" simplifyDrawingHints="1" version="3.0.2-Girona" simplifyMaxScale="1" maxScale="0" simplifyAlgorithm="0" simplifyLocal="1" readOnly="0" simplifyDrawingTol="1">
-  <renderer-v2 type="categorizedSymbol" symbollevels="0" attr="size_no" forceraster="0" enableorderby="0">
+<qgis simplifyDrawingTol="1" readOnly="0" simplifyAlgorithm="0" maxScale="0" minScale="1e+8" hasScaleBasedVisibilityFlag="0" simplifyDrawingHints="1" labelsEnabled="1" version="3.2.3-Bonn" simplifyMaxScale="1" simplifyLocal="1">
+  <renderer-v2 forceraster="0" type="categorizedSymbol" attr="size_no" symbollevels="0" enableorderby="0">
     <categories>
-      <category symbol="0" value="8" label="8" render="true"/>
-      <category symbol="1" value="4" label="4" render="true"/>
-      <category symbol="2" value="2" label="2" render="true"/>
-      <category symbol="3" value="1" label="1" render="true"/>
-      <category symbol="4" value="K" label="K" render="true"/>
-      <category symbol="5" value="I" label="I" render="true"/>
-      <category symbol="6" value="" label="" render="true"/>
+      <category value="8" label="8" render="true" symbol="0"/>
+      <category value="4" label="4" render="true" symbol="1"/>
+      <category value="2" label="2" render="true" symbol="2"/>
+      <category value="1" label="1" render="true" symbol="3"/>
+      <category value="K" label="K" render="true" symbol="4"/>
+      <category value="I" label="I" render="true" symbol="5"/>
+      <category value="" label="" render="true" symbol="6"/>
     </categories>
     <symbols>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="0">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="0">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="141,105,218,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -26,15 +26,15 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="1">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="1">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="238,109,230,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -48,15 +48,15 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="2">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="2">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="52,170,224,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -70,15 +70,15 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="3">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="3">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="221,95,118,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -92,15 +92,15 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="4">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="4">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="150,202,38,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -114,15 +114,15 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="5">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="5">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="48,122,226,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -136,15 +136,15 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="6">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="6">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="223,147,47,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -158,17 +158,17 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </symbols>
     <source-symbol>
-      <symbol type="fill" clip_to_extent="1" alpha="0.5" name="0">
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+      <symbol alpha="0.5" type="fill" clip_to_extent="1" name="0">
+        <layer pass="0" class="SimpleFill" locked="0" enabled="1">
           <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
           <prop k="color" v="7,139,221,255"/>
           <prop k="joinstyle" v="bevel"/>
@@ -182,9 +182,9 @@
           <prop k="style" v="solid"/>
           <data_defined_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
         </layer>
@@ -194,103 +194,123 @@
     <sizescale/>
   </renderer-v2>
   <labeling type="rule-based">
-    <rules key="{28629317-21f4-4f99-9af3-9277651b0bc4}">
-      <rule scalemindenom="1" key="{f29c891e-372e-4b4f-b7ae-b2dfe77a6b17}" description="label-8's" scalemaxdenom="5000">
+    <rules key="">
+      <rule key="" scalemindenom="1" active="0" scalemaxdenom="5000" description="label-8's">
         <settings>
-          <text-style fieldName="IF (  &quot;size_no&quot;  = '8', &quot;plan_no&quot; ,&quot;&quot; )" previewBkgrdColor="#ffffff" fontCapitals="0" fontSizeUnit="Point" fontItalic="0" textOpacity="1" fontSize="10" fontLetterSpacing="0" multilineHeight="1" fontWordSpacing="0" textColor="0,0,0,255" namedStyle="Regular" fontWeight="50" useSubstitutions="0" fontStrikeout="0" fontFamily="MS Shell Dlg 2" blendMode="0" fontUnderline="0" isExpression="1" fontSizeMapUnitScale="3x:0,0,0,0,0,0">
-            <text-buffer bufferNoFill="1" bufferDraw="0" bufferSizeUnits="MM" bufferJoinStyle="128" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferSize="1" bufferBlendMode="0"/>
-            <background shapeOffsetX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSVGFile="" shapeRotation="0" shapeDraw="0" shapeBorderColor="128,128,128,255" shapeBorderWidth="0" shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRotationType="0" shapeJoinStyle="64" shapeRadiiUnit="MM" shapeSizeX="0" shapeRadiiX="0" shapeOffsetY="0" shapeType="0" shapeSizeY="0" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBlendMode="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiY="0" shapeSizeType="0"/>
-            <shadow shadowUnder="0" shadowBlendMode="6" shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowScale="100" shadowRadiusAlphaOnly="0" shadowOffsetDist="1" shadowOpacity="0.7" shadowOffsetAngle="135" shadowColor="0,0,0,255" shadowRadiusUnit="MM" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0"/>
+          <text-style fontStrikeout="0" fontWordSpacing="0" textOpacity="1" fontWeight="50" fieldName="IF (  &quot;size_no&quot;  = '8', &quot;plan_no&quot; ,&quot;&quot; )" isExpression="1" fontUnderline="0" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" namedStyle="Regular" fontCapitals="0" textColor="0,0,0,255" fontLetterSpacing="0" useSubstitutions="0" fontSize="10" fontFamily="MS Shell Dlg 2" multilineHeight="1" blendMode="0" previewBkgrdColor="#ffffff" fontSizeUnit="Point">
+            <text-buffer bufferColor="255,255,255,255" bufferDraw="0" bufferSize="1" bufferSizeUnits="MM" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferNoFill="1" bufferJoinStyle="128" bufferBlendMode="0"/>
+            <background shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeSizeUnit="MM" shapeSizeY="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeBorderWidthUnit="MM" shapeRotation="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeOpacity="1" shapeSizeType="0" shapeDraw="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeSizeX="0" shapeFillColor="255,255,255,255" shapeOffsetX="0" shapeSVGFile="" shapeRadiiY="0" shapeJoinStyle="64" shapeBlendMode="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeBorderWidth="0" shapeRotationType="0"/>
+            <shadow shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowDraw="0" shadowRadiusUnit="MM" shadowScale="100" shadowOffsetAngle="135" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowColor="0,0,0,255" shadowOffsetDist="1" shadowOffsetUnit="MM"/>
             <substitutions/>
           </text-style>
-          <text-format reverseDirectionSymbol="0" wrapChar="" leftDirectionSymbol="&lt;" multilineAlign="4294967295" rightDirectionSymbol=">" formatNumbers="0" decimals="3" addDirectionSymbol="0" placeDirectionSymbol="0" plussign="0"/>
-          <placement placement="1" maxCurvedCharAngleOut="-25" offsetUnits="MM" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" repeatDistance="0" repeatDistanceUnits="MM" centroidWhole="0" xOffset="1" yOffset="0" fitInPolygonOnly="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" placementFlags="10" dist="0" priority="9" centroidInside="0" rotationAngle="0" quadOffset="2" preserveRotation="1" maxCurvedCharAngleIn="25" distUnits="MM"/>
-          <rendering upsidedownLabels="0" mergeLines="0" maxNumLabels="2000" drawLabels="1" fontLimitPixelSize="0" minFeatureSize="0" scaleMax="0" labelPerPart="0" fontMinPixelSize="3" zIndex="0" fontMaxPixelSize="10000" obstacleType="0" obstacle="1" scaleVisibility="0" obstacleFactor="1" displayAll="1" limitNumLabels="0" scaleMin="0"/>
+          <text-format placeDirectionSymbol="0" plussign="0" formatNumbers="0" reverseDirectionSymbol="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" decimals="3" rightDirectionSymbol=">" wrapChar="" multilineAlign="4294967295"/>
+          <placement maxCurvedCharAngleIn="25" priority="9" repeatDistance="0" quadOffset="2" offsetUnits="MM" centroidWhole="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" centroidInside="0" dist="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" repeatDistanceUnits="MM" distMapUnitScale="3x:0,0,0,0,0,0" preserveRotation="1" distUnits="MM" placementFlags="10" fitInPolygonOnly="0" placement="1" xOffset="1" offsetType="0" yOffset="0" maxCurvedCharAngleOut="-25"/>
+          <rendering obstacle="1" displayAll="1" mergeLines="0" obstacleFactor="1" fontLimitPixelSize="0" scaleMin="0" limitNumLabels="0" labelPerPart="0" maxNumLabels="2000" minFeatureSize="0" zIndex="0" scaleVisibility="0" fontMinPixelSize="3" obstacleType="0" fontMaxPixelSize="10000" drawLabels="1" scaleMax="0" upsidedownLabels="0"/>
           <dd_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </dd_properties>
         </settings>
       </rule>
-      <rule scalemindenom="1" key="{6546bc06-6aec-48d2-b7cf-2b6ed78a43b1}" description="label-4's" scalemaxdenom="5000">
+      <rule key="" scalemindenom="1" active="0" scalemaxdenom="5000" description="label-4's">
         <settings>
-          <text-style fieldName="IF (  &quot;size_no&quot;  = '4', &quot;plan_no&quot; ,&quot;&quot; )" previewBkgrdColor="#ffffff" fontCapitals="0" fontSizeUnit="Point" fontItalic="0" textOpacity="1" fontSize="10" fontLetterSpacing="0" multilineHeight="1" fontWordSpacing="0" textColor="0,0,0,255" namedStyle="Regular" fontWeight="50" useSubstitutions="0" fontStrikeout="0" fontFamily="MS Shell Dlg 2" blendMode="0" fontUnderline="0" isExpression="1" fontSizeMapUnitScale="3x:0,0,0,0,0,0">
-            <text-buffer bufferNoFill="1" bufferDraw="0" bufferSizeUnits="MM" bufferJoinStyle="128" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferSize="1" bufferBlendMode="0"/>
-            <background shapeOffsetX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSVGFile="" shapeRotation="0" shapeDraw="0" shapeBorderColor="128,128,128,255" shapeBorderWidth="0" shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRotationType="0" shapeJoinStyle="64" shapeRadiiUnit="MM" shapeSizeX="0" shapeRadiiX="0" shapeOffsetY="0" shapeType="0" shapeSizeY="0" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBlendMode="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiY="0" shapeSizeType="0"/>
-            <shadow shadowUnder="0" shadowBlendMode="6" shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowScale="100" shadowRadiusAlphaOnly="0" shadowOffsetDist="1" shadowOpacity="0.7" shadowOffsetAngle="135" shadowColor="0,0,0,255" shadowRadiusUnit="MM" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0"/>
+          <text-style fontStrikeout="0" fontWordSpacing="0" textOpacity="1" fontWeight="50" fieldName="IF (  &quot;size_no&quot;  = '4', &quot;plan_no&quot; ,&quot;&quot; )" isExpression="1" fontUnderline="0" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" namedStyle="Regular" fontCapitals="0" textColor="0,0,0,255" fontLetterSpacing="0" useSubstitutions="0" fontSize="10" fontFamily="MS Shell Dlg 2" multilineHeight="1" blendMode="0" previewBkgrdColor="#ffffff" fontSizeUnit="Point">
+            <text-buffer bufferColor="255,255,255,255" bufferDraw="0" bufferSize="1" bufferSizeUnits="MM" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferNoFill="1" bufferJoinStyle="128" bufferBlendMode="0"/>
+            <background shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeSizeUnit="MM" shapeSizeY="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeBorderWidthUnit="MM" shapeRotation="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeOpacity="1" shapeSizeType="0" shapeDraw="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeSizeX="0" shapeFillColor="255,255,255,255" shapeOffsetX="0" shapeSVGFile="" shapeRadiiY="0" shapeJoinStyle="64" shapeBlendMode="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeBorderWidth="0" shapeRotationType="0"/>
+            <shadow shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowDraw="0" shadowRadiusUnit="MM" shadowScale="100" shadowOffsetAngle="135" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowColor="0,0,0,255" shadowOffsetDist="1" shadowOffsetUnit="MM"/>
             <substitutions/>
           </text-style>
-          <text-format reverseDirectionSymbol="0" wrapChar="" leftDirectionSymbol="&lt;" multilineAlign="4294967295" rightDirectionSymbol=">" formatNumbers="0" decimals="3" addDirectionSymbol="0" placeDirectionSymbol="0" plussign="0"/>
-          <placement placement="1" maxCurvedCharAngleOut="-25" offsetUnits="MM" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" repeatDistance="0" repeatDistanceUnits="MM" centroidWhole="0" xOffset="1" yOffset="0" fitInPolygonOnly="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" placementFlags="10" dist="0" priority="9" centroidInside="0" rotationAngle="0" quadOffset="5" preserveRotation="1" maxCurvedCharAngleIn="25" distUnits="MM"/>
-          <rendering upsidedownLabels="0" mergeLines="0" maxNumLabels="2000" drawLabels="1" fontLimitPixelSize="0" minFeatureSize="0" scaleMax="0" labelPerPart="0" fontMinPixelSize="3" zIndex="0" fontMaxPixelSize="10000" obstacleType="0" obstacle="1" scaleVisibility="0" obstacleFactor="1" displayAll="1" limitNumLabels="0" scaleMin="0"/>
+          <text-format placeDirectionSymbol="0" plussign="0" formatNumbers="0" reverseDirectionSymbol="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" decimals="3" rightDirectionSymbol=">" wrapChar="" multilineAlign="4294967295"/>
+          <placement maxCurvedCharAngleIn="25" priority="9" repeatDistance="0" quadOffset="5" offsetUnits="MM" centroidWhole="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" centroidInside="0" dist="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" repeatDistanceUnits="MM" distMapUnitScale="3x:0,0,0,0,0,0" preserveRotation="1" distUnits="MM" placementFlags="10" fitInPolygonOnly="0" placement="1" xOffset="1" offsetType="0" yOffset="0" maxCurvedCharAngleOut="-25"/>
+          <rendering obstacle="1" displayAll="1" mergeLines="0" obstacleFactor="1" fontLimitPixelSize="0" scaleMin="0" limitNumLabels="0" labelPerPart="0" maxNumLabels="2000" minFeatureSize="0" zIndex="0" scaleVisibility="0" fontMinPixelSize="3" obstacleType="0" fontMaxPixelSize="10000" drawLabels="1" scaleMax="0" upsidedownLabels="0"/>
           <dd_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </dd_properties>
         </settings>
       </rule>
-      <rule scalemindenom="1" key="{b1cd7398-e537-4e7a-96e8-abdf19726078}" description="label-2's" scalemaxdenom="5000">
+      <rule key="" scalemindenom="1" active="0" scalemaxdenom="5000" description="label-2's">
         <settings>
-          <text-style fieldName="IF (  &quot;size_no&quot;  = '2', &quot;plan_no&quot; ,&quot;&quot; )" previewBkgrdColor="#ffffff" fontCapitals="0" fontSizeUnit="Point" fontItalic="0" textOpacity="1" fontSize="10" fontLetterSpacing="0" multilineHeight="1" fontWordSpacing="0" textColor="0,0,0,255" namedStyle="Regular" fontWeight="50" useSubstitutions="0" fontStrikeout="0" fontFamily="MS Shell Dlg 2" blendMode="0" fontUnderline="0" isExpression="1" fontSizeMapUnitScale="3x:0,0,0,0,0,0">
-            <text-buffer bufferNoFill="1" bufferDraw="0" bufferSizeUnits="MM" bufferJoinStyle="128" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferSize="1" bufferBlendMode="0"/>
-            <background shapeOffsetX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSVGFile="" shapeRotation="0" shapeDraw="0" shapeBorderColor="128,128,128,255" shapeBorderWidth="0" shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRotationType="0" shapeJoinStyle="64" shapeRadiiUnit="MM" shapeSizeX="0" shapeRadiiX="0" shapeOffsetY="0" shapeType="0" shapeSizeY="0" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBlendMode="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiY="0" shapeSizeType="0"/>
-            <shadow shadowUnder="0" shadowBlendMode="6" shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowScale="100" shadowRadiusAlphaOnly="0" shadowOffsetDist="1" shadowOpacity="0.7" shadowOffsetAngle="135" shadowColor="0,0,0,255" shadowRadiusUnit="MM" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0"/>
+          <text-style fontStrikeout="0" fontWordSpacing="0" textOpacity="1" fontWeight="50" fieldName="IF (  &quot;size_no&quot;  = '2', &quot;plan_no&quot; ,&quot;&quot; )" isExpression="1" fontUnderline="0" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" namedStyle="Regular" fontCapitals="0" textColor="0,0,0,255" fontLetterSpacing="0" useSubstitutions="0" fontSize="10" fontFamily="MS Shell Dlg 2" multilineHeight="1" blendMode="0" previewBkgrdColor="#ffffff" fontSizeUnit="Point">
+            <text-buffer bufferColor="255,255,255,255" bufferDraw="0" bufferSize="1" bufferSizeUnits="MM" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferNoFill="1" bufferJoinStyle="128" bufferBlendMode="0"/>
+            <background shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeSizeUnit="MM" shapeSizeY="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeBorderWidthUnit="MM" shapeRotation="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeOpacity="1" shapeSizeType="0" shapeDraw="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeSizeX="0" shapeFillColor="255,255,255,255" shapeOffsetX="0" shapeSVGFile="" shapeRadiiY="0" shapeJoinStyle="64" shapeBlendMode="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeBorderWidth="0" shapeRotationType="0"/>
+            <shadow shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowDraw="0" shadowRadiusUnit="MM" shadowScale="100" shadowOffsetAngle="135" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowColor="0,0,0,255" shadowOffsetDist="1" shadowOffsetUnit="MM"/>
             <substitutions/>
           </text-style>
-          <text-format reverseDirectionSymbol="0" wrapChar="" leftDirectionSymbol="&lt;" multilineAlign="4294967295" rightDirectionSymbol=">" formatNumbers="0" decimals="3" addDirectionSymbol="0" placeDirectionSymbol="0" plussign="0"/>
-          <placement placement="1" maxCurvedCharAngleOut="-25" offsetUnits="MM" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" repeatDistance="0" repeatDistanceUnits="MM" centroidWhole="0" xOffset="1" yOffset="0" fitInPolygonOnly="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" placementFlags="10" dist="0" priority="9" centroidInside="0" rotationAngle="0" quadOffset="8" preserveRotation="1" maxCurvedCharAngleIn="25" distUnits="MM"/>
-          <rendering upsidedownLabels="0" mergeLines="0" maxNumLabels="2000" drawLabels="1" fontLimitPixelSize="0" minFeatureSize="0" scaleMax="0" labelPerPart="0" fontMinPixelSize="3" zIndex="0" fontMaxPixelSize="10000" obstacleType="0" obstacle="1" scaleVisibility="0" obstacleFactor="1" displayAll="1" limitNumLabels="0" scaleMin="0"/>
+          <text-format placeDirectionSymbol="0" plussign="0" formatNumbers="0" reverseDirectionSymbol="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" decimals="3" rightDirectionSymbol=">" wrapChar="" multilineAlign="4294967295"/>
+          <placement maxCurvedCharAngleIn="25" priority="9" repeatDistance="0" quadOffset="8" offsetUnits="MM" centroidWhole="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" centroidInside="0" dist="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" repeatDistanceUnits="MM" distMapUnitScale="3x:0,0,0,0,0,0" preserveRotation="1" distUnits="MM" placementFlags="10" fitInPolygonOnly="0" placement="1" xOffset="1" offsetType="0" yOffset="0" maxCurvedCharAngleOut="-25"/>
+          <rendering obstacle="1" displayAll="1" mergeLines="0" obstacleFactor="1" fontLimitPixelSize="0" scaleMin="0" limitNumLabels="0" labelPerPart="0" maxNumLabels="2000" minFeatureSize="0" zIndex="0" scaleVisibility="0" fontMinPixelSize="3" obstacleType="0" fontMaxPixelSize="10000" drawLabels="1" scaleMax="0" upsidedownLabels="0"/>
           <dd_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </dd_properties>
         </settings>
       </rule>
-      <rule scalemindenom="1" key="{0fc884ad-4666-4727-ad89-a74b7fc081c0}" description="label-1's" scalemaxdenom="5000">
+      <rule key="" scalemindenom="1" active="0" scalemaxdenom="5000" description="label-1's">
         <settings>
-          <text-style fieldName="IF (  &quot;size_no&quot;  = '1', &quot;plan_no&quot; ,&quot;&quot; )" previewBkgrdColor="#ffffff" fontCapitals="0" fontSizeUnit="Point" fontItalic="0" textOpacity="1" fontSize="10" fontLetterSpacing="0" multilineHeight="1" fontWordSpacing="0" textColor="0,0,0,255" namedStyle="Regular" fontWeight="50" useSubstitutions="0" fontStrikeout="0" fontFamily="MS Shell Dlg 2" blendMode="0" fontUnderline="0" isExpression="1" fontSizeMapUnitScale="3x:0,0,0,0,0,0">
-            <text-buffer bufferNoFill="1" bufferDraw="0" bufferSizeUnits="MM" bufferJoinStyle="128" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferSize="1" bufferBlendMode="0"/>
-            <background shapeOffsetX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSVGFile="" shapeRotation="0" shapeDraw="0" shapeBorderColor="128,128,128,255" shapeBorderWidth="0" shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRotationType="0" shapeJoinStyle="64" shapeRadiiUnit="MM" shapeSizeX="0" shapeRadiiX="0" shapeOffsetY="0" shapeType="0" shapeSizeY="0" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBlendMode="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiY="0" shapeSizeType="0"/>
-            <shadow shadowUnder="0" shadowBlendMode="6" shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowScale="100" shadowRadiusAlphaOnly="0" shadowOffsetDist="1" shadowOpacity="0.7" shadowOffsetAngle="135" shadowColor="0,0,0,255" shadowRadiusUnit="MM" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0"/>
+          <text-style fontStrikeout="0" fontWordSpacing="0" textOpacity="1" fontWeight="50" fieldName="IF (  &quot;size_no&quot;  = '1', &quot;plan_no&quot; ,&quot;&quot; )" isExpression="1" fontUnderline="0" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" namedStyle="Regular" fontCapitals="0" textColor="0,0,0,255" fontLetterSpacing="0" useSubstitutions="0" fontSize="10" fontFamily="MS Shell Dlg 2" multilineHeight="1" blendMode="0" previewBkgrdColor="#ffffff" fontSizeUnit="Point">
+            <text-buffer bufferColor="255,255,255,255" bufferDraw="0" bufferSize="1" bufferSizeUnits="MM" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferNoFill="1" bufferJoinStyle="128" bufferBlendMode="0"/>
+            <background shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeSizeUnit="MM" shapeSizeY="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeBorderWidthUnit="MM" shapeRotation="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeOpacity="1" shapeSizeType="0" shapeDraw="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeSizeX="0" shapeFillColor="255,255,255,255" shapeOffsetX="0" shapeSVGFile="" shapeRadiiY="0" shapeJoinStyle="64" shapeBlendMode="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeBorderWidth="0" shapeRotationType="0"/>
+            <shadow shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowDraw="0" shadowRadiusUnit="MM" shadowScale="100" shadowOffsetAngle="135" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowColor="0,0,0,255" shadowOffsetDist="1" shadowOffsetUnit="MM"/>
             <substitutions/>
           </text-style>
-          <text-format reverseDirectionSymbol="0" wrapChar="" leftDirectionSymbol="&lt;" multilineAlign="4294967295" rightDirectionSymbol=">" formatNumbers="0" decimals="3" addDirectionSymbol="0" placeDirectionSymbol="0" plussign="0"/>
-          <placement placement="1" maxCurvedCharAngleOut="-25" offsetUnits="MM" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" repeatDistance="0" repeatDistanceUnits="MM" centroidWhole="0" xOffset="1" yOffset="0.5" fitInPolygonOnly="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" placementFlags="10" dist="0" priority="9" centroidInside="0" rotationAngle="0" quadOffset="8" preserveRotation="1" maxCurvedCharAngleIn="25" distUnits="MM"/>
-          <rendering upsidedownLabels="0" mergeLines="0" maxNumLabels="2000" drawLabels="1" fontLimitPixelSize="0" minFeatureSize="0" scaleMax="0" labelPerPart="0" fontMinPixelSize="3" zIndex="0" fontMaxPixelSize="10000" obstacleType="0" obstacle="1" scaleVisibility="0" obstacleFactor="1" displayAll="1" limitNumLabels="0" scaleMin="0"/>
+          <text-format placeDirectionSymbol="0" plussign="0" formatNumbers="0" reverseDirectionSymbol="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" decimals="3" rightDirectionSymbol=">" wrapChar="" multilineAlign="4294967295"/>
+          <placement maxCurvedCharAngleIn="25" priority="9" repeatDistance="0" quadOffset="8" offsetUnits="MM" centroidWhole="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" centroidInside="0" dist="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" repeatDistanceUnits="MM" distMapUnitScale="3x:0,0,0,0,0,0" preserveRotation="1" distUnits="MM" placementFlags="10" fitInPolygonOnly="0" placement="1" xOffset="1" offsetType="0" yOffset="0.5" maxCurvedCharAngleOut="-25"/>
+          <rendering obstacle="1" displayAll="1" mergeLines="0" obstacleFactor="1" fontLimitPixelSize="0" scaleMin="0" limitNumLabels="0" labelPerPart="0" maxNumLabels="2000" minFeatureSize="0" zIndex="0" scaleVisibility="0" fontMinPixelSize="3" obstacleType="0" fontMaxPixelSize="10000" drawLabels="1" scaleMax="0" upsidedownLabels="0"/>
           <dd_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </dd_properties>
         </settings>
       </rule>
-      <rule scalemindenom="1" key="{dc2ad7e8-ec09-4118-b37f-f256fbc74d28}" description="label-K's" scalemaxdenom="5000">
+      <rule key="" scalemindenom="1" active="0" scalemaxdenom="5000" description="label-K's">
         <settings>
-          <text-style fieldName="IF (  &quot;size_no&quot;  = 'K', &quot;plan_no&quot; ,&quot;&quot; )" previewBkgrdColor="#ffffff" fontCapitals="0" fontSizeUnit="Point" fontItalic="0" textOpacity="1" fontSize="10" fontLetterSpacing="0" multilineHeight="1" fontWordSpacing="0" textColor="0,0,0,255" namedStyle="Regular" fontWeight="50" useSubstitutions="0" fontStrikeout="0" fontFamily="MS Shell Dlg 2" blendMode="0" fontUnderline="0" isExpression="1" fontSizeMapUnitScale="3x:0,0,0,0,0,0">
-            <text-buffer bufferNoFill="1" bufferDraw="0" bufferSizeUnits="MM" bufferJoinStyle="128" bufferColor="255,255,255,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferSize="1" bufferBlendMode="0"/>
-            <background shapeOffsetX="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSVGFile="" shapeRotation="0" shapeDraw="0" shapeBorderColor="128,128,128,255" shapeBorderWidth="0" shapeBorderWidthUnit="MM" shapeSizeUnit="MM" shapeRotationType="0" shapeJoinStyle="64" shapeRadiiUnit="MM" shapeSizeX="0" shapeRadiiX="0" shapeOffsetY="0" shapeType="0" shapeSizeY="0" shapeFillColor="255,255,255,255" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOpacity="1" shapeBlendMode="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiY="0" shapeSizeType="0"/>
-            <shadow shadowUnder="0" shadowBlendMode="6" shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowScale="100" shadowRadiusAlphaOnly="0" shadowOffsetDist="1" shadowOpacity="0.7" shadowOffsetAngle="135" shadowColor="0,0,0,255" shadowRadiusUnit="MM" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0"/>
+          <text-style fontStrikeout="0" fontWordSpacing="0" textOpacity="1" fontWeight="50" fieldName="IF (  &quot;size_no&quot;  = 'K', &quot;plan_no&quot; ,&quot;&quot; )" isExpression="1" fontUnderline="0" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" namedStyle="Regular" fontCapitals="0" textColor="0,0,0,255" fontLetterSpacing="0" useSubstitutions="0" fontSize="10" fontFamily="MS Shell Dlg 2" multilineHeight="1" blendMode="0" previewBkgrdColor="#ffffff" fontSizeUnit="Point">
+            <text-buffer bufferColor="255,255,255,255" bufferDraw="0" bufferSize="1" bufferSizeUnits="MM" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferNoFill="1" bufferJoinStyle="128" bufferBlendMode="0"/>
+            <background shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeSizeUnit="MM" shapeSizeY="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeBorderWidthUnit="MM" shapeRotation="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeOpacity="1" shapeSizeType="0" shapeDraw="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeSizeX="0" shapeFillColor="255,255,255,255" shapeOffsetX="0" shapeSVGFile="" shapeRadiiY="0" shapeJoinStyle="64" shapeBlendMode="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeBorderWidth="0" shapeRotationType="0"/>
+            <shadow shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowDraw="0" shadowRadiusUnit="MM" shadowScale="100" shadowOffsetAngle="135" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowColor="0,0,0,255" shadowOffsetDist="1" shadowOffsetUnit="MM"/>
             <substitutions/>
           </text-style>
-          <text-format reverseDirectionSymbol="0" wrapChar="" leftDirectionSymbol="&lt;" multilineAlign="4294967295" rightDirectionSymbol=">" formatNumbers="0" decimals="3" addDirectionSymbol="0" placeDirectionSymbol="0" plussign="0"/>
-          <placement placement="1" maxCurvedCharAngleOut="-25" offsetUnits="MM" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" offsetType="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" repeatDistance="0" repeatDistanceUnits="MM" centroidWhole="0" xOffset="1" yOffset="0.5" fitInPolygonOnly="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" distMapUnitScale="3x:0,0,0,0,0,0" placementFlags="10" dist="0" priority="9" centroidInside="0" rotationAngle="0" quadOffset="8" preserveRotation="1" maxCurvedCharAngleIn="25" distUnits="MM"/>
-          <rendering upsidedownLabels="0" mergeLines="0" maxNumLabels="2000" drawLabels="1" fontLimitPixelSize="0" minFeatureSize="0" scaleMax="0" labelPerPart="0" fontMinPixelSize="3" zIndex="0" fontMaxPixelSize="10000" obstacleType="0" obstacle="1" scaleVisibility="0" obstacleFactor="1" displayAll="1" limitNumLabels="0" scaleMin="0"/>
+          <text-format placeDirectionSymbol="0" plussign="0" formatNumbers="0" reverseDirectionSymbol="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" decimals="3" rightDirectionSymbol=">" wrapChar="" multilineAlign="4294967295"/>
+          <placement maxCurvedCharAngleIn="25" priority="9" repeatDistance="0" quadOffset="8" offsetUnits="MM" centroidWhole="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" centroidInside="0" dist="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" repeatDistanceUnits="MM" distMapUnitScale="3x:0,0,0,0,0,0" preserveRotation="1" distUnits="MM" placementFlags="10" fitInPolygonOnly="0" placement="1" xOffset="1" offsetType="0" yOffset="0.5" maxCurvedCharAngleOut="-25"/>
+          <rendering obstacle="1" displayAll="1" mergeLines="0" obstacleFactor="1" fontLimitPixelSize="0" scaleMin="0" limitNumLabels="0" labelPerPart="0" maxNumLabels="2000" minFeatureSize="0" zIndex="0" scaleVisibility="0" fontMinPixelSize="3" obstacleType="0" fontMaxPixelSize="10000" drawLabels="1" scaleMax="0" upsidedownLabels="0"/>
           <dd_properties>
             <Option type="Map">
-              <Option type="QString" value="" name="name"/>
+              <Option value="" type="QString" name="name"/>
               <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </dd_properties>
+        </settings>
+      </rule>
+      <rule key="" scalemindenom="1" scalemaxdenom="25000" description="perimeterTEST">
+        <settings>
+          <text-style fontStrikeout="0" fontWordSpacing="0" textOpacity="1" fontWeight="50" fieldName="plan_no" isExpression="0" fontUnderline="0" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" namedStyle="Regular" fontCapitals="0" textColor="0,0,0,255" fontLetterSpacing="0" useSubstitutions="0" fontSize="10" fontFamily="MS Shell Dlg 2" multilineHeight="1" blendMode="0" previewBkgrdColor="#ffffff" fontSizeUnit="Point">
+            <text-buffer bufferColor="255,238,38,255" bufferDraw="1" bufferSize="1" bufferSizeUnits="MM" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferNoFill="0" bufferJoinStyle="128" bufferBlendMode="0"/>
+            <background shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeSizeUnit="MM" shapeSizeY="0" shapeRadiiUnit="MM" shapeOffsetY="0" shapeBorderWidthUnit="MM" shapeRotation="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeOpacity="1" shapeSizeType="0" shapeDraw="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiX="0" shapeSizeX="0" shapeFillColor="255,255,255,255" shapeOffsetX="0" shapeSVGFile="" shapeRadiiY="0" shapeJoinStyle="64" shapeBlendMode="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeBorderWidth="0" shapeRotationType="0"/>
+            <shadow shadowRadius="1.5" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowDraw="0" shadowRadiusUnit="MM" shadowScale="100" shadowOffsetAngle="135" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOpacity="0.7" shadowUnder="0" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowColor="0,0,0,255" shadowOffsetDist="1" shadowOffsetUnit="MM"/>
+            <substitutions/>
+          </text-style>
+          <text-format placeDirectionSymbol="0" plussign="0" formatNumbers="0" reverseDirectionSymbol="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" decimals="3" rightDirectionSymbol=">" wrapChar=" " multilineAlign="4294967295"/>
+          <placement maxCurvedCharAngleIn="25" priority="10" repeatDistance="0" quadOffset="4" offsetUnits="MM" centroidWhole="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationAngle="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" centroidInside="1" dist="12" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" repeatDistanceUnits="MM" distMapUnitScale="3x:0,0,0,0,0,0" preserveRotation="1" distUnits="MM" placementFlags="10" fitInPolygonOnly="1" placement="0" xOffset="0" offsetType="0" yOffset="0" maxCurvedCharAngleOut="-25"/>
+          <rendering obstacle="0" displayAll="1" mergeLines="0" obstacleFactor="1" fontLimitPixelSize="0" scaleMin="0" limitNumLabels="0" labelPerPart="0" maxNumLabels="2000" minFeatureSize="0" zIndex="0" scaleVisibility="0" fontMinPixelSize="3" obstacleType="1" fontMaxPixelSize="10000" drawLabels="1" scaleMax="0" upsidedownLabels="0"/>
+          <dd_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option name="properties"/>
+              <Option value="collection" type="QString" name="type"/>
             </Option>
           </dd_properties>
         </settings>
@@ -298,7 +318,9 @@
     </rules>
   </labeling>
   <customproperties>
-    <property value="objectid" key="dualview/previewExpressions"/>
+    <property key="dualview/previewExpressions">
+      <value>plan_no</value>
+    </property>
     <property value="0" key="embeddedWidgets/count"/>
     <property key="variableNames"/>
     <property key="variableValues"/>
@@ -306,18 +328,18 @@
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
   <layerOpacity>0.65</layerOpacity>
-  <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
-    <DiagramCategory labelPlacementMethod="XHeight" minScaleDenominator="0" penAlpha="255" backgroundAlpha="255" barWidth="5" sizeScale="3x:0,0,0,0,0,0" enabled="0" penColor="#000000" opacity="1" scaleDependency="Area" sizeType="MM" scaleBasedVisibility="0" backgroundColor="#ffffff" lineSizeType="MM" diagramOrientation="Up" lineSizeScale="3x:0,0,0,0,0,0" height="15" width="15" penWidth="0" rotationOffset="270" maxScaleDenominator="1e+8" minimumSize="0">
+  <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+    <DiagramCategory backgroundColor="#ffffff" rotationOffset="270" penColor="#000000" penAlpha="255" scaleBasedVisibility="0" labelPlacementMethod="XHeight" diagramOrientation="Up" lineSizeScale="3x:0,0,0,0,0,0" sizeScale="3x:0,0,0,0,0,0" maxScaleDenominator="1e+8" minimumSize="0" opacity="1" height="15" enabled="0" sizeType="MM" barWidth="5" penWidth="0" minScaleDenominator="0" scaleDependency="Area" lineSizeType="MM" width="15" backgroundAlpha="255">
       <fontProperties style="" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0"/>
       <attribute color="#000000" label="" field=""/>
     </DiagramCategory>
   </SingleCategoryDiagramRenderer>
-  <DiagramLayerSettings priority="0" dist="0" placement="0" obstacle="0" linePlacementFlags="18" showAll="1" zIndex="0">
+  <DiagramLayerSettings priority="0" obstacle="0" linePlacementFlags="18" showAll="1" zIndex="0" dist="0" placement="0">
     <properties>
       <Option type="Map">
-        <Option type="QString" value="" name="name"/>
+        <Option value="" type="QString" name="name"/>
         <Option name="properties"/>
-        <Option type="QString" value="collection" name="type"/>
+        <Option value="collection" type="QString" name="type"/>
       </Option>
     </properties>
   </DiagramLayerSettings>
@@ -357,7 +379,7 @@
         </config>
       </editWidget>
     </field>
-    <field name="id">
+    <field name="idvalue">
       <editWidget type="TextEdit">
         <config>
           <Option/>
@@ -431,11 +453,11 @@
       <editWidget type="DateTime">
         <config>
           <Option type="Map">
-            <Option type="bool" value="true" name="allow_null"/>
-            <Option type="bool" value="true" name="calendar_popup"/>
-            <Option type="QString" value="yyyy-MM-dd" name="display_format"/>
-            <Option type="QString" value="yyyy-MM-dd" name="field_format"/>
-            <Option type="bool" value="false" name="field_iso_format"/>
+            <Option value="true" type="bool" name="allow_null"/>
+            <Option value="true" type="bool" name="calendar_popup"/>
+            <Option value="yyyy-MM-dd" type="QString" name="display_format"/>
+            <Option value="yyyy-MM-dd" type="QString" name="field_format"/>
+            <Option value="false" type="bool" name="field_iso_format"/>
           </Option>
         </config>
       </editWidget>
@@ -496,20 +518,6 @@
         </config>
       </editWidget>
     </field>
-    <field name="k_no">
-      <editWidget type="TextEdit">
-        <config>
-          <Option/>
-        </config>
-      </editWidget>
-    </field>
-    <field name="k_id">
-      <editWidget type="TextEdit">
-        <config>
-          <Option/>
-        </config>
-      </editWidget>
-    </field>
     <field name="rev_no">
       <editWidget type="TextEdit">
         <config>
@@ -523,179 +531,229 @@
           <Option type="Map">
             <Option type="List" name="map">
               <Option type="Map">
-                <Option type="QString" value="K" name="K"/>
+                <Option value="K" type="QString" name="K"/>
               </Option>
               <Option type="Map">
-                <Option type="QString" value="LEIGHTON" name="LEIGHTON"/>
+                <Option value="LEIGHTON" type="QString" name="LEIGHTON"/>
               </Option>
             </Option>
           </Option>
         </config>
       </editWidget>
     </field>
+    <field name="k_id">
+      <editWidget type="TextEdit">
+        <config>
+          <Option/>
+        </config>
+      </editWidget>
+    </field>
+    <field name="k_no">
+      <editWidget type="TextEdit">
+        <config>
+          <Option/>
+        </config>
+      </editWidget>
+    </field>
+    <field name="old_plan">
+      <editWidget type="TextEdit">
+        <config>
+          <Option/>
+        </config>
+      </editWidget>
+    </field>
+    <field name="supp_type">
+      <editWidget type="TextEdit">
+        <config>
+          <Option/>
+        </config>
+      </editWidget>
+    </field>
+    <field name="job_no">
+      <editWidget type="TextEdit">
+        <config>
+          <Option/>
+        </config>
+      </editWidget>
+    </field>
   </fieldConfiguration>
   <aliases>
-    <alias index="0" name="" field="gid"/>
-    <alias index="1" name="" field="objectid"/>
-    <alias index="2" name="" field="lat_lon"/>
-    <alias index="3" name="" field="zipcode"/>
-    <alias index="4" name="" field="map_bk_lot"/>
-    <alias index="5" name="" field="id"/>
-    <alias index="6" name="" field="size_no"/>
-    <alias index="7" name="" field="file_no"/>
-    <alias index="8" name="" field="plan_no"/>
-    <alias index="9" name="" field="name"/>
-    <alias index="10" name="" field="address"/>
-    <alias index="11" name="" field="town"/>
-    <alias index="12" name="" field="town_parcels"/>
-    <alias index="13" name="" field="county"/>
-    <alias index="14" name="" field="job"/>
-    <alias index="15" name="" field="date"/>
-    <alias index="16" name="" field="initials"/>
-    <alias index="17" name="" field="map"/>
-    <alias index="18" name="" field="lot"/>
-    <alias index="19" name="" field="surveyor"/>
-    <alias index="20" name="" field="cd_no"/>
-    <alias index="21" name="" field="notes"/>
-    <alias index="22" name="" field="planbook"/>
-    <alias index="23" name="" field="planpage"/>
-    <alias index="24" name="" field="k_no"/>
-    <alias index="25" name="" field="k_id"/>
-    <alias index="26" name="" field="rev_no"/>
-    <alias index="27" name="" field="plan_type"/>
+    <alias name="" index="0" field="gid"/>
+    <alias name="" index="1" field="objectid"/>
+    <alias name="" index="2" field="lat_lon"/>
+    <alias name="" index="3" field="zipcode"/>
+    <alias name="" index="4" field="map_bk_lot"/>
+    <alias name="" index="5" field="idvalue"/>
+    <alias name="" index="6" field="size_no"/>
+    <alias name="" index="7" field="file_no"/>
+    <alias name="" index="8" field="plan_no"/>
+    <alias name="" index="9" field="name"/>
+    <alias name="" index="10" field="address"/>
+    <alias name="" index="11" field="town"/>
+    <alias name="" index="12" field="town_parcels"/>
+    <alias name="" index="13" field="county"/>
+    <alias name="" index="14" field="job"/>
+    <alias name="" index="15" field="date"/>
+    <alias name="" index="16" field="initials"/>
+    <alias name="" index="17" field="map"/>
+    <alias name="" index="18" field="lot"/>
+    <alias name="" index="19" field="surveyor"/>
+    <alias name="" index="20" field="cd_no"/>
+    <alias name="" index="21" field="notes"/>
+    <alias name="" index="22" field="planbook"/>
+    <alias name="" index="23" field="planpage"/>
+    <alias name="" index="24" field="rev_no"/>
+    <alias name="" index="25" field="plan_type"/>
+    <alias name="" index="26" field="k_id"/>
+    <alias name="" index="27" field="k_no"/>
+    <alias name="" index="28" field="old_plan"/>
+    <alias name="" index="29" field="supp_type"/>
+    <alias name="" index="30" field="job_no"/>
   </aliases>
   <excludeAttributesWMS/>
   <excludeAttributesWFS/>
   <defaults>
-    <default expression="" field="gid" applyOnUpdate="0"/>
-    <default expression="" field="objectid" applyOnUpdate="0"/>
-    <default expression="" field="lat_lon" applyOnUpdate="0"/>
-    <default expression="" field="zipcode" applyOnUpdate="0"/>
-    <default expression="" field="map_bk_lot" applyOnUpdate="0"/>
-    <default expression="" field="id" applyOnUpdate="0"/>
-    <default expression="" field="size_no" applyOnUpdate="0"/>
-    <default expression="" field="file_no" applyOnUpdate="0"/>
-    <default expression="" field="plan_no" applyOnUpdate="0"/>
-    <default expression="" field="name" applyOnUpdate="0"/>
-    <default expression="" field="address" applyOnUpdate="0"/>
-    <default expression="" field="town" applyOnUpdate="0"/>
-    <default expression="" field="town_parcels" applyOnUpdate="0"/>
-    <default expression="" field="county" applyOnUpdate="0"/>
-    <default expression="" field="job" applyOnUpdate="0"/>
-    <default expression="" field="date" applyOnUpdate="0"/>
-    <default expression="" field="initials" applyOnUpdate="0"/>
-    <default expression="" field="map" applyOnUpdate="0"/>
-    <default expression="" field="lot" applyOnUpdate="0"/>
-    <default expression="" field="surveyor" applyOnUpdate="0"/>
-    <default expression="" field="cd_no" applyOnUpdate="0"/>
-    <default expression="" field="notes" applyOnUpdate="0"/>
-    <default expression="" field="planbook" applyOnUpdate="0"/>
-    <default expression="" field="planpage" applyOnUpdate="0"/>
-    <default expression="" field="k_no" applyOnUpdate="0"/>
-    <default expression="" field="k_id" applyOnUpdate="0"/>
-    <default expression="" field="rev_no" applyOnUpdate="0"/>
-    <default expression="" field="plan_type" applyOnUpdate="0"/>
+    <default applyOnUpdate="0" expression="" field="gid"/>
+    <default applyOnUpdate="0" expression="" field="objectid"/>
+    <default applyOnUpdate="0" expression="" field="lat_lon"/>
+    <default applyOnUpdate="0" expression="" field="zipcode"/>
+    <default applyOnUpdate="0" expression="" field="map_bk_lot"/>
+    <default applyOnUpdate="0" expression="" field="idvalue"/>
+    <default applyOnUpdate="0" expression="" field="size_no"/>
+    <default applyOnUpdate="0" expression="" field="file_no"/>
+    <default applyOnUpdate="0" expression="" field="plan_no"/>
+    <default applyOnUpdate="0" expression="" field="name"/>
+    <default applyOnUpdate="0" expression="" field="address"/>
+    <default applyOnUpdate="0" expression="" field="town"/>
+    <default applyOnUpdate="0" expression="" field="town_parcels"/>
+    <default applyOnUpdate="0" expression="" field="county"/>
+    <default applyOnUpdate="0" expression="" field="job"/>
+    <default applyOnUpdate="0" expression="" field="date"/>
+    <default applyOnUpdate="0" expression="" field="initials"/>
+    <default applyOnUpdate="0" expression="" field="map"/>
+    <default applyOnUpdate="0" expression="" field="lot"/>
+    <default applyOnUpdate="0" expression="" field="surveyor"/>
+    <default applyOnUpdate="0" expression="" field="cd_no"/>
+    <default applyOnUpdate="0" expression="" field="notes"/>
+    <default applyOnUpdate="0" expression="" field="planbook"/>
+    <default applyOnUpdate="0" expression="" field="planpage"/>
+    <default applyOnUpdate="0" expression="" field="rev_no"/>
+    <default applyOnUpdate="0" expression="" field="plan_type"/>
+    <default applyOnUpdate="0" expression="" field="k_id"/>
+    <default applyOnUpdate="0" expression="" field="k_no"/>
+    <default applyOnUpdate="0" expression="" field="old_plan"/>
+    <default applyOnUpdate="0" expression="" field="supp_type"/>
+    <default applyOnUpdate="0" expression="" field="job_no"/>
   </defaults>
   <constraints>
-    <constraint constraints="3" notnull_strength="1" exp_strength="0" unique_strength="1" field="gid"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="objectid"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="lat_lon"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="zipcode"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="map_bk_lot"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="id"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="size_no"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="file_no"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="plan_no"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="name"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="address"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="town"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="town_parcels"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="county"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="job"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="date"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="initials"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="map"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="lot"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="surveyor"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="cd_no"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="notes"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="planbook"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="planpage"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="k_no"/>
-    <constraint constraints="1" notnull_strength="1" exp_strength="0" unique_strength="0" field="k_id"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="rev_no"/>
-    <constraint constraints="0" notnull_strength="0" exp_strength="0" unique_strength="0" field="plan_type"/>
+    <constraint notnull_strength="1" constraints="3" exp_strength="0" unique_strength="1" field="gid"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="objectid"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="lat_lon"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="zipcode"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="map_bk_lot"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="idvalue"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="size_no"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="file_no"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="plan_no"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="name"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="address"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="town"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="town_parcels"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="county"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="job"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="date"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="initials"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="map"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="lot"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="surveyor"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="cd_no"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="notes"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="planbook"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="planpage"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="rev_no"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="plan_type"/>
+    <constraint notnull_strength="1" constraints="1" exp_strength="0" unique_strength="0" field="k_id"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="k_no"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="old_plan"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="supp_type"/>
+    <constraint notnull_strength="0" constraints="0" exp_strength="0" unique_strength="0" field="job_no"/>
   </constraints>
   <constraintExpressions>
-    <constraint exp="" desc="" field="gid"/>
-    <constraint exp="" desc="" field="objectid"/>
-    <constraint exp="" desc="" field="lat_lon"/>
-    <constraint exp="" desc="" field="zipcode"/>
-    <constraint exp="" desc="" field="map_bk_lot"/>
-    <constraint exp="" desc="" field="id"/>
-    <constraint exp="" desc="" field="size_no"/>
-    <constraint exp="" desc="" field="file_no"/>
-    <constraint exp="" desc="" field="plan_no"/>
-    <constraint exp="" desc="" field="name"/>
-    <constraint exp="" desc="" field="address"/>
-    <constraint exp="" desc="" field="town"/>
-    <constraint exp="" desc="" field="town_parcels"/>
-    <constraint exp="" desc="" field="county"/>
-    <constraint exp="" desc="" field="job"/>
-    <constraint exp="" desc="" field="date"/>
-    <constraint exp="" desc="" field="initials"/>
-    <constraint exp="" desc="" field="map"/>
-    <constraint exp="" desc="" field="lot"/>
-    <constraint exp="" desc="" field="surveyor"/>
-    <constraint exp="" desc="" field="cd_no"/>
-    <constraint exp="" desc="" field="notes"/>
-    <constraint exp="" desc="" field="planbook"/>
-    <constraint exp="" desc="" field="planpage"/>
-    <constraint exp="" desc="" field="k_no"/>
-    <constraint exp="" desc="" field="k_id"/>
-    <constraint exp="" desc="" field="rev_no"/>
-    <constraint exp="" desc="" field="plan_type"/>
+    <constraint desc="" exp="" field="gid"/>
+    <constraint desc="" exp="" field="objectid"/>
+    <constraint desc="" exp="" field="lat_lon"/>
+    <constraint desc="" exp="" field="zipcode"/>
+    <constraint desc="" exp="" field="map_bk_lot"/>
+    <constraint desc="" exp="" field="idvalue"/>
+    <constraint desc="" exp="" field="size_no"/>
+    <constraint desc="" exp="" field="file_no"/>
+    <constraint desc="" exp="" field="plan_no"/>
+    <constraint desc="" exp="" field="name"/>
+    <constraint desc="" exp="" field="address"/>
+    <constraint desc="" exp="" field="town"/>
+    <constraint desc="" exp="" field="town_parcels"/>
+    <constraint desc="" exp="" field="county"/>
+    <constraint desc="" exp="" field="job"/>
+    <constraint desc="" exp="" field="date"/>
+    <constraint desc="" exp="" field="initials"/>
+    <constraint desc="" exp="" field="map"/>
+    <constraint desc="" exp="" field="lot"/>
+    <constraint desc="" exp="" field="surveyor"/>
+    <constraint desc="" exp="" field="cd_no"/>
+    <constraint desc="" exp="" field="notes"/>
+    <constraint desc="" exp="" field="planbook"/>
+    <constraint desc="" exp="" field="planpage"/>
+    <constraint desc="" exp="" field="rev_no"/>
+    <constraint desc="" exp="" field="plan_type"/>
+    <constraint desc="" exp="" field="k_id"/>
+    <constraint desc="" exp="" field="k_no"/>
+    <constraint desc="" exp="" field="old_plan"/>
+    <constraint desc="" exp="" field="supp_type"/>
+    <constraint desc="" exp="" field="job_no"/>
   </constraintExpressions>
   <attributeactions>
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
-  <attributetableconfig actionWidgetStyle="dropDown" sortOrder="1" sortExpression="&quot;objectid&quot;">
+  <attributetableconfig sortOrder="0" sortExpression="&quot;plan_no&quot;" actionWidgetStyle="dropDown">
     <columns>
-      <column type="field" hidden="0" width="-1" name="objectid"/>
-      <column type="field" hidden="0" width="-1" name="lat_lon"/>
-      <column type="field" hidden="0" width="-1" name="zipcode"/>
-      <column type="field" hidden="0" width="-1" name="map_bk_lot"/>
-      <column type="field" hidden="0" width="-1" name="id"/>
-      <column type="field" hidden="0" width="-1" name="size_no"/>
-      <column type="field" hidden="0" width="-1" name="file_no"/>
-      <column type="field" hidden="0" width="-1" name="plan_no"/>
-      <column type="field" hidden="0" width="-1" name="name"/>
-      <column type="field" hidden="0" width="-1" name="address"/>
-      <column type="field" hidden="0" width="-1" name="town"/>
-      <column type="field" hidden="0" width="-1" name="county"/>
-      <column type="field" hidden="0" width="-1" name="job"/>
-      <column type="field" hidden="0" width="-1" name="date"/>
-      <column type="field" hidden="0" width="-1" name="initials"/>
-      <column type="field" hidden="0" width="-1" name="map"/>
-      <column type="field" hidden="0" width="-1" name="lot"/>
-      <column type="field" hidden="0" width="-1" name="surveyor"/>
-      <column type="field" hidden="0" width="-1" name="cd_no"/>
-      <column type="field" hidden="0" width="-1" name="notes"/>
-      <column type="actions" hidden="1" width="-1"/>
-      <column type="field" hidden="0" width="-1" name="gid"/>
-      <column type="field" hidden="0" width="-1" name="planbook"/>
-      <column type="field" hidden="0" width="-1" name="planpage"/>
-      <column type="field" hidden="0" width="-1" name="k_no"/>
-      <column type="field" hidden="0" width="-1" name="rev_no"/>
-      <column type="field" hidden="0" width="-1" name="k_id"/>
-      <column type="field" hidden="0" width="-1" name="plan_type"/>
-      <column type="field" hidden="0" width="-1" name="town_parcels"/>
+      <column hidden="0" type="field" name="plan_no" width="-1"/>
+      <column hidden="0" type="field" name="gid" width="-1"/>
+      <column hidden="0" type="field" name="idvalue" width="-1"/>
+      <column hidden="0" type="field" name="objectid" width="-1"/>
+      <column hidden="0" type="field" name="lat_lon" width="-1"/>
+      <column hidden="0" type="field" name="zipcode" width="-1"/>
+      <column hidden="0" type="field" name="map_bk_lot" width="-1"/>
+      <column hidden="0" type="field" name="size_no" width="-1"/>
+      <column hidden="0" type="field" name="file_no" width="-1"/>
+      <column hidden="0" type="field" name="name" width="-1"/>
+      <column hidden="0" type="field" name="address" width="-1"/>
+      <column hidden="0" type="field" name="town" width="-1"/>
+      <column hidden="0" type="field" name="county" width="-1"/>
+      <column hidden="0" type="field" name="job" width="-1"/>
+      <column hidden="0" type="field" name="date" width="-1"/>
+      <column hidden="0" type="field" name="initials" width="-1"/>
+      <column hidden="0" type="field" name="map" width="-1"/>
+      <column hidden="0" type="field" name="lot" width="-1"/>
+      <column hidden="0" type="field" name="surveyor" width="-1"/>
+      <column hidden="0" type="field" name="cd_no" width="-1"/>
+      <column hidden="0" type="field" name="notes" width="-1"/>
+      <column hidden="1" type="actions" width="-1"/>
+      <column hidden="0" type="field" name="planbook" width="-1"/>
+      <column hidden="0" type="field" name="planpage" width="-1"/>
+      <column hidden="0" type="field" name="k_no" width="-1"/>
+      <column hidden="0" type="field" name="rev_no" width="-1"/>
+      <column hidden="0" type="field" name="k_id" width="-1"/>
+      <column hidden="0" type="field" name="plan_type" width="-1"/>
+      <column hidden="0" type="field" name="town_parcels" width="-1"/>
+      <column hidden="0" type="field" name="old_plan" width="-1"/>
+      <column hidden="0" type="field" name="supp_type" width="-1"/>
+      <column hidden="0" type="field" name="job_no" width="-1"/>
     </columns>
   </attributetableconfig>
-  <editform>z:/0 - settings/gis/qgis/plugins/brsgis_plugin/ui/la_plans.ui</editform>
+  <editform tolerant="1">Z:\0 - Settings\GIS\QGIS\Plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\la_plans.ui</editform>
   <editforminit>formOpen</editforminit>
   <editforminitcodesource>1</editforminitcodesource>
-  <editforminitfilepath>z:/0 - settings/gis/qgis/plugins/brsgis_plugin/la_plans_init.py</editforminitfilepath>
+  <editforminitfilepath>Z:\0 - Settings\GIS\QGIS\Plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\la_plans_init.py</editforminitfilepath>
   <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -713,69 +771,79 @@ def my_form_open(dialog, layer, feature):
 	geom = feature.geometry()
 	control = dialog.findChild(QWidget, "MyLineEdit")
 ]]></editforminitcode>
-  <featformsuppress>0</featformsuppress>
+  <featformsuppress>2</featformsuppress>
   <editorlayout>uifilelayout</editorlayout>
   <editable>
-    <field editable="1" name="address"/>
-    <field editable="1" name="cd_no"/>
-    <field editable="1" name="county"/>
-    <field editable="1" name="date"/>
-    <field editable="1" name="file_no"/>
-    <field editable="1" name="gid"/>
-    <field editable="1" name="id"/>
-    <field editable="1" name="initials"/>
-    <field editable="1" name="job"/>
-    <field editable="1" name="k_id"/>
-    <field editable="1" name="k_no"/>
-    <field editable="1" name="lat_lon"/>
-    <field editable="1" name="lot"/>
-    <field editable="1" name="map"/>
-    <field editable="1" name="map_bk_lot"/>
-    <field editable="1" name="name"/>
-    <field editable="1" name="notes"/>
-    <field editable="1" name="objectid"/>
-    <field editable="1" name="plan_no"/>
-    <field editable="1" name="plan_type"/>
-    <field editable="1" name="planbook"/>
-    <field editable="1" name="planpage"/>
-    <field editable="1" name="rev_no"/>
-    <field editable="1" name="size_no"/>
-    <field editable="1" name="surveyor"/>
-    <field editable="1" name="town"/>
-    <field editable="1" name="town_parce"/>
-    <field editable="1" name="town_parcels"/>
-    <field editable="1" name="zipcode"/>
+    <field name="address" editable="1"/>
+    <field name="cd_no" editable="1"/>
+    <field name="county" editable="1"/>
+    <field name="date" editable="1"/>
+    <field name="file_no" editable="1"/>
+    <field name="gid" editable="1"/>
+    <field name="id" editable="1"/>
+    <field name="idValue" editable="1"/>
+    <field name="idvalue" editable="1"/>
+    <field name="initials" editable="1"/>
+    <field name="job" editable="1"/>
+    <field name="job_no" editable="1"/>
+    <field name="k_id" editable="1"/>
+    <field name="k_no" editable="1"/>
+    <field name="lat_lon" editable="1"/>
+    <field name="lot" editable="1"/>
+    <field name="map" editable="1"/>
+    <field name="map_bk_lot" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="notes" editable="1"/>
+    <field name="objectid" editable="1"/>
+    <field name="old_plan" editable="1"/>
+    <field name="plan_no" editable="1"/>
+    <field name="plan_type" editable="1"/>
+    <field name="planbook" editable="1"/>
+    <field name="planpage" editable="1"/>
+    <field name="rev_no" editable="1"/>
+    <field name="size_no" editable="1"/>
+    <field name="supp_type" editable="1"/>
+    <field name="surveyor" editable="1"/>
+    <field name="town" editable="1"/>
+    <field name="town_parce" editable="1"/>
+    <field name="town_parcels" editable="1"/>
+    <field name="zipcode" editable="1"/>
   </editable>
   <labelOnTop>
-    <field labelOnTop="0" name="address"/>
-    <field labelOnTop="0" name="cd_no"/>
-    <field labelOnTop="0" name="county"/>
-    <field labelOnTop="0" name="date"/>
-    <field labelOnTop="0" name="file_no"/>
-    <field labelOnTop="0" name="gid"/>
-    <field labelOnTop="0" name="id"/>
-    <field labelOnTop="0" name="initials"/>
-    <field labelOnTop="0" name="job"/>
-    <field labelOnTop="0" name="k_id"/>
-    <field labelOnTop="0" name="k_no"/>
-    <field labelOnTop="0" name="lat_lon"/>
-    <field labelOnTop="0" name="lot"/>
-    <field labelOnTop="0" name="map"/>
-    <field labelOnTop="0" name="map_bk_lot"/>
-    <field labelOnTop="0" name="name"/>
-    <field labelOnTop="0" name="notes"/>
-    <field labelOnTop="0" name="objectid"/>
-    <field labelOnTop="0" name="plan_no"/>
-    <field labelOnTop="0" name="plan_type"/>
-    <field labelOnTop="0" name="planbook"/>
-    <field labelOnTop="0" name="planpage"/>
-    <field labelOnTop="0" name="rev_no"/>
-    <field labelOnTop="0" name="size_no"/>
-    <field labelOnTop="0" name="surveyor"/>
-    <field labelOnTop="0" name="town"/>
-    <field labelOnTop="0" name="town_parce"/>
-    <field labelOnTop="0" name="town_parcels"/>
-    <field labelOnTop="0" name="zipcode"/>
+    <field name="address" labelOnTop="0"/>
+    <field name="cd_no" labelOnTop="0"/>
+    <field name="county" labelOnTop="0"/>
+    <field name="date" labelOnTop="0"/>
+    <field name="file_no" labelOnTop="0"/>
+    <field name="gid" labelOnTop="0"/>
+    <field name="id" labelOnTop="0"/>
+    <field name="idValue" labelOnTop="0"/>
+    <field name="idvalue" labelOnTop="0"/>
+    <field name="initials" labelOnTop="0"/>
+    <field name="job" labelOnTop="0"/>
+    <field name="job_no" labelOnTop="0"/>
+    <field name="k_id" labelOnTop="0"/>
+    <field name="k_no" labelOnTop="0"/>
+    <field name="lat_lon" labelOnTop="0"/>
+    <field name="lot" labelOnTop="0"/>
+    <field name="map" labelOnTop="0"/>
+    <field name="map_bk_lot" labelOnTop="0"/>
+    <field name="name" labelOnTop="0"/>
+    <field name="notes" labelOnTop="0"/>
+    <field name="objectid" labelOnTop="0"/>
+    <field name="old_plan" labelOnTop="0"/>
+    <field name="plan_no" labelOnTop="0"/>
+    <field name="plan_type" labelOnTop="0"/>
+    <field name="planbook" labelOnTop="0"/>
+    <field name="planpage" labelOnTop="0"/>
+    <field name="rev_no" labelOnTop="0"/>
+    <field name="size_no" labelOnTop="0"/>
+    <field name="supp_type" labelOnTop="0"/>
+    <field name="surveyor" labelOnTop="0"/>
+    <field name="town" labelOnTop="0"/>
+    <field name="town_parce" labelOnTop="0"/>
+    <field name="town_parcels" labelOnTop="0"/>
+    <field name="zipcode" labelOnTop="0"/>
   </labelOnTop>
   <widgets/>
   <conditionalstyles>
@@ -783,7 +851,7 @@ def my_form_open(dialog, layer, feature):
     <fieldstyles/>
   </conditionalstyles>
   <expressionfields/>
-  <previewExpression>objectid</previewExpression>
+  <previewExpression>plan_no</previewExpression>
   <mapTip></mapTip>
   <layerGeometryType>2</layerGeometryType>
 </qgis>

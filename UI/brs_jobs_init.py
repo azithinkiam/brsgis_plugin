@@ -64,16 +64,12 @@ def formOpen(dialog, layerid, featureid):
 
         if objectType.toPlainText() == 'polygon':
             mbl.show()
-            lblMBL.show()
-            lblOT.hide()
-            lblOT.setEnabled(False)
+            lblMBL.setText("map_bk_lot(s)")
             objectType.hide()
             pass
         else:
             mbl.hide()
-            lblMBL.hide()
-            lblOT.show()
-            lblOT.setEnabled(True)
+            lblMBL.setText("Feature Type")
             objectType.show()
 
         try:
