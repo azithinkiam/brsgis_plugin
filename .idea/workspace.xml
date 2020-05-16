@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.1&#10;&#10;FINAL.">
+      <change afterPath="$PROJECT_DIR$/forms/brsgis_supp_pre_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/brsgis_label_form.ui" beforeDir="false" afterPath="$PROJECT_DIR$/forms/brsgis_label_form.ui" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>brsgis_label_form</find>
+      <find>addAttribute</find>
+      <find>addattributes</find>
+      <find>if supp</find>
+      <find>READY TO DRAW</find>
+      <find>supp_type</find>
+      <find>new_roads</find>
+      <find>'X'</find>
+      <find>suppno</find>
+      <find>supp_dia</find>
+      <find>newPlan</find>
+      <find>poly</find>
+      <find>newjob</find>
+      <find>newJob</find>
+      <find>Generate</find>
+      <find>resetLe</find>
+      <find>setFormsConfig</find>
+      <find>launching form for editing</find>
+      <find>FIRST RUN</find>
+      <find>parcel</find>
+      <find>mapTable</find>
+      <find>resetLegend()</find>
+      <find>supp</find>
+      <find>self.editSupp</find>
+      <find>getJobType()</find>
+      <find>resetLeg</find>
+      <find>job swap</find>
+      <find>supp_dialog</find>
+      <find>init</find>
+      <find>search</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&amp;brsgis</replace>
+      <replace>level=Qgis.Info</replace>
+      <replace>'BRS_GIS', level=Qgis.Info</replace>
+      <replace>== 'NULL'</replace>
+      <replace>()</replace>
+      <replace>len(hrs</replace>
+      <replace>'0'</replace>
+      <replace>==</replace>
+      <replace>plan</replace>
+      <replace>plan[]</replace>
+      <replace>job_subtype</replace>
+      <replace>brsgis_supp_pre_form</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="azithinkiam" />
+        <option value="tschmal" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="azithinkiam" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="brsgis_plugin" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/brsgis_dialogs.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectId" id="1ZFyzlUWHrDIXqVHarHt9rDUfv2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\0 - Settings\GIS\QGIS\Plugins\brsgis_plugin" />
+      <recent name="C:\BRS_GIS\DEV\brs_plugin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.mailMerge">
+    <configuration name="brs_jobs_init" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="brs_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brs_jobs_init.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="brsgis_dialogs" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="brsgis_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brsgis_dialogs.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mailMerge" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="brsgis_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/mailMerge" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/mailMerge/mailMerge.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.brs_jobs_init" />
+      <item itemvalue="Python.brsgis_dialogs" />
+      <item itemvalue="Python.mailMerge" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.mailMerge" />
+        <item itemvalue="Python.brsgis_dialogs" />
+        <item itemvalue="Python.brs_jobs_init" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="" />
+      <created>1516253493035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1516253493035</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial SAVE to GitHub">
+      <created>1556726153552</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556726153552</updated>
+    </task>
+    <task id="LOCAL-00002" summary="INITIAL.">
+      <created>1556728142941</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556728142941</updated>
+    </task>
+    <task id="LOCAL-00003" summary="INITIAL.">
+      <created>1556729430798</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556729430798</updated>
+    </task>
+    <task id="LOCAL-00004" summary="UPDATE.">
+      <created>1556730253197</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556730253197</updated>
+    </task>
+    <task id="LOCAL-00005" summary="CLEANUP.">
+      <created>1556735439555</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1556735439555</updated>
+    </task>
+    <task id="LOCAL-00006" summary="CLEANUP.">
+      <created>1556767680354</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1556767680354</updated>
+    </task>
+    <task id="LOCAL-00007" summary="CLEANUP.">
+      <created>1556897899895</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1556897899895</updated>
+    </task>
+    <task id="LOCAL-00008" summary="CLEANUP.">
+      <created>1556901833125</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1556901833125</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed handling of NULL related work for abutters when generating mapTable.">
+      <created>1556903446425</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1556903446425</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed issue with ABUTTER ident during mapView.">
+      <created>1556903908766</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1556903908766</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added selection check to printMapView.">
+      <created>1556904097577</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1556904097577</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Commented out FLAGGED check on brs_contacts.">
+      <created>1556904355110</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556904355110</updated>
+    </task>
+    <task id="LOCAL-00013" summary="v4.d">
+      <created>1562780543128</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1562780543128</updated>
+    </task>
+    <task id="LOCAL-00014" summary="v4.E">
+      <created>1563420942219</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1563420942220</updated>
+    </task>
+    <task id="LOCAL-00015" summary="v4.F">
+      <created>1575338620285</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1575338620285</updated>
+    </task>
+    <task id="LOCAL-00016" summary="v4.G&#10;&#10;brsgis_newPlan reworked to resolve issue caused by errant code-block.">
+      <created>1576530600656</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1576530600656</updated>
+    </task>
+    <task id="LOCAL-00017" summary="v4.G.2&#10;&#10;brsgis_newPlan reworked to resolve issue caused by errant code-block.">
+      <created>1576530776117</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1576530776117</updated>
+    </task>
+    <task id="LOCAL-00018" summary="v4.E.1&#10;&#10;final validation complete: movePlan &amp; create plan fixed.">
+      <created>1576550570104</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1576550570104</updated>
+    </task>
+    <task id="LOCAL-00019" summary="v4.F.1&#10;&#10;initial structure for new line/point plans...">
+      <created>1582516880616</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1582516880616</updated>
+    </task>
+    <task id="LOCAL-00020" summary="v4.G.1&#10;&#10;initial structure for new line/point plans...">
+      <created>1584419370260</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1584419370260</updated>
+    </task>
+    <task id="LOCAL-00021" summary="v5.A.1&#10;&#10;alpha version of line/point jobs...ready for testing by NWP.">
+      <created>1584471885148</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1584471885148</updated>
+    </task>
+    <task id="LOCAL-00022" summary="v5.B.1&#10;&#10;beta version of line/point jobs...ready for testing by NWP.">
+      <created>1584549669320</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1584549669320</updated>
+    </task>
+    <task id="LOCAL-00023" summary="v5.B.2&#10;&#10;FINAL beta version of line/point jobs...ready for testing by NWP.">
+      <created>1584644347728</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1584644347728</updated>
+    </task>
+    <task id="LOCAL-00024" summary="v6.A.1&#10;&#10;FINAL ALPHA...ready for testing by NWP.">
+      <created>1585668843884</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1585668843884</updated>
+    </task>
+    <task id="LOCAL-00025" summary="v6.A.1&#10;&#10;FINAL ALPHA...ready for testing by NWP.">
+      <created>1585672003263</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1585672003263</updated>
+    </task>
+    <task id="LOCAL-00026" summary="v6.B.1&#10;&#10;WIP BETA...ready for testing by NWP.">
+      <created>1587320404248</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1587320404248</updated>
+    </task>
+    <task id="LOCAL-00027" summary="v7.A.1&#10;&#10;LATEST...ready for testing by NWP.">
+      <created>1587405476194</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1587405476194</updated>
+    </task>
+    <task id="LOCAL-00028" summary="v0.8.1&#10;&#10;LATEST - first inclusion of supplementals...placeholder.">
+      <created>1587931506143</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1587931506143</updated>
+    </task>
+    <task id="LOCAL-00029" summary="v0.9.0&#10;&#10;LATEST - all but new-Ks and parcel-based supps are good.">
+      <created>1588012946214</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1588012946214</updated>
+    </task>
+    <task id="LOCAL-00030" summary="v2.0&#10;&#10;FINAL.">
+      <created>1589126829051</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1589126829051</updated>
+    </task>
+    <task id="LOCAL-00031" summary="v2.1&#10;&#10;FINAL.">
+      <created>1589602621714</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1589602621714</updated>
+    </task>
+    <task id="LOCAL-00032" summary="v2.1&#10;&#10;FINAL.">
+      <created>1589602631793</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1589602631793</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+      <path value="C:/Git/brsgis_plugin" />
+    </ignored-roots>
+    <MESSAGE value="INITIAL." />
+    <MESSAGE value="UPDATE." />
+    <MESSAGE value="CLEANUP." />
+    <MESSAGE value="Fixed handling of NULL related work for abutters when generating mapTable." />
+    <MESSAGE value="Fixed issue with ABUTTER ident during mapView." />
+    <MESSAGE value="Added selection check to printMapView." />
+    <MESSAGE value="Commented out FLAGGED check on brs_contacts." />
+    <MESSAGE value="v4.d" />
+    <MESSAGE value="v4.E" />
+    <MESSAGE value="v4.F" />
+    <MESSAGE value="v4.G&#10;&#10;brsgis_newPlan reworked to resolve issue caused by errant code-block." />
+    <MESSAGE value="v4.G.2&#10;&#10;brsgis_newPlan reworked to resolve issue caused by errant code-block." />
+    <MESSAGE value="v4.E.1&#10;&#10;final validation complete: movePlan &amp; create plan fixed." />
+    <MESSAGE value="v4.F.1&#10;&#10;initial structure for new line/point plans..." />
+    <MESSAGE value="v4.G.1&#10;&#10;initial structure for new line/point plans..." />
+    <MESSAGE value="v5.A.1&#10;&#10;alpha version of line/point jobs...ready for testing by NWP." />
+    <MESSAGE value="v5.B.1&#10;&#10;beta version of line/point jobs...ready for testing by NWP." />
+    <MESSAGE value="v5.B.2&#10;&#10;FINAL beta version of line/point jobs...ready for testing by NWP." />
+    <MESSAGE value="v6.A.1&#10;&#10;FINAL ALPHA...ready for testing by NWP." />
+    <MESSAGE value="v6.B.1&#10;&#10;WIP BETA...ready for testing by NWP." />
+    <MESSAGE value="v7.A.1&#10;&#10;LATEST...ready for testing by NWP." />
+    <MESSAGE value="v0.8.1&#10;&#10;LATEST - first inclusion of supplementals...placeholder." />
+    <MESSAGE value="v0.9.0&#10;&#10;LATEST - all but new-Ks and parcel-based supps are good." />
+    <MESSAGE value="v2.0&#10;&#10;FINAL." />
+    <MESSAGE value="v2.1&#10;&#10;FINAL." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.1&#10;&#10;FINAL." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="586" y="203" key="#Inspections" timestamp="1589602517319">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="586" y="203" key="#Inspections/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602517319" />
+    <state x="223" y="116" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584452048050">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="223" y="116" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584452048050" />
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589603429171">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603429171" />
+    <state x="739" y="279" key="FileChooserDialogImpl" timestamp="1589602810648">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584449750618" />
+    <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602810648" />
+    <state x="662" y="227" key="RollbackChangesDialog" timestamp="1589602709235">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="662" y="227" key="RollbackChangesDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602709235" />
+    <state x="461" y="167" key="SettingsEditor" timestamp="1584451292637">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584451292637" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589602818339">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602818339" />
+    <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584449493345">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="661" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584449493345" />
+    <state x="382" y="241" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1589602806716">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="382" y="241" key="vcs.ApplyPatchDifferentiatedDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602806716" />
+  </component>
+</project>

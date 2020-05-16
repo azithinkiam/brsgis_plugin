@@ -1,0 +1,12 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(date 1589602807122)
++++ .gitignore	(date 1589602807122)
+@@ -0,0 +1,4 @@
++/forms/brsgis_supp_pre_form.py
++/forms/brsgis_supp_pre_form.ui
++/UI/brs_createJob.ui
++/__init__.py
