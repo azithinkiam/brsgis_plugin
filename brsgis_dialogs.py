@@ -2,16 +2,15 @@
 from __future__ import print_function
 
 import os.path
-import sys
-import threading
-from builtins import range
-from functools import partial
-
 import processing
 import pyperclip
+import sys
+import threading
 from PyQt5.QtCore import QVariant, Qt, QRectF
 from PyQt5.QtGui import QIcon, QGuiApplication
 from PyQt5.QtWidgets import QAction, QMessageBox, QDialog
+from builtins import range
+from functools import partial
 from processing.core.Processing import Processing
 from qgis.core import *
 from qgis.core import QgsProject, QgsMessageLog, QgsDataSourceUri, Qgis, QgsPrintLayout, QgsUnitTypes, QgsLayoutSize, \
@@ -800,7 +799,6 @@ class brsgis_newLPJob(object):
 
         QgsMessageLog.logMessage('SUPP.: ' + str(supp), 'BRS_GIS', level=Qgis.Info)
         QgsMessageLog.logMessage('SUPP. TYPE: ' + str(type) + ' | ' + str(self.supp_type), 'BRS_GIS', level=Qgis.Info)
-
         try:
             source = self.iface.activeLayer().selectedFeatures()[0]
 
@@ -1866,8 +1864,12 @@ class brsgis_editJob(object):
             # change to brs_jobs form
 
             lat_lon = f['lat_lon']
-            ll = len(lat_lon)
+            if str(lat_lon) == 'NULL':
+                lat_lon = ''
+            else:
+                lat_lon = lat_lon
 
+            ll = len(lat_lon)
             QgsMessageLog.logMessage('ll: ' + lat_lon + ' | ' + str(ll), 'BRS_GIS', level=Qgis.Info)
 
             if ll <= 30:
@@ -4377,25 +4379,10 @@ class brsgis_search(object):
     def run(self):
         QgsMessageLog.logMessage('Search initiated...', 'BRS_GIS', level=Qgis.Info)
         eMenu = self.iface.mainWindow()
-        #
-        # vLayer = self.iface.activeLayer()
-        # oLayer = vLayer
-        #
-        # try:
-        #     if vLayer:
-        #         pass
-        #     else:
-        #         self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        #         self.iface.setActiveLayer(self.vl)
-        #         vLayer = self.iface.activeLayer()
-        # except Exception as e:
-        #     exc_type, exc_obj, exc_tb = sys.exc_info()
-        #     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-        #     QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
-        #                          "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-        #                              exc_tb.tb_lineno) + ' ' + str(e))
-        #     return
-        #
+
+        vLayer = self.iface.activeLayer()
+        oLayer = vLayer
+
         # if vLayer.name() == 'brs_jobs':
         #
         #     pLayer = QgsProject.instance().mapLayersByName('brs_jobs')[0]
@@ -4470,6 +4457,7 @@ class brsgis_search(object):
         # self.iface.setActiveLayer(oLayer)
         # self.resetLegend()
         # else:
+
         QgsMessageLog.logMessage('Clear form config...', 'BRS_GIS', level=Qgis.Info)
 
         form_config = self.iface.activeLayer().editFormConfig()
@@ -4505,6 +4493,7 @@ class brsgis_search(object):
         fPath = self.resolveUI(jform)
         pyPath = self.resolveUI(jpy)
         form_config.setUiForm(fPath)
+        form_config.setInitCodeSource(1)
         form_config.setInitFilePath(pyPath)
         self.iface.activeLayer().setEditFormConfig(form_config)
 
@@ -4516,6 +4505,7 @@ class brsgis_search(object):
         fPath = self.resolveUI(jform)
         pyPath = self.resolveUI(jpy)
         form_config.setUiForm(fPath)
+        form_config.setInitCodeSource(1)
         form_config.setInitFilePath(pyPath)
         self.iface.activeLayer().setEditFormConfig(form_config)
 
@@ -4527,9 +4517,10 @@ class brsgis_search(object):
         fPath = self.resolveUI(jform)
         pyPath = self.resolveUI(jpy)
         form_config.setUiForm(fPath)
+        form_config.setInitCodeSource(1)
         form_config.setInitFilePath(pyPath)
         self.iface.activeLayer().setEditFormConfig(form_config)
-
+        self.iface.setActiveLayer(oLayer)
         self.resetLegend()
 
     def resetLegend(self):
@@ -4749,6 +4740,7 @@ class brsgis_search(object):
         fPath = self.resolveUI(jform)
         pyPath = self.resolveUI(jpy)
         form_config.setUiForm(fPath)
+        form_config.setInitCodeSource(1)
         form_config.setInitFilePath(pyPath)
         self.iface.activeLayer().setEditFormConfig(form_config)
 
@@ -4760,6 +4752,7 @@ class brsgis_search(object):
         fPath = self.resolveUI(jform)
         pyPath = self.resolveUI(jpy)
         form_config.setUiForm(fPath)
+        form_config.setInitCodeSource(1)
         form_config.setInitFilePath(pyPath)
         self.iface.activeLayer().setEditFormConfig(form_config)
 
@@ -4771,6 +4764,7 @@ class brsgis_search(object):
         fPath = self.resolveUI(jform)
         pyPath = self.resolveUI(jpy)
         form_config.setUiForm(fPath)
+        form_config.setInitCodeSource(1)
         form_config.setInitFilePath(pyPath)
         self.iface.activeLayer().setEditFormConfig(form_config)
 
@@ -6595,3 +6589,28 @@ class brsgis_addParcel(threading.Thread):
 
     def run(self):
         self.runnable()
+
+
+class brsgis_supp_dialog(QDialog, Ui_brsgis_supp_pre_form):
+
+    def __init__(self, iface, pType):
+        QDialog.__init__(self)
+        self.iface = iface
+        self.setupUi(self)
+        buttonBox = self.buttonBox
+        buttonBox.accepted.connect(partial(self.launch_form, pType))
+        buttonBox.rejected.connect(self.finished)
+
+    def launch_form(self, pType):
+
+        supp_type = self.findChild(QComboBox, "supp_type")
+
+        sType = str(supp_type.currentText())
+
+        self.newLPJob_dialog = brsgis_newLPJob(self.iface, sType, pType)
+        self.newLPJob_dialog.initGui(sType, pType)
+
+
+
+    def finished(self):
+        self.done(1)
