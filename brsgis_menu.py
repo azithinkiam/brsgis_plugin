@@ -10,10 +10,9 @@
 #   written authorization of both AViTAS Concepts, LLC and
 #   Boothbay Regional Surveyors, LLC.
 # -------------------------------------------------------------
-from builtins import object
-
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+from builtins import object
 
 from .brsgis_dialogs import *
 
@@ -158,6 +157,11 @@ class brsgis_menu(object):
         self.util_menu = QMenu(QCoreApplication.translate("brsgis", "&Utilities"))
         self.util_menu.setIcon(icon)
         self.brsgis_add_submenu(self.util_menu)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.printEstimates_action = QAction(icon, "Print &Estimates List", self.iface.mainWindow())
+        self.printEstimates_action.triggered.connect(self.printEstimates)
+        self.util_menu.addAction(self.printEstimates_action)
 
         # icon = QIcon(os.path.dirname(__file__) + "/icons/freehand.svg")
         # self.export_action = QAction(icon, "&Freehand Select/map_bk_lots to Clipboard", self.iface.mainWindow())
@@ -329,6 +333,12 @@ class brsgis_menu(object):
         QgsMessageLog.logMessage('Generating Map View...', 'BRS_GIS', level=Qgis.Info)
         self.mv_dialog = brsgis_printMapView(self.iface)
         self.mv_dialog.initGui()
+
+    def printEstimates(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Generating Estimates...', 'BRS_GIS', level=Qgis.Info)
+        self.e_dialog = brsgis_printEstimates(self.iface)
+        self.e_dialog.initGui()
 
     def printContacts(self):
         # Must be saved in self, otherwise garbage collector destroys dialog

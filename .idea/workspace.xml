@@ -23,8 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.1&#10;&#10;FINAL.">
-      <change afterPath="$PROJECT_DIR$/forms/brsgis_supp_pre_form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/brsgis_label_form.ui" beforeDir="false" afterPath="$PROJECT_DIR$/forms/brsgis_label_form.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brsgis_dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_dialogs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brsgis_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,54 +40,6 @@
         <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>brsgis_label_form</find>
-      <find>addAttribute</find>
-      <find>addattributes</find>
-      <find>if supp</find>
-      <find>READY TO DRAW</find>
-      <find>supp_type</find>
-      <find>new_roads</find>
-      <find>'X'</find>
-      <find>suppno</find>
-      <find>supp_dia</find>
-      <find>newPlan</find>
-      <find>poly</find>
-      <find>newjob</find>
-      <find>newJob</find>
-      <find>Generate</find>
-      <find>resetLe</find>
-      <find>setFormsConfig</find>
-      <find>launching form for editing</find>
-      <find>FIRST RUN</find>
-      <find>parcel</find>
-      <find>mapTable</find>
-      <find>resetLegend()</find>
-      <find>supp</find>
-      <find>self.editSupp</find>
-      <find>getJobType()</find>
-      <find>resetLeg</find>
-      <find>job swap</find>
-      <find>supp_dialog</find>
-      <find>init</find>
-      <find>search</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>&amp;brsgis</replace>
-      <replace>level=Qgis.Info</replace>
-      <replace>'BRS_GIS', level=Qgis.Info</replace>
-      <replace>== 'NULL'</replace>
-      <replace>()</replace>
-      <replace>len(hrs</replace>
-      <replace>'0'</replace>
-      <replace>==</replace>
-      <replace>plan</replace>
-      <replace>plan[]</replace>
-      <replace>job_subtype</replace>
-      <replace>brsgis_supp_pre_form</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -101,6 +56,9 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="b4e49c0ce162769103a6e320cdf2007049f02114" />
   </component>
   <component name="GithubProjectSettings">
     <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
@@ -443,7 +401,35 @@
       <option name="project" value="LOCAL" />
       <updated>1589602631793</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="v2.1&#10;&#10;FINAL.">
+      <created>1589603486089</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1589603486089</updated>
+    </task>
+    <task id="LOCAL-00034" summary="v2.1&#10;&#10;FINAL.">
+      <created>1589603592831</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1589603592832</updated>
+    </task>
+    <task id="LOCAL-00035" summary="v2.1&#10;&#10;FINAL.">
+      <created>1589603599588</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1589603599588</updated>
+    </task>
+    <task id="LOCAL-00036" summary="v2.1&#10;&#10;FINAL.">
+      <created>1589603609250</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1589603609250</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -525,6 +511,14 @@
     </state>
     <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584449750618" />
     <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602810648" />
+    <state x="452" y="208" key="Git.Interactive.Rebase.Dialog" timestamp="1589603624732">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="452" y="208" key="Git.Interactive.Rebase.Dialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603624732" />
+    <state x="290" y="392" width="791" height="265" key="MultipleFileMergeDialog" timestamp="1589603645783">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="290" y="392" width="791" height="265" key="MultipleFileMergeDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603645783" />
     <state x="662" y="227" key="RollbackChangesDialog" timestamp="1589602709235">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -533,14 +527,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584451292637" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589602818339">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589603666911">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602818339" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603666911" />
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584449493345">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584449493345" />
+    <state x="677" y="386" key="git4idea.rebase.GitRebaseDialog" timestamp="1589603531632">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="677" y="386" key="git4idea.rebase.GitRebaseDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603531632" />
+    <state x="703" y="416" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1589603646982">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="703" y="416" key="git4idea.rebase.GitUnstructuredEditor/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603646982" />
     <state x="382" y="241" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1589602806716">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

@@ -3798,6 +3798,268 @@ class brsgis_printContacts(object):
             return qPath
 
 
+class brsgis_printEstimates(object):
+
+    def __init__(self, iface):
+        # save reference to the QGIS interface
+        self.iface = iface
+
+    def initGui(self):
+        self.action = QAction("P.EST", self.iface.mainWindow())
+        self.action.triggered.connect(self.run)
+        self.action.trigger()
+
+    def run(self):
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+
+        from openpyxl import Workbook
+        from openpyxl.styles import PatternFill, Font
+        from openpyxl.styles.differential import DifferentialStyle
+        from openpyxl.formatting.rule import Rule
+
+        efile = os.path.join("Z:\\", "0 - Settings\\GIS\\Reports\\BRS_Estimates.xlsx")
+        wb = Workbook()
+        ws = wb.active
+
+        grey_fill = PatternFill(bgColor="DDDDDD")
+        dxf = DifferentialStyle(fill=grey_fill)
+        r = Rule(type="expression", dxf=dxf, stopIfTrue=True)
+        r.formula = ['$I1="A"']
+        ws.conditional_formatting.add("A1:I9999", r)
+
+        ws['A1'] = 'job_no'
+        ws['B1'] = 'rev_no'
+        ws['C1'] = 'job_type'
+        ws['D1'] = 'client_name'
+        ws['E1'] = 'town'
+        ws['F1'] = 'locus_addr'
+        ws['G1'] = 'folder_name'
+        ws['H1'] = 'date_requested'
+        ws['I1'] = 'active'
+
+        hdrfont = Font(size=12, bold=True)
+        for cell in ws["1:1"]:
+            cell.font = hdrfont
+
+        def get_jobNo(j):
+            return j['job_no']
+
+        def makeRow(active, j, ws):
+            job_no = str(j["job_no"])
+            rev_no = str(j["rev_no"])
+            job_type = str(j["job_type"])
+            client_name = str(j["client_name"])
+            town = str(j["town"])
+            locus_addr = str(j["locus_addr"])
+            folder_name = str(j["folder_name"])
+            date_requested = str(j["date_requested"])
+            row = job_no + "|" + rev_no + "|" + job_type + "|" + client_name \
+                  + "|" + town + "|" + locus_addr + "|" + folder_name + "|" + date_requested + "|" + active
+            return row
+
+        def writeActives(active, j, ws):
+            if active == 'A':
+                row = makeRow(active, j, ws)
+                # QgsMessageLog.logMessage('row: ' + row + '...', 'BRS_GIS', level=Qgis.Info)
+                row = list(row.split("|"))
+                ws.append(row)
+            else:
+                pass
+
+        def writeInactives(active, j, ws):
+            if active == 'A':
+                pass
+            else:
+                row = makeRow(active, j, ws)
+                # QgsMessageLog.logMessage('row: ' + row + '...', 'BRS_GIS', level=Qgis.Info)
+                row = list(row.split("|"))
+                ws.append(row)
+
+        exT = QgsExpression(u'"active" = \'%s\'' % ('True'))
+        exF = QgsExpression(u'"active" = \'%s\'' % ('False'))
+        requestT = QgsFeatureRequest(exT)
+        requestT.setFlags(QgsFeatureRequest.NoGeometry)
+        requestF = QgsFeatureRequest(exF)
+        requestF.setFlags(QgsFeatureRequest.NoGeometry)
+
+        activeJobs = sorted(self.vl.getFeatures(requestT), key=get_jobNo)
+        inactiveJobs = sorted(self.vl.getFeatures(requestF), key=get_jobNo)
+
+        for j in activeJobs:
+            estimate = str(j["estimate"])
+            if estimate == 'False':
+                pass
+            else:
+                active = str(j["active"])
+                if active == 'True':
+                    active = 'A'
+                    writeActives(active, j, ws)
+                else:
+                    active = ''
+                    pass
+
+        for j in inactiveJobs:
+            estimate = str(j["estimate"])
+            if estimate == 'False':
+                pass
+            else:
+                active = str(j["active"])
+                if active == 'True':
+                    active = 'A'
+                    pass
+                else:
+                    active = ''
+                    writeInactives(active, j, ws)
+
+        for column_cells in ws.columns:
+            length = max(len(cell.value) + 5 for cell in column_cells)
+            ws.column_dimensions[column_cells[0].column_letter].width = length
+
+        # ws.auto_filter.ref = "A1:I9999"
+        # # ws.auto_filter.add_sort_condition("I2:I9999")
+        # ws.auto_filter.add_sort_condition("A2:A9999")
+
+        QgsMessageLog.logMessage('Saving file: ' + efile + '...', 'BRS_GIS', level=Qgis.Info)
+        wb.save(efile)
+
+class brsgis_printEstimateLayouts(object):
+
+    def __init__(self, iface):
+        # save reference to the QGIS interface
+        self.iface = iface
+
+    def initGui(self):
+        self.action = QAction("P.EST", self.iface.mainWindow())
+        self.action.triggered.connect(self.run)
+        self.action.trigger()
+
+    def run(self):
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+
+        path = os.path.join("Z:\\", "0 - Settings\\GIS\\Reports")
+
+        QgsMessageLog.logMessage('Checking output folder: ' + path + '...', 'BRS_GIS', level=Qgis.Info)
+        if not os.path.exists(path):
+            os.makedirs(path)
+
+        msg = QMessageBox()
+        msg.setWindowTitle('Sort Order')
+        msg.setText('How would you like the output sorted?')
+        byJobNo = msg.addButton('JobNo', QMessageBox.AcceptRole)
+        byActive = msg.addButton('Active | JobNo', QMessageBox.AcceptRole)
+        byClient = msg.addButton('ClientName', QMessageBox.AcceptRole)
+        cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+
+        msg.setDefaultButton(cancel)
+        QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+        msg.exec_()
+        msg.deleteLater()
+        QGuiApplication.restoreOverrideCursor()
+
+        if msg.clickedButton() is byJobNo:
+            layout = "Estimates by JobNo"
+            cfile = str(path) + "\\" + "Estimates by JobNo.pdf"
+        elif msg.clickedButton() is byActive:
+            layout = "Estimates by Active"
+            cfile = str(path) + "\\" + "Estimates by Active.pdf"
+        elif msg.clickedButton() is byClient:
+            layout = "Estimates by ClientName"
+            cfile = str(path) + "\\" + "Estimates by ClientName.pdf"
+
+        # generate output
+        self.make_pdf(layout, cfile)
+
+        resetLegend(self)
+
+    def make_pdf(self, layout, cfile):
+
+        projectInstance = QgsProject.instance()
+        layoutmanager = projectInstance.layoutManager()
+        layoutObject = layoutmanager.layoutByName(layout)
+        exporter = QgsLayoutExporter(layoutObject)
+        exporter.exportToPdf(cfile, QgsLayoutExporter.PdfExportSettings())
+
+    def setPaperSizePortrait(self):
+
+        longSide = 279
+        shortSide = 216
+        width = shortSide
+        height = longSide
+
+        return width, height
+
+    def setPaperSizeLandscape(self):
+
+        longSide = 216
+        shortSide = 279
+        width = shortSide
+        height = longSide
+
+        return width, height
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            qPath = os.path.dirname(os.path.realpath(__file__)) + '\\QML\\' + basepath
+            return qPath
+
+    def resolveUI(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            qPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return qPath
+
+    def reset(self):
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+        jform = 'brs_jobs.ui'
+        jpy = 'brs_jobs_init.py'
+        form_config = self.iface.activeLayer().editFormConfig()
+        fPath = self.resolveUI(jform)
+        pyPath = self.resolveUI(jpy)
+        form_config.setUiForm(fPath)
+        form_config.setInitFilePath(pyPath)
+        self.iface.activeLayer().setEditFormConfig(form_config)
+
+        self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
+        self.iface.setActiveLayer(self.vl)
+        jform = 'la_plans.ui'
+        jpy = 'la_plans_init.py'
+        form_config = self.iface.activeLayer().editFormConfig()
+        fPath = self.resolveUI(jform)
+        pyPath = self.resolveUI(jpy)
+        form_config.setUiForm(fPath)
+        form_config.setInitFilePath(pyPath)
+        self.iface.activeLayer().setEditFormConfig(form_config)
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+        self.iface.setActiveLayer(self.vl)
+        jform = 'brs_contacts.ui'
+        jpy = 'brs_contacts_init.py'
+        form_config = self.iface.activeLayer().editFormConfig()
+        fPath = self.resolveUI(jform)
+        pyPath = self.resolveUI(jpy)
+        form_config.setUiForm(fPath)
+        form_config.setInitFilePath(pyPath)
+        self.iface.activeLayer().setEditFormConfig(form_config)
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_supplementals')[0]
+        self.iface.setActiveLayer(self.vl)
+        jform = 'brs_supplementals.ui'
+        jpy = 'brs_supplementals_init.py'
+        form_config = self.iface.activeLayer().editFormConfig()
+        fPath = self.resolveUI(jform)
+        pyPath = self.resolveUI(jpy)
+        form_config.setUiForm(fPath)
+        form_config.setInitFilePath(pyPath)
+        self.iface.activeLayer().setEditFormConfig(form_config)
+
+
 class brsgis_printMapView(object):
 
     def __init__(self, iface):
@@ -4217,6 +4479,8 @@ class brsgis_printSiteMap(object):
 
         self.reset()
         resetLegend(self)
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
 
     def resolve(name, basepath=None):
         if not basepath:
