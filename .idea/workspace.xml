@@ -22,12 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.1&#10;&#10;FINAL.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" afterDir="false" />
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.2&#10;&#10;FINAL.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brsgis_dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_dialogs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brsgis_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589603609250</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="v2.2&#10;&#10;FINAL.">
+      <created>1589951564929</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1589951564929</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -465,7 +469,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="C:/Git/brsgis_plugin" />
     </ignored-roots>
-    <MESSAGE value="INITIAL." />
     <MESSAGE value="UPDATE." />
     <MESSAGE value="CLEANUP." />
     <MESSAGE value="Fixed handling of NULL related work for abutters when generating mapTable." />
@@ -490,7 +493,8 @@
     <MESSAGE value="v0.9.0&#10;&#10;LATEST - all but new-Ks and parcel-based supps are good." />
     <MESSAGE value="v2.0&#10;&#10;FINAL." />
     <MESSAGE value="v2.1&#10;&#10;FINAL." />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.1&#10;&#10;FINAL." />
+    <MESSAGE value="v2.2&#10;&#10;FINAL." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.2&#10;&#10;FINAL." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -527,14 +531,19 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584451292637" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589603666911">
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589951570929">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589951570929" />
     <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603666911" />
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584449493345">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584449493345" />
+    <state x="649" y="313" key="git4idea.merge.GitMergeDialog" timestamp="1589989620698">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="649" y="313" key="git4idea.merge.GitMergeDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589989620698" />
     <state x="677" y="386" key="git4idea.rebase.GitRebaseDialog" timestamp="1589603531632">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

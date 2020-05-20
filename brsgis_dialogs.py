@@ -1780,7 +1780,8 @@ class brsgis_editJob(object):
         else:
             QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
 
-        resetLegend(self)
+
+        # QgsMessageLog.logMessage('DONE.', 'BRS_GIS', level=Qgis.Info)
 
     def select_changed(self):
 
@@ -1816,6 +1817,7 @@ class brsgis_editJob(object):
                 self.iface.setActiveLayer(lyr)
                 self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
                 self.iface.actionIdentify().trigger()
+                resetLegend(self)
 
             elif msg.clickedButton() is cancel:
                 self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
@@ -2996,6 +2998,8 @@ class brsgis_printMapTable(object):
             return
 
         fid = feat.id()
+        key = str(feat['objectid'])
+        QgsMessageLog.logMessage('DROP: ' + str(key), 'BRS_GIS', level=Qgis.Info)
 
         self.iface.setActiveLayer(layerActive)
 
@@ -3004,7 +3008,7 @@ class brsgis_printMapTable(object):
         if layerActive.name() == 'brs_jobs':
             import datetime
             relW = self.updateJobRelated(feat)
-            QgsMessageLog.logMessage('INITIAL relW: ' + str(relW), 'BRS_GIS', level=Qgis.Info)
+            # QgsMessageLog.logMessage('INITIAL relW: ' + str(relW), 'BRS_GIS', level=Qgis.Info)
             year = datetime.datetime.today().strftime('%Y')
 
             try:
@@ -3029,10 +3033,10 @@ class brsgis_printMapTable(object):
 
             path = os.path.join("Z:\\", "BRS", year, jobNo)
             jipath = os.path.join(path, "Job_Info")
-            QgsMessageLog.logMessage('Checking output folder: ' + path + '...', 'BRS_GIS', level=Qgis.Info)
+            # QgsMessageLog.logMessage('Checking output folder: ' + path + '...', 'BRS_GIS', level=Qgis.Info)
             if not os.path.exists(path):
                 os.makedirs(path)
-            QgsMessageLog.logMessage('Checking output folder: ' + jipath + '...', 'BRS_GIS', level=Qgis.Info)
+            # QgsMessageLog.logMessage('Checking output folder: ' + jipath + '...', 'BRS_GIS', level=Qgis.Info)
             if not os.path.exists(jipath):
                 os.makedirs(jipath)
 
@@ -3137,103 +3141,107 @@ class brsgis_printMapTable(object):
 
                 for f in layer3.getFeatures(request):
 
-                    QgsMessageLog.logMessage('abutter found: ' + str(f['map_bk_lot']), 'BRS_GIS', level=Qgis.Info)
-
-                    aNo += 1
-                    c1 = 'A' + str(startCell)
-                    c2 = 'B' + str(startCell)
-                    c3 = 'E' + str(startCell)
-                    c4 = 'B' + str(startCellp)
-
-                    map_bk_lotP = f['map_bk_lot']
-                    mbl = map_bk_lotP.split('-')
-                    mbLen = len(mbl)
-
-                    if mbLen == 1:
-                        map_bk_lotP = map_bk_lotP
-                    elif mbLen == 2:
-                        map_bk_lotP = 'Map ' + mbl[0].lstrip('0') + ', Lot ' + mbl[1].lstrip('0')
-                    elif mbLen == 3:
-                        map_bk_lotP = 'Map ' + mbl[0].lstrip('0') + ', Lot ' + mbl[1].lstrip('0') + '-' + mbl[2].lstrip(
-                            '0')
-
-                    ws[c1] = str(map_bk_lotP)
-
-                    if str(f['own_addr1']) == 'NULL':
-                        ownInfo = ''
-                    else:
-                        ownInfo = str(f['own_addr1']) + ' ' + str(f['own_city']) + ', ' + str(
-                            f['own_state']) + ' ' + str(f['own_zip'])
-
-                    try:
-                        if len(ownInfo) > 0:
-                            ws[c2] = ownInfo
-                        else:
-                            ws[c2] = ''
-                    except Exception as e:
-                        ws[c2] = ''
-                        exc_type, exc_obj, exc_tb = sys.exc_info()
-                        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                        QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION!",
-                                             "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                                                 exc_tb.tb_lineno) + ' ' + str(e))
-                        return
-
-                    try:
-                        if len(f['owner']) > 0:
-                            ws[c3] = f['owner1']
-                        else:
-                            ws[c3] = ''
-                    except Exception as e:
-                        ws[c3] = ''
-
-                    layer3.selectByIds([f.id()])
-                    self.iface.setActiveLayer(layer3)
-                    sA = self.iface.activeLayer().selectedFeatures()[0]
-                    oid = sA['gid']
-                    QgsMessageLog.logMessage('ABUTTER SELECTED: ' + str(oid), 'BRS_GIS', level=Qgis.Info)
-
-                    try:
-                        t1 = FuncThread(self.getRelatedWork, sA, cfg0)
-                        t1.start()
-                        t1.join()
-                        self.getRelatedWork(sA, cfg0)
-                        #
-                        # t2 = FuncThread(self.updateAbutterRelated, sA)
-                        # t2.start()
-                        # t2.join()
-                        QgsMessageLog.logMessage('SA OID: ' + str(oid), 'BRS_GIS', level=Qgis.Info)
-
-                        relAW = self.updateAbutterRelated(sA)
-
-                        # QgsMessageLog.logMessage('RELATED AW: ' + str(relAW), 'BRS_GIS', level=Qgis.Info)
-                        ws[c4] = relAW
-                        # delRow = ''
-                        # delRow = startCell + 3
-                        # ws.delete_rows(delRow,1)
-                        startCell += 4
-                        startCellp += 4
-                        relAW = ''
-
-                        # QgsMessageLog.logMessage('RELATED W: ' + relW, 'BRS_GIS',level=Qgis.Info)
-
-                    except Exception as e:
-                        # QgsMessageLog.logMessage('NO RELATED WORK found: ' + str(f['map_bk_lot']), 'BRS_GIS',level=Qgis.Info)
-                        # delRow = startCellp + 2
-                        # ws.delete_rows(delRow,2)
-                        startCell += 4
-                        startCellp += 4
-                        QgsMessageLog.logMessage('NO RELATED WORK.', 'BRS_GIS', level=Qgis.Info)
-                        exc_type, exc_obj, exc_tb = sys.exc_info()
-                        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                        # QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
-                        #                      "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                        #                          exc_tb.tb_lineno) + ' ' + str(e))
-                        relAW = 'N/A'
-                        ws[c4] = relAW
-                        # rd = ws.row_dimensions[startCellj]
-                        # rd.height = 1
+                    if str(f['objectid']) == key:
                         pass
+                    else:
+
+                        QgsMessageLog.logMessage('abutter found: ' + str(f['map_bk_lot'] + str(f['objectid'])), 'BRS_GIS', level=Qgis.Info)
+
+                        aNo += 1
+                        c1 = 'A' + str(startCell)
+                        c2 = 'B' + str(startCell)
+                        c3 = 'E' + str(startCell)
+                        c4 = 'B' + str(startCellp)
+
+                        map_bk_lotP = f['map_bk_lot']
+                        mbl = map_bk_lotP.split('-')
+                        mbLen = len(mbl)
+
+                        if mbLen == 1:
+                            map_bk_lotP = map_bk_lotP
+                        elif mbLen == 2:
+                            map_bk_lotP = 'Map ' + mbl[0].lstrip('0') + ', Lot ' + mbl[1].lstrip('0')
+                        elif mbLen == 3:
+                            map_bk_lotP = 'Map ' + mbl[0].lstrip('0') + ', Lot ' + mbl[1].lstrip('0') + '-' + mbl[2].lstrip(
+                                '0')
+
+                        ws[c1] = str(map_bk_lotP)
+
+                        if str(f['own_addr1']) == 'NULL':
+                            ownInfo = ''
+                        else:
+                            ownInfo = str(f['own_addr1']) + ' ' + str(f['own_city']) + ', ' + str(
+                                f['own_state']) + ' ' + str(f['own_zip'])
+
+                        try:
+                            if len(ownInfo) > 0:
+                                ws[c2] = ownInfo
+                            else:
+                                ws[c2] = ''
+                        except Exception as e:
+                            ws[c2] = ''
+                            exc_type, exc_obj, exc_tb = sys.exc_info()
+                            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION!",
+                                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                                     exc_tb.tb_lineno) + ' ' + str(e))
+                            return
+
+                        try:
+                            if len(f['owner']) > 0:
+                                ws[c3] = f['owner1']
+                            else:
+                                ws[c3] = ''
+                        except Exception as e:
+                            ws[c3] = ''
+
+                        layer3.selectByIds([f.id()])
+                        self.iface.setActiveLayer(layer3)
+                        sA = self.iface.activeLayer().selectedFeatures()[0]
+                        oid = sA['gid']
+                        QgsMessageLog.logMessage('ABUTTER SELECTED: ' + str(oid), 'BRS_GIS', level=Qgis.Info)
+
+                        try:
+                            t1 = FuncThread(self.getRelatedWork, sA, cfg0)
+                            t1.start()
+                            t1.join()
+                            self.getRelatedWork(sA, cfg0)
+                            #
+                            # t2 = FuncThread(self.updateAbutterRelated, sA)
+                            # t2.start()
+                            # t2.join()
+                            QgsMessageLog.logMessage('SA OID: ' + str(oid), 'BRS_GIS', level=Qgis.Info)
+
+                            relAW = self.updateAbutterRelated(sA)
+
+                            # QgsMessageLog.logMessage('RELATED AW: ' + str(relAW), 'BRS_GIS', level=Qgis.Info)
+                            ws[c4] = relAW
+                            # delRow = ''
+                            # delRow = startCell + 3
+                            # ws.delete_rows(delRow,1)
+                            startCell += 4
+                            startCellp += 4
+                            relAW = ''
+
+                            # QgsMessageLog.logMessage('RELATED W: ' + relW, 'BRS_GIS',level=Qgis.Info)
+
+                        except Exception as e:
+                            # QgsMessageLog.logMessage('NO RELATED WORK found: ' + str(f['map_bk_lot']), 'BRS_GIS',level=Qgis.Info)
+                            # delRow = startCellp + 2
+                            # ws.delete_rows(delRow,2)
+                            startCell += 4
+                            startCellp += 4
+                            QgsMessageLog.logMessage('NO RELATED WORK.', 'BRS_GIS', level=Qgis.Info)
+                            exc_type, exc_obj, exc_tb = sys.exc_info()
+                            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                            # QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
+                            #                      "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                            #                          exc_tb.tb_lineno) + ' ' + str(e))
+                            relAW = 'N/A'
+                            ws[c4] = relAW
+                            # rd = ws.row_dimensions[startCellj]
+                            # rd.height = 1
+                            pass
 
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -3450,18 +3458,6 @@ class brsgis_printMapTable(object):
         self.iface.setActiveLayer(layerJobs)
         layerJobs.setSubsetString(u'"map_bk_lot" = \'%s\'' % (map))
         layerJobs.selectAll()
-
-        # vLayer = self.iface.activeLayer()
-        # feats_count = vLayer.selectedFeatureCount()
-        #
-        # msg = QMessageBox()
-        # msg.setWindowTitle('Selection')
-        # msg.setText(str(feats_count) + ' features have been selected. Continue?')
-        # create = msg.addButton('Continue', QMessageBox.AcceptRole)
-        # cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
-        # msg.setDefaultButton(create)
-        # msg.exec_()
-        # msg.deleteLater()
 
         QgsMessageLog.logMessage('JOB MAP FILTER: ' + str(map), 'BRS_GIS', level=Qgis.Info)
         #return
@@ -3922,6 +3918,7 @@ class brsgis_printEstimates(object):
 
         QgsMessageLog.logMessage('Saving file: ' + efile + '...', 'BRS_GIS', level=Qgis.Info)
         wb.save(efile)
+
 
 class brsgis_printEstimateLayouts(object):
 
@@ -5577,17 +5574,6 @@ class brsgis_jobImportXLSX(object):
                     jLayer.setSubsetString("id > 1")
                     self.iface.setActiveLayer(jLayer)
                     return
-
-            validJobs = ['BRS', 'SDP', 'BRSDP', 'MIS', 'FEMA', 'RESEARCH', 'STAKE OUT', 'STAKE LINE', 'FLAG LINE',
-                         'SITE WORK',
-                         'TENANT SPECIFIC', 'SUBDIVISION', 'DESIGN', 'MAP', 'PHOTO', 'OTHER']
-
-            if notes in validJobs:
-                job_type = notes
-                notes = ''
-            else:
-                job_type = 'OTHER'
-                notes = notes
 
             maps = map_bk_lot.split(",")
 
