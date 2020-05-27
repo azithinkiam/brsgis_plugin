@@ -22,18 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.3&#10;&#10;FINAL.">
-      <change beforePath="$PROJECT_DIR$/.idea/brsgis_plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/brsgis_plugin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QML/brs_contacts.qml" beforeDir="false" afterPath="$PROJECT_DIR$/QML/brs_contacts.qml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QML/brs_jobs_std.qml" beforeDir="false" afterPath="$PROJECT_DIR$/QML/brs_jobs_std.qml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QML/brs_supps_std.qml" beforeDir="false" afterPath="$PROJECT_DIR$/QML/brs_supps_std.qml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/brs_jobs.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_jobs.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/brs_supplementals.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_supplementals.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brsgis_dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_dialogs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brsgis_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_menu.py" afterDir="false" />
-    </list>
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -450,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589991598564</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL.">
+      <created>1590556049989</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1590556049989</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -486,7 +482,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="C:/Git/brsgis_plugin" />
     </ignored-roots>
-    <MESSAGE value="CLEANUP." />
     <MESSAGE value="Fixed handling of NULL related work for abutters when generating mapTable." />
     <MESSAGE value="Fixed issue with ABUTTER ident during mapView." />
     <MESSAGE value="Added selection check to printMapView." />
@@ -511,7 +506,8 @@
     <MESSAGE value="v2.1&#10;&#10;FINAL." />
     <MESSAGE value="v2.2&#10;&#10;FINAL." />
     <MESSAGE value="v2.3&#10;&#10;FINAL." />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.3&#10;&#10;FINAL." />
+    <MESSAGE value="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
