@@ -1,6 +1,5 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit, QDialogButtonBox
-from qgis.core import *
+from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit, QDialogButtonBox, QLabel, \
+    QPlainTextEdit
 
 # nameField = None
 
@@ -17,7 +16,8 @@ def formOpen(dialog, layerid, featureid):
         myDialog = dialog
 
         try:
-            #dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)
+            # dialog.parent().setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowTitleHint)  # no title bar/x, no Move.
+            # dialog.parent().setWindowFlags(Qt.CustomizeWindowHint)  # x visible but not enabled
             dialog.parent().setFixedWidth(1080)
             dialog.parent().setFixedHeight(950)
             dialog.parent().setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
@@ -49,6 +49,10 @@ def formOpen(dialog, layerid, featureid):
         client_name = dialog.findChild(QLineEdit, "client_name")
         lowtide_hrs = dialog.findChild(QLineEdit, "lowtide_hrs")
         client_role = dialog.findChild(QLineEdit, "folder_type")
+        objectType = dialog.findChild(QPlainTextEdit, "objectType")
+        mbl = dialog.findChild(QPlainTextEdit, "map_bk_lot")
+        lblOT = dialog.findChild(QLabel, "label_ot")
+        lblMBL = dialog.findChild(QLabel, "label_mbl")
 
         try:
             s = dialog.findChild(QStackedWidget, "stackedWidget")
@@ -57,6 +61,16 @@ def formOpen(dialog, layerid, featureid):
 
         except Exception as e:
             pass
+
+        if objectType.toPlainText() == 'polygon':
+            mbl.show()
+            lblMBL.setText("map_bk_lot(s)")
+            objectType.hide()
+            pass
+        else:
+            mbl.hide()
+            lblMBL.setText("Feature Type")
+            objectType.show()
 
         try:
             if state.text() == 'NULL':
@@ -69,8 +83,11 @@ def formOpen(dialog, layerid, featureid):
         try:
             if locus_addr.text() == 'NULL':
                 locus_addr.setText('')
+            elif locus_addr.text() == 'New Polygon Feature':
+                locus_addr.setText('')
             else:
                 pass
+
         except Exception as e:
             pass
 

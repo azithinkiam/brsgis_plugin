@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.0.2-Girona" hasScaleBasedVisibilityFlag="0" maxScale="0" readOnly="0" minScale="1e+8">
+<qgis minScale="1e+8" version="3.2.3-Bonn" maxScale="0" readOnly="0" hasScaleBasedVisibilityFlag="0">
   <fieldConfiguration>
     <field name="cid">
       <editWidget type="TextEdit">
@@ -53,6 +53,12 @@
               </Option>
               <Option type="Map">
                 <Option type="QString" value="Other" name="Other"/>
+              </Option>
+              <Option type="Map">
+                <Option type="QString" value="Utility" name="Utility"/>
+              </Option>
+              <Option type="Map">
+                <Option type="QString" value="D.O.T." name="D.O.T."/>
               </Option>
             </Option>
           </Option>
@@ -176,102 +182,102 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias name="" field="cid" index="0"/>
-    <alias name="" field="contact_type" index="1"/>
-    <alias name="" field="jobs_id" index="2"/>
-    <alias name="" field="primary_contact" index="3"/>
-    <alias name="" field="secondary_contact" index="4"/>
-    <alias name="" field="contact_addr" index="5"/>
-    <alias name="" field="phone_mobile" index="6"/>
-    <alias name="" field="phone_work" index="7"/>
-    <alias name="" field="phone_home" index="8"/>
-    <alias name="" field="email_primary" index="9"/>
-    <alias name="" field="email_secondary" index="10"/>
-    <alias name="" field="contact_name" index="11"/>
-    <alias name="" field="client" index="12"/>
-    <alias name="" field="folder" index="13"/>
-    <alias name="" field="flagr" index="14"/>
+    <alias field="cid" index="0" name=""/>
+    <alias field="contact_type" index="1" name=""/>
+    <alias field="jobs_id" index="2" name=""/>
+    <alias field="primary_contact" index="3" name=""/>
+    <alias field="secondary_contact" index="4" name=""/>
+    <alias field="contact_addr" index="5" name=""/>
+    <alias field="phone_mobile" index="6" name=""/>
+    <alias field="phone_work" index="7" name=""/>
+    <alias field="phone_home" index="8" name=""/>
+    <alias field="email_primary" index="9" name=""/>
+    <alias field="email_secondary" index="10" name=""/>
+    <alias field="contact_name" index="11" name=""/>
+    <alias field="client" index="12" name=""/>
+    <alias field="folder" index="13" name=""/>
+    <alias field="flagr" index="14" name=""/>
   </aliases>
   <excludeAttributesWMS/>
   <excludeAttributesWFS/>
   <defaults>
-    <default field="cid" expression="" applyOnUpdate="0"/>
-    <default field="contact_type" expression="" applyOnUpdate="0"/>
-    <default field="jobs_id" expression="" applyOnUpdate="0"/>
-    <default field="primary_contact" expression="" applyOnUpdate="0"/>
-    <default field="secondary_contact" expression="" applyOnUpdate="0"/>
-    <default field="contact_addr" expression="" applyOnUpdate="0"/>
-    <default field="phone_mobile" expression="" applyOnUpdate="0"/>
-    <default field="phone_work" expression="" applyOnUpdate="0"/>
-    <default field="phone_home" expression="" applyOnUpdate="0"/>
-    <default field="email_primary" expression="" applyOnUpdate="0"/>
-    <default field="email_secondary" expression="" applyOnUpdate="0"/>
-    <default field="contact_name" expression="" applyOnUpdate="0"/>
-    <default field="client" expression="" applyOnUpdate="0"/>
-    <default field="folder" expression="" applyOnUpdate="0"/>
-    <default field="flagr" expression="" applyOnUpdate="0"/>
+    <default expression="" field="cid" applyOnUpdate="0"/>
+    <default expression="" field="contact_type" applyOnUpdate="0"/>
+    <default expression="" field="jobs_id" applyOnUpdate="0"/>
+    <default expression="" field="primary_contact" applyOnUpdate="0"/>
+    <default expression="" field="secondary_contact" applyOnUpdate="0"/>
+    <default expression="" field="contact_addr" applyOnUpdate="0"/>
+    <default expression="" field="phone_mobile" applyOnUpdate="0"/>
+    <default expression="" field="phone_work" applyOnUpdate="0"/>
+    <default expression="" field="phone_home" applyOnUpdate="0"/>
+    <default expression="" field="email_primary" applyOnUpdate="0"/>
+    <default expression="" field="email_secondary" applyOnUpdate="0"/>
+    <default expression="" field="contact_name" applyOnUpdate="0"/>
+    <default expression="" field="client" applyOnUpdate="0"/>
+    <default expression="" field="folder" applyOnUpdate="0"/>
+    <default expression="" field="flagr" applyOnUpdate="0"/>
   </defaults>
   <constraints>
-    <constraint notnull_strength="1" exp_strength="0" field="cid" constraints="3" unique_strength="1"/>
-    <constraint notnull_strength="0" exp_strength="0" field="contact_type" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="jobs_id" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="primary_contact" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="secondary_contact" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="contact_addr" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="phone_mobile" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="phone_work" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="phone_home" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="email_primary" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="email_secondary" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="contact_name" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="client" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="folder" constraints="0" unique_strength="0"/>
-    <constraint notnull_strength="0" exp_strength="0" field="flagr" constraints="0" unique_strength="0"/>
+    <constraint unique_strength="1" field="cid" exp_strength="0" constraints="3" notnull_strength="1"/>
+    <constraint unique_strength="0" field="contact_type" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="jobs_id" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="primary_contact" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="secondary_contact" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="contact_addr" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="phone_mobile" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="phone_work" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="phone_home" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="email_primary" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="email_secondary" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="contact_name" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="client" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="folder" exp_strength="0" constraints="0" notnull_strength="0"/>
+    <constraint unique_strength="0" field="flagr" exp_strength="0" constraints="0" notnull_strength="0"/>
   </constraints>
   <constraintExpressions>
-    <constraint exp="" desc="" field="cid"/>
-    <constraint exp="" desc="" field="contact_type"/>
-    <constraint exp="" desc="" field="jobs_id"/>
-    <constraint exp="" desc="" field="primary_contact"/>
-    <constraint exp="" desc="" field="secondary_contact"/>
-    <constraint exp="" desc="" field="contact_addr"/>
-    <constraint exp="" desc="" field="phone_mobile"/>
-    <constraint exp="" desc="" field="phone_work"/>
-    <constraint exp="" desc="" field="phone_home"/>
-    <constraint exp="" desc="" field="email_primary"/>
-    <constraint exp="" desc="" field="email_secondary"/>
-    <constraint exp="" desc="" field="contact_name"/>
-    <constraint exp="" desc="" field="client"/>
-    <constraint exp="" desc="" field="folder"/>
-    <constraint exp="" desc="" field="flagr"/>
+    <constraint exp="" field="cid" desc=""/>
+    <constraint exp="" field="contact_type" desc=""/>
+    <constraint exp="" field="jobs_id" desc=""/>
+    <constraint exp="" field="primary_contact" desc=""/>
+    <constraint exp="" field="secondary_contact" desc=""/>
+    <constraint exp="" field="contact_addr" desc=""/>
+    <constraint exp="" field="phone_mobile" desc=""/>
+    <constraint exp="" field="phone_work" desc=""/>
+    <constraint exp="" field="phone_home" desc=""/>
+    <constraint exp="" field="email_primary" desc=""/>
+    <constraint exp="" field="email_secondary" desc=""/>
+    <constraint exp="" field="contact_name" desc=""/>
+    <constraint exp="" field="client" desc=""/>
+    <constraint exp="" field="folder" desc=""/>
+    <constraint exp="" field="flagr" desc=""/>
   </constraintExpressions>
   <attributeactions>
-    <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+    <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
   </attributeactions>
-  <attributetableconfig sortOrder="1" actionWidgetStyle="dropDown" sortExpression="COALESCE( &quot;client&quot;, '&lt;NULL>' )">
+  <attributetableconfig sortOrder="1" sortExpression="COALESCE( &quot;client&quot;, '&lt;NULL>' )" actionWidgetStyle="dropDown">
     <columns>
-      <column type="field" name="cid" hidden="0" width="-1"/>
-      <column type="field" name="contact_type" hidden="0" width="-1"/>
-      <column type="field" name="jobs_id" hidden="0" width="-1"/>
-      <column type="field" name="primary_contact" hidden="0" width="-1"/>
-      <column type="field" name="secondary_contact" hidden="0" width="-1"/>
-      <column type="field" name="contact_addr" hidden="0" width="-1"/>
-      <column type="field" name="phone_mobile" hidden="0" width="-1"/>
-      <column type="field" name="phone_work" hidden="0" width="-1"/>
-      <column type="field" name="phone_home" hidden="0" width="-1"/>
-      <column type="field" name="email_primary" hidden="0" width="-1"/>
-      <column type="field" name="email_secondary" hidden="0" width="-1"/>
-      <column type="field" name="contact_name" hidden="0" width="-1"/>
-      <column type="field" name="client" hidden="0" width="-1"/>
-      <column type="field" name="folder" hidden="0" width="-1"/>
+      <column type="field" hidden="0" width="-1" name="cid"/>
+      <column type="field" hidden="0" width="-1" name="contact_type"/>
+      <column type="field" hidden="0" width="-1" name="jobs_id"/>
+      <column type="field" hidden="0" width="-1" name="primary_contact"/>
+      <column type="field" hidden="0" width="-1" name="secondary_contact"/>
+      <column type="field" hidden="0" width="-1" name="contact_addr"/>
+      <column type="field" hidden="0" width="-1" name="phone_mobile"/>
+      <column type="field" hidden="0" width="-1" name="phone_work"/>
+      <column type="field" hidden="0" width="-1" name="phone_home"/>
+      <column type="field" hidden="0" width="-1" name="email_primary"/>
+      <column type="field" hidden="0" width="-1" name="email_secondary"/>
+      <column type="field" hidden="0" width="-1" name="contact_name"/>
+      <column type="field" hidden="0" width="-1" name="client"/>
+      <column type="field" hidden="0" width="-1" name="folder"/>
       <column type="actions" hidden="1" width="-1"/>
-      <column type="field" name="flagr" hidden="0" width="-1"/>
+      <column type="field" hidden="0" width="-1" name="flagr"/>
     </columns>
   </attributetableconfig>
-  <editform>Z:\0 - Settings\GIS\QGIS\plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts.ui</editform>
+  <editform tolerant="1">Z:\0 - Settings\GIS\QGIS\Plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts.ui</editform>
   <editforminit>formOpen</editforminit>
   <editforminitcodesource>1</editforminitcodesource>
-  <editforminitfilepath>Z:\0 - Settings\GIS\QGIS\plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts_init.py</editforminitfilepath>
+  <editforminitfilepath>Z:\0 - Settings\GIS\QGIS\Plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts_init.py</editforminitfilepath>
   <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -292,21 +298,21 @@ def my_form_open(dialog, layer, feature):
   <featformsuppress>1</featformsuppress>
   <editorlayout>uifilelayout</editorlayout>
   <editable>
-    <field name="cid" editable="1"/>
-    <field name="client" editable="1"/>
-    <field name="contact_addr" editable="1"/>
-    <field name="contact_name" editable="1"/>
-    <field name="contact_type" editable="1"/>
-    <field name="email_primary" editable="1"/>
-    <field name="email_secondary" editable="1"/>
-    <field name="flagr" editable="1"/>
-    <field name="folder" editable="1"/>
-    <field name="jobs_id" editable="1"/>
-    <field name="phone_home" editable="1"/>
-    <field name="phone_mobile" editable="1"/>
-    <field name="phone_work" editable="1"/>
-    <field name="primary_contact" editable="1"/>
-    <field name="secondary_contact" editable="1"/>
+    <field editable="1" name="cid"/>
+    <field editable="1" name="client"/>
+    <field editable="1" name="contact_addr"/>
+    <field editable="1" name="contact_name"/>
+    <field editable="1" name="contact_type"/>
+    <field editable="1" name="email_primary"/>
+    <field editable="1" name="email_secondary"/>
+    <field editable="1" name="flagr"/>
+    <field editable="1" name="folder"/>
+    <field editable="1" name="jobs_id"/>
+    <field editable="1" name="phone_home"/>
+    <field editable="1" name="phone_mobile"/>
+    <field editable="1" name="phone_work"/>
+    <field editable="1" name="primary_contact"/>
+    <field editable="1" name="secondary_contact"/>
   </editable>
   <labelOnTop>
     <field labelOnTop="0" name="cid"/>
