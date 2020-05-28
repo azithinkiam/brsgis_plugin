@@ -3509,10 +3509,11 @@ class brsgis_printMapTable(object):
             oldPlan = feat['old_plan']
             pval = oldPlan
 
-            QgsMessageLog.logMessage('LOOK HERE MOTHERFUCKER!!! | ' + str(pval), 'BRS_GIS', level=Qgis.Info)
+            # QgsMessageLog.logMessage('LOOK HERE MOTHERFUCKER!!! | ' + str(pval), 'BRS_GIS', level=Qgis.Info)
 
             if str(jobNo) in (str(pval)):
-                QgsMessageLog.logMessage('FUCK YEAH YOU DID! | ' + str(pval), 'BRS_GIS', level=Qgis.Info)
+                # QgsMessageLog.logMessage('FUCK YEAH YOU DID! | ' + str(pval), 'BRS_GIS', level=Qgis.Info)
+                pass
             else:
 
                 if str(ppval) == str(pval):
@@ -4439,7 +4440,6 @@ class brsgis_printSiteMap(object):
 
         self.make_jpg(dwgpath, jobNo)
 
-
         qmlPath = self.resolve(std)
 
         self.vl.loadNamedStyle(qmlPath)
@@ -4515,7 +4515,7 @@ class brsgis_printSiteMap(object):
 
         res = exporter.exportToImage(cf + '\\site.jpg', jpg_settings)
         if res != QgsLayoutExporter.Success:
-            raise RuntimeError()
+            res = exporter.exportToImage(cf + '\\site-1.jpg', jpg_settings)
 
         # QGuiApplication.restoreOverrideCursor()
 
