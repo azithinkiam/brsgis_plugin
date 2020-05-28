@@ -274,10 +274,10 @@
       <column type="field" hidden="0" width="-1" name="flagr"/>
     </columns>
   </attributetableconfig>
-  <editform tolerant="1">Z:\0 - Settings\GIS\QGIS\Plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts.ui</editform>
+  <editform tolerant="1">Z:\0 - Settings\GIS\QGIS\Plugins\profiles\default\python\plugins\brsgis_plugin\UI\brs_contacts.ui</editform>
   <editforminit>formOpen</editforminit>
   <editforminitcodesource>1</editforminitcodesource>
-  <editforminitfilepath>Z:\0 - Settings\GIS\QGIS\Plugins\profiles\tschmal\python\plugins\brsgis_plugin\UI\brs_contacts_init.py</editforminitfilepath>
+  <editforminitfilepath>Z:\0 - Settings\GIS\QGIS\Plugins\profiles\default\python\plugins\brsgis_plugin\UI\brs_contacts_init.py</editforminitfilepath>
   <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is

@@ -63,7 +63,7 @@ class brsgis_menu(object):
         self.newLPJob_action.triggered.connect(self.newLPJob)
         self.job_menu.addAction(self.newLPJob_action)
 
-        # SUPPLEMENGTALS Submenu
+        # SUPPLEMENTALS Submenu
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
         self.supp_menu = QMenu(QCoreApplication.translate("&New", "&Supplemental"))
         self.supp_menu.setIcon(icon)
@@ -183,15 +183,15 @@ class brsgis_menu(object):
         self.addNewParcel_action.triggered.connect(self.addNewParcel)
         self.util_menu.addAction(self.addNewParcel_action)
 
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        # self.moveJob_action = QAction(icon, "&MOVE Job", self.iface.mainWindow())
-        # self.moveJob_action.triggered.connect(self.moveJob)
-        # self.util_menu.addAction(self.moveJob_action)
-        #
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        # self.movePlan_action = QAction(icon, "M&OVE Plan", self.iface.mainWindow())
-        # self.movePlan_action.triggered.connect(self.movePlan)
-        # self.util_menu.addAction(self.movePlan_action)
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.moveJob_action = QAction(icon, "&MOVE Job", self.iface.mainWindow())
+        self.moveJob_action.triggered.connect(self.moveJob)
+        self.util_menu.addAction(self.moveJob_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.moveSupp_action = QAction(icon, "M&OVE Supplemental", self.iface.mainWindow())
+        self.moveSupp_action.triggered.connect(self.moveSupp)
+        self.util_menu.addAction(self.moveSupp_action)
 
         #
         # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
@@ -240,11 +240,11 @@ class brsgis_menu(object):
         self.moveJob_dialog = brsgis_moveJob(self.iface)
         self.moveJob_dialog.initGui()
 
-    def movePlan(self):
+    def moveSupp(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Launching movePlan utility...', 'BRS_GIS', level=Qgis.Info)
-        self.movePlan_dialog = brsgis_movePlan(self.iface)
-        self.movePlan_dialog.initGui()
+        QgsMessageLog.logMessage('Launching moveSupplemental utility...', 'BRS_GIS', level=Qgis.Info)
+        self.moveSupp_dialog = brsgis_moveSupp(self.iface)
+        self.moveSupp_dialog.initGui()
 
     def dataFix(self):
         # Must be saved in self, otherwise garbage collector destroys dialog

@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.2&#10;&#10;FINAL.">
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brsgis_dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_dialogs.py" afterDir="false" />
     </list>
@@ -72,7 +72,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
@@ -433,7 +436,35 @@
       <option name="project" value="LOCAL" />
       <updated>1589951564929</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="v2.3&#10;&#10;FINAL.">
+      <created>1589991598564</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1589991598564</updated>
+    </task>
+    <task id="LOCAL-00039" summary="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL.">
+      <created>1590556049989</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1590556049989</updated>
+    </task>
+    <task id="LOCAL-00040" summary="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL.">
+      <created>1590586867090</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1590586867090</updated>
+    </task>
+    <task id="LOCAL-00041" summary="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL.">
+      <created>1590588698743</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1590588698743</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -469,8 +500,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="C:/Git/brsgis_plugin" />
     </ignored-roots>
-    <MESSAGE value="UPDATE." />
-    <MESSAGE value="CLEANUP." />
     <MESSAGE value="Fixed handling of NULL related work for abutters when generating mapTable." />
     <MESSAGE value="Fixed issue with ABUTTER ident during mapView." />
     <MESSAGE value="Added selection check to printMapView." />
@@ -494,7 +523,9 @@
     <MESSAGE value="v2.0&#10;&#10;FINAL." />
     <MESSAGE value="v2.1&#10;&#10;FINAL." />
     <MESSAGE value="v2.2&#10;&#10;FINAL." />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.2&#10;&#10;FINAL." />
+    <MESSAGE value="v2.3&#10;&#10;FINAL." />
+    <MESSAGE value="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -510,10 +541,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603429171" />
-    <state x="739" y="279" key="FileChooserDialogImpl" timestamp="1589602810648">
+    <state x="739" y="279" key="FileChooserDialogImpl" timestamp="1590078018772">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584449750618" />
+    <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1590078018772" />
     <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602810648" />
     <state x="452" y="208" key="Git.Interactive.Rebase.Dialog" timestamp="1589603624732">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -527,14 +558,15 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="662" y="227" key="RollbackChangesDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602709235" />
-    <state x="461" y="167" key="SettingsEditor" timestamp="1584451292637">
+    <state x="461" y="167" key="SettingsEditor" timestamp="1590078047367">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584451292637" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1589951570929">
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1590078047367" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1590588716720">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589951570929" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590588716720" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589991620573" />
     <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603666911" />
     <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584449493345">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -544,6 +576,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="649" y="313" key="git4idea.merge.GitMergeDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589989620698" />
+    <state x="649" y="313" key="git4idea.merge.GitPullDialog" timestamp="1589991610789">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="649" y="313" key="git4idea.merge.GitPullDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589991610789" />
     <state x="677" y="386" key="git4idea.rebase.GitRebaseDialog" timestamp="1589603531632">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -556,5 +592,16 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="382" y="241" key="vcs.ApplyPatchDifferentiatedDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602806716" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/brsgis_dialogs.py</url>
+          <line>961</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
