@@ -235,21 +235,19 @@ class brsgis_prep(object):
             form_config.setInitFilePath(pyPath)
             self.iface.activeLayer().setEditFormConfig(form_config)
 
+            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+            self.iface.setActiveLayer(self.vl)
+
             try:
                 layer = QgsProject.instance().mapLayersByName('tmp_buffer')[0]
                 QgsProject.instance().removeMapLayer(layer.id())
-                self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-                self.iface.setActiveLayer(self.vl)
                 self.resetLegend()
 
             except Exception as e:
+                self.resetLegend()
                 pass
 
-            self.resetLegend()
-
         except Exception:
-            # self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-            # self.iface.setActiveLayer(self.vl)
             pass
 
     def resolve(name, basepath=None):
@@ -1727,181 +1725,6 @@ class brsgis_newLPJob(object):
         layer.selectByIds(fId)
 
 
-class brsgis_editJob(object):
-    newJob = 0
-    selComp = 0
-    multiFeat = 0
-    count = 0
-
-    def __init__(self, iface):
-        self.iface = iface
-
-    def initGui(self):
-
-        self.action = QAction("Create New Job", self.iface.mainWindow())
-        self.action.triggered.connect(self.run)
-        self.action.trigger()
-        self.iface.mapCanvas().selectionChanged.connect(self.select_changed)
-
-    def run(self):
-        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        self.iface.setActiveLayer(self.vl)
-
-        reply = QMessageBox.question(self.iface.mainWindow(), 'Edit Job',
-                                     'Click OK and select the correct feature for the job you wish to edit.',
-                                     QMessageBox.Ok, QMessageBox.Cancel)
-        if reply == QMessageBox.Ok:
-            if self.selComp == 1:
-                return
-            else:
-                self.newJob = 1
-                if self.count == 0:
-                    for a in self.iface.attributesToolBar().actions():
-                        if a.objectName() == 'mActionDeselectAll':
-                            a.trigger()
-                            QgsMessageLog.logMessage('FIRST RUN: Previously selected parcel(s) have been cleared.',
-                                                     'BRS_GIS', level=Qgis.Info)
-                            QgsMessageLog.logMessage('Job editing starting...', 'BRS_GIS', level=Qgis.Info)
-                            self.iface.actionSelect().trigger()
-                            self.count = self.count + 1
-                else:
-                    self.iface.actionSelect().trigger()
-        else:
-            QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
-
-
-        # QgsMessageLog.logMessage('DONE.', 'BRS_GIS', level=Qgis.Info)
-
-    def select_changed(self):
-
-        try:
-            parcel = self.iface.activeLayer().selectedFeatures()[0]
-            jobNo = parcel["job_no"]
-
-            msg = QMessageBox()
-            msg.setWindowTitle('SOURCE Job')
-            msg.setText('JobNo: ' + jobNo + ' has been selected. Continue?')
-            edit = msg.addButton('Select Job', QMessageBox.AcceptRole)
-            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
-            msg.setDefaultButton(edit)
-            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
-            msg.exec_()
-            msg.deleteLater()
-            QGuiApplication.restoreOverrideCursor()
-            if msg.clickedButton() is edit:
-
-                QgsMessageLog.logMessage('Launching form...', 'BRS_GIS', level=Qgis.Info)
-                self.iface.actionToggleEditing().trigger()
-                self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
-                self.iface.setActiveLayer(self.vl)
-                self.iface.actionToggleEditing().trigger()
-                self.active_edit()
-                QgsMessageLog.logMessage('JobNo:' + parcel["job_no"] + ' has been modified and saved.',
-                                         'BRS_GIS', level=Qgis.Info)
-
-                self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
-                self.iface.setActiveLayer(self.vl)
-                self.iface.activeLayer().commitChanges()
-                lyr = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-                self.iface.setActiveLayer(lyr)
-                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
-                self.iface.actionIdentify().trigger()
-                resetLegend(self)
-
-            elif msg.clickedButton() is cancel:
-                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
-                QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
-                return
-            else:
-                    QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
-        except Exception as e:
-            QgsMessageLog.logMessage('EXCEPTION: ' + str(e), 'BRS_GIS', level=Qgis.Info)
-
-    def active_edit2(self):
-
-        try:
-            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-            self.iface.setActiveLayer(self.vl)
-            f = self.vl.selectedFeatures()[0]
-            #change to brs_jobs form
-
-            form_config = self.iface.activeLayer().editFormConfig()
-            form_config.setUiForm('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/ui/brs_jobs.ui')
-            form_config.setInitFilePath('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/brs_jobs_init.py')
-            self.iface.activeLayer().setEditFormConfig(form_config)
-            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
-            self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
-            QGuiApplication.restoreOverrideCursor()
-            QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
-
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
-                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                                     exc_tb.tb_lineno) + ' ' + str(e))
-            return
-
-        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        self.iface.setActiveLayer(self.vl)
-        self.iface.activeLayer().commitChanges()
-
-    def active_edit(self):
-
-        try:
-            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-            self.iface.setActiveLayer(self.vl)
-            f = self.vl.selectedFeatures()[0]
-            # change to brs_jobs form
-
-            lat_lon = f['lat_lon']
-            if str(lat_lon) == 'NULL':
-                lat_lon = ''
-            else:
-                lat_lon = lat_lon
-
-            ll = len(lat_lon)
-            QgsMessageLog.logMessage('ll: ' + lat_lon + ' | ' + str(ll), 'BRS_GIS', level=Qgis.Info)
-
-            if ll <= 30:
-                pass
-            else:
-                lat_lon = formatLL(lat_lon)
-
-                #self.iface.actionToggleEditing().trigger()
-                layerData = self.vl.dataProvider()
-                idx = layerData.fieldNameIndex('lat_lon')
-                self.vl.changeAttributeValue(f.id(), idx, lat_lon)
-                self.vl.updateFields()
-                #self.iface.activeLayer().commitChanges()
-
-            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
-            self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
-            QGuiApplication.restoreOverrideCursor()
-            QgsMessageLog.logMessage('llF: ' + lat_lon, 'BRS_GIS', level=Qgis.Info)
-
-            QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
-
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
-                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
-                                     exc_tb.tb_lineno) + ' ' + str(e))
-            return
-
-        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
-        self.iface.setActiveLayer(self.vl)
-        self.iface.activeLayer().commitChanges()
-
-    def resolve(name, basepath=None):
-        if not basepath:
-            basepath = os.path.dirname(os.path.realpath(__file__))
-        else:
-            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
-            return fPath
-
-
 class brsgis_newParcelSupp(object):
     newJob = 0
     selComp = 0
@@ -2150,6 +1973,222 @@ class brsgis_newParcelSupp(object):
         self.iface.activeLayer().commitChanges()
 
 
+class brsgis_editJob(object):
+
+    def __init__(self, iface):
+        self.iface = iface
+
+    def initGui(self):
+
+        self.action = QAction("Edit Job", self.iface.mainWindow())
+        self.action.triggered.connect(self.run)
+        self.action.trigger()
+        self.iface.mapCanvas().selectionChanged.connect(self.select_changed)
+
+    def run(self):
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+
+        vLayer = self.iface.activeLayer()
+        feats_count = vLayer.selectedFeatureCount()
+
+        if feats_count == 0:
+            msg = QMessageBox()
+            msg.setWindowTitle('Selection')
+            msg.setText('Choose the job you wish to edit and click OK to proceed.')
+            cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(cont)
+            msg.exec_()
+            msg.deleteLater()
+            if msg.clickedButton() is cont:
+                self.iface.actionSelect().trigger()
+            else:
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+                return
+        else:
+            msg = QMessageBox()
+            msg.setWindowTitle('Selection')
+            msg.setText(str(feats_count) + ' feature(s) are selected. Do you want to edit that selection or choose a '
+                                           'new job?')
+            cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+            new = msg.addButton('New Selection', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(cont)
+            msg.exec_()
+            msg.deleteLater()
+
+            if msg.clickedButton() is cont:
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+
+                self.select_changed()
+            elif msg.clickedButton() is new:
+                msg = QMessageBox()
+                msg.setWindowTitle('Selection')
+                msg.setText('Choose the job you wish to edit and click OK to proceed.')
+                cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+                cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+                msg.setDefaultButton(cont)
+                msg.exec_()
+                msg.deleteLater()
+                if msg.clickedButton() is cont:
+                    for a in self.iface.attributesToolBar().actions():
+
+                        if a.objectName() == 'mActionDeselectAll':
+                            a.trigger()
+                            QgsMessageLog.logMessage('FIRST RUN: Previous selection has been cleared.',
+                                                     'BRS_GIS', level=Qgis.Info)
+                            QgsMessageLog.logMessage('Job editing starting...', 'BRS_GIS', level=Qgis.Info)
+                            self.iface.actionSelect().trigger()
+                elif msg.clickedButton() is cancel:
+                    try:
+                        self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                    except Exception as e:
+                        pass
+
+            elif msg.clickedButton() is cancel:
+                QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+
+    def select_changed(self):
+
+        try:
+            parcel = self.iface.activeLayer().selectedFeatures()[0]
+            jobNo = parcel["job_no"]
+
+            msg = QMessageBox()
+            msg.setWindowTitle('SOURCE Job')
+            msg.setText('JobNo: ' + jobNo + ' has been selected. Continue?')
+            edit = msg.addButton('Select Job', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(edit)
+            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+            msg.exec_()
+            msg.deleteLater()
+            QGuiApplication.restoreOverrideCursor()
+            if msg.clickedButton() is edit:
+
+                QgsMessageLog.logMessage('Launching form...', 'BRS_GIS', level=Qgis.Info)
+                self.iface.actionToggleEditing().trigger()
+                self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                self.iface.setActiveLayer(self.vl)
+                self.iface.actionToggleEditing().trigger()
+                self.active_edit()
+                QgsMessageLog.logMessage('JobNo:' + parcel["job_no"] + ' has been modified and saved.',
+                                         'BRS_GIS', level=Qgis.Info)
+
+                self.vl = QgsProject.instance().mapLayersByName('brs_contacts')[0]
+                self.iface.setActiveLayer(self.vl)
+                self.iface.activeLayer().commitChanges()
+                lyr = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+                self.iface.setActiveLayer(lyr)
+                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                self.iface.actionIdentify().trigger()
+                resetLegend(self)
+
+            elif msg.clickedButton() is cancel:
+                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
+                return
+            else:
+                    QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
+        except Exception as e:
+            QgsMessageLog.logMessage('EXCEPTION: ' + str(e), 'BRS_GIS', level=Qgis.Info)
+
+    def active_edit2(self):
+
+        try:
+            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+            self.iface.setActiveLayer(self.vl)
+            f = self.vl.selectedFeatures()[0]
+            #change to brs_jobs form
+
+            form_config = self.iface.activeLayer().editFormConfig()
+            form_config.setUiForm('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/ui/brs_jobs.ui')
+            form_config.setInitFilePath('z:/0 - settings/gis/qgis/plugins/brsgis_plugin/brs_jobs_init.py')
+            self.iface.activeLayer().setEditFormConfig(form_config)
+            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+            self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+            QGuiApplication.restoreOverrideCursor()
+            QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
+
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
+                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                     exc_tb.tb_lineno) + ' ' + str(e))
+            return
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+        self.iface.activeLayer().commitChanges()
+
+    def active_edit(self):
+
+        try:
+            self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+            self.iface.setActiveLayer(self.vl)
+            f = self.vl.selectedFeatures()[0]
+            # change to brs_jobs form
+
+            lat_lon = f['lat_lon']
+            if str(lat_lon) == 'NULL':
+                lat_lon = ''
+            else:
+                lat_lon = lat_lon
+
+            ll = len(lat_lon)
+            QgsMessageLog.logMessage('ll: ' + lat_lon + ' | ' + str(ll), 'BRS_GIS', level=Qgis.Info)
+
+            if ll <= 30:
+                pass
+            else:
+                lat_lon = formatLL(lat_lon)
+
+                #self.iface.actionToggleEditing().trigger()
+                layerData = self.vl.dataProvider()
+                idx = layerData.fieldNameIndex('lat_lon')
+                self.vl.changeAttributeValue(f.id(), idx, lat_lon)
+                self.vl.updateFields()
+                #self.iface.activeLayer().commitChanges()
+
+            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+            self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+            QGuiApplication.restoreOverrideCursor()
+            QgsMessageLog.logMessage('llF: ' + lat_lon, 'BRS_GIS', level=Qgis.Info)
+
+            QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
+
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
+                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                     exc_tb.tb_lineno) + ' ' + str(e))
+            return
+
+        self.vl = QgsProject.instance().mapLayersByName('brs_jobs')[0]
+        self.iface.setActiveLayer(self.vl)
+        self.iface.activeLayer().commitChanges()
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return fPath
+
+
 class brsgis_editSupp(object):
 
     def __init__(self, iface):
@@ -2167,25 +2206,81 @@ class brsgis_editSupp(object):
         self.vl = QgsProject.instance().mapLayersByName('brs_supplementals')[0]
         self.iface.setActiveLayer(self.vl)
 
-        reply = QMessageBox.question(self.iface.mainWindow(), 'Edit Supplemental',
-                                     'Click OK and select the correct feature for the supplemental you wish to edit.',
-                                     QMessageBox.Ok, QMessageBox.Cancel)
+        vLayer = self.iface.activeLayer()
+        feats_count = vLayer.selectedFeatureCount()
 
-        if reply == QMessageBox.Ok:
-            for a in self.iface.attributesToolBar().actions():
-                if a.objectName() == 'mActionDeselectAll':
-                        a.trigger()
-                        QgsMessageLog.logMessage('Supplemental editing starting...', 'BRS_GIS', level=Qgis.Info)
-                        self.iface.actionSelect().trigger()
-        else:
-            self.iface.actionSelect().trigger()
-            try:
-                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
-            except Exception as e:
+        if feats_count == 0:
+            msg = QMessageBox()
+            msg.setWindowTitle('Selection')
+            msg.setText('Choose the supplemental you wish to edit and click OK to proceed.')
+            cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(cont)
+            msg.exec_()
+            msg.deleteLater()
+            if msg.clickedButton() is cont:
+                self.iface.actionSelect().trigger()
                 pass
+            else:
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+                return
+        else:
+            msg = QMessageBox()
+            msg.setWindowTitle('Selection')
+            msg.setText(str(feats_count) + ' feature(s) are selected. Do you want to edit that selection or choose a '
+                                           'new supplemental?')
+            cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+            new = msg.addButton('New Selection', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(cont)
+            msg.exec_()
+            msg.deleteLater()
+
+            if msg.clickedButton() is cont:
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+
+                self.select_changed()
+            elif msg.clickedButton() is new:
+                msg = QMessageBox()
+                msg.setWindowTitle('Selection')
+                msg.setText('Choose the supplemental you wish to edit and click OK to proceed.')
+                cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+                cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+                msg.setDefaultButton(cont)
+                msg.exec_()
+                msg.deleteLater()
+                if msg.clickedButton() is cont:
+                    for a in self.iface.attributesToolBar().actions():
+                        if a.objectName() == 'mActionDeselectAll':
+                            a.trigger()
+                            QgsMessageLog.logMessage('FIRST RUN: Previous selection has been cleared.',
+                                                     'BRS_GIS', level=Qgis.Info)
+                            QgsMessageLog.logMessage('Supplemental editing starting...', 'BRS_GIS', level=Qgis.Info)
+                            self.iface.actionSelect().trigger()
+                elif msg.clickedButton() is cancel:
+                    try:
+                        self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                    except Exception as e:
+                        pass
+
+            elif msg.clickedButton() is cancel:
+                QgsMessageLog.logMessage('DEBUG: Job editing cancelled.', 'BRS_GIS', level=Qgis.Info)
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
 
     def select_changed(self):
-
+        try:
+            self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+        except Exception as e:
+            pass
         try:
             supp = self.iface.activeLayer().selectedFeatures()[0]
             suppNo = supp["job_no"]
@@ -2210,11 +2305,9 @@ class brsgis_editSupp(object):
 
                 lyr = QgsProject.instance().mapLayersByName('brs_supplementals')[0]
                 self.iface.setActiveLayer(lyr)
-                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
                 self.iface.actionIdentify().trigger()
 
             elif msg.clickedButton() is cancel:
-                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
                 QgsMessageLog.logMessage('DEBUG: Supplemental editing cancelled.', 'BRS_GIS', level=Qgis.Info)
                 QGuiApplication.restoreOverrideCursor()
                 return
@@ -2256,6 +2349,197 @@ class brsgis_editSupp(object):
             return
 
         self.vl = QgsProject.instance().mapLayersByName('brs_supplementals')[0]
+        self.iface.setActiveLayer(self.vl)
+        self.iface.activeLayer().commitChanges()
+
+    def resolve(name, basepath=None):
+        if not basepath:
+            basepath = os.path.dirname(os.path.realpath(__file__))
+        else:
+            fPath = os.path.dirname(os.path.realpath(__file__)) + '\\UI\\' + basepath
+            return fPath
+
+
+class brsgis_editPlan(object):
+
+    def __init__(self, iface):
+        # save reference to the QGIS interface
+        self.iface = iface
+
+    def initGui(self):
+
+        self.action = QAction("Edit Plan", self.iface.mainWindow())
+        self.action.triggered.connect(self.run)
+        self.action.trigger()
+        self.iface.mapCanvas().selectionChanged.connect(self.select_changed)
+
+    def run(self):
+        self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
+        self.iface.setActiveLayer(self.vl)
+        vLayer = self.iface.activeLayer()
+        feats_count = vLayer.selectedFeatureCount()
+
+        if feats_count == 0:
+            msg = QMessageBox()
+            msg.setWindowTitle('Selection')
+            msg.setText('Choose the correct parcel for the plan you wish to edit and click OK to proceed.')
+            cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(cont)
+            msg.exec_()
+            msg.deleteLater()
+            if msg.clickedButton() is cont:
+                self.iface.actionSelect().trigger()
+            else:
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+                return
+        else:
+            msg = QMessageBox()
+            msg.setWindowTitle('Selection')
+            msg.setText(str(feats_count) + ' feature(s) are selected. Do you want to edit that or choose a new plan?')
+            cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+            new = msg.addButton('New Selection', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(cont)
+            msg.exec_()
+            msg.deleteLater()
+
+            if msg.clickedButton() is cont:
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+                self.select_changed()
+            elif msg.clickedButton() is new:
+                msg = QMessageBox()
+                msg.setWindowTitle('Selection')
+                msg.setText('Choose the plan you wish to edit and click OK to proceed.')
+                cont = msg.addButton('Continue', QMessageBox.AcceptRole)
+                cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+                msg.setDefaultButton(cont)
+                msg.exec_()
+                msg.deleteLater()
+                if msg.clickedButton() is cont:
+                    for a in self.iface.attributesToolBar().actions():
+
+                        if a.objectName() == 'mActionDeselectAll':
+                            a.trigger()
+                            QgsMessageLog.logMessage('FIRST RUN: Previous selection has been cleared.',
+                                                     'BRS_GIS', level=Qgis.Info)
+                            QgsMessageLog.logMessage('Plan editing starting...', 'BRS_GIS', level=Qgis.Info)
+                            self.iface.actionSelect().trigger()
+                elif msg.clickedButton() is cancel:
+                    try:
+                        self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                    except Exception as e:
+                        pass
+            elif msg.clickedButton() is cancel:
+                QgsMessageLog.logMessage('DEBUG: Plan editing cancelled.', 'BRS_GIS', level=Qgis.Info)
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    pass
+
+    def select_changed(self):
+
+        jstd = 'la_plans_std.qml'
+        qmlPath = self.resolve(jstd)
+        self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
+        self.vl.loadNamedStyle(qmlPath)
+        self.vl.setSubsetString('"size_no"<>\'%s\'' % 'K')
+
+        try:
+            parcel = self.iface.activeLayer().selectedFeatures()[0]
+            planNo = parcel["plan_no"]
+            msg = QMessageBox()
+            msg.setWindowTitle('Last Chance')
+            msg.setText('PlanNo: ' + planNo + ' will be edited. Continue?')
+            edit = msg.addButton('Edit Plan', QMessageBox.AcceptRole)
+            cancel = msg.addButton('Cancel', QMessageBox.RejectRole)
+            msg.setDefaultButton(edit)
+            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+            msg.exec_()
+            msg.deleteLater()
+            QGuiApplication.restoreOverrideCursor()
+            if msg.clickedButton() is edit:
+                QgsMessageLog.logMessage('Plan editing will begin for: ' + planNo,
+                                         'BRS_GIS', level=Qgis.Info)
+                QgsMessageLog.logMessage('Launching form...', 'BRS_GIS', level=Qgis.Info)
+                self.iface.actionToggleEditing().trigger()
+                self.active_edit()
+                QgsMessageLog.logMessage('PlanNo:' + parcel["plan_no"] + ' has been modified and saved.',
+                                         'BRS_GIS', level=Qgis.Info)
+
+                lyr = QgsProject.instance().mapLayersByName('la_plans')[0]
+                self.iface.setActiveLayer(lyr)
+                try:
+                    self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                except Exception as e:
+                    self.iface.actionIdentify().trigger()
+
+            elif msg.clickedButton() is cancel:
+                QgsMessageLog.logMessage('DEBUG: Plan editing cancelled.', 'BRS_GIS', level=Qgis.Info)
+                QGuiApplication.restoreOverrideCursor()
+                return
+            else:
+                self.iface.mapCanvas().selectionChanged.disconnect(self.select_changed)
+                QgsMessageLog.logMessage('DEBUG: Plan editing cancelled.', 'BRS_GIS', level=Qgis.Info)
+                QGuiApplication.restoreOverrideCursor()
+
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
+                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                     exc_tb.tb_lineno) + ' ' + str(e))
+            QGuiApplication.restoreOverrideCursor()
+            return
+
+    def updateAttribute(self, job, attVar, attVal):
+        layerData = self.vl.dataProvider()
+        self.iface.actionToggleEditing().trigger()
+        idx = layerData.fieldNameIndex(attVar)
+        self.vl.changeAttributeValue(job.id(), idx, attVal)
+        self.vl.updateFields()
+        self.iface.activeLayer().commitChanges()
+
+
+    def active_edit(self):
+
+        try:
+            self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
+            self.iface.setActiveLayer(self.vl)
+            f = self.vl.selectedFeatures()[0]
+            l_l = f['lat_lon']
+            try:
+                self.iface.actionToggleEditing().trigger()
+                lat_lon = formatLL(l_l)
+                self.updateAttribute(f, 'lat_lon', lat_lon)
+            except Exception as e:
+                pass
+            self.iface.actionToggleEditing().trigger()
+            #change to la_plans form
+
+            QGuiApplication.setOverrideCursor(Qt.ArrowCursor)
+            result = self.iface.openFeatureForm(self.iface.activeLayer(), f, False, True)
+            QgsMessageLog.logMessage('RESULT: ' + str(result), 'BRS_GIS', level=Qgis.Info)
+
+            QGuiApplication.restoreOverrideCursor()
+            QgsMessageLog.logMessage('Saving changes...', 'BRS_GIS', level=Qgis.Info)
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            QMessageBox.critical(self.iface.mainWindow(), "EXCEPTION",
+                                 "Details: " + str(exc_type) + ' ' + str(fname) + ' ' + str(
+                                     exc_tb.tb_lineno) + ' ' + str(e))
+            QGuiApplication.restoreOverrideCursor()
+
+            return
+
+        self.vl = QgsProject.instance().mapLayersByName('la_plans')[0]
         self.iface.setActiveLayer(self.vl)
         self.iface.activeLayer().commitChanges()
 

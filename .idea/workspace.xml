@@ -23,8 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL.">
+      <change beforePath="$PROJECT_DIR$/.idea/brsgis_plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/brsgis_plugin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_jobs.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_jobs.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_supplementals.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_supplementals.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brsgis_dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_dialogs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brsgis_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +96,28 @@
       <recent name="C:\BRS_GIS\DEV\brs_plugin" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.mailMerge">
+  <component name="RunManager" selected="Python.brsgis_dialogs">
+    <configuration name="brs_jobs_init (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="brsgis_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UI/brs_jobs_init.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="brs_jobs_init" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="brs_plugin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,11 +168,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/mailMerge" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../mailMerge" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/mailMerge/mailMerge.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../mailMerge/mailMerge.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,12 +182,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.brs_jobs_init (1)" />
       <item itemvalue="Python.brs_jobs_init" />
       <item itemvalue="Python.brsgis_dialogs" />
       <item itemvalue="Python.mailMerge" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.brs_jobs_init (1)" />
         <item itemvalue="Python.mailMerge" />
         <item itemvalue="Python.brsgis_dialogs" />
         <item itemvalue="Python.brs_jobs_init" />
@@ -498,7 +528,7 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
-      <path value="C:/Git/brsgis_plugin" />
+      <path value="$PROJECT_DIR$/../../../../Git/brsgis_plugin" />
     </ignored-roots>
     <MESSAGE value="Fixed handling of NULL related work for abutters when generating mapTable." />
     <MESSAGE value="Fixed issue with ABUTTER ident during mapView." />
@@ -550,6 +580,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="452" y="208" key="Git.Interactive.Rebase.Dialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603624732" />
+    <state width="1899" height="284" key="GridCell.Tab.0.bottom" timestamp="1590729362452">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
+    <state width="1899" height="284" key="GridCell.Tab.0.center" timestamp="1590729362452">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="284" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
+    <state width="1899" height="284" key="GridCell.Tab.0.left" timestamp="1590729362452">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="284" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
+    <state width="1899" height="284" key="GridCell.Tab.0.right" timestamp="1590729362452">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="284" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
     <state x="290" y="392" width="791" height="265" key="MultipleFileMergeDialog" timestamp="1589603645783">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -558,9 +604,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="662" y="227" key="RollbackChangesDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602709235" />
-    <state x="461" y="167" key="SettingsEditor" timestamp="1590078047367">
+    <state x="461" y="167" key="SettingsEditor" timestamp="1590729338651">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729338651" />
     <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1590078047367" />
     <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1590588716720">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -600,6 +647,11 @@
           <url>file://$PROJECT_DIR$/brsgis_dialogs.py</url>
           <line>961</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/brsgis_menu.py</url>
+          <line>158</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

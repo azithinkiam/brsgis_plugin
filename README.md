@@ -1,7 +1,40 @@
-# brsgis_plugin (CURRENT RELEASE: v2.d)
+--------
+v4.E (PRD) || 2019.17.JUL
+--------
+
+BUGFIX / STREAMLINE: job creation/editing for multiple-parcel jobs was compromised by autoAddress update.  optimized newJob class, optimized addParcel code.
 
 --------
-v2.d (DEV) || 2019.01.JUN
+v4.d (PRD) || 2019.10.JUL
+--------
+
+BUGFIX: exception occurs when parcel has no prop_loc or proplocnum data available (southport).  added another handler to insert a blank address value as-needed.
+
+                try:
+                    address = str(int(parcel["proplocnum"])) + ' ' + str(parcel["prop_loc"])
+
+                except Exception:
+                    address = ''
+                    pass
+
+--------
+v4.a2 (PRD) || 2019.09.JUL
+--------
+
+MILESTONE UPDATE: legacy jobs imported in PRD, import tools complete, auto-populate locus added, portrait/landscape choice for mapView added, updated SOW reflects current overall status.
+
+--------
+v3.b2 (PRD) || 2019.03.JUN
+--------
+
+v3 INSTALLER published:
+
+Z:\0 - Settings\GIS\QGIS\Plugins\BRSGIS.Install
+
+SHORTCUT: "INSTALL QGIS 3.0.2 & BRSGIS_plugin (LAN).lnk"
+
+--------
+v2.d (PRD) || 2019.01.JUN
 --------
 
 2d. JOB CREATION HOUSEKEEPING - no feature is created, but job number is considered used by database...
