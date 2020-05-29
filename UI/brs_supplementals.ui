@@ -1344,7 +1344,7 @@
         </font>
        </property>
        <property name="text">
-        <string>BRS_GIS v2.5 (FINAL)</string>
+        <string>BRS_GIS v2.8 (FINAL)</string>
        </property>
        <property name="autoDefault">
         <bool>true</bool>

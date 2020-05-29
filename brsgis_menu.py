@@ -120,31 +120,30 @@ class brsgis_menu(object):
         self.printSiteMap_action.triggered.connect(self.printSiteMap)
         self.output_entry_menu.addAction(self.printSiteMap_action)
 
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
-        # self.newPlan_action = QAction(icon, "C&reate New Plan", self.iface.mainWindow())
-        # self.newPlan_action.triggered.connect(self.newPlan)
-        # # self.newJob_action.triggered.connect(self.newJob)
-        # self.new_menu.addAction(self.newPlan_action)
-
         icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
         self.edit_menu = QMenu(QCoreApplication.translate("brsgis", "&Edit"))
         self.edit_menu.setIcon(icon)
         self.brsgis_add_submenu(self.edit_menu)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
-        self.editJob_action = QAction(icon, "&Edit Existing Job", self.iface.mainWindow())
+        self.editJob_action = QAction(icon, "&Edit Job (BRS)", self.iface.mainWindow())
         self.editJob_action.triggered.connect(self.editJob)
         self.edit_menu.addAction(self.editJob_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
+        self.editSupp_action = QAction(icon, "&Edit Supplemental", self.iface.mainWindow())
+        self.editSupp_action.triggered.connect(self.editSupp)
+        self.edit_menu.addAction(self.editSupp_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
+        self.editPlan_action = QAction(icon, "&Edit Plan (Leighton)", self.iface.mainWindow())
+        self.editPlan_action.triggered.connect(self.editPlan)
+        self.edit_menu.addAction(self.editPlan_action)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/search.svg")
         self.search_menu = QMenu(QCoreApplication.translate("brsgis", "&Search"))
         self.search_menu.setIcon(icon)
         self.brsgis_add_submenu(self.search_menu)
-
-        icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
-        self.editSupp_action = QAction(icon, "&Edit Existing Supplemental", self.iface.mainWindow())
-        self.editSupp_action.triggered.connect(self.editSupp)
-        self.edit_menu.addAction(self.editSupp_action)
 
         # search menu
         icon = QIcon(os.path.dirname(__file__) + "/icons/search.svg")
@@ -183,15 +182,15 @@ class brsgis_menu(object):
         self.addNewParcel_action.triggered.connect(self.addNewParcel)
         self.util_menu.addAction(self.addNewParcel_action)
 
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.moveJob_action = QAction(icon, "&MOVE Job", self.iface.mainWindow())
-        self.moveJob_action.triggered.connect(self.moveJob)
-        self.util_menu.addAction(self.moveJob_action)
-
-        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        self.moveSupp_action = QAction(icon, "M&OVE Supplemental", self.iface.mainWindow())
-        self.moveSupp_action.triggered.connect(self.moveSupp)
-        self.util_menu.addAction(self.moveSupp_action)
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.moveJob_action = QAction(icon, "&MOVE Job", self.iface.mainWindow())
+        # self.moveJob_action.triggered.connect(self.moveJob)
+        # self.util_menu.addAction(self.moveJob_action)
+        #
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        # self.moveSupp_action = QAction(icon, "M&OVE Supplemental", self.iface.mainWindow())
+        # self.moveSupp_action.triggered.connect(self.moveSupp)
+        # self.util_menu.addAction(self.moveSupp_action)
 
         #
         # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
@@ -268,7 +267,7 @@ class brsgis_menu(object):
 
     def editJob(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Editing Existing job...', 'BRS_GIS', level=Qgis.Info)
+        QgsMessageLog.logMessage('Editing Existing Job...', 'BRS_GIS', level=Qgis.Info)
         self.editJob_dialog = brsgis_editJob(self.iface)
         self.editJob_dialog.initGui()
 
@@ -277,6 +276,11 @@ class brsgis_menu(object):
         QgsMessageLog.logMessage('Editing Existing Supplemental...', 'BRS_GIS', level=Qgis.Info)
         self.editSupp_dialog = brsgis_editSupp(self.iface)
         self.editSupp_dialog.initGui()
+
+    def editPlan(self):
+        QgsMessageLog.logMessage('Editing Existing Plan...', 'BRS_GIS', level=Qgis.Info)
+        self.editPlan_dialog = brsgis_editPlan(self.iface)
+        self.editPlan_dialog.initGui()
 
     def search(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
