@@ -45,35 +45,9 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLineEdit" name="idValue">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>30</y>
-     <width>50</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>141</x>
-     <y>30</y>
-     <width>19</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ID:</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="size_no">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -99,7 +73,7 @@
   </widget>
   <widget class="QLineEdit" name="file_no">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -192,6 +166,9 @@
    </property>
   </widget>
   <widget class="QLineEdit" name="town">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -620,7 +597,7 @@
   </widget>
   <widget class="QLineEdit" name="plan_no">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
@@ -645,6 +622,9 @@
    </property>
   </widget>
   <widget class="QComboBox" name="plan_type">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>380</x>
@@ -662,18 +642,23 @@
   </widget>
  </widget>
  <tabstops>
-  <tabstop>idValue</tabstop>
+  <tabstop>plan_no</tabstop>
   <tabstop>size_no</tabstop>
   <tabstop>file_no</tabstop>
   <tabstop>name</tabstop>
   <tabstop>address</tabstop>
   <tabstop>town</tabstop>
+  <tabstop>lat_lon</tabstop>
   <tabstop>cd_no</tabstop>
   <tabstop>date</tabstop>
+  <tabstop>rev_no</tabstop>
   <tabstop>job</tabstop>
-  <tabstop>initials</tabstop>
+  <tabstop>plan_type</tabstop>
   <tabstop>map</tabstop>
   <tabstop>lot</tabstop>
+  <tabstop>planbook</tabstop>
+  <tabstop>planpage</tabstop>
+  <tabstop>initials</tabstop>
   <tabstop>surveyor</tabstop>
   <tabstop>notes</tabstop>
   <tabstop>map_bk_lot</tabstop>

@@ -20,11 +20,16 @@ def main(dialog):
         email_primary = dialog.findChild(QLineEdit, "email_primary")
         email_secondary = dialog.findChild(QLineEdit, "email_secondary")
         flagged = dialog.findChild(QCheckBox, "flagr")
+        extension = dialog.findChild(QLineEdit, "extension")
 
         #flagged.Hide()
 
         if contact_name.text() == 'NULL':
             contact_name.setText('')
+        else:
+            pass
+        if extension.text() == 'NULL':
+            extension.setText('')
         else:
             pass
         if primary_contact.text() == 'NULL':

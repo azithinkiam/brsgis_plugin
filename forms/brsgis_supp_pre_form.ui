@@ -47,15 +47,21 @@
    <property name="text">
     <string>Choose the type of supplemental you wish to create and click OK to continue:</string>
    </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QComboBox" name="supp_type">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>40</y>
-     <width>191</width>
-     <height>22</height>
+     <width>182</width>
+     <height>20</height>
     </rect>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QComboBox::AdjustToContents</enum>
    </property>
    <item>
     <property name="text">
@@ -95,6 +101,11 @@
    <item>
     <property name="text">
      <string>Map (M)</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Folder (F)</string>
     </property>
    </item>
    <item>

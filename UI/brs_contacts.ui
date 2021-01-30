@@ -171,6 +171,9 @@
            <property name="inputMask">
             <string>(000)000.0000</string>
            </property>
+           <property name="maxLength">
+            <number>13</number>
+           </property>
           </widget>
           <widget class="QLabel" name="label_61">
            <property name="geometry">
@@ -193,7 +196,7 @@
             <rect>
              <x>10</x>
              <y>310</y>
-             <width>133</width>
+             <width>131</width>
              <height>20</height>
             </rect>
            </property>
@@ -240,6 +243,9 @@
            </property>
            <property name="inputMask">
             <string>(000)000.0000</string>
+           </property>
+           <property name="maxLength">
+            <number>13</number>
            </property>
           </widget>
           <widget class="QLabel" name="label_63">
@@ -329,7 +335,7 @@
            <property name="geometry">
             <rect>
              <x>160</x>
-             <y>310</y>
+             <y>360</y>
              <width>133</width>
              <height>20</height>
             </rect>
@@ -348,7 +354,7 @@
            <property name="geometry">
             <rect>
              <x>160</x>
-             <y>290</y>
+             <y>340</y>
              <width>101</width>
              <height>16</height>
             </rect>
@@ -455,6 +461,41 @@ color:green
             <cstring>primary_contact</cstring>
            </property>
           </widget>
+          <widget class="QLabel" name="label_68">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>290</y>
+             <width>101</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Extension/Misc</string>
+           </property>
+           <property name="buddy">
+            <cstring>primary_contact</cstring>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="extension">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>310</y>
+             <width>133</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
           <zorder>primary_contact</zorder>
           <zorder>label_19</zorder>
           <zorder>contact_type</zorder>
@@ -479,6 +520,8 @@ color:green
           <zorder>contact_addr</zorder>
           <zorder>folder</zorder>
           <zorder>label_28</zorder>
+          <zorder>label_68</zorder>
+          <zorder>extension</zorder>
          </widget>
         </widget>
        </item>

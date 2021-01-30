@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QLineEdit, QToolButton, QStackedWidget, QSizePolicy, QTextEdit, QDialogButtonBox, QLabel, \
     QPlainTextEdit
+from qgis.core import *
 
 # nameField = None
 

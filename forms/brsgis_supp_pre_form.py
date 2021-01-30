@@ -40,7 +40,7 @@ class Ui_brsgis_supp_pre_form(object):
         self.supp_type.addItems([self.tr(""), self.tr("Plan by others (K)"), self.tr("Document (D)"), self.tr("Raster (R)"),
                                   self.tr("Proposed / Design (P)"), self.tr("Historical Map / 1857 County (H)"),
                                   self.tr("Tax Maps (T)"), self.tr("Map (M)"), self.tr("Other (O)"),
-                                  self.tr("USGS QUADS (Q)")])
+                                  self.tr("USGS QUADS (Q)"), self.tr("Folder (F)")])
 
         self.supp_type.setObjectName(_fromUtf8("supp_type"))
 

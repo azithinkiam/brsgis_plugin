@@ -99,7 +99,7 @@
         </widget>
         <widget class="QLineEdit" name="job_no">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="geometry">
           <rect>
@@ -199,42 +199,6 @@
            <width>281</width>
            <height>81</height>
           </rect>
-         </property>
-        </widget>
-        <widget class="QDateTimeEdit" name="date_requested">
-         <property name="geometry">
-          <rect>
-           <x>160</x>
-           <y>36</y>
-           <width>130</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>42</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="date">
-          <date>
-           <year>1900</year>
-           <month>1</month>
-           <day>1</day>
-          </date>
-         </property>
-         <property name="minimumDate">
-          <date>
-           <year>1900</year>
-           <month>1</month>
-           <day>1</day>
-          </date>
-         </property>
-         <property name="displayFormat">
-          <string>MM/d/yyyy</string>
-         </property>
-         <property name="calendarPopup">
-          <bool>true</bool>
          </property>
         </widget>
         <widget class="QLabel" name="l_date">
@@ -518,6 +482,22 @@
          </property>
          <property name="text">
           <string>t_5</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="date_requested">
+         <property name="geometry">
+          <rect>
+           <x>163</x>
+           <y>36</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
         </widget>
        </widget>
@@ -1129,7 +1109,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Date Recorded</string>
+          <string>Recorded Date</string>
          </property>
         </widget>
         <widget class="QLineEdit" name="planbook_page">
@@ -1159,42 +1139,6 @@
          </property>
          <property name="text">
           <string>Document Number</string>
-         </property>
-        </widget>
-        <widget class="QDateTimeEdit" name="date_recorded">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>48</y>
-           <width>120</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>42</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="date">
-          <date>
-           <year>1900</year>
-           <month>1</month>
-           <day>1</day>
-          </date>
-         </property>
-         <property name="minimumDate">
-          <date>
-           <year>1900</year>
-           <month>1</month>
-           <day>1</day>
-          </date>
-         </property>
-         <property name="displayFormat">
-          <string>MM/d/yyyy</string>
-         </property>
-         <property name="calendarPopup">
-          <bool>true</bool>
          </property>
         </widget>
         <widget class="QLabel" name="lrB">
@@ -1312,16 +1256,32 @@
           <string>Recording Jurisdiction</string>
          </property>
         </widget>
+        <widget class="QLineEdit" name="date_recorded">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>48</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
         <zorder>lrB</zorder>
         <zorder>planbook_page</zorder>
         <zorder>recorded_by</zorder>
         <zorder>l_dN</zorder>
-        <zorder>date_recorded</zorder>
         <zorder>ldR</zorder>
         <zorder>l_rO</zorder>
         <zorder>record_jurisdiction</zorder>
         <zorder>record_office</zorder>
         <zorder>l_rJ</zorder>
+        <zorder>date_recorded</zorder>
        </widget>
       </widget>
       <widget class="QPushButton" name="fake">
@@ -1469,7 +1429,6 @@
   <tabstop>town</tabstop>
   <tabstop>county</tabstop>
   <tabstop>state</tabstop>
-  <tabstop>date_requested</tabstop>
   <tabstop>lat_lon</tabstop>
   <tabstop>client_name</tabstop>
   <tabstop>sPerimeter</tabstop>

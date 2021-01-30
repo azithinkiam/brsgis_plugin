@@ -22,16 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL.">
-      <change beforePath="$PROJECT_DIR$/.idea/brsgis_plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/brsgis_plugin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_19__Default_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-16_00_20__Default_.xml" afterDir="false" />
+    <list default="true" id="2187345f-0b53-4d6a-b0db-23aadff09f76" name="Default" comment="v2.8&#10;&#10;∙ finalised(?) edit updates&#10;&#10;FINAL.">
+      <change afterPath="$PROJECT_DIR$/townImport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/brs_jobs.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_jobs.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BRS_templates.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/BRS_templates.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QML/brs_supps_std.qml" beforeDir="false" afterPath="$PROJECT_DIR$/QML/brs_supps_std.qml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QML/la_plans_std.qml" beforeDir="false" afterPath="$PROJECT_DIR$/QML/la_plans_std.qml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QML/parcels.qml" beforeDir="false" afterPath="$PROJECT_DIR$/QML/parcels.qml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_contacts.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_contacts.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_contacts_init.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_contacts_init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_jobs_init.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_jobs_init.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/brs_supplementals.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_supplementals.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/brs_supplementals_init.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/brs_supplementals_init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/la_plans.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/la_plans.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brsgis_dialogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_dialogs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/brsgis_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/brsgis_menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/brsgis_supp_pre_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms/brsgis_supp_pre_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/brsgis_supp_pre_form.ui" beforeDir="false" afterPath="$PROJECT_DIR$/forms/brsgis_supp_pre_form.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,12 +94,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://Z:/0 - Settings/GIS/QGIS/Plugins/brsgis_plugin/brs_jobs_init.py" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/forms" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\0 - Settings\GIS\QGIS\Plugins\profiles\DEV\python\plugins\brsgis_plugin\forms" />
       <recent name="Z:\0 - Settings\GIS\QGIS\Plugins\brsgis_plugin" />
       <recent name="C:\BRS_GIS\DEV\brs_plugin" />
     </key>
@@ -119,15 +128,15 @@
       <method v="2" />
     </configuration>
     <configuration name="brs_jobs_init" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="brs_plugin" />
+      <module name="brsgis_plugin" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="Z:\0 - Settings\GIS\QGIS\Plugins\profiles\DEV\python\plugins\brsgis_plugin\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brs_jobs_init.py" />
@@ -181,21 +190,45 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="townImport" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="brsgis_plugin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\tschmal\PycharmProjects\TEST\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/townImport.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.brs_jobs_init (1)" />
       <item itemvalue="Python.brs_jobs_init" />
       <item itemvalue="Python.brsgis_dialogs" />
       <item itemvalue="Python.mailMerge" />
+      <item itemvalue="Python.townImport" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.brs_jobs_init" />
+        <item itemvalue="Python.townImport" />
         <item itemvalue="Python.brs_jobs_init (1)" />
         <item itemvalue="Python.mailMerge" />
         <item itemvalue="Python.brsgis_dialogs" />
-        <item itemvalue="Python.brs_jobs_init" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -494,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590588698743</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="v2.8&#10;&#10;∙ finalised(?) edit updates&#10;&#10;FINAL.">
+      <created>1590730403133</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1590730403133</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,7 +570,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/../../../../Git/brsgis_plugin" />
     </ignored-roots>
-    <MESSAGE value="Fixed handling of NULL related work for abutters when generating mapTable." />
     <MESSAGE value="Fixed issue with ABUTTER ident during mapView." />
     <MESSAGE value="Added selection check to printMapView." />
     <MESSAGE value="Commented out FLAGGED check on brs_contacts." />
@@ -555,105 +594,51 @@
     <MESSAGE value="v2.2&#10;&#10;FINAL." />
     <MESSAGE value="v2.3&#10;&#10;FINAL." />
     <MESSAGE value="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL." />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.6&#10;&#10;∙ improved supplemental creation&#10;∙ finalised(?) search updates&#10;∙ updated mapTable|relatedWork logic &#10;&#10;FINAL." />
+    <MESSAGE value="v2.8&#10;&#10;∙ finalised(?) edit updates&#10;&#10;FINAL." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.8&#10;&#10;∙ finalised(?) edit updates&#10;&#10;FINAL." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="586" y="203" key="#Inspections" timestamp="1589602517319">
+    <state x="414" y="179" width="1092" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611598876897">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="586" y="203" key="#Inspections/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602517319" />
-    <state x="223" y="116" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584452048050">
+    <state x="414" y="179" width="1092" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1611598876897" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1611530503936">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="223" y="116" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584452048050" />
-    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589603429171">
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1097.587@0.0.1920.1050" timestamp="1611530503936" />
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1605644264528" />
+    <state width="1899" height="351" key="GridCell.Tab.0.bottom" timestamp="1605644292304">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603429171" />
-    <state x="739" y="279" key="FileChooserDialogImpl" timestamp="1590078018772">
+    <state width="1899" height="351" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292304" />
+    <state width="1899" height="351" key="GridCell.Tab.0.center" timestamp="1605644292303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1590078018772" />
-    <state x="739" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602810648" />
-    <state x="452" y="208" key="Git.Interactive.Rebase.Dialog" timestamp="1589603624732">
+    <state width="1899" height="351" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292303" />
+    <state width="1899" height="351" key="GridCell.Tab.0.left" timestamp="1605644292303">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="452" y="208" key="Git.Interactive.Rebase.Dialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603624732" />
-    <state width="1899" height="284" key="GridCell.Tab.0.bottom" timestamp="1590729362452">
+    <state width="1899" height="351" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292303" />
+    <state width="1899" height="351" key="GridCell.Tab.0.right" timestamp="1605644292304">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
-    <state width="1899" height="284" key="GridCell.Tab.0.center" timestamp="1590729362452">
+    <state width="1899" height="351" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292304" />
+    <state width="1899" height="351" key="GridCell.Tab.1.bottom" timestamp="1605644292304">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
-    <state width="1899" height="284" key="GridCell.Tab.0.left" timestamp="1590729362452">
+    <state width="1899" height="351" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292304" />
+    <state width="1899" height="351" key="GridCell.Tab.1.center" timestamp="1605644292304">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
-    <state width="1899" height="284" key="GridCell.Tab.0.right" timestamp="1590729362452">
+    <state width="1899" height="351" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292304" />
+    <state width="1899" height="351" key="GridCell.Tab.1.left" timestamp="1605644292304">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729362452" />
-    <state x="290" y="392" width="791" height="265" key="MultipleFileMergeDialog" timestamp="1589603645783">
+    <state width="1899" height="351" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292304" />
+    <state width="1899" height="351" key="GridCell.Tab.1.right" timestamp="1605644292304">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="290" y="392" width="791" height="265" key="MultipleFileMergeDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603645783" />
-    <state x="662" y="227" key="RollbackChangesDialog" timestamp="1589602709235">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="662" y="227" key="RollbackChangesDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602709235" />
-    <state x="461" y="167" key="SettingsEditor" timestamp="1590729338651">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590729338651" />
-    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1590078047367" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1590588716720">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1590588716720" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589991620573" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603666911" />
-    <state x="661" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584449493345">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="661" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1584449493345" />
-    <state x="649" y="313" key="git4idea.merge.GitMergeDialog" timestamp="1589989620698">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="649" y="313" key="git4idea.merge.GitMergeDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589989620698" />
-    <state x="649" y="313" key="git4idea.merge.GitPullDialog" timestamp="1589991610789">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="649" y="313" key="git4idea.merge.GitPullDialog/0.0.1920.1050/1920.0.1707.899@0.0.1920.1050" timestamp="1589991610789" />
-    <state x="677" y="386" key="git4idea.rebase.GitRebaseDialog" timestamp="1589603531632">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="677" y="386" key="git4idea.rebase.GitRebaseDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603531632" />
-    <state x="703" y="416" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1589603646982">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="703" y="416" key="git4idea.rebase.GitUnstructuredEditor/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589603646982" />
-    <state x="382" y="241" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1589602806716">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="382" y="241" key="vcs.ApplyPatchDifferentiatedDialog/0.0.1920.1050/1920.0.3840.2130@0.0.1920.1050" timestamp="1589602806716" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brsgis_dialogs.py</url>
-          <line>961</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brsgis_menu.py</url>
-          <line>158</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1899" height="351" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605644292304" />
   </component>
 </project>

@@ -53,6 +53,12 @@ class brsgis_menu(object):
         self.job_menu.setIcon(icon)
         self.new_menu.addMenu(self.job_menu)
 
+        # PLANS Submenu
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.plan_menu = QMenu(QCoreApplication.translate("&New", "&Plan"))
+        self.plan_menu.setIcon(icon)
+        self.new_menu.addMenu(self.plan_menu)
+
         icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
         self.newJob_action = QAction(icon, "&Parcel-based", self.iface.mainWindow())
         self.newJob_action.triggered.connect(self.newJob)
@@ -78,6 +84,12 @@ class brsgis_menu(object):
         self.newLPSupp_action = QAction(icon, "&Line/Freehand-based", self.iface.mainWindow())
         self.newLPSupp_action.triggered.connect(self.setSuppType)
         self.supp_menu.addAction(self.newLPSupp_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/create.svg")
+        self.newPlan_action = QAction(icon, "&Parcel-based", self.iface.mainWindow())
+        self.newPlan_action.triggered.connect(self.newPlan)
+        # self.newJob_action.triggered.connect(self.newJob)
+        self.plan_menu.addAction(self.newPlan_action)
 
         # Output / PrintOuts Submenu
         icon = QIcon(os.path.dirname(__file__) + "/icons/print.svg")
@@ -119,6 +131,16 @@ class brsgis_menu(object):
         self.printSiteMap_action = QAction(icon, "Print &SiteMap", self.iface.mainWindow())
         self.printSiteMap_action.triggered.connect(self.printSiteMap)
         self.output_entry_menu.addAction(self.printSiteMap_action)
+
+        # icon = QIcon(os.path.dirname(__file__) + "/icons/yellow.svg")
+        # self.exportDXF_action = QAction(icon, "&Generate ALL CAD Outputs", self.iface.mainWindow())
+        # self.exportDXF_action.triggered.connect(self.exportDXF)
+        # self.output_entry_menu.addAction(self.exportDXF_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/yellow.svg")
+        self.cadExport_action = QAction(icon, "&Generate CAD Outputs", self.iface.mainWindow())
+        self.cadExport_action.triggered.connect(self.cadExport)
+        self.output_entry_menu.addAction(self.cadExport_action)
 
         icon = QIcon(os.path.dirname(__file__) + "/icons/edit.svg")
         self.edit_menu = QMenu(QCoreApplication.translate("brsgis", "&Edit"))
@@ -167,10 +189,10 @@ class brsgis_menu(object):
         # self.export_action.triggered.connect(self.bulkExport)
         # self.util_menu.addAction(self.export_action)
         #
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        # self.merge_action = QAction(icon, "&PLAN import from EXCEL", self.iface.mainWindow())
-        # self.merge_action.triggered.connect(self.planImportXLSX)
-        # self.util_menu.addAction(self.merge_action)
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.merge_action = QAction(icon, "&TOWN import from EXCEL", self.iface.mainWindow())
+        self.merge_action.triggered.connect(self.townImportXLSX)
+        self.util_menu.addAction(self.merge_action)
         #
         # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
         # self.jobImport_action = QAction(icon, "&JOB import from EXCEL", self.iface.mainWindow())
@@ -182,26 +204,30 @@ class brsgis_menu(object):
         self.addNewParcel_action.triggered.connect(self.addNewParcel)
         self.util_menu.addAction(self.addNewParcel_action)
 
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        # self.moveJob_action = QAction(icon, "&MOVE Job", self.iface.mainWindow())
-        # self.moveJob_action.triggered.connect(self.moveJob)
-        # self.util_menu.addAction(self.moveJob_action)
-        #
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
-        # self.moveSupp_action = QAction(icon, "M&OVE Supplemental", self.iface.mainWindow())
-        # self.moveSupp_action.triggered.connect(self.moveSupp)
-        # self.util_menu.addAction(self.moveSupp_action)
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.moveJob_action = QAction(icon, "&MOVE Job", self.iface.mainWindow())
+        self.moveJob_action.triggered.connect(self.moveJob)
+        self.util_menu.addAction(self.moveJob_action)
 
-        #
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.movePlan_action = QAction(icon, "&MOVE Plan", self.iface.mainWindow())
+        self.movePlan_action.triggered.connect(self.movePlan)
+        self.util_menu.addAction(self.movePlan_action)
+
+        icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
+        self.moveSupp_action = QAction(icon, "M&OVE Supplemental", self.iface.mainWindow())
+        self.moveSupp_action.triggered.connect(self.moveSupp)
+        self.util_menu.addAction(self.moveSupp_action)
+
         # icon = QIcon(os.path.dirname(__file__) + "/icons/util.svg")
         # self.fix_action = QAction(icon, "&DATA.FIX", self.iface.mainWindow())
         # self.fix_action.triggered.connect(self.dataFix)
         # self.util_menu.addAction(self.fix_action)
         #
-        # icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
-        # self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
-        # self.abutters_action.triggered.connect(self.abutters)
-        # self.util_menu.addAction(self.abutters_action)
+        icon = QIcon(os.path.dirname(__file__) + "/icons/buffers.svg")
+        self.abutters_action = QAction(icon, "&Generate Buffer/Abutters", self.iface.mainWindow())
+        self.abutters_action.triggered.connect(self.abutters)
+        self.util_menu.addAction(self.abutters_action)
 
     def setFormsConfig(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
@@ -221,10 +247,10 @@ class brsgis_menu(object):
         self.export_dialog = brsgis_bulkMapExport(self.iface)
         self.export_dialog.initGui()
 
-    def planImportXLSX(self):
+    def townImportXLSX(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
-        QgsMessageLog.logMessage('Launching PLAN import from EXCEL...', 'BRS_GIS', level=Qgis.Info)
-        self.merge_dialog = brsgis_planImportXLSX(self.iface)
+        QgsMessageLog.logMessage('Launching TOWN import from EXCEL...', 'BRS_GIS', level=Qgis.Info)
+        self.merge_dialog = brsgis_townImportXLSX(self.iface)
         self.merge_dialog.initGui()
 
     def jobImportXLSX(self):
@@ -233,11 +259,23 @@ class brsgis_menu(object):
         self.jobImport_dialog = brsgis_jobImportXLSX(self.iface)
         self.jobImport_dialog.initGui()
 
+    def newPlan(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching new plan...', 'BRS_GIS', level=Qgis.Info)
+        self.newPlan_dialog = brsgis_newPlan(self.iface)
+        self.newPlan_dialog.initGui()
+
     def moveJob(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
         QgsMessageLog.logMessage('Launching moveJob utility...', 'BRS_GIS', level=Qgis.Info)
         self.moveJob_dialog = brsgis_moveJob(self.iface)
         self.moveJob_dialog.initGui()
+
+    def movePlan(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching movePlan utility...', 'BRS_GIS', level=Qgis.Info)
+        self.movePlan_dialog = brsgis_movePlan(self.iface)
+        self.movePlan_dialog.initGui()
 
     def moveSupp(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
@@ -307,6 +345,12 @@ class brsgis_menu(object):
         #self.label_dialog.setWindowModality(NonModal)
         self.label_dialog.show()
 
+    def cadExport(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Launching CAD Export Form...', 'BRS_GIS', level=Qgis.Info)
+        self.cadExport_dialog = brsgis_cadExport_dialog(self.iface)
+        self.cadExport_dialog.show()
+
     def setSuppType(self):
         # Must be saved in self, otherwise garbage collector destroys dialog
         QgsMessageLog.logMessage('Launching Supplmental Form...', 'BRS_GIS', level=Qgis.Info)
@@ -354,6 +398,12 @@ class brsgis_menu(object):
         # Must be saved in self, otherwise garbage collector destroys dialog
         QgsMessageLog.logMessage('Generating Site Map...', 'BRS_GIS', level=Qgis.Info)
         self.mv_dialog = brsgis_printSiteMap(self.iface)
+        self.mv_dialog.initGui()
+
+    def exportDXF(self):
+        # Must be saved in self, otherwise garbage collector destroys dialog
+        QgsMessageLog.logMessage('Generating DXF...', 'BRS_GIS', level=Qgis.Info)
+        self.mv_dialog = brsgis_exportDXF(self.iface)
         self.mv_dialog.initGui()
 
     def addNewParcel(self):
